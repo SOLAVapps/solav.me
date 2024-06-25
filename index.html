@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta name="copyright" content="Copyright 2024, SOLAV.me" />
+		<meta name="creator" content="SOLAV.me" />
+		<meta name="publisher" content="SOLAV.me" />
+		<meta name="rating" content="General" />
+		<meta name="keywords" content="" />
+		<meta name="description" content="Official SOLAV team website, a team that able to create creative ideas and powerful content for our clients and their brands." />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+		<meta charset="utf-8" />
+		<meta name="robots" content="all" /> 
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="theme-color" content="#1565c0" />
+		<meta name="msapplication-navbutton-color" content="#1565c0" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="#1565c0" />
+		<link rel="icon" href="./icon.png" />
+		<link rel="shortcut icon" href="./icon.png" />
+		<title>SOLAV.me</title>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 100vh;
+				background-color: #fff;
+			}
+			#container {
+				position: relative;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			#logoContainer {
+				position: absolute;
+				z-index: 10;
+			}
+			.logoImg{
+				width: 180px;
+				height: auto;
+			}
+			.circle {
+				position: relative;
+				width: 250px;
+				height: 250px;
+				border-radius: 50%;
+				background: linear-gradient(#fb5dad, #55fb9f, #b97aff, #55fb9f, #fb5dad, #b97aff);
+				animation: rotateAnimation 5s linear infinite;
+			}
+			@keyframes rotateAnimation {
+				0% {
+					transform: rotate(360deg);
+				}
+
+				100% {
+					transform: rotate(0deg);
+				}
+			}
+			.circle span {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				border-radius: 50%;
+				background: linear-gradient( #55fb9f, #b97aff, #fb5dad, #55fb9f, #3363e7, #fb5dad);
+				animation-name: rotateAnimation 11.5s linear infinite;
+			}
+			.circle span:nth-child(1) {
+				filter: blur(5px);
+				opacity: 20%;
+			}
+			.circle span:nth-child(2) {
+				background: linear-gradient( #fb5dad, #b97aff, #55fb9f, #b97aff);
+				filter: blur(10px);
+				opacity: 40%;
+			}
+			.circle span:nth-child(3) {
+				filter: blur(15px);
+				opacity: 60%;
+			}
+			.circle span:nth-child(4) {
+				filter: blur(20px);
+			}
+			.circle span:nth-child(5) {
+				background: linear-gradient( #55fb9f, #fb5dad, #b97aff, #55fb9f, #b97aff);
+				filter: blur(30px);
+			}
+			.circle::after {
+				content: "";
+				position: absolute;
+				top: 10px;
+				left: 10px;
+				right: 10px;
+				bottom: 10px;
+				background: radial-gradient(#fff,#fff, #a9c7e9);
+				border-radius: 50%;
+			}
+			.pulse {
+				background: rgba(255, 255, 255, .1);
+				top: 20px;
+				left: 20px;
+				right: 20px;
+				bottom: 20px;
+				z-index: 100;
+				position: fixed;
+				border-radius: 100%;
+				animation: 1s pulse infinite;
+			}
+			@keyframes pulse {
+				0% {
+					scale: 0;
+					background: rgba(169, 199, 233, 0.6);
+				}
+				100% {
+					scale: 1;
+					background: rgba(255, 255, 255, .0);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<div id="logoContainer">
+				<img class ="logoImg" src="./icon.png">
+			</div>
+			<div class="circle">
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<div class="pulse"></div>
+			</div>
+		</div>		  
+	</body>
+</html>
