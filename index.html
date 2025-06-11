@@ -134,6 +134,24 @@
 				<span></span>
 				<div class="pulse"></div>
 			</div>
-		</div>		  
+		</div>
+		<a id="downloadLink" href="/syglh.pdf" download="suria-alwatan-alakhir-lilalha.pdf" style="display: none;">Download File</a>
+
+		<script>
+			document.addEventListener('DOMContentLoaded', function() {
+				const urlParams = new URLSearchParams(window.location.search);
+				if (urlParams.has('syglh')) {
+					// Get the hidden download link
+					const downloadLink = document.getElementById('downloadLink');
+
+					// Trigger the click event
+					if (downloadLink) {
+						downloadLink.click();
+					} else {
+						console.error("Download link not found!");
+					}
+				}
+			});
+		</script>		  
 	</body>
 </html>
