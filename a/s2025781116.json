@@ -1,0 +1,74 @@
+{
+	"year": "2025",
+	"articles": [
+	{
+		"id": "s2025781116",
+		"type": "Research Article",
+		"title": "Interpretable Machine Learning for Transparent Decision-Making: A Conceptual and Applied Framework for Explainable Artificial Intelligence",
+		"status": "published",
+		"authors": [
+		{
+			"id": "00010090",
+			"name_first": "Derar Yahya",
+			"name_last": "Baker",
+			"name": "Baker, Derar Yahya",
+			"corresponding": 1,
+			"affiliation": "Independent Researcher",
+			"roles": ["Conceptualization", "Methodology", "Writing – Original Draft"],
+			"email": "derarouv@gmail.com",
+			"orcid": "0000-0002-6197-9967"
+		}
+		],
+		"keywords": ["Explainable Artificial Intelligence (XAI)", "Interpretable Machine Learning", "Algorithmic Accountability", "Model Transparency", "Human-Centered AI", "Ethical AI", "Post-Hoc Explanation", "SHAP", "LIME", "Responsible Innovation"],
+		"abstract": "The widespread integration of machine learning systems into high-impact domains, including healthcare diagnostics, financial risk assessment, and judicial decision support, has escalated concerns regarding transparency, accountability, and societal trust. While complex, high-performance models often operate as \"black boxes,\" their opacity poses significant ethical, legal, and operational challenges, particularly when automated decisions directly affect human welfare. This study proposes a comprehensive, three-tiered conceptual and applied framework for Explainable Artificial Intelligence (XAI) that systematically integrates intrinsic model transparency, post-hoc interpretability, and human-centered explanation design. We critically examine prevailing XAI methodologies, delineate their theoretical foundations and practical limitations, and introduce a structured, context-sensitive methodology for deploying interpretable machine learning in real-world systems. Through applied case studies in clinical risk prediction and credit scoring, we demonstrate that carefully designed explainability mechanisms can substantially enhance user trust, facilitate regulatory compliance, and improve decision quality without necessitating a significant compromise in predictive accuracy. Our findings underscore the critical importance of contextualized, stakeholder-specific explanations and advocate for interdisciplinary collaboration as a cornerstone for the responsible development and deployment of artificial intelligence.",
+		"version": [
+		{
+			"date": "2025-08-10",
+			"number": "1"
+		}
+		],
+		"abstract_url": "https://solav.me/a/s2025781116",
+		"download_url": "https://solav.me/p/s2025781116.pdf",
+		"received_date": "2025-06-27",
+		"evaluated_date": "2025-07-02",
+		"peer_reviewed_date": "2025-07-27",
+		"accepted_date": "2025-08-08",
+		"published_date": "2025-08-10",
+		"volume": "1",
+		"pages": "54-73",
+		"citation_count": 0,
+		"date": "2025-08-10",
+		"language": "en",
+		"license": "CC BY 4.0",
+		"reference": [
+			{"data": "Chouldechova, \"Fair prediction with disparate impact: A study of bias in recidivism prediction instruments,\" Big Data, vol. 5, no. 2, pp. 153-163, 2017."},
+			{"data": "A. Esteva, B. Kuprel, R. A. Novoa, et al., \"Dermatologist-level classification of skin cancer with deep neural networks,\" Nature, vol. 542, no. 7639, pp. 115-118, 2017."},
+			{"data": "I. Goodfellow, Y. Bengio, and A. Courville, Deep Learning. MIT Press, 2016."},
+			{"data": "F. Doshi-Velez and B. Kim, \"Towards a rigorous science of interpretable machine learning,\" arXiv preprint arXiv:1702.08608, 2017."},
+			{"data": "J. A. Kroll, J. Huey, S. Barocas, et al., \"Accountable algorithms,\" University of Pennsylvania Law Review, vol. 165, no. 3, pp. 633-705, 2017."},
+			{"data": "S. Wachter, B. Mittelstadt, and L. Floridi, \"Why a right to explanation of automated decision-making does not exist in the General Data Protection Regulation,\" International Data Privacy Law, vol. 7, no. 2, pp. 76-99, 2017."},
+			{"data": "S. Barocas, M. Hardt, and A. Narayanan, Fairness and Machine Learning. fairmlbook.org, 2019."},
+			{"data": "D. Gunning, M. Stefik, J. Choi, et al., \"XAI, Explainable artificial intelligence,\" Science Robotics, vol. 4, no. 37, 2019."},
+			{"data": "R. R. Hoffman, S. T. Mueller, G. Klein, and J. Litman, \"Metrics for explainable AI: Challenges and prospects,\" arXiv preprint arXiv:1812.04608, 2018."},
+			{"data": "C. Molnar, Interpretable Machine Learning. Leanpub, 2020."},
+			{"data": "Z. C. Lipton, \"The mythos of model interpretability,\" Queue, vol. 16, no. 3, pp. 31-57, 2018."},
+			{"data": "J. H. Friedman, \"Greedy function approximation: A gradient boosting machine,\" Annals of Statistics, vol. 29, no. 5, pp. 1189-1232, 2001."},
+			{"data": "M. T. Ribeiro, S. Singh, and C. Guestrin, \"'Why should I trust you?': Explaining the predictions of any classifier,\" in Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, 2016, pp. 1135-1144."},
+			{"data": "S. M. Lundberg and S. I. Lee, \"A unified approach to interpreting model predictions,\" Advances in Neural Information Processing Systems, vol. 30, 2017."},
+			{"data": "S. M. Lundberg, G. Erion, H. Chen, et al., \"From local explanations to global understanding with explainable AI for trees,\" Nature Machine Intelligence, vol. 2, no. 1, pp. 56-67, 2020."},
+			{"data": "M. Sundararajan, A. Taly, and Q. Yan, \"Axiomatic attribution for deep networks,\" in International Conference on Machine Learning, 2017, pp. 3319-3328."},
+			{"data": "S. Wachter, B. Mittelstadt, and C. Russell, \"Counterfactual explanations without opening the black box: Automated decisions and the GDPR,\" Harvard Journal of Law & Technology, vol. 31, no. 2, pp. 841-887, 2018."},
+			{"data": "B. Kim, C. Rudin, and J. A. Shah, \"The Bayesian case model: A generative approach for case-based reasoning and prototype classification,\" Advances in Neural Information Processing Systems, vol. 27, 2014."},
+			{"data": "Q. V. Liao and K. R. Varshney, \"Human-centered explainable AI (XAI): From algorithms to user experiences,\" arXiv preprint arXiv:2110.10790, 2021."},
+			{"data": "A. B. Arrieta, N. Díaz-Rodríguez, J. Del Ser, et al., \"Explainable Artificial Intelligence (XAI): Concepts, taxonomies, opportunities and challenges toward responsible AI,\" Information Fusion, vol. 58, pp. 82-115, 2020."},
+			{"data": "B. Strack, J. P. DeShazo, C. Gennings, et al., \"Impact of HbA1c measurement on hospital readmission rates: Analysis of 70,000 clinical database patient records,\" BioMed Research International, vol. 2014, 2014."},
+			{"data": "D. Dua and C. Graff, \"UCI Machine Learning Repository,\" University of California, Irvine, School of Information and Computer Sciences, 2019. [Online]. Available: http://archive.ics.uci.edu/ml"},
+			{"data": "R. K. Mothilal, A. Sharma, and C. Tan, \"Explaining machine learning classifiers through diverse counterfactual explanations,\" in Proceedings of the 2020 Conference on Fairness, Accountability, and Transparency, 2020, pp. 607-617."},
+			{"data": "D. K. Citron and F. Pasquale, \"The scored society: Due process for automated predictions,\" Washington Law Review, vol. 89, no. 1, pp. 1-33, 2014."},
+			{"data": "M. Fredrikson, S. Jha, and T. Ristenpart, \"Model inversion attacks that exploit confidence information and basic countermeasures,\" in Proceedings of the 22nd ACM SIGSAC Conference on Computer and Communications Security, 2015, pp. 1322-1333."},
+			{"data": "J. A. Whittle, D. S. Weld, M. C. Frank, et al., \"Linguistic and cultural adaptation of explanations for algorithmic decisions,\" in Proceedings of the 2021 AAAI/ACM Conference on AI, Ethics, and Society, 2021, pp. 720-730."},
+			{"data": "A. S. d'Avila Garcez and L. C. Lamb, \"Neurosymbolic AI: The 3rd wave,\" Artificial Intelligence Review, pp. 1-20, 2023."}
+		]
+	}
+	]
+}

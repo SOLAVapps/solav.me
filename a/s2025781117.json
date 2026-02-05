@@ -1,0 +1,72 @@
+{
+	"year": "2025",
+	"articles": [
+	{
+		"id": "s2025781117",
+		"type": "Research Article",
+		"title": "Design and Performance Evaluation of Hybrid Solar-Wind Energy Systems with Battery Storage for Sustainable Community Power Supply",
+		"status": "published",
+		"authors": [
+		{
+			"id": "00010091",
+			"name_first": "Daud",
+			"name_last": "Samara",
+			"name": "Samara, Daud",
+			"corresponding": 1,
+			"affiliation": "Independent Researcher",
+			"roles": ["Conceptualization", "Methodology", "Writing – Original Draft"],
+			"email": "lili9632025@gmail.com",
+			"orcid": "0009-0001-4389-3043"
+		}
+		],
+		"keywords": ["Hybrid Renewable Energy Systems", "Solar PV", "Wind Energy", "Battery Energy Storage", "Community Microgrids", "Sustainable Energy", "Energy Management", "Renewable Integration", "Decentralized Power Systems"],
+		"abstract": "The global shift toward sustainable energy has increased demand for decentralized, reliable power solutions that integrate renewables. Hybrid renewable energy systems—combining multiple sources with storage—address the intermittency of individual renewables, making them ideal for remote or underserved communities. This study analyzes a hybrid solar-wind-battery system for community-scale electricity. The proposed architecture integrates photovoltaic arrays, wind turbines, and lithium-ion batteries via an intelligent power management unit. Using high-resolution meteorological data and realistic load profiles, we assess performance in energy reliability, economic feasibility, and environmental impact. Hourly simulations over one year show that optimized hybrid systems can achieve over 85% renewable penetration, drastically reducing fossil fuel dependence. Economic analysis, using levelized cost of energy and net present cost metrics, highlights long-term viability, especially with declining technology costs and potential carbon pricing. The findings emphasize the role of integrated renewables as cornerstones of sustainable, community-focused energy infrastructure, advancing both climate goals and energy access.",
+		"version": [
+		{
+			"date": "2025-11-06",
+			"number": "1"
+		}
+		],
+		"abstract_url": "https://solav.me/a/s2025781117",
+		"download_url": "https://solav.me/p/s2025781117.pdf",
+		"received_date": "2025-10-03",
+		"evaluated_date": "2025-10-05",
+		"peer_reviewed_date": "2025-10-22",
+		"accepted_date": "2025-10-30",
+		"published_date": "2025-11-06",
+		"volume": "1",
+		"pages": "74-91",
+		"citation_count": 0,
+		"date": "2025-11-06",
+		"language": "en",
+		"license": "CC BY 4.0",
+		"reference": [
+			{"data": "IPCC, \"Climate Change 2022: Mitigation of Climate Change. Contribution of Working Group III to the Sixth Assessment Report of the Intergovernmental Panel on Climate Change,\" Cambridge University Press, 2022."},
+			{"data": "IEA, \"World Energy Outlook 2023,\" International Energy Agency, Paris, 2023."},
+			{"data": "IRENA, \"Renewable Power Generation Costs in 2022,\" International Renewable Energy Agency, Abu Dhabi, 2023."},
+			{"data": "A. Khalid, \"Intermittency and variability of renewable energy sources: Technical challenges and solutions,\" Renewable Energy, vol. 145, pp. 2303-2315, 2020."},
+			{"data": "H. S. Das, C. W. Tan, A. H. M. Yatim, and K. Y. Lau, \"Feasibility analysis of hybrid photovoltaic/battery/fuel cell energy system for an indigenous residence in East Malaysia,\" Renewable and Sustainable Energy Reviews, vol. 76, pp. 1332-1347, 2017."},
+			{"data": "M. Fadaee and M. A. Radzi, \"Multi-objective optimization of a stand-alone hybrid renewable energy system by using evolutionary algorithms: A review,\" Renewable and Sustainable Energy Reviews, vol. 16, no. 5, pp. 3364-3369, 2012."},
+			{"data": "J. P. Barton and D. G. Infield, \"Energy storage and its use with intermittent renewable energy,\" IEEE Transactions on Energy Conversion, vol. 19, no. 2, pp. 441-448, 2004."},
+			{"data": "S. Ashok, \"Optimised model for community-based hybrid energy system,\" Renewable Energy, vol. 32, no. 7, pp. 1155-1164, 2007."},
+			{"data": "A. Kaabeche and R. Ibtiouen, \"Techno-economic optimization of hybrid photovoltaic/wind/diesel/battery generation in a stand-alone power system,\" Solar Energy, vol. 103, pp. 171-182, 2014."},
+			{"data": "D. B. Nelson, M. H. Nehrir, and C. Wang, \"Unit sizing and cost analysis of stand-alone hybrid wind/PV/fuel cell power generation systems,\" Renewable Energy, vol. 31, no. 10, pp. 1641-1656, 2006."},
+			{"data": "H. S. Das, T. K. A. Rahim, and C. W. Tan, \"Optimal sizing of stand-alone hybrid renewable energy systems using evolutionary algorithms,\" Energy Procedia, vol. 158, pp. 6383-6388, 2019."},
+			{"data": "B. Zakeri and S. Syri, \"Electrical energy storage systems: A comparative life cycle cost analysis,\" Renewable and Sustainable Energy Reviews, vol. 42, pp. 569-596, 2015."},
+			{"data": "M. Ross, C. Abbey, F. Bouffard, and G. Joós, \"Microgrid system energy management and control: State of the art and future trends,\" IEEE Transactions on Smart Grid, vol. 9, no. 6, pp. 5984-5997, 2018."},
+			{"data": "R. Luna-Rubio, M. Trejo-Perea, D. Vargas-Vázquez, and G. J. Ríos-Moreno, \"Optimal sizing of renewable hybrids energy systems: A review of methodologies,\" Solar Energy, vol. 86, no. 4, pp. 1077-1088, 2012."},
+			{"data": "S. Sinha and S. S. Chandel, \"Review of software tools for hybrid renewable energy systems,\" Renewable and Sustainable Energy Reviews, vol. 32, pp. 192-205, 2014."},
+			{"data": "P. Bajpai and V. Dash, \"Hybrid renewable energy systems for power generation in stand-alone applications: A review,\" Renewable and Sustainable Energy Reviews, vol. 16, no. 5, pp. 2926-2939, 2012."},
+			{"data": "A. G. Olabi, \"Renewable energy and energy storage systems,\" Energy, vol. 136, pp. 1-6, 2017."},
+			{"data": "M. A. Green, \"Solar cell efficiency tables (version 62),\""},
+			{"data": "S. Mathew, Wind Energy: Fundamentals, Resource Analysis and Economics. Springer, 2006."},
+			{"data": "M. A. Hannan, M. M. Hoque, A. Mohamed, and A. Ayob, \"Review of energy storage systems for electric vehicle applications: Issues and challenges,\" Renewable and Sustainable Energy Reviews, vol. 69, pp. 771-789, 2017."},
+			{"data": "NASA POWER, \"Prediction of Worldwide Energy Resources,\" NASA Langley Research Center, 2023. [Online]. Available: https://power.larc.nasa.gov/"},
+			{"data": "C. Wang and M. H. Nehrir, \"Power management of a stand-alone wind/photovoltaic/fuel cell energy system,\" IEEE Transactions on Energy Conversion, vol. 23, no. 3, pp. 957-967, 2008."},
+			{"data": "S. Rehman and L. M. Al-Hadhrami, \"Study of a solar PV-diesel-battery hybrid power system for a remotely located population near Rafha, Saudi Arabia,\" Energy, vol. 35, no. 12, pp. 4986-4995, 2010."},
+			{"data": "L. Xu, X. Ruan, C. Mao, B. Zhang, and Y. Luo, \"An improved optimal sizing method for wind-solar-battery hybrid power system,\" IEEE Transactions on Sustainable Energy, vol. 4, no. 3, pp. 774-785, 2013."},
+			{"data": "BloombergNEF, \"Battery Price Survey 2022,\" Bloomberg New Energy Finance, 2022."}
+		]
+	}
+	]
+}

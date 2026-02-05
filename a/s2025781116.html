@@ -1,0 +1,535 @@
+
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Interpretable Machine Learning for Transparent Decision-Making: A Conceptual and Applied Framework for Explainable Artificial Intelligence | SOLAV Journal</title>
+		<meta name="description" content="The widespread integration of machine learning systems into high-impact domains, including healthcare diagnostics, financial risk assessment, and judicial decision support, has escalated concerns regarding transparency, accountability, and societal trust. While complex, high-performance models often operate as &quot;black boxes,&quot; their opacity poses significant ethical, legal, and operational challenges, particularly when automated decisions directly affect human welfare. This study proposes a comprehensive, three-tiered conceptual and applied framework for Explainable Artificial Intelligence (XAI) that systematically integrates intrinsic model transparency, post-hoc interpretability, and human-centered explanation design. We critically examine prevailing XAI methodologies, delineate their theoretical foundations and practical limitations, and introduce a structured, context-sensitive methodology for deploying interpretable machine learning in real-world systems. Through applied case studies in clinical risk prediction and credit scoring, we demonstrate that carefully designed explainability mechanisms can substantially enhance user trust, facilitate regulatory compliance, and improve decision quality without necessitating a significant compromise in predictive accuracy. Our findings underscore the critical importance of contextualized, stakeholder-specific explanations and advocate for interdisciplinary collaboration as a cornerstone for the responsible development and deployment of artificial intelligence.">
+		<link rel="canonical" href="https://solav.me/a/s2025781116">
+		<meta name="gs_meta_revision" content=""/>
+		<meta name="citation_title" content="Interpretable Machine Learning for Transparent Decision-Making: A Conceptual and Applied Framework for Explainable Artificial Intelligence">
+		<meta name="citation_journal_title" content="SOLAV Journal"/>
+		<meta name="citation_journal_abbrev" content="SOLAV J."/>
+		<meta name="citation_issn" content=""/>
+		<meta name="citation_author" content="Baker, Derar Yahya"/>
+		<meta name="citation_author_institution" content="Independent Researcher"/>
+		<meta name="citation_language" content="en"/>
+		<meta name="citation_publication_date" content="2025-08-10"/>
+		<meta name="citation_volume" content="1"/>
+		<meta name="citation_issue" content=""/>
+		<meta name="citation_firstpage" content="54"/>
+		<meta name="citation_lastpage" content="73"/>
+		<meta name="citation_doi" content=""/>
+		<meta name="citation_abstract_html_url" content="https://solav.me/a/s2025781116"/>
+		<meta name="citation_keywords" content="Explainable Artificial Intelligence (XAI)"/>
+		<meta name="citation_keywords" content="Interpretable Machine Learning"/>
+		<meta name="citation_keywords" content="Algorithmic Accountability"/>
+		<meta name="citation_keywords" content="Model Transparency"/>
+		<meta name="citation_keywords" content="Human-Centered AI"/>
+		<meta name="citation_keywords" content="Ethical AI"/>
+		<meta name="citation_keywords" content="Post-Hoc Explanation"/>
+		<meta name="citation_keywords" content="SHAP"/>
+		<meta name="citation_keywords" content="LIME"/>
+		<meta name="citation_keywords" content="Responsible Innovation"/>
+		<meta name="citation_pdf_url" content="https://solav.me/p/s2025781116.pdf"/>
+		<meta name="citation_reference" content="Chouldechova, &quot;Fair prediction with disparate impact: A study of bias in recidivism prediction instruments,&quot; Big Data, vol. 5, no. 2, pp. 153-163, 2017."/>
+		<meta name="citation_reference" content="A. Esteva, B. Kuprel, R. A. Novoa, et al., &quot;Dermatologist-level classification of skin cancer with deep neural networks,&quot; Nature, vol. 542, no. 7639, pp. 115-118, 2017."/>
+		<meta name="citation_reference" content="I. Goodfellow, Y. Bengio, and A. Courville, Deep Learning. MIT Press, 2016."/>
+		<meta name="citation_reference" content="F. Doshi-Velez and B. Kim, &quot;Towards a rigorous science of interpretable machine learning,&quot; arXiv preprint arXiv:1702.08608, 2017."/>
+		<meta name="citation_reference" content="J. A. Kroll, J. Huey, S. Barocas, et al., &quot;Accountable algorithms,&quot; University of Pennsylvania Law Review, vol. 165, no. 3, pp. 633-705, 2017."/>
+		<meta name="citation_reference" content="S. Wachter, B. Mittelstadt, and L. Floridi, &quot;Why a right to explanation of automated decision-making does not exist in the General Data Protection Regulation,&quot; International Data Privacy Law, vol. 7, no. 2, pp. 76-99, 2017."/>
+		<meta name="citation_reference" content="S. Barocas, M. Hardt, and A. Narayanan, Fairness and Machine Learning. fairmlbook.org, 2019."/>
+		<meta name="citation_reference" content="D. Gunning, M. Stefik, J. Choi, et al., &quot;XAI, Explainable artificial intelligence,&quot; Science Robotics, vol. 4, no. 37, 2019."/>
+		<meta name="citation_reference" content="R. R. Hoffman, S. T. Mueller, G. Klein, and J. Litman, &quot;Metrics for explainable AI: Challenges and prospects,&quot; arXiv preprint arXiv:1812.04608, 2018."/>
+		<meta name="citation_reference" content="C. Molnar, Interpretable Machine Learning. Leanpub, 2020."/>
+		<meta name="citation_reference" content="Z. C. Lipton, &quot;The mythos of model interpretability,&quot; Queue, vol. 16, no. 3, pp. 31-57, 2018."/>
+		<meta name="citation_reference" content="J. H. Friedman, &quot;Greedy function approximation: A gradient boosting machine,&quot; Annals of Statistics, vol. 29, no. 5, pp. 1189-1232, 2001."/>
+		<meta name="citation_reference" content="M. T. Ribeiro, S. Singh, and C. Guestrin, &quot;&#039;Why should I trust you?&#039;: Explaining the predictions of any classifier,&quot; in Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, 2016, pp. 1135-1144."/>
+		<meta name="citation_reference" content="S. M. Lundberg and S. I. Lee, &quot;A unified approach to interpreting model predictions,&quot; Advances in Neural Information Processing Systems, vol. 30, 2017."/>
+		<meta name="citation_reference" content="S. M. Lundberg, G. Erion, H. Chen, et al., &quot;From local explanations to global understanding with explainable AI for trees,&quot; Nature Machine Intelligence, vol. 2, no. 1, pp. 56-67, 2020."/>
+		<meta name="citation_reference" content="M. Sundararajan, A. Taly, and Q. Yan, &quot;Axiomatic attribution for deep networks,&quot; in International Conference on Machine Learning, 2017, pp. 3319-3328."/>
+		<meta name="citation_reference" content="S. Wachter, B. Mittelstadt, and C. Russell, &quot;Counterfactual explanations without opening the black box: Automated decisions and the GDPR,&quot; Harvard Journal of Law &amp; Technology, vol. 31, no. 2, pp. 841-887, 2018."/>
+		<meta name="citation_reference" content="B. Kim, C. Rudin, and J. A. Shah, &quot;The Bayesian case model: A generative approach for case-based reasoning and prototype classification,&quot; Advances in Neural Information Processing Systems, vol. 27, 2014."/>
+		<meta name="citation_reference" content="Q. V. Liao and K. R. Varshney, &quot;Human-centered explainable AI (XAI): From algorithms to user experiences,&quot; arXiv preprint arXiv:2110.10790, 2021."/>
+		<meta name="citation_reference" content="A. B. Arrieta, N. Díaz-Rodríguez, J. Del Ser, et al., &quot;Explainable Artificial Intelligence (XAI): Concepts, taxonomies, opportunities and challenges toward responsible AI,&quot; Information Fusion, vol. 58, pp. 82-115, 2020."/>
+		<meta name="citation_reference" content="B. Strack, J. P. DeShazo, C. Gennings, et al., &quot;Impact of HbA1c measurement on hospital readmission rates: Analysis of 70,000 clinical database patient records,&quot; BioMed Research International, vol. 2014, 2014."/>
+		<meta name="citation_reference" content="D. Dua and C. Graff, &quot;UCI Machine Learning Repository,&quot; University of California, Irvine, School of Information and Computer Sciences, 2019. [Online]. Available: http://archive.ics.uci.edu/ml"/>
+		<meta name="citation_reference" content="R. K. Mothilal, A. Sharma, and C. Tan, &quot;Explaining machine learning classifiers through diverse counterfactual explanations,&quot; in Proceedings of the 2020 Conference on Fairness, Accountability, and Transparency, 2020, pp. 607-617."/>
+		<meta name="citation_reference" content="D. K. Citron and F. Pasquale, &quot;The scored society: Due process for automated predictions,&quot; Washington Law Review, vol. 89, no. 1, pp. 1-33, 2014."/>
+		<meta name="citation_reference" content="M. Fredrikson, S. Jha, and T. Ristenpart, &quot;Model inversion attacks that exploit confidence information and basic countermeasures,&quot; in Proceedings of the 22nd ACM SIGSAC Conference on Computer and Communications Security, 2015, pp. 1322-1333."/>
+		<meta name="citation_reference" content="J. A. Whittle, D. S. Weld, M. C. Frank, et al., &quot;Linguistic and cultural adaptation of explanations for algorithmic decisions,&quot; in Proceedings of the 2021 AAAI/ACM Conference on AI, Ethics, and Society, 2021, pp. 720-730."/>
+		<meta name="citation_reference" content="A. S. d&#039;Avila Garcez and L. C. Lamb, &quot;Neurosymbolic AI: The 3rd wave,&quot; Artificial Intelligence Review, pp. 1-20, 2023."/>
+		<link rel="schema.DC" href="https://purl.org/dc/elements/1.1/" />
+		<meta name="DC.Creator.PersonalName" content="Baker, Derar Yahya"/>
+		<meta name="DC.Date.dateSubmitted" scheme="ISO8601" content="2025-06-27"/>
+		<meta name="DC.Date.issued" scheme="ISO8601" content="2025-08-10"/>
+		<meta name="DC.Date.modified" scheme="ISO8601" content="2025-08-10"/>
+		<meta name="DC.Description" xml:lang="en" content="The widespread integration of machine learning systems into high-impact domains, including healthcare diagnostics, financial risk assessment, and judicial decision support, has escalated concerns regarding transparency, accountability, and societal trust. While complex, high-performance models often operate as &quot;black boxes,&quot; their opacity poses significant ethical, legal, and operational challenges, particularly when automated decisions directly affect human welfare. This study proposes a comprehensive, three-tiered conceptual and applied framework for Explainable Artificial Intelligence (XAI) that systematically integrates intrinsic model transparency, post-hoc interpretability, and human-centered explanation design. We critically examine prevailing XAI methodologies, delineate their theoretical foundations and practical limitations, and introduce a structured, context-sensitive methodology for deploying interpretable machine learning in real-world systems. Through applied case studies in clinical risk prediction and credit scoring, we demonstrate that carefully designed explainability mechanisms can substantially enhance user trust, facilitate regulatory compliance, and improve decision quality without necessitating a significant compromise in predictive accuracy. Our findings underscore the critical importance of contextualized, stakeholder-specific explanations and advocate for interdisciplinary collaboration as a cornerstone for the responsible development and deployment of artificial intelligence."/>
+		<meta name="DC.Format" scheme="IMT" content="text/html"/>
+		<meta name="DC.Format" scheme="IMT" content="application/pdf"/>
+		<meta name="DC.Identifier" content="s2025781116"/>
+		<meta name="DC.Identifier.pageNumber" content="54-73"/>
+		<meta name="DC.Identifier.DOI" content=""/>
+		<meta name="DC.Identifier.URI" content="https://solav.me/a/s2025781116"/>
+		<meta name="DC.Source.URI" content="https://solav.me"/>
+		<meta name="DC.Language" scheme="ISO639-1" content="en"/>
+		<meta name="DC.Rights" content="CC BY 4.0"/>
+		<meta name="DC.Rights" content="Open Access"/>
+		<meta name="DC.Source" content="SOLAV Journal"/>
+		<meta name="DC.Source.ISSN" content=""/>
+		<meta name="DC.Source.Issue" content=""/>
+		<meta name="DC.Source.Volume" content="1"/>
+		<meta name="DC.Subject" xml:lang="en" content="Explainable Artificial Intelligence (XAI)"/>
+		<meta name="DC.Subject" xml:lang="en" content="Interpretable Machine Learning"/>
+		<meta name="DC.Subject" xml:lang="en" content="Algorithmic Accountability"/>
+		<meta name="DC.Subject" xml:lang="en" content="Model Transparency"/>
+		<meta name="DC.Subject" xml:lang="en" content="Human-Centered AI"/>
+		<meta name="DC.Subject" xml:lang="en" content="Ethical AI"/>
+		<meta name="DC.Subject" xml:lang="en" content="Post-Hoc Explanation"/>
+		<meta name="DC.Subject" xml:lang="en" content="SHAP"/>
+		<meta name="DC.Subject" xml:lang="en" content="LIME"/>
+		<meta name="DC.Subject" xml:lang="en" content="Responsible Innovation"/>
+		<meta name="DC.Title" content="Interpretable Machine Learning for Transparent Decision-Making: A Conceptual and Applied Framework for Explainable Artificial Intelligence"/>
+		<meta name="DC.Type" content="Text.Serial.Journal"/>
+		<meta name="DC.Date.created" scheme="ISO8601" content="2025-06-27"/>
+		<meta name="DC.Type.articleType" content="Research Article"/>
+		<meta name="citation_author" content="Baker, Derar Yahya">
+		<meta name="citation_publication_date" content="2025/08/10">
+		<meta name="citation_pdf_url" content="https://solav.me/p/s2025781116.pdf">
+		<meta name="citation_journal_title" content="SOLAV Journal">
+		<meta name="citation_issn" content="">
+		<meta name="citation_doi" content="">
+		<meta name="citation_abstract" content="The widespread integration of machine learning systems into high-impact domains, including healthcare diagnostics, financial risk assessment, and judicial decision support, has escalated concerns regarding transparency, accountability, and societal trust. While complex, high-performance models often operate as &quot;black boxes,&quot; their opacity poses significant ethical, legal, and operational challenges, particularly when automated decisions directly affect human welfare. This study proposes a comprehensive, three-tiered conceptual and applied framework for Explainable Artificial Intelligence (XAI) that systematically integrates intrinsic model transparency, post-hoc interpretability, and human-centered explanation design. We critically examine prevailing XAI methodologies, delineate their theoretical foundations and practical limitations, and introduce a structured, context-sensitive methodology for deploying interpretable machine learning in real-world systems. Through applied case studies in clinical risk prediction and credit scoring, we demonstrate that carefully designed explainability mechanisms can substantially enhance user trust, facilitate regulatory compliance, and improve decision quality without necessitating a significant compromise in predictive accuracy. Our findings underscore the critical importance of contextualized, stakeholder-specific explanations and advocate for interdisciplinary collaboration as a cornerstone for the responsible development and deployment of artificial intelligence.">
+		<meta name="citation_keywords" content="Explainable Artificial Intelligence (XAI); Interpretable Machine Learning; Algorithmic Accountability; Model Transparency; Human-Centered AI; Ethical AI; Post-Hoc Explanation; SHAP; LIME; Responsible Innovation">
+		<meta name="DC.title" content="Interpretable Machine Learning for Transparent Decision-Making: A Conceptual and Applied Framework for Explainable Artificial Intelligence">
+		<meta name="DC.creator" content="Baker, Derar Yahya">
+		<meta name="DC.subject" content="Explainable Artificial Intelligence (XAI); Interpretable Machine Learning; Algorithmic Accountability; Model Transparency; Human-Centered AI; Ethical AI; Post-Hoc Explanation; SHAP; LIME; Responsible Innovation">
+		<meta name="DC.identifier" content="s2025781116">
+		<meta name="DC.type" content="Text.Serial.Journal">
+		<meta property="og:type" content="article">
+		<meta property="og:title" content="Interpretable Machine Learning for Transparent Decision-Making: A Conceptual and Applied Framework for Explainable Artificial Intelligence">
+		<meta property="og:url" content="https://solav.me/a/s2025781116">
+		<link rel="icon" type="image/x-icon" href="/images/icon.png">
+		<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+		<link href="/css/swiper.css" rel="stylesheet">
+		<link href="/css/style.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Expires" content="0">
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "ScholarlyArticle",
+			"headline": "Interpretable Machine Learning for Transparent Decision-Making: A Conceptual and Applied Framework for Explainable Artificial Intelligence",
+			"author": {
+				"@type": "Person",
+				"name": "Baker, Derar Yahya"
+			},
+			"datePublished": "2025-08-10",
+			"publisher": {
+				"@type": "Organization",
+				"name": "SOLAV Journal"
+			},
+			"sameAs": "https://solav.me/a/s2025781116"
+		}
+		</script>
+	</head>
+	<body>
+		<main class="page-wrapper">
+			<header class="header navbar navbar-expand-lg bg-light navbar-sticky py-0">
+				<div class="container px-3">
+					<a href="/" class="navbar-brand pe-3">
+						<img src="/images/logo.svg" class="logo" alt="SOLAV">
+					</a>
+					<div id="navbarNav" class="offcanvas offcanvas-end">
+						<div class="offcanvas-header border-bottom">
+							<h5 class="offcanvas-title">Menu</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+						</div>
+						<div class="offcanvas-body">
+							<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+								<li class="nav-item">
+									<a href="/aims-scope" class="nav-link">Aims & Scope</a>
+								</li>
+								<li class="nav-item">
+									<a href="/guidelines" class="nav-link">Guidelines</a>
+								</li>
+								<li class="nav-item dropdown">
+									<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-current="page">Submit</a>
+									<ul class="dropdown-menu">
+										<li><a href="/submit" class="dropdown-item">Submit</a></li>
+										<li><a href="/track" class="dropdown-item">Track Paper</a></li>
+									</ul>
+								</li>
+								<li class="nav-item dropdown">
+									<a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" aria-current="page">Archive</a>
+									<ul class="dropdown-menu">
+										<li><a href="/archive" class="dropdown-item">Archive</a></li>
+										<li><a href="/authors" class="dropdown-item">Authors</a></li>
+									</ul>
+								</li>
+								<li class="nav-item dropdown">
+									<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-current="page">Policies</a>
+									<ul class="dropdown-menu">
+										<li><a href="/ethics" class="dropdown-item">Publication Ethics</a></li>
+										<li><a href="/apc" class="dropdown-item">Article Processing Charges</a></li>
+										<li><a href="/review" class="dropdown-item">Peer Review Process</a></li>
+										<li><a href="/open-submission" class="dropdown-item">Open Submission Policy</a></li>
+										<li><a href="/access" class="dropdown-item">Open Access & Licensing</a></li>
+										<li><a href="/archiving" class="dropdown-item">Archiving & Management</a></li>
+										<li><a href="/oai-pmh" class="dropdown-item">OAI-PMH Repository</a></li>
+									</ul>
+								</li>
+								<li class="nav-item">
+									<a href="/about" class="nav-link">About</a>
+								</li>
+							</ul>
+						</div>  
+					</div>
+					<div class="form-check form-switch mode-switch pe-lg-1 ms-auto me-4" data-bs-toggle="mode">
+						<input type="checkbox" class="form-check-input" id="theme-mode">
+						<label class="form-check-label" for="theme-mode"><i class="bi bi-sun"></i></span></label>
+						<label class="form-check-label" for="theme-mode"><i class="bi bi-moon-stars"></i></label>
+					</div>
+					<button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+				</div>
+			</header>
+			<div class="jarallax mb-lg-5 mb-4 pt-0 card border-0 bg-gradient-primary rounded-0" data-jarallax="" data-speed="0.35" style="height: 1vw; min-height: 10px; background-image: url(/images/main-bg.png);">
+				<div id="jarallax-container-0" class="jarallax-container">
+					<div class="jarallax-img" style="background-image: url(/images/main-bg.png);">
+					</div>
+				</div>
+			</div>
+			<div class="container py-2 py-lg-3" id="articleContainer">
+				<div class="row">
+					<div class="col-lg-8">
+						<div id="articleContent">
+							<div class="mb-4">
+								<span class="badge bg-primary metadata-badge">
+									<i class="bi bi-file-earmark-text me-1"></i> Research Article</span>
+							</div>
+						</div>
+						
+						<h1 class="mb-4 h3">Interpretable Machine Learning for Transparent Decision-Making: A Conceptual and Applied Framework for Explainable Artificial Intelligence</h1>
+						<div class="mb-4">
+							<div class="author-list mb-2">
+								<i class="bi bi-people text-primary me-2"></i>
+								<a href="/authors?id=00010090">Baker, Derar Yahya</a><sup>*</sup><sup>1</sup><a href="https://orcid.org/0000-0002-6197-9967" target="_blank" class="ms-0 align-middle"><img src="/images/orcid.svg" alt="ORCID" class="orcid-icon"></a></span>
+								
+							</div>
+															
+							<p class="text-muted font-sm mb-0"><sup>*</sup> Corresponding author</p>
+														
+							<div class="author-affiliation mb-3">
+															
+								<span class="mb-0 small">*1</span>
+								<span class="mb-0 mx-2"><i class="bi bi-building me-1"></i> Independent Researcher</span>
+								
+								<span class="mb-0 mx-2 font-sm">
+									<i class="bi bi-envelope me-1"></i> <a href="mailto:derarouv@gmail.com">derarouv@gmail.com</a>
+								</span>
+															
+							</div>
+						</div>
+
+						<div class="mb-4">
+							<span class="badge bg-light text-dark border me-2 mb-2">Explainable Artificial Intelligence (XAI)</span>
+							<span class="badge bg-light text-dark border me-2 mb-2">Interpretable Machine Learning</span>
+							<span class="badge bg-light text-dark border me-2 mb-2">Algorithmic Accountability</span>
+							<span class="badge bg-light text-dark border me-2 mb-2">Model Transparency</span>
+							<span class="badge bg-light text-dark border me-2 mb-2">Human-Centered AI</span>
+							<span class="badge bg-light text-dark border me-2 mb-2">Ethical AI</span>
+							<span class="badge bg-light text-dark border me-2 mb-2">Post-Hoc Explanation</span>
+							<span class="badge bg-light text-dark border me-2 mb-2">SHAP</span>
+							<span class="badge bg-light text-dark border me-2 mb-2">LIME</span>
+							<span class="badge bg-light text-dark border me-2 mb-2">Responsible Innovation</span>
+							
+						</div>
+
+						<div class="abstract-box">
+
+							<h3 class="h5 mb-3"><i class="bi bi-file-text me-2"></i>Abstract</h3>
+							<p>The widespread integration of machine learning systems into high-impact domains, including healthcare diagnostics, financial risk assessment, and judicial decision support, has escalated concerns regarding transparency, accountability, and societal trust. While complex, high-performance models often operate as &quot;black boxes,&quot; their opacity poses significant ethical, legal, and operational challenges, particularly when automated decisions directly affect human welfare. This study proposes a comprehensive, three-tiered conceptual and applied framework for Explainable Artificial Intelligence (XAI) that systematically integrates intrinsic model transparency, post-hoc interpretability, and human-centered explanation design. We critically examine prevailing XAI methodologies, delineate their theoretical foundations and practical limitations, and introduce a structured, context-sensitive methodology for deploying interpretable machine learning in real-world systems. Through applied case studies in clinical risk prediction and credit scoring, we demonstrate that carefully designed explainability mechanisms can substantially enhance user trust, facilitate regulatory compliance, and improve decision quality without necessitating a significant compromise in predictive accuracy. Our findings underscore the critical importance of contextualized, stakeholder-specific explanations and advocate for interdisciplinary collaboration as a cornerstone for the responsible development and deployment of artificial intelligence.</p>
+						</div>
+
+						<div class="references-box mt-4 mb-4"><h3 class="h5 mb-3"><i class="bi bi-bookmarks me-2"></i>References</h3><ol class="references-list"><li class="mb-2">Chouldechova, &quot;Fair prediction with disparate impact: A study of bias in recidivism prediction instruments,&quot; Big Data, vol. 5, no. 2, pp. 153-163, 2017.</li><li class="mb-2">A. Esteva, B. Kuprel, R. A. Novoa, et al., &quot;Dermatologist-level classification of skin cancer with deep neural networks,&quot; Nature, vol. 542, no. 7639, pp. 115-118, 2017.</li><li class="mb-2">I. Goodfellow, Y. Bengio, and A. Courville, Deep Learning. MIT Press, 2016.</li><li class="mb-2">F. Doshi-Velez and B. Kim, &quot;Towards a rigorous science of interpretable machine learning,&quot; arXiv preprint arXiv:1702.08608, 2017.</li><li class="mb-2">J. A. Kroll, J. Huey, S. Barocas, et al., &quot;Accountable algorithms,&quot; University of Pennsylvania Law Review, vol. 165, no. 3, pp. 633-705, 2017.</li><li class="mb-2">S. Wachter, B. Mittelstadt, and L. Floridi, &quot;Why a right to explanation of automated decision-making does not exist in the General Data Protection Regulation,&quot; International Data Privacy Law, vol. 7, no. 2, pp. 76-99, 2017.</li><li class="mb-2">S. Barocas, M. Hardt, and A. Narayanan, Fairness and Machine Learning. fairmlbook.org, 2019.</li><li class="mb-2">D. Gunning, M. Stefik, J. Choi, et al., &quot;XAI, Explainable artificial intelligence,&quot; Science Robotics, vol. 4, no. 37, 2019.</li><li class="mb-2">R. R. Hoffman, S. T. Mueller, G. Klein, and J. Litman, &quot;Metrics for explainable AI: Challenges and prospects,&quot; arXiv preprint arXiv:1812.04608, 2018.</li><li class="mb-2">C. Molnar, Interpretable Machine Learning. Leanpub, 2020.</li><li class="mb-2">Z. C. Lipton, &quot;The mythos of model interpretability,&quot; Queue, vol. 16, no. 3, pp. 31-57, 2018.</li><li class="mb-2">J. H. Friedman, &quot;Greedy function approximation: A gradient boosting machine,&quot; Annals of Statistics, vol. 29, no. 5, pp. 1189-1232, 2001.</li><li class="mb-2">M. T. Ribeiro, S. Singh, and C. Guestrin, &quot;&#039;Why should I trust you?&#039;: Explaining the predictions of any classifier,&quot; in Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, 2016, pp. 1135-1144.</li><li class="mb-2">S. M. Lundberg and S. I. Lee, &quot;A unified approach to interpreting model predictions,&quot; Advances in Neural Information Processing Systems, vol. 30, 2017.</li><li class="mb-2">S. M. Lundberg, G. Erion, H. Chen, et al., &quot;From local explanations to global understanding with explainable AI for trees,&quot; Nature Machine Intelligence, vol. 2, no. 1, pp. 56-67, 2020.</li><li class="mb-2">M. Sundararajan, A. Taly, and Q. Yan, &quot;Axiomatic attribution for deep networks,&quot; in International Conference on Machine Learning, 2017, pp. 3319-3328.</li><li class="mb-2">S. Wachter, B. Mittelstadt, and C. Russell, &quot;Counterfactual explanations without opening the black box: Automated decisions and the GDPR,&quot; Harvard Journal of Law &amp; Technology, vol. 31, no. 2, pp. 841-887, 2018.</li><li class="mb-2">B. Kim, C. Rudin, and J. A. Shah, &quot;The Bayesian case model: A generative approach for case-based reasoning and prototype classification,&quot; Advances in Neural Information Processing Systems, vol. 27, 2014.</li><li class="mb-2">Q. V. Liao and K. R. Varshney, &quot;Human-centered explainable AI (XAI): From algorithms to user experiences,&quot; arXiv preprint arXiv:2110.10790, 2021.</li><li class="mb-2">A. B. Arrieta, N. Díaz-Rodríguez, J. Del Ser, et al., &quot;Explainable Artificial Intelligence (XAI): Concepts, taxonomies, opportunities and challenges toward responsible AI,&quot; Information Fusion, vol. 58, pp. 82-115, 2020.</li><li class="mb-2">B. Strack, J. P. DeShazo, C. Gennings, et al., &quot;Impact of HbA1c measurement on hospital readmission rates: Analysis of 70,000 clinical database patient records,&quot; BioMed Research International, vol. 2014, 2014.</li><li class="mb-2">D. Dua and C. Graff, &quot;UCI Machine Learning Repository,&quot; University of California, Irvine, School of Information and Computer Sciences, 2019. [Online]. Available: http://archive.ics.uci.edu/ml</li><li class="mb-2">R. K. Mothilal, A. Sharma, and C. Tan, &quot;Explaining machine learning classifiers through diverse counterfactual explanations,&quot; in Proceedings of the 2020 Conference on Fairness, Accountability, and Transparency, 2020, pp. 607-617.</li><li class="mb-2">D. K. Citron and F. Pasquale, &quot;The scored society: Due process for automated predictions,&quot; Washington Law Review, vol. 89, no. 1, pp. 1-33, 2014.</li><li class="mb-2">M. Fredrikson, S. Jha, and T. Ristenpart, &quot;Model inversion attacks that exploit confidence information and basic countermeasures,&quot; in Proceedings of the 22nd ACM SIGSAC Conference on Computer and Communications Security, 2015, pp. 1322-1333.</li><li class="mb-2">J. A. Whittle, D. S. Weld, M. C. Frank, et al., &quot;Linguistic and cultural adaptation of explanations for algorithmic decisions,&quot; in Proceedings of the 2021 AAAI/ACM Conference on AI, Ethics, and Society, 2021, pp. 720-730.</li><li class="mb-2">A. S. d&#039;Avila Garcez and L. C. Lamb, &quot;Neurosymbolic AI: The 3rd wave,&quot; Artificial Intelligence Review, pp. 1-20, 2023.</li></ol></div>
+					</div>
+
+					<div class="col-lg-4">
+						<div class="article-actions">
+							<div class="card mb-4">
+								<div class="card-body">
+									<div class="d-grid gap-2">
+										<a href="https://solav.me/p/s2025781116.pdf" target="_blank" class="btn btn-sm btn-primary">
+											<i class="bi bi-file-earmark-pdf me-1"></i> Download PDF
+										</a>
+										<button id="citeBtn" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#citationModal">
+											<i class="bi bi-quote me-1"></i> Cite This Article
+										</button>
+									</div>
+								</div>
+							</div>
+							
+							<div class="card">
+								<div class="card-header bg-secondary text-center p-0 m-0 w-100">
+									<h5 class="mb-0 p-3"><i class="bi bi-info-circle me-2"></i>Article Info</h5>
+								</div>
+								<div class="card-body">
+									<ul class="list-unstyled mb-0">
+										<li class="mb-2">
+											<i class="bi bi-calendar-check text-primary me-2"></i><strong>Received:</strong> 2025-06-27
+										</li>
+										<li class="mb-2">
+											<i class="bi bi-check-circle text-primary me-2"></i><strong>Accepted:</strong> 2025-08-08
+										</li>
+										<li class="mb-2">
+											<i class="bi bi-calendar-event text-primary me-2"></i><strong>Published:</strong> 2025-08-10
+										</li>
+										<li class="mb-2">
+											<i class="bi bi-file-text text-primary me-2"></i><strong>Pages:</strong> 54-73
+										</li>
+										<li class="mb-2">
+											<i class="bi bi-quote text-primary me-2"></i><strong>Citations:</strong> 0
+										</li>
+										<li class="mb-2">
+											<i class="bi bi-journal-check text-primary me-2"></i><strong>Type:</strong> Research Article
+										</li>
+										<li class="mb-2">
+											<i class="bi bi-journal text-primary me-2"></i><strong>Volume:</strong> 1
+										</li>
+										<li>
+											<i class="bi bi-clock-history text-primary me-2"></i><strong>Version:</strong> 2025-08-10 (1)
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-12 d-flex justify-content-evenly mb-3 border-top mt-3 pt-3">
+				<img src="/images/creative_commons_license_with_attribution.svg" alt="CC BY 4.0" class="img-fluid" style="max-height: 46px;">
+				<img src="/images/open_access.svg" alt="Open Access" class="img-fluid" style="max-height: 46px;">
+				<img src="/images/oai_logo.svg" alt="OAI-PMH Compliant" class="img-fluid" style="max-height: 46px;">
+			</div>
+		</main>
+		<a href="#top" class="btn-scroll-top" data-scroll="">
+			<i class="btn-scroll-top-icon bi bi-chevron-up"></i>
+		</a>
+		<footer class="footer border-top bg-primary-subtle">
+			<div class="container py-5">
+				<div class="row g-4">
+					<div class="col-lg-4">
+						<p class="mb-3">
+							SOLAV Journal is an open access, peer-reviewed journal publishing interdisciplinary applied research with real-world impact.
+							<br><span class="font-sm"><strong>Publication Frequency:</strong> Continuous publication.</span>
+							<br><span class="font-sm"><strong>Editor-In-Chief:</strong> Maher Asaad Baker</span>
+						</p>
+						<div class="issn-container">
+							<img src="/images/issn_logo.svg" alt="ISSN" class="issn-logo">
+							<span class="issn-text">ISSN request pending</span>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-4">
+						<h5 class="mb-3 fw-bold">Quick Links</h5>
+						<ul class="list-unstyled">
+							<li class="mb-2"><a href="/aims-scope" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Aims & Scope</a></li>
+							<li class="mb-2"><a href="/guidelines" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Author Guidelines</a></li>
+							<li class="mb-2"><a href="/submit" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Submit Manuscript</a></li>
+							<li class="mb-2"><a href="/archive" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Article Archive</a></li>
+							<li class="mb-2"><a href="/about" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">About the Journal</a></li>
+						</ul>
+					</div>
+					<div class="col-lg-3 col-md-4">
+						<h5 class="mb-3 fw-bold">Policies</h5>
+						<ul class="list-unstyled">
+							<li class="mb-2"><a href="/ethics" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Publication Ethics</a></li>
+							<li class="mb-2"><a href="/apc" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Article Processing Charges</a></li>
+							<li class="mb-2"><a href="/review" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Peer Review Process</a></li>
+							<li class="mb-2"><a href="/access" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Open Access & Licensing</a></li>
+							<li class="mb-2"><a href="/archiving" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Archiving & Management</a></li>
+						</ul>
+					</div>
+					<div class="col-lg-3 col-md-4">
+						<h5 class="mb-3 fw-bold">Contact & Support</h5>
+						<ul class="list-unstyled">
+							<li class="mb-2">
+								<i class="bi bi-envelope me-2 text-primary"></i>
+								<a href="mailto:contact@solav.me" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">General Inquiries</a>
+							</li>
+							<li class="mb-2">
+								<i class="bi bi-question-circle me-2 text-primary"></i>
+								<a href="mailto:support@solav.me" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Technical Support</a>
+							</li>
+							<li class="mb-2">
+								<i class="bi bi-shield-check me-2 text-primary"></i>
+								<a href="mailto:ethics@solav.me" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Ethics Concerns</a>
+							</li>
+							<li class="mb-2">
+								<i class="bi bi-currency-exchange me-2 text-primary"></i>
+								<a href="mailto:apc@solav.me" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">APC & Payments</a>
+							</li>
+							<li class="mb-2">
+								<i class="bi bi-people me-2 text-primary"></i>
+								<a href="mailto:editorial@solav.me" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Editorial Board</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="row pt-2 border-top">
+					<div class="col-md-6">
+						<p class="mb-0 h-100">
+							<strong>Your privacy matters</strong>. We use cookies to enhance your visit and analyze site traffic. By continuing to browse, you agree to our use of cookies.
+							<br>&copy; <span id="currentYear"></span> SOLAV Journal. This is an open access journal distributed under the 
+							<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Creative Commons Attribution License (CC BY 4.0)</a>.
+						</p>
+					</div>
+					<div class="col-md-6 text-md-end">
+						<ul class="list-inline mb-0 h-100 d-flex align-items-end justify-content-lg-end">
+							<li class="list-inline-item"><a href="/privacy" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Privacy Policy</a></li>
+							<li class="list-inline-item">·</li>
+							<li class="list-inline-item"><a href="/tou" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Terms of Use</a></li>
+							<li class="list-inline-item">·</li>
+							<li class="list-inline-item"><a href="/accessibility" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Accessibility</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<div class="modal fade" id="citationModal" tabindex="-1" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title"><i class="bi bi-quote me-2"></i>Citation</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+					</div>
+					<div class="modal-body">
+						<div class="mb-3">
+							<label class="form-label">APA Format</label>
+							<div id="apaCitation" class="citation-box border border-opacity-10">
+																Baker, Derar Yahya 1(2025). Interpretable Machine Learning for Transparent Decision-Making: A Conceptual and Applied Framework for Explainable Artificial Intelligence. SOLAV Journal, 54-73. https://solav.me/a/s2025781116							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button id="copyApaBtn" class="btn btn-primary">
+							<i class="bi bi-clipboard me-1"></i> Copy APA
+						</button>
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+							Close
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="/js/jarallax.js"></script>
+		<script src="/js/swiper.js"></script>
+		<script src="/js/js.js"></script>
+		<script>
+			document.addEventListener('DOMContentLoaded', function() {
+				document.getElementById('currentYear').textContent = new Date().getFullYear();
+				const copyApaBtn = document.getElementById('copyApaBtn');
+				if (copyApaBtn) {
+					copyApaBtn.addEventListener('click', function() {
+						const apaText = document.getElementById('apaCitation')?.textContent;
+						
+						if (apaText) {
+							if (navigator.clipboard && navigator.clipboard.writeText) {
+								navigator.clipboard.writeText(apaText).then(() => {
+									updateButtonState(this);
+								}).catch(err => {
+									console.error('Modern copy failed', err);
+								});
+							} else {
+								const textArea = document.createElement("textarea");
+								textArea.value = apaText;
+								document.body.appendChild(textArea);
+								textArea.select();
+								try {
+									document.execCommand('copy');
+									updateButtonState(this);
+								} catch (err) {
+									console.error('Fallback copy failed', err);
+								}
+								document.body.removeChild(textArea);
+							}
+						}
+					});
+				}
+
+				function updateButtonState(btn) {
+					const original = btn.innerHTML;
+					btn.innerHTML = '<i class="bi bi-check me-1"></i> Copied!';
+					setTimeout(() => {
+						btn.innerHTML = original;
+					}, 2000);
+				}
+				(() => {
+					'use strict';
+					const getStoredTheme = () => localStorage.getItem('theme');
+					const setStoredTheme = theme => localStorage.setItem('theme', theme);
+					const getPreferredTheme = () => {
+						const storedTheme = getStoredTheme();
+						if (storedTheme) {
+							return storedTheme;
+						}
+						return 'light';
+					};
+					const setTheme = theme => {
+						if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+							document.documentElement.setAttribute('data-bs-theme', 'dark');
+						} else {
+							document.documentElement.setAttribute('data-bs-theme', theme);
+						}
+					};
+					const updateLogos = theme => {
+						const logos = document.querySelectorAll('.logo');
+						logos.forEach(logo => {
+							logo.src = theme === 'dark' ? '/images/logo-white.svg' : '/images/logo-black.svg';
+						});
+					};
+					setTheme(getPreferredTheme());
+					const showActiveTheme = theme => {
+						const themeSwitcher = document.querySelector('[data-bs-toggle="mode"]');
+						if (!themeSwitcher) return;
+						const themeSwitcherCheck = themeSwitcher.querySelector('input[type="checkbox"]');
+						if (theme === 'dark') {
+							themeSwitcherCheck.checked = true;
+						} else {
+							themeSwitcherCheck.checked = false;
+						}
+						updateLogos(theme);
+					};
+					window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+						const storedTheme = getStoredTheme();
+						if (storedTheme !== 'light' && storedTheme !== 'dark') {
+							const newTheme = getPreferredTheme();
+							setTheme(newTheme);
+							showActiveTheme(newTheme);
+						}
+					});
+					window.addEventListener('DOMContentLoaded', () => {
+						showActiveTheme(getPreferredTheme());
+						document.querySelectorAll('[data-bs-toggle="mode"]').forEach(toggle => {
+							toggle.addEventListener('click', () => {
+								const themeSwitcherCheck = toggle.querySelector('input[type="checkbox"]');
+								const theme = themeSwitcherCheck.checked ? 'dark' : 'light';
+								setStoredTheme(theme);
+								setTheme(theme);
+								showActiveTheme(theme);
+							});
+						});
+					});
+				})();
+			});
+		</script>
+	</body>
+</html>

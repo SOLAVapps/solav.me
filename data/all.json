@@ -1,0 +1,289 @@
+{
+	"year": "2025",
+	"articles": [
+		{
+		"id": "s2025781117",
+		"type": "Research Article",
+		"title": "Design and Performance Evaluation of Hybrid Solar-Wind Energy Systems with Battery Storage for Sustainable Community Power Supply",
+		"status": "published",
+		"authors": [
+		{
+			"id": "00010091",
+			"name_first": "Daud",
+			"name_last": "Samara",
+			"name": "Samara, Daud",
+			"corresponding": 1,
+			"affiliation": "Independent Researcher",
+			"roles": ["Conceptualization", "Methodology", "Writing – Original Draft"],
+			"email": "lili9632025@gmail.com",
+			"orcid": "0009-0001-4389-3043"
+		}
+		],
+		"keywords": ["Hybrid Renewable Energy Systems", "Solar PV", "Wind Energy", "Battery Energy Storage", "Community Microgrids", "Sustainable Energy", "Energy Management", "Renewable Integration", "Decentralized Power Systems"],
+		"abstract": "The global shift toward sustainable energy has increased demand for decentralized, reliable power solutions that integrate renewables. Hybrid renewable energy systems—combining multiple sources with storage—address the intermittency of individual renewables, making them ideal for remote or underserved communities. This study analyzes a hybrid solar-wind-battery system for community-scale electricity. The proposed architecture integrates photovoltaic arrays, wind turbines, and lithium-ion batteries via an intelligent power management unit. Using high-resolution meteorological data and realistic load profiles, we assess performance in energy reliability, economic feasibility, and environmental impact. Hourly simulations over one year show that optimized hybrid systems can achieve over 85% renewable penetration, drastically reducing fossil fuel dependence. Economic analysis, using levelized cost of energy and net present cost metrics, highlights long-term viability, especially with declining technology costs and potential carbon pricing. The findings emphasize the role of integrated renewables as cornerstones of sustainable, community-focused energy infrastructure, advancing both climate goals and energy access.",
+		"version": [
+		{
+			"date": "2025-11-06",
+			"number": "1"
+		}
+		],
+		"abstract_url": "https://solav.me/a/s2025781117",
+		"download_url": "https://solav.me/p/s2025781117.pdf",
+		"received_date": "2025-10-03",
+		"evaluated_date": "2025-10-05",
+		"peer_reviewed_date": "2025-10-22",
+		"accepted_date": "2025-10-30",
+		"published_date": "2025-11-06",
+		"volume": "1",
+		"pages": "74-91",
+		"citation_count": 0,
+		"date": "2025-11-06",
+		"language": "en",
+		"license": "CC BY 4.0"
+	},{
+		"id": "s2025781116",
+		"type": "Research Article",
+		"title": "Interpretable Machine Learning for Transparent Decision-Making: A Conceptual and Applied Framework for Explainable Artificial Intelligence",
+		"status": "published",
+		"authors": [
+		{
+			"id": "00010090",
+			"name_first": "Derar Yahya",
+			"name_last": "Baker",
+			"name": "Baker, Derar Yahya",
+			"corresponding": 1,
+			"affiliation": "Independent Researcher",
+			"roles": ["Conceptualization", "Methodology", "Writing – Original Draft"],
+			"email": "derarouv@gmail.com",
+			"orcid": "0000-0002-6197-9967"
+		}
+		],
+		"keywords": ["Explainable Artificial Intelligence (XAI)", "Interpretable Machine Learning", "Algorithmic Accountability", "Model Transparency", "Human-Centered AI", "Ethical AI", "Post-Hoc Explanation", "SHAP", "LIME", "Responsible Innovation"],
+		"abstract": "The widespread integration of machine learning systems into high-impact domains, including healthcare diagnostics, financial risk assessment, and judicial decision support, has escalated concerns regarding transparency, accountability, and societal trust. While complex, high-performance models often operate as \"black boxes,\" their opacity poses significant ethical, legal, and operational challenges, particularly when automated decisions directly affect human welfare. This study proposes a comprehensive, three-tiered conceptual and applied framework for Explainable Artificial Intelligence (XAI) that systematically integrates intrinsic model transparency, post-hoc interpretability, and human-centered explanation design. We critically examine prevailing XAI methodologies, delineate their theoretical foundations and practical limitations, and introduce a structured, context-sensitive methodology for deploying interpretable machine learning in real-world systems. Through applied case studies in clinical risk prediction and credit scoring, we demonstrate that carefully designed explainability mechanisms can substantially enhance user trust, facilitate regulatory compliance, and improve decision quality without necessitating a significant compromise in predictive accuracy. Our findings underscore the critical importance of contextualized, stakeholder-specific explanations and advocate for interdisciplinary collaboration as a cornerstone for the responsible development and deployment of artificial intelligence.",
+		"version": [
+		{
+			"date": "2025-08-10",
+			"number": "1"
+		}
+		],
+		"abstract_url": "https://solav.me/a/s2025781116",
+		"download_url": "https://solav.me/p/s2025781116.pdf",
+		"received_date": "2025-06-27",
+		"evaluated_date": "2025-07-02",
+		"peer_reviewed_date": "2025-07-27",
+		"accepted_date": "2025-08-08",
+		"published_date": "2025-08-10",
+		"volume": "1",
+		"pages": "54-73",
+		"citation_count": 0,
+		"date": "2025-08-10",
+		"language": "en",
+		"license": "CC BY 4.0"
+	},{
+		"id": "s2025781112",
+		"type": "Research Article",
+		"title": "Mitigating Hallucination in Small Language Models via Contrastive Chain-of-Thought Fine-Tuning",
+		"status": "published",
+		"authors": [
+		{
+			"id": "00010077",
+			"name_first": "Maher Asaad",
+			"name_last": "Baker",
+			"name": "Baker, Maher Asaad",
+			"corresponding": 1,
+			"affiliation": "SOLAV, Damascus, Syria",
+			"roles": ["Conceptualization", "Methodology", "Writing – Original Draft"],
+			"email": "maher@solav.me",
+			"orcid": "0000-0001-8013-6044"
+		},{
+			"id": "00010086",
+			"name_first": "Fuad",
+			"name_last": "Al-Qrize",
+			"name": "Al-Qrize, Fuad",
+			"corresponding": 0,
+			"affiliation": "Al-Qrize Productions: Ibb, Yemen",
+			"roles": ["Methodology", "Writing"],
+			"email": "info@fuadalqrize.me",
+			"orcid": "0000-0003-3380-2176"
+		}
+		],
+		"keywords": ["Small Language Models (SLMs)", "Chain-of-Thought Reasoning", "Hallucination Mitigation", "Parameter-Efficient Fine-Tuning (PEFT)", "Low-Rank Adaptation (LoRA)", "Contrastive Learning", "Reliable AI", "Edge Computing"],
+		"abstract": "Small Language Models (SLMs), typically comprising fewer than 3 billion parameters, offer efficient deployment for edge computing but are susceptible to reasoning hallucinations: they generate plausible but logically unsound multi-step solutions. While Chain-of-Thought (CoT) prompting enhances reasoning in larger models, SLMs often lack the capacity to maintain coherent reasoning chains. This paper introduces Contrastive Chain-of-Thought (CCoT) Fine-Tuning, a novel parameter-efficient training method that pairs correct reasoning paths with explicitly labeled logical fallacies during fine-tuning. Using Low-Rank Adaptation (LoRA) on the Phi-2 model, we show that exposing SLMs to curated negative reasoning examples sharpens their decision boundaries between valid and hallucinatory logic. Comprehensive evaluation on arithmetic (GSM8K) and symbolic reasoning (BBH) benchmarks shows that CCoT significantly reduces hallucination rates, measured by stepwise logical consistency, and improves final-answer accuracy by 12.5% relative to standard fine-tuning. This work provides a scalable, hardware-accessible framework for improving the reliability of resource-constrained language models in edge AI applications.",
+		"version": [
+		{
+			"date": "2025-07-05",
+			"number": "1"
+		}
+		],
+		"abstract_url": "https://solav.me/a/s2025781112",
+		"download_url": "https://solav.me/p/s2025781112.pdf",
+		"received_date": "2025-06-09",
+		"evaluated_date": "2025-06-14",
+		"peer_reviewed_date": "2025-06-23",
+		"accepted_date": "2025-07-02",
+		"published_date": "2025-07-05",
+		"volume": "1",
+		"pages": "33-53",
+		"citation_count": 0,
+		"date": "2025-07-05",
+		"language": "en",
+		"license": "CC BY 4.0"
+	},{
+		"id": "s2025781111",
+		"type": "Research Article",
+		"title": "Reframing Scholarly Communication in the Digital Era: Open Access, Research Integrity, and the Evolving Role of Academic Journals",
+		"status": "published",
+		"authors": [
+		{
+			"id": "00010088",
+			"name_first": "Musaab",
+			"name_last": "Jredeh",
+			"name": "Jredeh, Musaab",
+			"corresponding": 1,
+			"affiliation": "Independent Researcher",
+			"roles": ["Conceptualization", "Methodology", "Writing – Original Draft"],
+			"email": "musaab-j-2016@gmail.com",
+			"orcid": ""
+		}
+		],
+		"keywords": ["Scholarly Communication", "Open Access", "Research Integrity", "Academic Journals", "Digital Scholarship", "Knowledge Commons", "Publication Ethics", "Peer Review", "Epistemic Justice", "Infrastructural Stewardship"],	
+		"abstract": "The digital transformation of scholarly communication has reshaped how research is produced, disseminated, evaluated, and preserved. Central to this transformation are open access publishing models, evolving peer review practices, and renewed attention to research ethics and transparency. This conceptual research article examines the contemporary scholarly publishing landscape, focusing on the normative foundations of open access, the role of journals as ethical stewards, and the challenges faced by emerging digital-first publications. Drawing on existing literature and policy frameworks, the article argues that academic journals must move beyond traditional gatekeeping roles and actively cultivate inclusive, accountable, and sustainable knowledge ecosystems. The paper proposes a principled framework for ethical digital publishing that emphasizes accessibility, editorial independence, research integrity, and long-term stewardship of scholarly knowledge.",
+		"version": [
+		{
+			"date": "2025-06-18",
+			"number": "1"
+		}
+		],
+		"abstract_url": "https://solav.me/a/s2025781111",
+		"download_url": "https://solav.me/p/s2025781111.pdf",
+		"received_date": "2025-05-03",
+		"evaluated_date": "2025-05-07",
+		"peer_reviewed_date": "2025-06-01",
+		"accepted_date": "2025-06-09",
+		"published_date": "2025-06-18",
+		"volume": "1",
+		"pages": "17-32",
+		"citation_count": 0,
+		"date": "2025-06-18",
+		"language": "en",
+		"license": "CC BY 4.0"
+	},{
+		"id": "s2025781107",
+		"type": "Research Article",
+		"title": "Continuous Publication in Online Scholarly Journals: Opportunities, Challenges, and Editorial Implications",
+		"status": "published",
+		"authors": [
+		{
+			"id": "00010082",
+			"name_first": "Rizq",
+			"name_last": "Khalil",
+			"name": "Rizq, Khalil",
+			"corresponding": 1,
+			"affiliation": "Independent Researcher, Scholarly Communication Studies",
+			"roles": ["Conceptualization", "Methodology", "Writing – Original Draft"],
+			"email": "khalil@khalilrizq.me",
+			"orcid": "0000-0001-5145-7789"
+		}
+		],
+		"keywords": ["Continuous Publication", "Online Journals", "Scholarly Communication", "Editorial Workflow", "Open Access", "Digital Preservation", "Publishing Models", "Academic Metadata"],
+		"abstract": "The digital paradigm in scholarly publishing has precipitated a shift from rigid, issue, based models toward dynamic, article, based workflows. This study provides a comprehensive analysis of the continuous publication model, a system where manuscripts are published individually upon final acceptance, decoupling dissemination from the assembly of static journal issues. Through a qualitative synthesis of publishing policies, scholarly literature, and case studies, this paper elucidates the model's conceptual underpinnings, its tangible benefits in accelerating research dissemination and enhancing accessibility, and the concomitant editorial, ethical, and infrastructural complexities. We identify critical challenges including metadata integrity, version control, archival permanence, and citation consistency. In response, this article makes a novel contribution by proposing the TAP (Temporal, Administrative, Perceptual) Framework for evaluating publication models and outlining a “Multi, Layer Archival” strategy for digital preservation. The findings offer a critical, practical guide for editors, publishers, and scholarly communications specialists seeking to implement or optimize continuous publication, with particular relevance for emerging open, access journals navigating the evolving topology of academic publishing.",
+		"version": [
+		{
+			"date": "2025-06-06",
+			"number": "1"
+		}
+		],
+		"abstract_url": "https://solav.me/a/s2025781107",
+		"download_url": "https://solav.me/p/s2025781107.pdf",
+		"received_date": "2025-04-17",
+		"evaluated_date": "2025-04-20",
+		"peer_reviewed_date": "2025-05-21",
+		"accepted_date": "2025-05-29",
+		"published_date": "2025-06-06",
+		"volume": "1",
+		"pages": "7-16",
+		"citation_count": 0,
+		"date": "2025-05-05",
+		"language": "en",
+		"license": "CC BY 4.0"
+		},{
+		"id": "s2025781102",
+		"type": "Editorial",
+		"title": "Editorial Policies, Peer Review, and Ethical Standards of SOLAV Journal",
+		"status": "published",
+		"authors": [
+		{
+			"id": "00010077",
+			"name_first": "Maher Asaad",
+			"name_last": "Baker",
+			"name": "Baker, Maher Asaad",
+			"corresponding": 1,
+			"affiliation": "SOLAV, Damascus, Syria",
+			"roles": ["Conceptualization", "Methodology", "Writing – Original Draft"],
+			"email": "maher@solav.me",
+			"orcid": "0000-0001-8013-6044"
+		}
+		],
+		"keywords": ["Editorial Governance", "Double Blind Peer Review", "Research Integrity", "Publication Ethics", "Open Access Policy", "Scholarly Accountability"],
+		"abstract": "This document defines the editorial policies, peer review framework, and ethical standards that govern the operations of SOLAV Journal. It outlines our commitment to transparent governance, equitable evaluation, and rigorous scholarly publishing. By clearly articulating our principles of editorial independence, double blind peer review, and adherence to internationally recognized publication ethics, we aim to build trust, ensure accountability, and safeguard research integrity. These policies reflect our dedication to open science and to contributing responsibly to a sustainable and ethical global research ecosystem.",
+		"version": [
+		{
+			"date": "2025-02-04",
+			"number": "1"
+		}
+		],
+		"abstract_url": "https://solav.me/a/s2025781102",
+		"download_url": "https://solav.me/p/s2025781102.pdf",
+		"received_date": "2025-02-01",
+		"evaluated_date": "2025-02-01",
+		"peer_reviewed_date": "2025-02-04",
+		"accepted_date": "2025-02-04",
+		"published_date": "2025-02-04",
+		"volume": "1",
+		"pages": "3-6",
+		"citation_count": 0,
+		"date": "2025-02-04",
+		"language": "en",
+		"license": "CC BY 4.0"
+		},{
+		"id": "s2025781101",
+		"type": "Editorial",
+		"title": "Launching SOLAV Journal: Vision, Scope, and Commitment to Scholarly Excellence",
+		"status": "published",
+		"authors": [
+		{
+			"id": "00010077",
+			"name_first": "Maher Asaad",
+			"name_last": "Baker",
+			"name": "Baker, Maher Asaad",
+			"corresponding": 1,
+			"affiliation": "SOLAV, Damascus, Syria",
+			"roles": ["Conceptualization", "Methodology", "Writing – Original Draft"],
+			"email": "maher@solav.me",
+			"orcid": "0000-0001-8013-6044"
+		}
+		],
+		"keywords": ["Editorial", "Open Access", "Continuous Publication", "Scholarly Publishing", "Academic Integrity"],
+		"abstract": "This editorial marks the launch of SOLAV Journal, an open-access, digital-first scholarly publication operating under a continuous publication model. The article outlines the journal’s vision to reduce barriers to knowledge by establishing a rigorous, inclusive, and ethically grounded platform for the dissemination of high-quality research. It introduces the journal’s scope and fundamental principles, emphasizing academic integrity, transparent peer review, and global accessibility. The editorial situates SOLAV Journal within the evolving landscape of contemporary scholarly communication and affirms its commitment to fostering a shared scholarly common that accelerates discovery and democratizes academic discourse.",
+		"version": [
+		{
+			"date": "2025-02-02",
+			"number": "1"
+		}
+		],
+		"abstract_url": "https://solav.me/a/s2025781101",
+		"download_url": "https://solav.me/p/s2025781101.pdf",
+		"received_date": "2025-02-01",
+		"evaluated_date": "2025-02-01",
+		"peer_reviewed_date": "2025-02-01",
+		"accepted_date": "2025-02-01",
+		"published_date": "2025-02-02",
+		"volume": "1",
+		"pages": "1-2",
+		"citation_count": 0,
+		"date": "2025-02-02",
+		"language": "en",
+		"license": "CC BY 4.0"
+		}
+	]
+}

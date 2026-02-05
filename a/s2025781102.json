@@ -1,0 +1,46 @@
+{
+	"year": "2025",
+	"articles": [
+	{
+		"id": "s2025781102",
+		"type": "Editorial",
+		"title": "Editorial Policies, Peer Review, and Ethical Standards of SOLAV Journal",
+		"status": "published",
+		"authors": [
+		{
+			"id": "00010077",
+			"name_first": "Maher Asaad",
+			"name_last": "Baker",
+			"name": "Baker, Maher Asaad",
+			"corresponding": 1,
+			"affiliation": "SOLAV, Damascus, Syria",
+			"roles": ["Conceptualization", "Methodology", "Writing – Original Draft"],
+			"email": "maher@solav.me",
+			"orcid": "0000-0001-8013-6044"
+		}
+		],
+		"keywords": ["Editorial Governance", "Double Blind Peer Review", "Research Integrity", "Publication Ethics", "Open Access Policy", "Scholarly Accountability"],
+		"abstract": "This document defines the editorial policies, peer review framework, and ethical standards that govern the operations of SOLAV Journal. It outlines our commitment to transparent governance, equitable evaluation, and rigorous scholarly publishing. By clearly articulating our principles of editorial independence, double blind peer review, and adherence to internationally recognized publication ethics, we aim to build trust, ensure accountability, and safeguard research integrity. These policies reflect our dedication to open science and to contributing responsibly to a sustainable and ethical global research ecosystem.",
+		"version": [
+		{
+			"date": "2025-02-04",
+			"number": "1"
+		}
+		],
+		"abstract_url": "https://solav.me/a/s2025781102",
+		"download_url": "https://solav.me/p/s2025781102.pdf",
+		"received_date": "2025-02-01",
+		"evaluated_date": "2025-02-01",
+		"peer_reviewed_date": "2025-02-04",
+		"accepted_date": "2025-02-04",
+		"published_date": "2025-02-04",
+		"volume": "1",
+		"pages": "3-6",
+		"citation_count": 0,
+		"date": "2025-02-04",
+		"language": "en",
+		"license": "CC BY 4.0",
+		"reference": []
+		}
+	]
+}

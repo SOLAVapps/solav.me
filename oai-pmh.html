@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="author" content="SOLAV Journal">
+		<meta name="publisher" content="SOLAV">
+		<meta name="copyright" content="Creative Commons Attribution License (CC BY 4.0)">
+		<meta name="language" content="en, ar">
+		<meta name="robots" content="index, follow">
+		<title>OAI-PMH Repository | SOLAV Journal</title>
+		<meta name="description" content="SOLAV Journal's OAI-PMH 2.0 compliant metadata repository for institutional harvesters, indexing services, and digital libraries.">
+		<meta name="keywords" content="OAI-PMH, metadata harvesting, Dublin Core, scholarly metadata, open archives, SOLAV repository">
+		<link rel="canonical" href="https://solav.me/oai-pmh/">
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="https://solav.me/oai-pmh/">
+		<meta property="og:title" content="OAI-PMH Repository | SOLAV Journal">
+		<meta property="og:description" content="Standardized metadata access for harvesters and indexing services through OAI-PMH protocol.">
+		<meta property="og:image" content="https://solav.me/images/social-preview.jpg">
+		<meta property="twitter:card" content="summary_large_image">
+		<meta property="twitter:url" content="https://solav.me/oai-pmh/">
+		<meta property="twitter:title" content="OAI-PMH Repository | SOLAV Journal">
+		<meta property="twitter:description" content="Standardized metadata access for harvesters and indexing services through OAI-PMH protocol.">
+		<meta property="twitter:image" content="https://solav.me/images/social-preview.jpg">
+		<link rel="icon" type="image/x-icon" href="/images/icon.png">
+		<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+		<link href="/css/swiper.css" rel="stylesheet">
+		<link href="/css/style.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+	</head>
+	<body>
+		<main class="page-wrapper">
+			<header class="header navbar navbar-expand-lg bg-light navbar-sticky py-0">
+				<div class="container px-3">
+					<a href="/" class="navbar-brand pe-3">
+						<img src="/images/logo.svg" class="logo" alt="SOLAV">
+					</a>
+					<div id="navbarNav" class="offcanvas offcanvas-end">
+						<div class="offcanvas-header border-bottom">
+							<h5 class="offcanvas-title">Menu</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+						</div>
+						<div class="offcanvas-body">
+							<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+								<li class="nav-item">
+									<a href="/aims-scope" class="nav-link">Aims &amp; Scope</a>
+								</li>
+								<li class="nav-item">
+									<a href="/guidelines" class="nav-link">Guidelines</a>
+								</li>
+								<li class="nav-item dropdown">
+									<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-current="page">Submit</a>
+									<ul class="dropdown-menu">
+										<li><a href="/submit" class="dropdown-item">Submit</a></li>
+										<li><a href="/track" class="dropdown-item">Track Paper</a></li>
+									</ul>
+								</li>
+								<li class="nav-item dropdown">
+									<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-current="page">Archive</a>
+									<ul class="dropdown-menu">
+										<li><a href="/archive" class="dropdown-item">Archive</a></li>
+										<li><a href="/authors" class="dropdown-item">Authors</a></li>
+									</ul>
+								</li>
+								<li class="nav-item dropdown">
+									<a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" aria-current="page">Policies</a>
+									<ul class="dropdown-menu">
+										<li><a href="/ethics" class="dropdown-item">Publication Ethics</a></li>
+										<li><a href="/apc" class="dropdown-item">Article Processing Charges</a></li>
+										<li><a href="/review" class="dropdown-item">Peer Review Process</a></li>
+										<li><a href="/open-submission" class="dropdown-item">Open Submission Policy</a></li>
+										<li><a href="/access" class="dropdown-item">Open Access & Licensing</a></li>
+										<li><a href="/archiving" class="dropdown-item">Archiving & Management</a></li>
+										<li><a href="/oai-pmh" class="dropdown-item">OAI-PMH Repository</a></li>
+										<li><a href="/oai-pmh" class="dropdown-item active">OAI-PMH Repository</a></li>
+									</ul>
+								</li>
+								<li class="nav-item">
+									<a href="/about" class="nav-link">About</a>
+								</li>
+							</ul>
+						</div>  
+					</div>
+					<div class="form-check form-switch mode-switch pe-lg-1 ms-auto me-4" data-bs-toggle="mode">
+						<input type="checkbox" class="form-check-input" id="theme-mode">
+						<label class="form-check-label" for="theme-mode"><i class="bi bi-sun"></i></span></label>
+						<label class="form-check-label" for="theme-mode"><i class="bi bi-moon-stars"></i></label>
+					</div>
+					<button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+				</div>
+			</header>
+
+			<div class="jarallax mb-lg-5 mb-4 pt-0 card border-0 bg-gradient-primary rounded-0" data-jarallax="" data-speed="0.35" style="height: 16vw; min-height: 200px; background-image: url(/images/main-bg.png);" data-jarallax-original-styles="height: 16vw; min-height: 200px;">
+				<div id="jarallax-container-0" class="jarallax-container" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; overflow: hidden; z-index: -100; clip-path: polygon(0px 0px, 100% 0px, 100% 100%, 0px 100%);">
+					<div class="jarallax-img" style="background-image: url(/images/main-bg.png); object-fit: cover; object-position: 50% 50%; max-width: none; position: fixed; top: 0px; left: 0px; width: 375.2px; height: 538.55px; overflow: hidden; pointer-events: none; transform-style: preserve-3d; backface-visibility: hidden; margin-top: 64.225px; transform: translate3d(0px, -40.425px, 0px);" data-jarallax-original-styles="background-image: url(./imgs/top-bg.jpg);">
+						<div class="position-absolute top-sm-35 start-50 translate-middle centered-text w-100">
+							<h1 class="fw-bold centered-text">OAI-PMH Repository</h1>
+							<h2 class="fs-6 centered-text small px-3">Standardized Metadata Access for Digital Libraries and Indexing Services</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<button class="btn btn-sm btn-primary d-lg-none fixed-bottom end-0 m-0 z-3" data-bs-toggle="offcanvas" data-bs-target="#mobileQuickNav">
+				Quick Navigation
+			</button>
+			<div class="offcanvas offcanvas-start" id="mobileQuickNav">
+				<div class="offcanvas-header border-bottom">
+					<h6>Quick Navigation</h6>
+					<button class="btn-close" data-bs-dismiss="offcanvas"></button>
+				</div>
+				<div class="offcanvas-body"> 
+					<div class="section-nav pt-0 mt-0">
+						<a href="#introduction" class="d-block mb-2 mobile-nav-link"><i class="bi bi-info-circle"></i> Introduction</a>
+						<a href="#base-url" class="d-block mb-2 mobile-nav-link"><i class="bi bi-link"></i> Base URL & Access</a>
+						<a href="#protocol" class="d-block mb-2 mobile-nav-link"><i class="bi bi-cpu"></i> Protocol Implementation</a>
+						<a href="#metadata" class="d-block mb-2 mobile-nav-link"><i class="bi bi-database"></i> Metadata Formats</a>
+						<a href="#scope" class="d-block mb-2 mobile-nav-link"><i class="bi bi-collection"></i> Record Scope</a>
+						<a href="#harvesting" class="d-block mb-2 mobile-nav-link"><i class="bi bi-download"></i> Harvesting Guidelines</a>
+						<a href="#examples" class="d-block mb-2 mobile-nav-link"><i class="bi bi-code-slash"></i> Usage Examples</a>
+						<a href="#compliance" class="d-block mb-2 mobile-nav-link"><i class="bi bi-shield-check"></i> Compliance & Standards</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="container py-4 py-lg-5">
+				<div class="row">
+					<div class="col-lg-3 d-none d-lg-block">
+						<div class="section-nav">
+							<h6 class="mb-3 fw-bold">Navigation</h6>
+							<a href="#introduction"><i class="bi bi-info-circle"></i> Introduction</a>
+							<a href="#base-url"><i class="bi bi-link"></i> Base URL & Access</a>
+							<a href="#protocol"><i class="bi bi-cpu"></i> Protocol Implementation</a>
+							<a href="#metadata"><i class="bi bi-database"></i> Metadata Formats</a>
+							<a href="#scope"><i class="bi bi-collection"></i> Record Scope</a>
+							<a href="#harvesting"><i class="bi bi-download"></i> Harvesting Guidelines</a>
+							<a href="#examples"><i class="bi bi-code-slash"></i> Usage Examples</a>
+							<a href="#compliance"><i class="bi bi-shield-check"></i> Compliance & Standards</a>
+							<a href="#contact"><i class="bi bi-envelope"></i> Technical Contact</a>
+							
+							<h6 class="mt-5 mb-3 fw-bold">Quick Actions</h6>
+							<a href="/oai?verb=Identify" target="_blank" class="d-block mb-2"><i class="bi bi-play-circle"></i> Test Identify</a>
+							<a href="/oai?verb=ListRecords&metadataPrefix=oai_dc" target="_blank" class="d-block mb-2"><i class="bi bi-list-ul"></i> View All Records</a>
+							<a href="https://www.openarchives.org/OAI/openarchivesprotocol.html" target="_blank" class="d-block mb-2"><i class="bi bi-file-text"></i> OAI-PMH Specification</a>
+						</div>
+					</div>
+
+					<div class="col-lg-9">
+						<section id="introduction" class="card p-2 p-lg-3 mb-5 bg-light shadow-lg rounded-3 border border-opacity-10">
+							<div class="card-body">
+								<p class="lead fs-5">
+									SOLAV Journal provides a fully compliant <strong>Open Archives Initiative Protocol for Metadata Harvesting (OAI-PMH) 2.0</strong> repository to facilitate automated metadata exchange with institutional repositories, library catalogs, academic indexing services, and research discovery platforms.
+								</p>
+								<div class="alert alert-primary mt-4" role="alert">
+									<h5 class="alert-heading"><i class="bi bi-lightbulb me-2"></i>Academic Purpose</h5>
+									<p class="mb-0">This service supports the scholarly community by enabling seamless integration of SOLAV Journal's metadata into academic infrastructure systems, enhancing research visibility, and promoting open science principles through standardized interoperability.</p>
+								</div>
+								<div class="alert alert-success mt-4" role="alert">
+									<i class="bi bi-shield-check me-2"></i>The OAI-PMH interface represents SOLAV Journal's commitment to transparency, accessibility, and the broad dissemination of scholarly knowledge through machine-readable metadata exchange.
+								</div>
+							</div>
+						</section>
+
+						<section id="base-url" class="mb-5">
+							<h2 class="h1 mb-4">Base URL & Protocol Access</h2>
+							
+							<div class="card bg-light shadow-lg rounded-3 border border-opacity-10">
+								<div class="card-body p-4">
+									<h3 class="h4 mb-3"><i class="bi bi-link-45deg text-primary me-2"></i>Service Endpoint</h3>
+									<div class="alert alert-info" role="alert">
+										<h5 class="alert-heading">Primary OAI-PMH Base URL</h5>
+										<p class="mb-0 fs-5"><code>https://solav.me/oai</code></p>
+									</div>
+									
+									<h4 class="h5 mt-4 mb-3">Access Method</h4>
+									<div class="row g-4">
+										<div class="col-md-6">
+											<div class="border rounded-3 p-3 h-100">
+												<h5 class="mb-3"><i class="bi bi-http text-success me-2"></i>HTTP GET Requests</h5>
+												<p>All OAI-PMH requests are made via standard HTTP GET with query parameters:</p>
+												<pre class="bg-dark text-light p-3 rounded">GET /oai?verb=Identify&metadataPrefix=oai_dc</pre>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="border rounded-3 p-3 h-100">
+												<h5 class="mb-3"><i class="bi bi-filetype-xml text-warning me-2"></i>Response Format</h5>
+												<p>All responses are returned as well-formed XML conforming to OAI-PMH 2.0 schema:</p>
+												<pre class="bg-dark text-light p-3 rounded">Content-Type: text/xml; charset=utf-8</pre>
+											</div>
+										</div>
+									</div>
+									
+									<div class="alert alert-warning mt-4" role="alert">
+										<h5 class="alert-heading"><i class="bi bi-exclamation-triangle me-2"></i>Rate Limiting Policy</h5>
+										<p class="mb-0">To ensure equitable access, harvesters should implement polite harvesting practices: maximum 1 request per second, with appropriate user-agent identification in HTTP headers. Aggressive harvesting may result in temporary access restrictions.</p>
+									</div>
+								</div>
+							</div>
+						</section>
+
+						<section id="protocol" class="mb-5">
+							<h2 class="h1 mb-4">Protocol Implementation</h2>
+							
+							<div class="card bg-light shadow-lg rounded-3 border border-opacity-10">
+								<div class="card-body p-4">
+									<h3 class="h4 mb-3"><i class="bi bi-diagram-3 text-primary me-2"></i>Supported OAI-PMH Verbs</h3>
+									<p>SOLAV Journal implements all six mandatory OAI-PMH verbs as specified in the protocol version 2.0:</p>
+									
+									<div class="row g-4 mt-3">
+										<div class="col-md-6">
+											<div class="text-center p-3 border rounded-3 h-100">
+												<div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex justify-content-center align-items-center mb-3" style="width: 50px; height: 50px;">
+													<i class="bi bi-info-lg text-primary"></i>
+												</div>
+												<h4 class="h5">Identify</h4>
+												<p class="mb-0 small">Retrieve repository identification information, policies, and administrative details.</p>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="text-center p-3 border rounded-3 h-100">
+												<div class="bg-success bg-opacity-10 rounded-circle d-inline-flex justify-content-center align-items-center mb-3" style="width: 50px; height: 50px;">
+													<i class="bi bi-list-check text-success"></i>
+												</div>
+												<h4 class="h5">ListMetadataFormats</h4>
+												<p class="mb-0 small">List metadata formats supported by the repository for specific items.</p>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="text-center p-3 border rounded-3 h-100">
+												<div class="bg-info bg-opacity-10 rounded-circle d-inline-flex justify-content-center align-items-center mb-3" style="width: 50px; height: 50px;">
+													<i class="bi bi-collection text-info"></i>
+												</div>
+												<h4 class="h5">ListSets</h4>
+												<p class="mb-0 small">Retrieve the set structure of the repository for selective harvesting.</p>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="text-center p-3 border rounded-3 h-100">
+												<div class="bg-warning bg-opacity-10 rounded-circle d-inline-flex justify-content-center align-items-center mb-3" style="width: 50px; height: 50px;">
+													<i class="bi bi-hash text-warning"></i>
+												</div>
+												<h4 class="h5">ListIdentifiers</h4>
+												<p class="mb-0 small">Retrieve identifiers of records matching specified criteria without full metadata.</p>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="text-center p-3 border rounded-3 h-100">
+												<div class="bg-danger bg-opacity-10 rounded-circle d-inline-flex justify-content-center align-items-center mb-3" style="width: 50px; height: 50px;">
+													<i class="bi bi-file-earmark-text text-danger"></i>
+												</div>
+												<h4 class="h5">ListRecords</h4>
+												<p class="mb-0 small">Harvest complete records with metadata matching specified criteria.</p>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="text-center p-3 border rounded-3 h-100">
+												<div class="bg-secondary bg-opacity-10 rounded-circle d-inline-flex justify-content-center align-items-center mb-3" style="width: 50px; height: 50px;">
+													<i class="bi bi-search text-primary"></i>
+												</div>
+												<h4 class="h5">GetRecord</h4>
+												<p class="mb-0 small">Retrieve a single record with its metadata using a unique identifier.</p>
+											</div>
+										</div>
+									</div>
+									
+									<h4 class="h5 mt-5 mb-3">Granularity and Datestamps</h4>
+									<div class="row g-4">
+										<div class="col-md-6">
+											<div class="border-start border-3 border-primary ps-3">
+												<h5 class="mb-2">Datestamp Granularity</h5>
+												<p class="mb-0"><strong>YYYY-MM-DD</strong> (daily granularity). All datestamps reflect UTC timezone.</p>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="border-start border-3 border-success ps-3">
+												<h5 class="mb-2">Deleted Records Policy</h5>
+												<p class="mb-0"><strong>no</strong> - SOLAV Journal does not delete published records; all metadata remains permanently available.</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+
+						<section id="metadata" class="mb-5">
+							<h2 class="h1 mb-4">Metadata Formats</h2>
+							
+							<div class="card bg-light shadow-lg rounded-3 border border-opacity-10">
+								<div class="card-body p-4">
+									<p class="lead mb-4">SOLAV Journal provides metadata in standardized formats to ensure interoperability with academic systems worldwide:</p>
+									
+									<div class="card mb-4 border-primary">
+										<div class="card-header bg-primary bg-opacity-10 p-0 m-0 w-100">
+											<h4 class="h3 mb-0 p-4 "><i class="bi bi-tags text-primary me-2"></i>oai_dc (Dublin Core)</h4>
+										</div>
+										<div class="card-body">
+											<p>The primary metadata format, implementing the <strong>Dublin Core Metadata Element Set, Version 1.1</strong> as specified in the OAI-PMH protocol.</p>
+											
+											<h5 class="mt-4 mb-3">Schema Information:</h5>
+											<table class="table table-bordered">
+												<tr>
+													<th>Metadata Prefix</th>
+													<td><code>oai_dc</code></td>
+												</tr>
+												<tr>
+													<th>XML Schema</th>
+													<td><code>http://www.openarchives.org/OAI/2.0/oai_dc.xsd</code></td>
+												</tr>
+												<tr>
+													<th>Namespace</th>
+													<td><code>http://www.openarchives.org/OAI/2.0/oai_dc/</code></td>
+												</tr>
+												<tr>
+													<th>Dublin Core Elements Used</th>
+													<td>15 mandatory and optional elements as per DCMES</td>
+												</tr>
+											</table>
+											
+											<h5 class="mt-4 mb-3">Dublin Core Mapping:</h5>
+											<div class="row g-3">
+												<div class="col-md-6">
+													<ul class="list-group">
+														<li class="list-group-item d-flex justify-content-between align-items-center">
+															dc:title
+															<span class="badge bg-primary rounded-pill">Mandatory</span>
+														</li>
+														<li class="list-group-item d-flex justify-content-between align-items-center">
+															dc:creator
+															<span class="badge bg-primary rounded-pill">Mandatory</span>
+														</li>
+														<li class="list-group-item d-flex justify-content-between align-items-center">
+															dc:subject
+															<span class="badge bg-success rounded-pill">Optional</span>
+														</li>
+														<li class="list-group-item d-flex justify-content-between align-items-center">
+															dc:description
+															<span class="badge bg-primary rounded-pill">Mandatory</span>
+														</li>
+														<li class="list-group-item d-flex justify-content-between align-items-center">
+															dc:publisher
+															<span class="badge bg-primary rounded-pill">Mandatory</span>
+														</li>
+													</ul>
+												</div>
+												<div class="col-md-6">
+													<ul class="list-group">
+														<li class="list-group-item d-flex justify-content-between align-items-center">
+															dc:date
+															<span class="badge bg-primary rounded-pill">Mandatory</span>
+														</li>
+														<li class="list-group-item d-flex justify-content-between align-items-center">
+															dc:type
+															<span class="badge bg-primary rounded-pill">Mandatory</span>
+														</li>
+														<li class="list-group-item d-flex justify-content-between align-items-center">
+															dc:identifier
+															<span class="badge bg-primary rounded-pill">Mandatory</span>
+														</li>
+														<li class="list-group-item d-flex justify-content-between align-items-center">
+															dc:language
+															<span class="badge bg-primary rounded-pill">Mandatory</span>
+														</li>
+														<li class="list-group-item d-flex justify-content-between align-items-center">
+															dc:rights
+															<span class="badge bg-primary rounded-pill">Mandatory</span>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+									
+									<div class="alert alert-info" role="alert">
+										<h5 class="alert-heading"><i class="bi bi-arrow-up-right-circle me-2"></i>Future Metadata Formats</h5>
+										<p class="mb-0">SOLAV Journal is committed to expanding metadata support. Planned future formats include <strong>MODS</strong> (Metadata Object Description Schema) and <strong>JATS</strong> (Journal Article Tag Suite) for enhanced bibliographic description.</p>
+									</div>
+								</div>
+							</div>
+						</section>
+
+						<section id="scope" class="mb-5">
+							<h2 class="h1 mb-4">Record Scope and Content</h2>
+							
+							<div class="card bg-light shadow-lg rounded-3 border border-opacity-10">
+								<div class="card-body p-4">
+									<h3 class="h4 mb-3"><i class="bi bi-journal-text text-primary me-2"></i>Included Publication Types</h3>
+									<p>The OAI-PMH repository includes metadata for all scholarly content published by SOLAV Journal:</p>
+									
+									<div class="row g-4">
+										<div class="col-md-4">
+											<div class="text-center p-3 border rounded-3 h-100">
+												<div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex justify-content-center align-items-center mb-3" style="width: 60px; height: 60px;">
+													<i class="bi bi-file-earmark-text text-primary fs-4"></i>
+												</div>
+												<h4 class="h5">Research Articles</h4>
+												<p class="mb-0 small">Original empirical and theoretical research with full methodological detail.</p>
+											</div>
+										</div>
+										<div class="col-md-4">
+											<div class="text-center p-3 border rounded-3 h-100">
+												<div class="bg-success bg-opacity-10 rounded-circle d-inline-flex justify-content-center align-items-center mb-3" style="width: 60px; height: 60px;">
+													<i class="bi bi-book text-success fs-4"></i>
+												</div>
+												<h4 class="h5">Review Articles</h4>
+												<p class="mb-0 small">Comprehensive syntheses of existing literature within specific domains.</p>
+											</div>
+										</div>
+										<div class="col-md-4">
+											<div class="text-center p-3 border rounded-3 h-100">
+												<div class="bg-info bg-opacity-10 rounded-circle d-inline-flex justify-content-center align-items-center mb-3" style="width: 60px; height: 60px;">
+													<i class="bi bi-pencil-square text-info fs-4"></i>
+												</div>
+												<h4 class="h5">Editorials</h4>
+												<p class="mb-0 small">Journal announcements, policy statements, and introductory commentaries.</p>
+											</div>
+										</div>
+									</div>
+									
+									<h4 class="h5 mt-5 mb-3">Metadata Record Structure</h4>
+									<p>Each OAI-PMH record includes:</p>
+									<ul>
+										<li><strong>Header:</strong> Unique identifier, datestamp, and set membership</li>
+										<li><strong>Metadata:</strong> Dublin Core descriptive elements</li>
+										<li><strong>Identifier Scheme:</strong> <code>oai:solav.me:[article_id]</code></li>
+										<li><strong>Persistent URLs:</strong> Links to abstract and full-text PDF</li>
+										<li><strong>Rights Statement:</strong> CC BY 4.0 license declaration</li>
+									</ul>
+									
+									<div class="alert alert-warning mt-4" role="alert">
+										<h5 class="alert-heading"><i class="bi bi-clock-history me-2"></i>Temporal Coverage</h5>
+										<p class="mb-0">The repository contains metadata for all articles published since the journal's inception (February 2025). Records are available immediately upon publication under our continuous publication model.</p>
+									</div>
+								</div>
+							</div>
+						</section>
+
+						<section id="harvesting" class="mb-5">
+							<h2 class="h1 mb-4">Harvesting Guidelines</h2>
+							
+							<div class="card bg-light shadow-lg rounded-3 border border-opacity-10">
+								<div class="card-body p-4">
+									<h3 class="h4 mb-3"><i class="bi bi-download text-primary me-2"></i>Recommended Harvesting Practices</h3>
+									
+									<div class="row g-4">
+										<div class="col-md-6">
+											<div class="border-start border-3 border-primary ps-3">
+												<h5 class="mb-3"><i class="bi bi-calendar-check text-primary me-2"></i>Initial Harvest</h5>
+												<p>For first-time harvesting, use incremental approach with datestamp ranges:</p>
+												<pre class="bg-dark text-light p-2 rounded">?verb=ListRecords&metadataPrefix=oai_dc&from=2025-02-01</pre>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="border-start border-3 border-success ps-3">
+												<h5 class="mb-3"><i class="bi bi-arrow-clockwise text-success me-2"></i>Incremental Updates</h5>
+												<p>For regular updates, use datestamp of last successful harvest:</p>
+												<pre class="bg-dark text-light p-2 rounded">?verb=ListRecords&metadataPrefix=oai_dc&from=2025-06-01</pre>
+											</div>
+										</div>
+									</div>
+									
+									<h4 class="h5 mt-4 mb-3">Set Structure for Selective Harvesting</h4>
+									<p>SOLAV Journal implements hierarchical set structure for content organization:</p>
+									
+									<div class="table-responsive">
+										<table class="table table-hover">
+											<thead>
+												<tr>
+													<th>Set Specification</th>
+													<th>Set Name</th>
+													<th>Description</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td><code>year:2025</code></td>
+													<td>2025 Publications</td>
+													<td>All articles published in calendar year 2025</td>
+												</tr>
+												<tr>
+													<td><code>type:research</code></td>
+													<td>Research Articles</td>
+													<td>Original research contributions</td>
+												</tr>
+												<tr>
+													<td><code>type:editorial</code></td>
+													<td>Editorials</td>
+													<td>Journal announcements and commentary</td>
+												</tr>
+												<tr>
+													<td><code>language:en</code></td>
+													<td>English Language</td>
+													<td>Articles published in English</td>
+												</tr>
+												<tr>
+													<td><code>language:ar</code></td>
+													<td>Arabic Language</td>
+													<td>Articles published in Arabic</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									
+									<div class="alert alert-info mt-4" role="alert">
+										<h5 class="alert-heading"><i class="bi bi-gear me-2"></i>Technical Recommendations</h5>
+										<ul class="mb-0">
+											<li>Implement exponential backoff for error handling</li>
+											<li>Set appropriate HTTP timeout values (minimum 30 seconds)</li>
+											<li>Validate XML against OAI-PMH schema during processing</li>
+											<li>Include informative User-Agent header with contact information</li>
+											<li>Respect <code>503 Retry-After</code> headers if provided</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</section>
+
+						<section id="examples" class="mb-5">
+							<h2 class="h1 mb-4">Usage Examples</h2>
+							
+							<div class="card bg-light shadow-lg rounded-3 border border-opacity-10">
+								<div class="card-body p-4">
+									<h3 class="h4 mb-3"><i class="bi bi-terminal text-primary me-2"></i>Example Requests and Responses</h3>
+									
+									<div class="accordion" id="examplesAccordion">
+										<div class="accordion-item">
+											<h2 class="accordion-header">
+												<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#example1">
+													Identify the Repository
+												</button>
+											</h2>
+											<div id="example1" class="accordion-collapse collapse show" data-bs-parent="#examplesAccordion">
+												<div class="accordion-body">
+													<p><strong>Request:</strong></p>
+													<pre class="bg-dark text-light p-3 rounded">GET /oai?verb=Identify</pre>
+													
+													<p><strong>Response (simplified):</strong></p>
+													<pre class="bg-dark text-light p-3 rounded">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/"&gt;
+&lt;responseDate&gt;2025-06-15T10:30:00Z&lt;/responseDate&gt;
+&lt;request verb="Identify"&gt;https://solav.me/oai&lt;/request&gt;
+&lt;Identify&gt;
+	&lt;repositoryName&gt;SOLAV Journal&lt;/repositoryName&gt;
+	&lt;baseURL&gt;https://solav.me/oai&lt;/baseURL&gt;
+	&lt;protocolVersion&gt;2.0&lt;/protocolVersion&gt;
+	&lt;adminEmail&gt;contact@solav.me&lt;/adminEmail&gt;
+	&lt;earliestDatestamp&gt;2025-02-02&lt;/earliestDatestamp&gt;
+	&lt;deletedRecord&gt;no&lt;/deletedRecord&gt;
+	&lt;granularity&gt;YYYY-MM-DD&lt;/granularity&gt;
+&lt;/Identify&gt;
+&lt;/OAI-PMH&gt;</pre>
+												</div>
+											</div>
+										</div>
+										
+										<div class="accordion-item">
+											<h2 class="accordion-header">
+												<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#example2">
+													List Recent Records
+												</button>
+											</h2>
+											<div id="example2" class="accordion-collapse collapse" data-bs-parent="#examplesAccordion">
+												<div class="accordion-body">
+													<p><strong>Request:</strong></p>
+													<pre class="bg-dark text-light p-3 rounded">GET /oai?verb=ListRecords&metadataPrefix=oai_dc&from=2025-05-01</pre>
+													
+													<p><strong>Response snippet:</strong></p>
+													<pre class="bg-dark text-light p-3 rounded">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/"&gt;
+&lt;responseDate&gt;2025-06-15T10:30:00Z&lt;/responseDate&gt;
+&lt;request verb="ListRecords" metadataPrefix="oai_dc" from="2025-05-01"&gt;
+	https://solav.me/oai
+&lt;/request&gt;
+&lt;ListRecords&gt;
+	&lt;record&gt;
+	&lt;header&gt;
+		&lt;identifier&gt;oai:solav.me:s2025781107&lt;/identifier&gt;
+		&lt;datestamp&gt;2025-06-06&lt;/datestamp&gt;
+		&lt;setSpec&gt;year:2025&lt;/setSpec&gt;
+		&lt;setSpec&gt;type:research&lt;/setSpec&gt;
+	&lt;/header&gt;
+	&lt;metadata&gt;
+		&lt;oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"&gt;
+		&lt;dc:title&gt;Continuous Publication in Online Scholarly Journals...&lt;/dc:title&gt;
+		&lt;dc:creator&gt;Khalil, Rizq&lt;/dc:creator&gt;
+		&lt;dc:subject&gt;Continuous Publication&lt;/dc:subject&gt;
+		&lt;dc:description&gt;The digital paradigm in scholarly publishing...&lt;/dc:description&gt;
+		&lt;dc:date&gt;2025-06-06&lt;/dc:date&gt;
+		&lt;dc:type&gt;Research Article&lt;/dc:type&gt;
+		&lt;dc:identifier&gt;https://solav.me/a/s2025781107&lt;/dc:identifier&gt;
+		&lt;dc:identifier&gt;https://solav.me/p/s2025781107.pdf&lt;/dc:identifier&gt;
+		&lt;dc:language&gt;en&lt;/dc:language&gt;
+		&lt;dc:publisher&gt;SOLAV Journal&lt;/dc:publisher&gt;
+		&lt;dc:rights&gt;Creative Commons Attribution 4.0 International License&lt;/dc:rights&gt;
+		&lt;/oai_dc:dc&gt;
+	&lt;/metadata&gt;
+	&lt;/record&gt;
+&lt;/ListRecords&gt;
+&lt;/OAI-PMH&gt;</pre>
+												</div>
+											</div>
+										</div>
+										
+										<div class="accordion-item">
+											<h2 class="accordion-header">
+												<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#example3">
+													Retrieve Specific Record
+												</button>
+											</h2>
+											<div id="example3" class="accordion-collapse collapse" data-bs-parent="#examplesAccordion">
+												<div class="accordion-body">
+													<p><strong>Request:</strong></p>
+													<pre class="bg-dark text-light p-3 rounded">GET /oai?verb=GetRecord&identifier=oai:solav.me:s2025781101&metadataPrefix=oai_dc</pre>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+
+						<section id="compliance" class="mb-5">
+							<h2 class="h1 mb-4">Compliance & Standards</h2>
+							
+							<div class="card bg-light shadow-lg rounded-3 border border-opacity-10">
+								<div class="card-body p-4">
+									<h3 class="h4 mb-3"><i class="bi bi-award text-primary me-2"></i>Protocol Compliance</h3>
+									<p>SOLAV Journal's OAI-PMH implementation fully complies with:</p>
+									
+									<div class="row g-4">
+										<div class="col-md-4">
+											<div class="text-center p-3 border rounded-3 h-100">
+												<div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex justify-content-center align-items-center mb-3" style="width: 50px; height: 50px;">
+													<i class="bi bi-file-check text-primary"></i>
+												</div>
+												<h5 class="h6">OAI-PMH 2.0</h5>
+												<p class="small mb-0">Full implementation of all mandatory verbs and features</p>
+											</div>
+										</div>
+										<div class="col-md-4">
+											<div class="text-center p-3 border rounded-3 h-100">
+												<div class="bg-success bg-opacity-10 rounded-circle d-inline-flex justify-content-center align-items-center mb-3" style="width: 50px; height: 50px;">
+													<i class="bi bi-file-earmark-text text-success"></i>
+												</div>
+												<h5 class="h6">Dublin Core</h5>
+												<p class="small mb-0">DCMI Metadata Terms 1.1 implementation</p>
+											</div>
+										</div>
+										<div class="col-md-4">
+											<div class="text-center p-3 border rounded-3 h-100">
+												<div class="bg-info bg-opacity-10 rounded-circle d-inline-flex justify-content-center align-items-center mb-3" style="width: 50px; height: 50px;">
+													<i class="bi bi-globe text-info"></i>
+												</div>
+												<h5 class="h6">OpenURL</h5>
+												<p class="small mb-0">ContextObject implementation for linking</p>
+											</div>
+										</div>
+									</div>
+									
+									<h4 class="h5 mt-5 mb-3">Persistent Identifiers</h4>
+									<div class="row g-4">
+										<div class="col-md-6">
+											<div class="border-start border-3 border-primary ps-3">
+												<h5 class="mb-2">OAI Identifier Format</h5>
+												<p class="mb-0"><code>oai:solav.me:[article_id]</code><br>
+												Example: <code>oai:solav.me:s2025781101</code></p>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="border-start border-3 border-success ps-3">
+												<h5 class="mb-2">Additional Identifiers</h5>
+												<p class="mb-0">Each record includes persistent URLs for abstract and PDF, with embedded metadata for Open Graph and Schema.org compatibility.</p>
+											</div>
+										</div>
+									</div>
+									
+									<div class="alert alert-info mt-4" role="alert">
+										<h5 class="alert-heading"><i class="bi bi-shield-check me-2"></i>Validation and Testing</h5>
+										<p class="mb-0">The OAI-PMH endpoint has been validated with the <a href="https://www.openarchives.org/Register/ValidateSite" class="alert-link">OAI-PMH Validator</a> and tested with major harvesting tools including DSpace, OAI Harvester 2, and custom harvesting scripts. Regular compliance checks are performed to ensure ongoing protocol adherence.</p>
+									</div>
+								</div>
+							</div>
+						</section>
+
+						<section id="contact" class="card border-primary border-2 p-4 mb-5">
+							<div class="card-body text-center">
+								<h3 class="h4 mb-3"><i class="bi bi-envelope text-primary me-2"></i>Technical Contact</h3>
+								<p class="mb-4">For questions about metadata harvesting, technical integration, or protocol implementation, please contact our technical team:</p>
+								<div class="d-flex flex-wrap justify-content-center gap-3">
+									<a href="mailto:tech@solav.me" class="btn btn-lg btn-outline-primary rounded-pill">Technical Support</a>
+									<a href="mailto:metadata@solav.me" class="btn btn-lg btn-outline-primary rounded-pill">Metadata Queries</a>
+									<a href="mailto:integration@solav.me" class="btn btn-lg btn-outline-primary rounded-pill">Integration Support</a>
+								</div>
+							</div>
+						</section>
+
+						<section class="text-center py-5 border-top">
+							<h3 class="h2 mb-4">Ready to Harvest Our Metadata?</h3>
+							<p class="fs-5 mb-4 col-lg-8 mx-auto">Begin integrating SOLAV Journal's scholarly metadata into your repository, discovery system, or research platform today.</p>
+							<a href="/oai?verb=Identify" target="_blank" class="btn btn-lg btn-primary rounded-pill"><i class="bi bi-play-circle me-2"></i>Test the Endpoint</a>
+							<a href="https://www.openarchives.org/OAI/openarchivesprotocol.html" target="_blank" class="btn btn-lg btn-outline-primary rounded-pill"><i class="bi bi-file-text me-2"></i>Protocol Specification</a>
+						</section>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-12 d-flex justify-content-evenly mb-3 border-top mt-3 pt-3">
+				<img src="/images/creative_commons_license_with_attribution.svg" alt="CC BY 4.0" class="img-fluid" style="max-height: 46px;">
+				<img src="/images/open_access.svg" alt="Open Access" class="img-fluid" style="max-height: 46px;">
+				<img src="/images/oai_logo.svg" alt="OAI-PMH Compliant" class="img-fluid" style="max-height: 46px;">
+			</div>
+		</main>
+		<a href="#top" class="btn-scroll-top" data-scroll="">
+			<i class="btn-scroll-top-icon bi bi-chevron-up"></i>
+		</a>
+		<footer class="footer border-top bg-primary-subtle">
+			<div class="container py-5">
+				<div class="row g-4">
+					<div class="col-lg-4">
+						<p class="mb-3">
+							SOLAV Journal is an open access, peer-reviewed journal publishing interdisciplinary applied research with real-world impact.
+							<br><span class="font-sm"><strong>Publication Frequency:</strong> Continuous publication.</span>
+							<br><span class="font-sm"><strong>Editor-In-Chief:</strong> Maher Asaad Baker</span>
+						</p>
+						<div class="issn-container">
+							<img src="/images/issn_logo.svg" alt="ISSN" class="issn-logo">
+							<span class="issn-text">ISSN request pending</span>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-4">
+						<h5 class="mb-3 fw-bold">Quick Links</h5>
+						<ul class="list-unstyled">
+							<li class="mb-2"><a href="/aims-scope" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Aims & Scope</a></li>
+							<li class="mb-2"><a href="/guidelines" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Author Guidelines</a></li>
+							<li class="mb-2"><a href="/submit" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Submit Manuscript</a></li>
+							<li class="mb-2"><a href="/archive" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Article Archive</a></li>
+							<li class="mb-2"><a href="/about" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">About the Journal</a></li>
+						</ul>
+					</div>
+					<div class="col-lg-3 col-md-4">
+						<h5 class="mb-3 fw-bold">Policies</h5>
+						<ul class="list-unstyled">
+							<li class="mb-2"><a href="/ethics" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Publication Ethics</a></li>
+							<li class="mb-2"><a href="/apc" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Article Processing Charges</a></li>
+							<li class="mb-2"><a href="/review" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Peer Review Process</a></li>
+							<li class="mb-2"><a href="/access" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Open Access & Licensing</a></li>
+							<li class="mb-2"><a href="/archiving" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Archiving & Management</a></li>
+						</ul>
+					</div>
+					<div class="col-lg-3 col-md-4">
+						<h5 class="mb-3 fw-bold">Contact & Support</h5>
+						<ul class="list-unstyled">
+							<li class="mb-2">
+								<i class="bi bi-envelope me-2 text-primary"></i>
+								<a href="mailto:contact@solav.me" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">General Inquiries</a>
+							</li>
+							<li class="mb-2">
+								<i class="bi bi-question-circle me-2 text-primary"></i>
+								<a href="mailto:support@solav.me" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Technical Support</a>
+							</li>
+							<li class="mb-2">
+								<i class="bi bi-shield-check me-2 text-primary"></i>
+								<a href="mailto:ethics@solav.me" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Ethics Concerns</a>
+							</li>
+							<li class="mb-2">
+								<i class="bi bi-currency-exchange me-2 text-primary"></i>
+								<a href="mailto:apc@solav.me" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">APC & Payments</a>
+							</li>
+							<li class="mb-2">
+								<i class="bi bi-people me-2 text-primary"></i>
+								<a href="mailto:editorial@solav.me" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Editorial Board</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="row pt-2 border-top">
+					<div class="col-md-6">
+						<p class="mb-0 h-100">
+							<strong>Your privacy matters</strong>. We use cookies to enhance your visit and analyze site traffic. By continuing to browse, you agree to our use of cookies.
+							<br>&copy; <span id="currentYear"></span> SOLAV Journal. This is an open access journal distributed under the 
+							<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Creative Commons Attribution License (CC BY 4.0)</a>.
+						</p>
+					</div>
+					<div class="col-md-6 text-md-end">
+						<ul class="list-inline mb-0 h-100 d-flex align-items-end justify-content-lg-end">
+							<li class="list-inline-item"><a href="/privacy" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Privacy Policy</a></li>
+							<li class="list-inline-item">·</li>
+							<li class="list-inline-item"><a href="/tou" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Terms of Use</a></li>
+							<li class="list-inline-item">·</li>
+							<li class="list-inline-item"><a href="/accessibility" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Accessibility</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<div class="modal fade" id="citationModal" tabindex="-1" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title"><i class="bi bi-quote me-2"></i>Citation</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+					</div>
+					<div class="modal-body">
+						<div class="mb-3">
+							<label class="form-label">APA Format</label>
+							<div id="apaCitation" class="citation-box border border-opacity-10">Rizq, Khalil (2025). Continuous Publication in Online Scholarly Journals: Opportunities, Challenges, and Editorial Implications. SOLAV Journal, 1-2. https://solav.me/a/s2025781107</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button id="copyApaBtn" class="btn btn-primary">
+							<i class="bi bi-clipboard me-1"></i> Copy APA
+						</button>
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+							Close
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="/js/jarallax.js"></script>
+		<script src="/js/swiper.js"></script>
+		<script src="/js/js.js"></script>
+		<script>
+
+			document.addEventListener('DOMContentLoaded', function() {
+				document.getElementById('currentYear').textContent = new Date().getFullYear();
+				const copyApaBtn = document.getElementById('copyApaBtn');
+
+				if (copyApaBtn) {
+					copyApaBtn.addEventListener('click', function() {
+						const apaText = document.getElementById('apaCitation')?.textContent;
+						
+						if (apaText) {
+							if (navigator.clipboard && navigator.clipboard.writeText) {
+								navigator.clipboard.writeText(apaText).then(() => {
+									updateButtonState(this);
+								}).catch(err => {
+									console.error('Modern copy failed', err);
+								});
+							} else {
+								const textArea = document.createElement("textarea");
+								textArea.value = apaText;
+								document.body.appendChild(textArea);
+								textArea.select();
+								try {
+									document.execCommand('copy');
+									updateButtonState(this);
+								} catch (err) {
+									console.error('Fallback copy failed', err);
+								}
+								document.body.removeChild(textArea);
+							}
+						}
+					});
+				}
+
+				function updateButtonState(btn) {
+					const original = btn.innerHTML;
+					btn.innerHTML = '<i class="bi bi-check me-1"></i> Copied!';
+					setTimeout(() => {
+						btn.innerHTML = original;
+					}, 2000);
+				}
+
+				(() => {
+					'use strict';
+					const getStoredTheme = () => localStorage.getItem('theme');
+					const setStoredTheme = theme => localStorage.setItem('theme', theme);
+					const getPreferredTheme = () => {
+						const storedTheme = getStoredTheme();
+						if (storedTheme) {
+							return storedTheme;
+						}
+						return 'light';
+					};
+					const setTheme = theme => {
+						if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+							document.documentElement.setAttribute('data-bs-theme', 'dark');
+						} else {
+							document.documentElement.setAttribute('data-bs-theme', theme);
+						}
+					};
+					const updateLogos = theme => {
+						const logos = document.querySelectorAll('.logo');
+						logos.forEach(logo => {
+							logo.src = theme === 'dark' ? '/images/logo-white.svg' : '/images/logo-black.svg';
+						});
+					};
+					setTheme(getPreferredTheme());
+					const showActiveTheme = theme => {
+						const themeSwitcher = document.querySelector('[data-bs-toggle="mode"]');
+						if (!themeSwitcher) return;
+						const themeSwitcherCheck = themeSwitcher.querySelector('input[type="checkbox"]');
+						if (theme === 'dark') {
+							themeSwitcherCheck.checked = true;
+						} else {
+							themeSwitcherCheck.checked = false;
+						}
+						updateLogos(theme);
+					};
+					window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+						const storedTheme = getStoredTheme();
+						if (storedTheme !== 'light' && storedTheme !== 'dark') {
+							const newTheme = getPreferredTheme();
+							setTheme(newTheme);
+							showActiveTheme(newTheme);
+						}
+					});
+					window.addEventListener('DOMContentLoaded', () => {
+						showActiveTheme(getPreferredTheme());
+						document.querySelectorAll('[data-bs-toggle="mode"]').forEach(toggle => {
+							toggle.addEventListener('click', () => {
+								const themeSwitcherCheck = toggle.querySelector('input[type="checkbox"]');
+								const theme = themeSwitcherCheck.checked ? 'dark' : 'light';
+								setStoredTheme(theme);
+								setTheme(theme);
+								showActiveTheme(theme);
+							});
+						});
+					});
+				})();
+			});
+		</script>
+	</body>
+</html>

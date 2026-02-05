@@ -1,0 +1,46 @@
+{
+	"year": "2025",
+	"articles": [
+	{
+		"id": "s2025781101",
+		"type": "Editorial",
+		"title": "Launching SOLAV Journal: Vision, Scope, and Commitment to Scholarly Excellence",
+		"status": "published",
+		"authors": [
+		{
+			"id": "00010077",
+			"name_first": "Maher Asaad",
+			"name_last": "Baker",
+			"name": "Baker, Maher Asaad",
+			"corresponding": 1,
+			"affiliation": "SOLAV, Damascus, Syria",
+			"roles": ["Conceptualization", "Methodology", "Writing – Original Draft"],
+			"email": "maher@solav.me",
+			"orcid": "0000-0001-8013-6044"
+		}
+		],
+		"keywords": ["Editorial", "Open Access", "Continuous Publication", "Scholarly Publishing", "Academic Integrity"],
+		"abstract": "This editorial marks the launch of SOLAV Journal, an open-access, digital-first scholarly publication operating under a continuous publication model. The article outlines the journal’s vision to reduce barriers to knowledge by establishing a rigorous, inclusive, and ethically grounded platform for the dissemination of high-quality research. It introduces the journal’s scope and fundamental principles, emphasizing academic integrity, transparent peer review, and global accessibility. The editorial situates SOLAV Journal within the evolving landscape of contemporary scholarly communication and affirms its commitment to fostering a shared scholarly common that accelerates discovery and democratizes academic discourse.",
+		"version": [
+		{
+			"date": "2025-02-02",
+			"number": "1"
+		}
+		],
+		"abstract_url": "https://solav.me/a/s2025781101",
+		"download_url": "https://solav.me/p/s2025781101.pdf",
+		"received_date": "2025-02-01",
+		"evaluated_date": "2025-02-01",
+		"peer_reviewed_date": "2025-02-01",
+		"accepted_date": "2025-02-01",
+		"published_date": "2025-02-02",
+		"volume": "1",
+		"pages": "1-2",
+		"citation_count": 0,
+		"date": "2025-02-02",
+		"language": "en",
+		"license": "CC BY 4.0",
+		"reference": []
+	}
+	]
+}

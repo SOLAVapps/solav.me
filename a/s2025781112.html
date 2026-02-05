@@ -1,0 +1,545 @@
+
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Mitigating Hallucination in Small Language Models via Contrastive Chain-of-Thought Fine-Tuning | SOLAV Journal</title>
+		<meta name="description" content="Small Language Models (SLMs), typically comprising fewer than 3 billion parameters, offer efficient deployment for edge computing but are susceptible to reasoning hallucinations: they generate plausible but logically unsound multi-step solutions. While Chain-of-Thought (CoT) prompting enhances reasoning in larger models, SLMs often lack the capacity to maintain coherent reasoning chains. This paper introduces Contrastive Chain-of-Thought (CCoT) Fine-Tuning, a novel parameter-efficient training method that pairs correct reasoning paths with explicitly labeled logical fallacies during fine-tuning. Using Low-Rank Adaptation (LoRA) on the Phi-2 model, we show that exposing SLMs to curated negative reasoning examples sharpens their decision boundaries between valid and hallucinatory logic. Comprehensive evaluation on arithmetic (GSM8K) and symbolic reasoning (BBH) benchmarks shows that CCoT significantly reduces hallucination rates, measured by stepwise logical consistency, and improves final-answer accuracy by 12.5% relative to standard fine-tuning. This work provides a scalable, hardware-accessible framework for improving the reliability of resource-constrained language models in edge AI applications.">
+		<link rel="canonical" href="https://solav.me/a/s2025781112">
+		<meta name="gs_meta_revision" content=""/>
+		<meta name="citation_title" content="Mitigating Hallucination in Small Language Models via Contrastive Chain-of-Thought Fine-Tuning">
+		<meta name="citation_journal_title" content="SOLAV Journal"/>
+		<meta name="citation_journal_abbrev" content="SOLAV J."/>
+		<meta name="citation_issn" content=""/>
+		<meta name="citation_author" content="Baker, Maher Asaad"/>
+		<meta name="citation_author_institution" content="SOLAV, Damascus, Syria"/>
+		<meta name="citation_author" content="Al-Qrize, Fuad"/>
+		<meta name="citation_author_institution" content="Al-Qrize Productions, Ibb, Yemen"/>
+		<meta name="citation_language" content="en"/>
+		<meta name="citation_publication_date" content="2025-07-05"/>
+		<meta name="citation_volume" content="1"/>
+		<meta name="citation_issue" content=""/>
+		<meta name="citation_firstpage" content="33"/>
+		<meta name="citation_lastpage" content="53"/>
+		<meta name="citation_doi" content=""/>
+		<meta name="citation_abstract_html_url" content="https://solav.me/a/s2025781112"/>
+		<meta name="citation_keywords" content="Small Language Models (SLMs)"/>
+		<meta name="citation_keywords" content="Chain-of-Thought Reasoning"/>
+		<meta name="citation_keywords" content="Hallucination Mitigation"/>
+		<meta name="citation_keywords" content="Parameter-Efficient Fine-Tuning (PEFT)"/>
+		<meta name="citation_keywords" content="Low-Rank Adaptation (LoRA)"/>
+		<meta name="citation_keywords" content="Contrastive Learning; Reliable AI"/>
+		<meta name="citation_keywords" content="Edge Computing"/>
+		<meta name="citation_pdf_url" content="https://solav.me/p/s2025781112.pdf"/>
+		<meta name="citation_reference" content="T. Brown, B. Mann, N. Ryder, et al., &quot;Language Models are Few-Shot Learners,&quot; Advances in Neural Information Processing Systems (NeurIPS), vol. 33, pp. 1877–1901, 2020."/>
+		<meta name="citation_reference" content="J. Wei, Y. Tay, R. Bommasani, et al., &quot;Emergent Abilities of Large Language Models,&quot; Transactions on Machine Learning Research (TMLR), 2022."/>
+		<meta name="citation_reference" content="A. Q. Jiang, A. Sablayrolles, A. Roux, et al., &quot;Mixtral of Experts,&quot; arXiv preprint arXiv:2401.04088, 2024."/>
+		<meta name="citation_reference" content="S. Gunasekar, Y. Zhang, J. Aneja, et al., &quot;Textbooks Are All You Need,&quot; arXiv preprint arXiv:2306.11644, 2023."/>
+		<meta name="citation_reference" content="Gemma Team, &quot;Gemma: Open Models Based on Gemini Research and Technology,&quot; Google, 2024. [Online]. Available: https://ai.google.dev/gemma"/>
+		<meta name="citation_reference" content="P. Zhang, X. Dai, J. Yang, et al., &quot;TinyLlama: An Open-Source Small Language Model,&quot; arXiv preprint arXiv:2401.02385, 2024."/>
+		<meta name="citation_reference" content="Z. Ji, N. Lee, R. Frieske, et al., &quot;Survey of Hallucination in Natural Language Generation,&quot; ACM Computing Surveys, vol. 55, no. 12, pp. 1–38, 2023."/>
+		<meta name="citation_reference" content="Y. Zhang, Y. Li, L. Cui, et al., &quot;Siren&#039;s Song in the AI Ocean: A Survey on Hallucination in Large Language Models,&quot; arXiv preprint arXiv:2309.01219, 2023."/>
+		<meta name="citation_reference" content="J. Wei, X. Wang, D. Schuurmans, et al., &quot;Chain-of-Thought Prompting Elicits Reasoning in Large Language Models,&quot; Advances in Neural Information Processing Systems (NeurIPS), vol. 35, pp. 24824–24837, 2022."/>
+		<meta name="citation_reference" content="S. Bubeck, V. Chandrasekaran, R. Eldan, et al., &quot;Sparks of Artificial General Intelligence: Early experiments with GPT-4,&quot; arXiv preprint arXiv:2303.12712, 2023."/>
+		<meta name="citation_reference" content="L. Huang, W. Yu, W. Ma, et al., &quot;A Survey on Hallucination in Large Language Models: Principles, Taxonomy, Challenges, and Open Questions,&quot; arXiv preprint arXiv:2311.05232, 2023."/>
+		<meta name="citation_reference" content="L. Ouyang, J. Wu, X. Jiang, et al., &quot;Training language models to follow instructions with human feedback,&quot; Advances in Neural Information Processing Systems (NeurIPS), vol. 35, pp. 27730–27744, 2022."/>
+		<meta name="citation_reference" content="J. R. Anderson, &quot;Learning from Error: The Role of Explanation and Feedback,&quot; Cognitive Psychology, vol. 14, no. 4, pp. 435–470, 1982."/>
+		<meta name="citation_reference" content="T. Chen, S. Kornblith, M. Norouzi, and G. Hinton, &quot;A Simple Framework for Contrastive Learning of Visual Representations,&quot; in International Conference on Machine Learning (ICML), 2020, pp. 1597–1607."/>
+		<meta name="citation_reference" content="K. He, H. Fan, Y. Wu, S. Xie, and R. Girshick, &quot;Momentum Contrast for Unsupervised Visual Representation Learning,&quot; in IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2020, pp. 9729–9738."/>
+		<meta name="citation_reference" content="E. J. Hu, Y. Shen, P. Wallis, et al., &quot;LoRA: Low-Rank Adaptation of Large Language Models,&quot; in International Conference on Learning Representations (ICLR), 2022."/>
+		<meta name="citation_reference" content="J. Kaplan, S. McCandlish, T. Henighan, et al., &quot;Scaling Laws for Neural Language Models,&quot; arXiv preprint arXiv:2001.08361, 2020."/>
+		<meta name="citation_reference" content="J. W. Rae, S. Borgeaud, T. Cai, et al., &quot;Scaling Language Models: Methods, Analysis &amp; Insights from Training Gopher,&quot; arXiv preprint arXiv:2112.11446, 2021."/>
+		<meta name="citation_reference" content="V. Sanh, L. Debut, J. Chaumond, and T. Wolf, &quot;DistilBERT, a distilled version of BERT: smaller, faster, cheaper and lighter,&quot; arXiv preprint arXiv:1910.01108, 2019."/>
+		<meta name="citation_reference" content="Y. Qiu, L. Li, J. Sun, et al., &quot;EasyComposition: A Weakly Supervised Approach for Instruction Tuning of Large Language Models,&quot; arXiv preprint arXiv:2310.01368, 2023."/>
+		<meta name="citation_reference" content="X. Wang, J. Wei, D. Schuurmans, et al., &quot;Self-Consistency Improves Chain of Thought Reasoning in Language Models,&quot; in International Conference on Learning Representations (ICLR), 2023."/>
+		<meta name="citation_reference" content="D. Zhou, N. Schärli, L. Hou, et al., &quot;Least-to-Most Prompting Enables Complex Reasoning in Large Language Models,&quot; in International Conference on Learning Representations (ICLR), 2023."/>
+		<meta name="citation_reference" content="N. H. Tran, C. M. Duong, P. Nguyen, et al., &quot;Chain-of-Thought Prompting for Responding to In-depth Dialogue Questions with LLMs,&quot; in Proceedings of the 16th International Conference on Natural Language Generation, 2023, pp. 253–267."/>
+		<meta name="citation_reference" content="A. Madaan, N. Tandon, P. Gupta, et al., &quot;Self-Refine: Iterative Refinement with Self-Feedback,&quot; Advances in Neural Information Processing Systems (NeurIPS), vol. 36, 2023."/>
+		<meta name="citation_reference" content="P. Lewis, E. Perez, A. Piktus, et al., &quot;Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks,&quot; Advances in Neural Information Processing Systems (NeurIPS), vol. 33, pp. 9459–9474, 2020."/>
+		<meta name="citation_reference" content="C. Mou, Y. Wang, L. Gao, et al., &quot;Controllable Text Generation via Probability Density Estimation in the Latent Space,&quot; Advances in Neural Information Processing Systems (NeurIPS), vol. 35, pp. 28318–28332, 2022."/>
+		<meta name="citation_reference" content="S. Min, X. Lyu, A. Holtzman, et al., &quot;Rethinking the Role of Demonstrations: What Makes In-Context Learning Work?,&quot; in Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing (EMNLP), 2022, pp. 11048–11064."/>
+		<meta name="citation_reference" content="K. Cobbe, V. Kosaraju, M. Bavarian, et al., &quot;Training Verifiers to Solve Math Word Problems,&quot; arXiv preprint arXiv:2110.14168, 2021."/>
+		<meta name="citation_reference" content="S. Welleck, I. Kulikov, S. Roller, et al., &quot;Neural Text Generation with Unlikelihood Training,&quot; in International Conference on Learning Representations (ICLR), 2020."/>
+		<meta name="citation_reference" content="Y. Yan, R. Li, S. Wang, et al., &quot;ConSERT: A Contrastive Framework for Self-Supervised Sentence Representation Transfer,&quot; in Proceedings of the 59th Annual Meeting of the Association for Computational Linguistics and the 11th International Joint Conference on Natural Language Processing (ACL-IJCNLP), 2021, pp. 5065–5075."/>
+		<meta name="citation_reference" content="R. Rafailov, A. Sharma, E. Mitchell, et al., &quot;Direct Preference Optimization: Your Language Model is Secretly a Reward Model,&quot; Advances in Neural Information Processing Systems (NeurIPS), vol. 36, 2023."/>
+		<meta name="citation_reference" content="T. Dettmers, A. Pagnoni, A. Holtzman, and L. Zettlemoyer, &quot;QLoRA: Efficient Finetuning of Quantized LLMs,&quot; Advances in Neural Information Processing Systems (NeurIPS), vol. 36, 2023."/>
+		<meta name="citation_reference" content="M. Suzgun, N. Scales, N. Schärli, et al., &quot;Challenging BIG-Bench Tasks and Whether Chain-of-Thought Can Solve Them,&quot; in Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing (EMNLP), 2022, pp. 13063–13084."/>
+		<meta name="citation_reference" content="L. Ling, Z. U. Hasan, and L. Zhang, &quot;AQUA: An Algebraic Question Answering Dataset with Rationales,&quot; in Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing (EMNLP), 2017, pp. 169–177."/>
+		<meta name="citation_reference" content="K. Lightman, V. Kosaraju, Y. Burda, et al., &quot;Let&#039;s Verify Step by Step,&quot; arXiv preprint arXiv:2305.20050, 2023."/>
+		<link rel="schema.DC" href="https://purl.org/dc/elements/1.1/" />
+		<meta name="DC.Creator.PersonalName" content="Baker, Maher Asaad"/>
+		<meta name="DC.Creator.PersonalName" content="Al-Qrize, Fuad"/>
+		<meta name="DC.Date.dateSubmitted" scheme="ISO8601" content="2025-06-09"/>
+		<meta name="DC.Date.issued" scheme="ISO8601" content="2025-07-05"/>
+		<meta name="DC.Date.modified" scheme="ISO8601" content="2025-07-05"/>
+		<meta name="DC.Description" xml:lang="en" content="Small Language Models (SLMs), typically comprising fewer than 3 billion parameters, offer efficient deployment for edge computing but are susceptible to reasoning hallucinations: they generate plausible but logically unsound multi-step solutions. While Chain-of-Thought (CoT) prompting enhances reasoning in larger models, SLMs often lack the capacity to maintain coherent reasoning chains. This paper introduces Contrastive Chain-of-Thought (CCoT) Fine-Tuning, a novel parameter-efficient training method that pairs correct reasoning paths with explicitly labeled logical fallacies during fine-tuning. Using Low-Rank Adaptation (LoRA) on the Phi-2 model, we show that exposing SLMs to curated negative reasoning examples sharpens their decision boundaries between valid and hallucinatory logic. Comprehensive evaluation on arithmetic (GSM8K) and symbolic reasoning (BBH) benchmarks shows that CCoT significantly reduces hallucination rates, measured by stepwise logical consistency, and improves final-answer accuracy by 12.5% relative to standard fine-tuning. This work provides a scalable, hardware-accessible framework for improving the reliability of resource-constrained language models in edge AI applications."/>
+		<meta name="DC.Format" scheme="IMT" content="text/html"/>
+		<meta name="DC.Format" scheme="IMT" content="application/pdf"/>
+		<meta name="DC.Identifier" content="s2025781112"/>
+		<meta name="DC.Identifier.pageNumber" content="33-53"/>
+		<meta name="DC.Identifier.DOI" content=""/>
+		<meta name="DC.Identifier.URI" content="https://solav.me/a/s2025781112"/>
+		<meta name="DC.Source.URI" content="https://solav.me"/>
+		<meta name="DC.Language" scheme="ISO639-1" content="en"/>
+		<meta name="DC.Rights" content="CC BY 4.0"/>
+		<meta name="DC.Rights" content="Open Access"/>
+		<meta name="DC.Source" content="SOLAV Journal"/>
+		<meta name="DC.Source.ISSN" content=""/>
+		<meta name="DC.Source.Issue" content=""/>
+		<meta name="DC.Source.Volume" content="1"/>
+		<meta name="DC.Subject" xml:lang="en" content="Small Language Models (SLMs)"/>
+		<meta name="DC.Subject" xml:lang="en" content="Chain-of-Thought Reasoning"/>
+		<meta name="DC.Subject" xml:lang="en" content="Hallucination Mitigation"/>
+		<meta name="DC.Subject" xml:lang="en" content="Parameter-Efficient Fine-Tuning (PEFT)"/>
+		<meta name="DC.Subject" xml:lang="en" content="Low-Rank Adaptation (LoRA)"/>
+		<meta name="DC.Subject" xml:lang="en" content="Contrastive Learning; Reliable AI"/>
+		<meta name="DC.Subject" xml:lang="en" content="Edge Computing"/>
+		<meta name="DC.Title" content="Mitigating Hallucination in Small Language Models via Contrastive Chain-of-Thought Fine-Tuning"/>
+		<meta name="DC.Type" content="Text.Serial.Journal"/>
+		<meta name="DC.Date.created" scheme="ISO8601" content="2025-06-09"/>
+		<meta name="DC.Type.articleType" content="Research Article"/>
+		<meta name="citation_author" content="Baker, Maher Asaad; Al-Qrize, Fuad">
+		<meta name="citation_publication_date" content="2025/07/05">
+		<meta name="citation_pdf_url" content="https://solav.me/p/s2025781112.pdf">
+		<meta name="citation_journal_title" content="SOLAV Journal">
+		<meta name="citation_issn" content="">
+		<meta name="citation_doi" content="">
+		<meta name="citation_abstract" content="Small Language Models (SLMs), typically comprising fewer than 3 billion parameters, offer efficient deployment for edge computing but are susceptible to reasoning hallucinations: they generate plausible but logically unsound multi-step solutions. While Chain-of-Thought (CoT) prompting enhances reasoning in larger models, SLMs often lack the capacity to maintain coherent reasoning chains. This paper introduces Contrastive Chain-of-Thought (CCoT) Fine-Tuning, a novel parameter-efficient training method that pairs correct reasoning paths with explicitly labeled logical fallacies during fine-tuning. Using Low-Rank Adaptation (LoRA) on the Phi-2 model, we show that exposing SLMs to curated negative reasoning examples sharpens their decision boundaries between valid and hallucinatory logic. Comprehensive evaluation on arithmetic (GSM8K) and symbolic reasoning (BBH) benchmarks shows that CCoT significantly reduces hallucination rates, measured by stepwise logical consistency, and improves final-answer accuracy by 12.5% relative to standard fine-tuning. This work provides a scalable, hardware-accessible framework for improving the reliability of resource-constrained language models in edge AI applications.">
+		<meta name="citation_keywords" content="Small Language Models (SLMs); Chain-of-Thought Reasoning; Hallucination Mitigation; Parameter-Efficient Fine-Tuning (PEFT); Low-Rank Adaptation (LoRA); Contrastive Learning; Reliable AI; Edge Computing">
+		<meta name="DC.title" content="Mitigating Hallucination in Small Language Models via Contrastive Chain-of-Thought Fine-Tuning">
+		<meta name="DC.creator" content="Baker, Maher Asaad; Al-Qrize, Fuad">
+		<meta name="DC.subject" content="Small Language Models (SLMs); Chain-of-Thought Reasoning; Hallucination Mitigation; Parameter-Efficient Fine-Tuning (PEFT); Low-Rank Adaptation (LoRA); Contrastive Learning; Reliable AI; Edge Computing">
+		<meta name="DC.identifier" content="s2025781112">
+		<meta name="DC.type" content="Text.Serial.Journal">
+		<meta property="og:type" content="article">
+		<meta property="og:title" content="Mitigating Hallucination in Small Language Models via Contrastive Chain-of-Thought Fine-Tuning">
+		<meta property="og:url" content="https://solav.me/a/s2025781112">
+		<link rel="icon" type="image/x-icon" href="/images/icon.png">
+		<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+		<link href="/css/swiper.css" rel="stylesheet">
+		<link href="/css/style.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Expires" content="0">
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "ScholarlyArticle",
+			"headline": "Mitigating Hallucination in Small Language Models via Contrastive Chain-of-Thought Fine-Tuning",
+			"author": {
+				"@type": "Person",
+				"name": "Baker, Maher Asaad"
+			},
+			"datePublished": "2025-07-05",
+			"publisher": {
+				"@type": "Organization",
+				"name": "SOLAV Journal"
+			},
+			"sameAs": "https://solav.me/a/s2025781112"
+		}
+		</script>
+	</head>
+	<body>
+		<main class="page-wrapper">
+			<header class="header navbar navbar-expand-lg bg-light navbar-sticky py-0">
+				<div class="container px-3">
+					<a href="/" class="navbar-brand pe-3">
+						<img src="/images/logo.svg" class="logo" alt="SOLAV">
+					</a>
+					<div id="navbarNav" class="offcanvas offcanvas-end">
+						<div class="offcanvas-header border-bottom">
+							<h5 class="offcanvas-title">Menu</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+						</div>
+						<div class="offcanvas-body">
+							<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+								<li class="nav-item">
+									<a href="/aims-scope" class="nav-link">Aims & Scope</a>
+								</li>
+								<li class="nav-item">
+									<a href="/guidelines" class="nav-link">Guidelines</a>
+								</li>
+								<li class="nav-item dropdown">
+									<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-current="page">Submit</a>
+									<ul class="dropdown-menu">
+										<li><a href="/submit" class="dropdown-item">Submit</a></li>
+										<li><a href="/track" class="dropdown-item">Track Paper</a></li>
+									</ul>
+								</li>
+								<li class="nav-item dropdown">
+									<a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" aria-current="page">Archive</a>
+									<ul class="dropdown-menu">
+										<li><a href="/archive" class="dropdown-item">Archive</a></li>
+										<li><a href="/authors" class="dropdown-item">Authors</a></li>
+									</ul>
+								</li>
+								<li class="nav-item dropdown">
+									<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-current="page">Policies</a>
+									<ul class="dropdown-menu">
+										<li><a href="/ethics" class="dropdown-item">Publication Ethics</a></li>
+										<li><a href="/apc" class="dropdown-item">Article Processing Charges</a></li>
+										<li><a href="/review" class="dropdown-item">Peer Review Process</a></li>
+										<li><a href="/open-submission" class="dropdown-item">Open Submission Policy</a></li>
+										<li><a href="/access" class="dropdown-item">Open Access & Licensing</a></li>
+										<li><a href="/archiving" class="dropdown-item">Archiving & Management</a></li>
+										<li><a href="/oai-pmh" class="dropdown-item">OAI-PMH Repository</a></li>
+									</ul>
+								</li>
+								<li class="nav-item">
+									<a href="/about" class="nav-link">About</a>
+								</li>
+							</ul>
+						</div>  
+					</div>
+					<div class="form-check form-switch mode-switch pe-lg-1 ms-auto me-4" data-bs-toggle="mode">
+						<input type="checkbox" class="form-check-input" id="theme-mode">
+						<label class="form-check-label" for="theme-mode"><i class="bi bi-sun"></i></span></label>
+						<label class="form-check-label" for="theme-mode"><i class="bi bi-moon-stars"></i></label>
+					</div>
+					<button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+				</div>
+			</header>
+			<div class="jarallax mb-lg-5 mb-4 pt-0 card border-0 bg-gradient-primary rounded-0" data-jarallax="" data-speed="0.35" style="height: 1vw; min-height: 10px; background-image: url(/images/main-bg.png);">
+				<div id="jarallax-container-0" class="jarallax-container">
+					<div class="jarallax-img" style="background-image: url(/images/main-bg.png);">
+					</div>
+				</div>
+			</div>
+			<div class="container py-2 py-lg-3" id="articleContainer">
+				<div class="row">
+					<div class="col-lg-8">
+						<div id="articleContent">
+							<div class="mb-4">
+								<span class="badge bg-primary metadata-badge">
+									<i class="bi bi-file-earmark-text me-1"></i> Research Article</span>
+							</div>
+						</div>
+						
+						<h1 class="mb-4 h3">Mitigating Hallucination in Small Language Models via Contrastive Chain-of-Thought Fine-Tuning</h1>
+						<div class="mb-4">
+							<div class="author-list mb-2">
+								<i class="bi bi-people text-primary me-2"></i>
+								<a href="/authors?id=00010077">Baker, Maher Asaad</a><sup>*</sup><sup>1</sup><a href="https://orcid.org/0000-0001-8013-6044" target="_blank" class="ms-0 align-middle"><img src="/images/orcid.svg" alt="ORCID" class="orcid-icon"></a></span>
+								<a href="/authors?id=00010086">Al-Qrize, Fuad</a><sup>2</sup><a href="https://orcid.org/0000-0003-3380-2176" target="_blank" class="ms-0 align-middle"><img src="/images/orcid.svg" alt="ORCID" class="orcid-icon"></a></span>
+								
+							</div>
+															
+							<p class="text-muted font-sm mb-0"><sup>*</sup> Corresponding author</p>
+														
+							<div class="author-affiliation mb-3">
+															
+								<span class="mb-0 small">*1</span>
+								<span class="mb-0 mx-2"><i class="bi bi-building me-1"></i> SOLAV, Damascus, Syria</span>
+								
+								<span class="mb-0 mx-2 font-sm">
+									<i class="bi bi-envelope me-1"></i> <a href="mailto:maher@solav.me">maher@solav.me</a>
+								</span>
+								<br>															
+								<span class="mb-0 small">&nbsp;2</span>
+								<span class="mb-0 mx-2"><i class="bi bi-building me-1"></i> Al-Qrize Productions, Ibb, Yemen</span>
+								
+								<span class="mb-0 mx-2 font-sm">
+									<i class="bi bi-envelope me-1"></i> <a href="mailto:info@fuadalqrize.me">info@fuadalqrize.me</a>
+								</span>
+															
+							</div>
+						</div>
+
+						<div class="mb-4">
+							<span class="badge bg-light text-dark border me-2 mb-2">Small Language Models (SLMs)</span>
+							<span class="badge bg-light text-dark border me-2 mb-2">Chain-of-Thought Reasoning</span>
+							<span class="badge bg-light text-dark border me-2 mb-2">Hallucination Mitigation</span>
+							<span class="badge bg-light text-dark border me-2 mb-2">Parameter-Efficient Fine-Tuning (PEFT)</span>
+							<span class="badge bg-light text-dark border me-2 mb-2">Low-Rank Adaptation (LoRA)</span>
+							<span class="badge bg-light text-dark border me-2 mb-2">Contrastive Learning; Reliable AI</span>
+							<span class="badge bg-light text-dark border me-2 mb-2">Edge Computing</span>
+							
+						</div>
+
+						<div class="abstract-box">
+
+							<h3 class="h5 mb-3"><i class="bi bi-file-text me-2"></i>Abstract</h3>
+							<p>Small Language Models (SLMs), typically comprising fewer than 3 billion parameters, offer efficient deployment for edge computing but are susceptible to reasoning hallucinations: they generate plausible but logically unsound multi-step solutions. While Chain-of-Thought (CoT) prompting enhances reasoning in larger models, SLMs often lack the capacity to maintain coherent reasoning chains. This paper introduces Contrastive Chain-of-Thought (CCoT) Fine-Tuning, a novel parameter-efficient training method that pairs correct reasoning paths with explicitly labeled logical fallacies during fine-tuning. Using Low-Rank Adaptation (LoRA) on the Phi-2 model, we show that exposing SLMs to curated negative reasoning examples sharpens their decision boundaries between valid and hallucinatory logic. Comprehensive evaluation on arithmetic (GSM8K) and symbolic reasoning (BBH) benchmarks shows that CCoT significantly reduces hallucination rates, measured by stepwise logical consistency, and improves final-answer accuracy by 12.5% relative to standard fine-tuning. This work provides a scalable, hardware-accessible framework for improving the reliability of resource-constrained language models in edge AI applications.</p>
+						</div>
+
+						<div class="references-box mt-4 mb-4"><h3 class="h5 mb-3"><i class="bi bi-bookmarks me-2"></i>References</h3><ol class="references-list"><li class="mb-2">T. Brown, B. Mann, N. Ryder, et al., &quot;Language Models are Few-Shot Learners,&quot; Advances in Neural Information Processing Systems (NeurIPS), vol. 33, pp. 1877–1901, 2020.</li><li class="mb-2">J. Wei, Y. Tay, R. Bommasani, et al., &quot;Emergent Abilities of Large Language Models,&quot; Transactions on Machine Learning Research (TMLR), 2022.</li><li class="mb-2">A. Q. Jiang, A. Sablayrolles, A. Roux, et al., &quot;Mixtral of Experts,&quot; arXiv preprint arXiv:2401.04088, 2024.</li><li class="mb-2">S. Gunasekar, Y. Zhang, J. Aneja, et al., &quot;Textbooks Are All You Need,&quot; arXiv preprint arXiv:2306.11644, 2023.</li><li class="mb-2">Gemma Team, &quot;Gemma: Open Models Based on Gemini Research and Technology,&quot; Google, 2024. [Online]. Available: https://ai.google.dev/gemma</li><li class="mb-2">P. Zhang, X. Dai, J. Yang, et al., &quot;TinyLlama: An Open-Source Small Language Model,&quot; arXiv preprint arXiv:2401.02385, 2024.</li><li class="mb-2">Z. Ji, N. Lee, R. Frieske, et al., &quot;Survey of Hallucination in Natural Language Generation,&quot; ACM Computing Surveys, vol. 55, no. 12, pp. 1–38, 2023.</li><li class="mb-2">Y. Zhang, Y. Li, L. Cui, et al., &quot;Siren&#039;s Song in the AI Ocean: A Survey on Hallucination in Large Language Models,&quot; arXiv preprint arXiv:2309.01219, 2023.</li><li class="mb-2">J. Wei, X. Wang, D. Schuurmans, et al., &quot;Chain-of-Thought Prompting Elicits Reasoning in Large Language Models,&quot; Advances in Neural Information Processing Systems (NeurIPS), vol. 35, pp. 24824–24837, 2022.</li><li class="mb-2">S. Bubeck, V. Chandrasekaran, R. Eldan, et al., &quot;Sparks of Artificial General Intelligence: Early experiments with GPT-4,&quot; arXiv preprint arXiv:2303.12712, 2023.</li><li class="mb-2">L. Huang, W. Yu, W. Ma, et al., &quot;A Survey on Hallucination in Large Language Models: Principles, Taxonomy, Challenges, and Open Questions,&quot; arXiv preprint arXiv:2311.05232, 2023.</li><li class="mb-2">L. Ouyang, J. Wu, X. Jiang, et al., &quot;Training language models to follow instructions with human feedback,&quot; Advances in Neural Information Processing Systems (NeurIPS), vol. 35, pp. 27730–27744, 2022.</li><li class="mb-2">J. R. Anderson, &quot;Learning from Error: The Role of Explanation and Feedback,&quot; Cognitive Psychology, vol. 14, no. 4, pp. 435–470, 1982.</li><li class="mb-2">T. Chen, S. Kornblith, M. Norouzi, and G. Hinton, &quot;A Simple Framework for Contrastive Learning of Visual Representations,&quot; in International Conference on Machine Learning (ICML), 2020, pp. 1597–1607.</li><li class="mb-2">K. He, H. Fan, Y. Wu, S. Xie, and R. Girshick, &quot;Momentum Contrast for Unsupervised Visual Representation Learning,&quot; in IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2020, pp. 9729–9738.</li><li class="mb-2">E. J. Hu, Y. Shen, P. Wallis, et al., &quot;LoRA: Low-Rank Adaptation of Large Language Models,&quot; in International Conference on Learning Representations (ICLR), 2022.</li><li class="mb-2">J. Kaplan, S. McCandlish, T. Henighan, et al., &quot;Scaling Laws for Neural Language Models,&quot; arXiv preprint arXiv:2001.08361, 2020.</li><li class="mb-2">J. W. Rae, S. Borgeaud, T. Cai, et al., &quot;Scaling Language Models: Methods, Analysis &amp; Insights from Training Gopher,&quot; arXiv preprint arXiv:2112.11446, 2021.</li><li class="mb-2">V. Sanh, L. Debut, J. Chaumond, and T. Wolf, &quot;DistilBERT, a distilled version of BERT: smaller, faster, cheaper and lighter,&quot; arXiv preprint arXiv:1910.01108, 2019.</li><li class="mb-2">Y. Qiu, L. Li, J. Sun, et al., &quot;EasyComposition: A Weakly Supervised Approach for Instruction Tuning of Large Language Models,&quot; arXiv preprint arXiv:2310.01368, 2023.</li><li class="mb-2">X. Wang, J. Wei, D. Schuurmans, et al., &quot;Self-Consistency Improves Chain of Thought Reasoning in Language Models,&quot; in International Conference on Learning Representations (ICLR), 2023.</li><li class="mb-2">D. Zhou, N. Schärli, L. Hou, et al., &quot;Least-to-Most Prompting Enables Complex Reasoning in Large Language Models,&quot; in International Conference on Learning Representations (ICLR), 2023.</li><li class="mb-2">N. H. Tran, C. M. Duong, P. Nguyen, et al., &quot;Chain-of-Thought Prompting for Responding to In-depth Dialogue Questions with LLMs,&quot; in Proceedings of the 16th International Conference on Natural Language Generation, 2023, pp. 253–267.</li><li class="mb-2">A. Madaan, N. Tandon, P. Gupta, et al., &quot;Self-Refine: Iterative Refinement with Self-Feedback,&quot; Advances in Neural Information Processing Systems (NeurIPS), vol. 36, 2023.</li><li class="mb-2">P. Lewis, E. Perez, A. Piktus, et al., &quot;Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks,&quot; Advances in Neural Information Processing Systems (NeurIPS), vol. 33, pp. 9459–9474, 2020.</li><li class="mb-2">C. Mou, Y. Wang, L. Gao, et al., &quot;Controllable Text Generation via Probability Density Estimation in the Latent Space,&quot; Advances in Neural Information Processing Systems (NeurIPS), vol. 35, pp. 28318–28332, 2022.</li><li class="mb-2">S. Min, X. Lyu, A. Holtzman, et al., &quot;Rethinking the Role of Demonstrations: What Makes In-Context Learning Work?,&quot; in Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing (EMNLP), 2022, pp. 11048–11064.</li><li class="mb-2">K. Cobbe, V. Kosaraju, M. Bavarian, et al., &quot;Training Verifiers to Solve Math Word Problems,&quot; arXiv preprint arXiv:2110.14168, 2021.</li><li class="mb-2">S. Welleck, I. Kulikov, S. Roller, et al., &quot;Neural Text Generation with Unlikelihood Training,&quot; in International Conference on Learning Representations (ICLR), 2020.</li><li class="mb-2">Y. Yan, R. Li, S. Wang, et al., &quot;ConSERT: A Contrastive Framework for Self-Supervised Sentence Representation Transfer,&quot; in Proceedings of the 59th Annual Meeting of the Association for Computational Linguistics and the 11th International Joint Conference on Natural Language Processing (ACL-IJCNLP), 2021, pp. 5065–5075.</li><li class="mb-2">R. Rafailov, A. Sharma, E. Mitchell, et al., &quot;Direct Preference Optimization: Your Language Model is Secretly a Reward Model,&quot; Advances in Neural Information Processing Systems (NeurIPS), vol. 36, 2023.</li><li class="mb-2">T. Dettmers, A. Pagnoni, A. Holtzman, and L. Zettlemoyer, &quot;QLoRA: Efficient Finetuning of Quantized LLMs,&quot; Advances in Neural Information Processing Systems (NeurIPS), vol. 36, 2023.</li><li class="mb-2">M. Suzgun, N. Scales, N. Schärli, et al., &quot;Challenging BIG-Bench Tasks and Whether Chain-of-Thought Can Solve Them,&quot; in Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing (EMNLP), 2022, pp. 13063–13084.</li><li class="mb-2">L. Ling, Z. U. Hasan, and L. Zhang, &quot;AQUA: An Algebraic Question Answering Dataset with Rationales,&quot; in Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing (EMNLP), 2017, pp. 169–177.</li><li class="mb-2">K. Lightman, V. Kosaraju, Y. Burda, et al., &quot;Let&#039;s Verify Step by Step,&quot; arXiv preprint arXiv:2305.20050, 2023.</li></ol></div>
+					</div>
+
+					<div class="col-lg-4">
+						<div class="article-actions">
+							<div class="card mb-4">
+								<div class="card-body">
+									<div class="d-grid gap-2">
+										<a href="https://solav.me/p/s2025781112.pdf" target="_blank" class="btn btn-sm btn-primary">
+											<i class="bi bi-file-earmark-pdf me-1"></i> Download PDF
+										</a>
+										<button id="citeBtn" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#citationModal">
+											<i class="bi bi-quote me-1"></i> Cite This Article
+										</button>
+									</div>
+								</div>
+							</div>
+							
+							<div class="card">
+								<div class="card-header bg-secondary text-center p-0 m-0 w-100">
+									<h5 class="mb-0 p-3"><i class="bi bi-info-circle me-2"></i>Article Info</h5>
+								</div>
+								<div class="card-body">
+									<ul class="list-unstyled mb-0">
+										<li class="mb-2">
+											<i class="bi bi-calendar-check text-primary me-2"></i><strong>Received:</strong> 2025-06-09
+										</li>
+										<li class="mb-2">
+											<i class="bi bi-check-circle text-primary me-2"></i><strong>Accepted:</strong> 2025-07-02
+										</li>
+										<li class="mb-2">
+											<i class="bi bi-calendar-event text-primary me-2"></i><strong>Published:</strong> 2025-07-05
+										</li>
+										<li class="mb-2">
+											<i class="bi bi-file-text text-primary me-2"></i><strong>Pages:</strong> 33-53
+										</li>
+										<li class="mb-2">
+											<i class="bi bi-quote text-primary me-2"></i><strong>Citations:</strong> 0
+										</li>
+										<li class="mb-2">
+											<i class="bi bi-journal-check text-primary me-2"></i><strong>Type:</strong> Research Article
+										</li>
+										<li class="mb-2">
+											<i class="bi bi-journal text-primary me-2"></i><strong>Volume:</strong> 1
+										</li>
+										<li>
+											<i class="bi bi-clock-history text-primary me-2"></i><strong>Version:</strong> 2025-07-05 (1)
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-12 d-flex justify-content-evenly mb-3 border-top mt-3 pt-3">
+				<img src="/images/creative_commons_license_with_attribution.svg" alt="CC BY 4.0" class="img-fluid" style="max-height: 46px;">
+				<img src="/images/open_access.svg" alt="Open Access" class="img-fluid" style="max-height: 46px;">
+				<img src="/images/oai_logo.svg" alt="OAI-PMH Compliant" class="img-fluid" style="max-height: 46px;">
+			</div>
+		</main>
+		<a href="#top" class="btn-scroll-top" data-scroll="">
+			<i class="btn-scroll-top-icon bi bi-chevron-up"></i>
+		</a>
+		<footer class="footer border-top bg-primary-subtle">
+			<div class="container py-5">
+				<div class="row g-4">
+					<div class="col-lg-4">
+						<p class="mb-3">
+							SOLAV Journal is an open access, peer-reviewed journal publishing interdisciplinary applied research with real-world impact.
+							<br><span class="font-sm"><strong>Publication Frequency:</strong> Continuous publication.</span>
+							<br><span class="font-sm"><strong>Editor-In-Chief:</strong> Maher Asaad Baker</span>
+						</p>
+						<div class="issn-container">
+							<img src="/images/issn_logo.svg" alt="ISSN" class="issn-logo">
+							<span class="issn-text">ISSN request pending</span>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-4">
+						<h5 class="mb-3 fw-bold">Quick Links</h5>
+						<ul class="list-unstyled">
+							<li class="mb-2"><a href="/aims-scope" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Aims & Scope</a></li>
+							<li class="mb-2"><a href="/guidelines" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Author Guidelines</a></li>
+							<li class="mb-2"><a href="/submit" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Submit Manuscript</a></li>
+							<li class="mb-2"><a href="/archive" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Article Archive</a></li>
+							<li class="mb-2"><a href="/about" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">About the Journal</a></li>
+						</ul>
+					</div>
+					<div class="col-lg-3 col-md-4">
+						<h5 class="mb-3 fw-bold">Policies</h5>
+						<ul class="list-unstyled">
+							<li class="mb-2"><a href="/ethics" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Publication Ethics</a></li>
+							<li class="mb-2"><a href="/apc" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Article Processing Charges</a></li>
+							<li class="mb-2"><a href="/review" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Peer Review Process</a></li>
+							<li class="mb-2"><a href="/access" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Open Access & Licensing</a></li>
+							<li class="mb-2"><a href="/archiving" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Archiving & Management</a></li>
+						</ul>
+					</div>
+					<div class="col-lg-3 col-md-4">
+						<h5 class="mb-3 fw-bold">Contact & Support</h5>
+						<ul class="list-unstyled">
+							<li class="mb-2">
+								<i class="bi bi-envelope me-2 text-primary"></i>
+								<a href="mailto:contact@solav.me" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">General Inquiries</a>
+							</li>
+							<li class="mb-2">
+								<i class="bi bi-question-circle me-2 text-primary"></i>
+								<a href="mailto:support@solav.me" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Technical Support</a>
+							</li>
+							<li class="mb-2">
+								<i class="bi bi-shield-check me-2 text-primary"></i>
+								<a href="mailto:ethics@solav.me" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Ethics Concerns</a>
+							</li>
+							<li class="mb-2">
+								<i class="bi bi-currency-exchange me-2 text-primary"></i>
+								<a href="mailto:apc@solav.me" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">APC & Payments</a>
+							</li>
+							<li class="mb-2">
+								<i class="bi bi-people me-2 text-primary"></i>
+								<a href="mailto:editorial@solav.me" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Editorial Board</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="row pt-2 border-top">
+					<div class="col-md-6">
+						<p class="mb-0 h-100">
+							<strong>Your privacy matters</strong>. We use cookies to enhance your visit and analyze site traffic. By continuing to browse, you agree to our use of cookies.
+							<br>&copy; <span id="currentYear"></span> SOLAV Journal. This is an open access journal distributed under the 
+							<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Creative Commons Attribution License (CC BY 4.0)</a>.
+						</p>
+					</div>
+					<div class="col-md-6 text-md-end">
+						<ul class="list-inline mb-0 h-100 d-flex align-items-end justify-content-lg-end">
+							<li class="list-inline-item"><a href="/privacy" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Privacy Policy</a></li>
+							<li class="list-inline-item">·</li>
+							<li class="list-inline-item"><a href="/tou" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Terms of Use</a></li>
+							<li class="list-inline-item">·</li>
+							<li class="list-inline-item"><a href="/accessibility" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Accessibility</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<div class="modal fade" id="citationModal" tabindex="-1" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title"><i class="bi bi-quote me-2"></i>Citation</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+					</div>
+					<div class="modal-body">
+						<div class="mb-3">
+							<label class="form-label">APA Format</label>
+							<div id="apaCitation" class="citation-box border border-opacity-10">
+																Baker, Maher Asaad; Al-Qrize, Fuad 1(2025). Mitigating Hallucination in Small Language Models via Contrastive Chain-of-Thought Fine-Tuning. SOLAV Journal, 33-53. https://solav.me/a/s2025781112							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button id="copyApaBtn" class="btn btn-primary">
+							<i class="bi bi-clipboard me-1"></i> Copy APA
+						</button>
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+							Close
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="/js/jarallax.js"></script>
+		<script src="/js/swiper.js"></script>
+		<script src="/js/js.js"></script>
+		<script>
+			document.addEventListener('DOMContentLoaded', function() {
+				document.getElementById('currentYear').textContent = new Date().getFullYear();
+				const copyApaBtn = document.getElementById('copyApaBtn');
+				if (copyApaBtn) {
+					copyApaBtn.addEventListener('click', function() {
+						const apaText = document.getElementById('apaCitation')?.textContent;
+						
+						if (apaText) {
+							if (navigator.clipboard && navigator.clipboard.writeText) {
+								navigator.clipboard.writeText(apaText).then(() => {
+									updateButtonState(this);
+								}).catch(err => {
+									console.error('Modern copy failed', err);
+								});
+							} else {
+								const textArea = document.createElement("textarea");
+								textArea.value = apaText;
+								document.body.appendChild(textArea);
+								textArea.select();
+								try {
+									document.execCommand('copy');
+									updateButtonState(this);
+								} catch (err) {
+									console.error('Fallback copy failed', err);
+								}
+								document.body.removeChild(textArea);
+							}
+						}
+					});
+				}
+
+				function updateButtonState(btn) {
+					const original = btn.innerHTML;
+					btn.innerHTML = '<i class="bi bi-check me-1"></i> Copied!';
+					setTimeout(() => {
+						btn.innerHTML = original;
+					}, 2000);
+				}
+				(() => {
+					'use strict';
+					const getStoredTheme = () => localStorage.getItem('theme');
+					const setStoredTheme = theme => localStorage.setItem('theme', theme);
+					const getPreferredTheme = () => {
+						const storedTheme = getStoredTheme();
+						if (storedTheme) {
+							return storedTheme;
+						}
+						return 'light';
+					};
+					const setTheme = theme => {
+						if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+							document.documentElement.setAttribute('data-bs-theme', 'dark');
+						} else {
+							document.documentElement.setAttribute('data-bs-theme', theme);
+						}
+					};
+					const updateLogos = theme => {
+						const logos = document.querySelectorAll('.logo');
+						logos.forEach(logo => {
+							logo.src = theme === 'dark' ? '/images/logo-white.svg' : '/images/logo-black.svg';
+						});
+					};
+					setTheme(getPreferredTheme());
+					const showActiveTheme = theme => {
+						const themeSwitcher = document.querySelector('[data-bs-toggle="mode"]');
+						if (!themeSwitcher) return;
+						const themeSwitcherCheck = themeSwitcher.querySelector('input[type="checkbox"]');
+						if (theme === 'dark') {
+							themeSwitcherCheck.checked = true;
+						} else {
+							themeSwitcherCheck.checked = false;
+						}
+						updateLogos(theme);
+					};
+					window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+						const storedTheme = getStoredTheme();
+						if (storedTheme !== 'light' && storedTheme !== 'dark') {
+							const newTheme = getPreferredTheme();
+							setTheme(newTheme);
+							showActiveTheme(newTheme);
+						}
+					});
+					window.addEventListener('DOMContentLoaded', () => {
+						showActiveTheme(getPreferredTheme());
+						document.querySelectorAll('[data-bs-toggle="mode"]').forEach(toggle => {
+							toggle.addEventListener('click', () => {
+								const themeSwitcherCheck = toggle.querySelector('input[type="checkbox"]');
+								const theme = themeSwitcherCheck.checked ? 'dark' : 'light';
+								setStoredTheme(theme);
+								setTheme(theme);
+								showActiveTheme(theme);
+							});
+						});
+					});
+				})();
+			});
+		</script>
+	</body>
+</html>

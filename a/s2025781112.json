@@ -1,0 +1,92 @@
+{
+	"year": "2025",
+	"articles": [
+	{
+		"id": "s2025781112",
+		"type": "Research Article",
+		"title": "Mitigating Hallucination in Small Language Models via Contrastive Chain-of-Thought Fine-Tuning",
+		"status": "published",
+		"authors": [
+		{
+			"id": "00010077",
+			"name_first": "Maher Asaad",
+			"name_last": "Baker",
+			"name": "Baker, Maher Asaad",
+			"corresponding": 1,
+			"affiliation": "SOLAV, Damascus, Syria",
+			"roles": ["Conceptualization", "Methodology", "Writing – Original Draft"],
+			"email": "maher@solav.me",
+			"orcid": "0000-0001-8013-6044"
+		},{
+			"id": "00010086",
+			"name_first": "Fuad",
+			"name_last": "Al-Qrize",
+			"name": "Al-Qrize, Fuad",
+			"corresponding": 0,
+			"affiliation": "Al-Qrize Productions, Ibb, Yemen",
+			"roles": ["Methodology", "Writing"],
+			"email": "info@fuadalqrize.me",
+			"orcid": "0000-0003-3380-2176"
+		}
+		],
+		"keywords": ["Small Language Models (SLMs)", "Chain-of-Thought Reasoning", "Hallucination Mitigation", "Parameter-Efficient Fine-Tuning (PEFT)", "Low-Rank Adaptation (LoRA)", "Contrastive Learning", "Reliable AI", "Edge Computing"],
+		"abstract": "Small Language Models (SLMs), typically comprising fewer than 3 billion parameters, offer efficient deployment for edge computing but are susceptible to reasoning hallucinations: they generate plausible but logically unsound multi-step solutions. While Chain-of-Thought (CoT) prompting enhances reasoning in larger models, SLMs often lack the capacity to maintain coherent reasoning chains. This paper introduces Contrastive Chain-of-Thought (CCoT) Fine-Tuning, a novel parameter-efficient training method that pairs correct reasoning paths with explicitly labeled logical fallacies during fine-tuning. Using Low-Rank Adaptation (LoRA) on the Phi-2 model, we show that exposing SLMs to curated negative reasoning examples sharpens their decision boundaries between valid and hallucinatory logic. Comprehensive evaluation on arithmetic (GSM8K) and symbolic reasoning (BBH) benchmarks shows that CCoT significantly reduces hallucination rates, measured by stepwise logical consistency, and improves final-answer accuracy by 12.5% relative to standard fine-tuning. This work provides a scalable, hardware-accessible framework for improving the reliability of resource-constrained language models in edge AI applications.",
+		"version": [
+		{
+			"date": "2025-07-05",
+			"number": "1"
+		}
+		],
+		"abstract_url": "https://solav.me/a/s2025781112",
+		"download_url": "https://solav.me/p/s2025781112.pdf",
+		"received_date": "2025-06-09",
+		"evaluated_date": "2025-06-14",
+		"peer_reviewed_date": "2025-06-23",
+		"accepted_date": "2025-07-02",
+		"published_date": "2025-07-05",
+		"volume": "1",
+		"pages": "33-53",
+		"citation_count": 0,
+		"date": "2025-07-05",
+		"language": "en",
+		"license": "CC BY 4.0",
+		"reference": [
+		{"data": "T. Brown, B. Mann, N. Ryder, et al., \"Language Models are Few-Shot Learners,\" Advances in Neural Information Processing Systems (NeurIPS), vol. 33, pp. 1877–1901, 2020."},
+		{"data": "J. Wei, Y. Tay, R. Bommasani, et al., \"Emergent Abilities of Large Language Models,\" Transactions on Machine Learning Research (TMLR), 2022."},
+		{"data": "A. Q. Jiang, A. Sablayrolles, A. Roux, et al., \"Mixtral of Experts,\" arXiv preprint arXiv:2401.04088, 2024."},
+		{"data": "S. Gunasekar, Y. Zhang, J. Aneja, et al., \"Textbooks Are All You Need,\" arXiv preprint arXiv:2306.11644, 2023."},
+		{"data": "Gemma Team, \"Gemma: Open Models Based on Gemini Research and Technology,\" Google, 2024. [Online]. Available: https://ai.google.dev/gemma"},
+		{"data": "P. Zhang, X. Dai, J. Yang, et al., \"TinyLlama: An Open-Source Small Language Model,\" arXiv preprint arXiv:2401.02385, 2024."},
+		{"data": "Z. Ji, N. Lee, R. Frieske, et al., \"Survey of Hallucination in Natural Language Generation,\" ACM Computing Surveys, vol. 55, no. 12, pp. 1–38, 2023."},
+		{"data": "Y. Zhang, Y. Li, L. Cui, et al., \"Siren's Song in the AI Ocean: A Survey on Hallucination in Large Language Models,\" arXiv preprint arXiv:2309.01219, 2023."},
+		{"data": "J. Wei, X. Wang, D. Schuurmans, et al., \"Chain-of-Thought Prompting Elicits Reasoning in Large Language Models,\" Advances in Neural Information Processing Systems (NeurIPS), vol. 35, pp. 24824–24837, 2022."},
+		{"data": "S. Bubeck, V. Chandrasekaran, R. Eldan, et al., \"Sparks of Artificial General Intelligence: Early experiments with GPT-4,\" arXiv preprint arXiv:2303.12712, 2023."},
+		{"data": "L. Huang, W. Yu, W. Ma, et al., \"A Survey on Hallucination in Large Language Models: Principles, Taxonomy, Challenges, and Open Questions,\" arXiv preprint arXiv:2311.05232, 2023."},
+		{"data": "L. Ouyang, J. Wu, X. Jiang, et al., \"Training language models to follow instructions with human feedback,\" Advances in Neural Information Processing Systems (NeurIPS), vol. 35, pp. 27730–27744, 2022."},
+		{"data": "J. R. Anderson, \"Learning from Error: The Role of Explanation and Feedback,\" Cognitive Psychology, vol. 14, no. 4, pp. 435–470, 1982."},
+		{"data": "T. Chen, S. Kornblith, M. Norouzi, and G. Hinton, \"A Simple Framework for Contrastive Learning of Visual Representations,\" in International Conference on Machine Learning (ICML), 2020, pp. 1597–1607."},
+		{"data": "K. He, H. Fan, Y. Wu, S. Xie, and R. Girshick, \"Momentum Contrast for Unsupervised Visual Representation Learning,\" in IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2020, pp. 9729–9738."},
+		{"data": "E. J. Hu, Y. Shen, P. Wallis, et al., \"LoRA: Low-Rank Adaptation of Large Language Models,\" in International Conference on Learning Representations (ICLR), 2022."},
+		{"data": "J. Kaplan, S. McCandlish, T. Henighan, et al., \"Scaling Laws for Neural Language Models,\" arXiv preprint arXiv:2001.08361, 2020."},
+		{"data": "J. W. Rae, S. Borgeaud, T. Cai, et al., \"Scaling Language Models: Methods, Analysis & Insights from Training Gopher,\" arXiv preprint arXiv:2112.11446, 2021."},
+		{"data": "V. Sanh, L. Debut, J. Chaumond, and T. Wolf, \"DistilBERT, a distilled version of BERT: smaller, faster, cheaper and lighter,\" arXiv preprint arXiv:1910.01108, 2019."},
+		{"data": "Y. Qiu, L. Li, J. Sun, et al., \"EasyComposition: A Weakly Supervised Approach for Instruction Tuning of Large Language Models,\" arXiv preprint arXiv:2310.01368, 2023."},
+		{"data": "X. Wang, J. Wei, D. Schuurmans, et al., \"Self-Consistency Improves Chain of Thought Reasoning in Language Models,\" in International Conference on Learning Representations (ICLR), 2023."},
+		{"data": "D. Zhou, N. Schärli, L. Hou, et al., \"Least-to-Most Prompting Enables Complex Reasoning in Large Language Models,\" in International Conference on Learning Representations (ICLR), 2023."},
+		{"data": "N. H. Tran, C. M. Duong, P. Nguyen, et al., \"Chain-of-Thought Prompting for Responding to In-depth Dialogue Questions with LLMs,\" in Proceedings of the 16th International Conference on Natural Language Generation, 2023, pp. 253–267."},
+		{"data": "A. Madaan, N. Tandon, P. Gupta, et al., \"Self-Refine: Iterative Refinement with Self-Feedback,\" Advances in Neural Information Processing Systems (NeurIPS), vol. 36, 2023."},
+		{"data": "P. Lewis, E. Perez, A. Piktus, et al., \"Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks,\" Advances in Neural Information Processing Systems (NeurIPS), vol. 33, pp. 9459–9474, 2020."},
+		{"data": "C. Mou, Y. Wang, L. Gao, et al., \"Controllable Text Generation via Probability Density Estimation in the Latent Space,\" Advances in Neural Information Processing Systems (NeurIPS), vol. 35, pp. 28318–28332, 2022."},
+		{"data": "S. Min, X. Lyu, A. Holtzman, et al., \"Rethinking the Role of Demonstrations: What Makes In-Context Learning Work?,\" in Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing (EMNLP), 2022, pp. 11048–11064."},
+		{"data": "K. Cobbe, V. Kosaraju, M. Bavarian, et al., \"Training Verifiers to Solve Math Word Problems,\" arXiv preprint arXiv:2110.14168, 2021."},
+		{"data": "S. Welleck, I. Kulikov, S. Roller, et al., \"Neural Text Generation with Unlikelihood Training,\" in International Conference on Learning Representations (ICLR), 2020."},
+		{"data": "Y. Yan, R. Li, S. Wang, et al., \"ConSERT: A Contrastive Framework for Self-Supervised Sentence Representation Transfer,\" in Proceedings of the 59th Annual Meeting of the Association for Computational Linguistics and the 11th International Joint Conference on Natural Language Processing (ACL-IJCNLP), 2021, pp. 5065–5075."},
+		{"data": "R. Rafailov, A. Sharma, E. Mitchell, et al., \"Direct Preference Optimization: Your Language Model is Secretly a Reward Model,\" Advances in Neural Information Processing Systems (NeurIPS), vol. 36, 2023."},
+		{"data": "T. Dettmers, A. Pagnoni, A. Holtzman, and L. Zettlemoyer, \"QLoRA: Efficient Finetuning of Quantized LLMs,\" Advances in Neural Information Processing Systems (NeurIPS), vol. 36, 2023."},
+		{"data": "M. Suzgun, N. Scales, N. Schärli, et al., \"Challenging BIG-Bench Tasks and Whether Chain-of-Thought Can Solve Them,\" in Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing (EMNLP), 2022, pp. 13063–13084."},
+		{"data": "L. Ling, Z. U. Hasan, and L. Zhang, \"AQUA: An Algebraic Question Answering Dataset with Rationales,\" in Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing (EMNLP), 2017, pp. 169–177."},
+		{"data": "K. Lightman, V. Kosaraju, Y. Burda, et al., \"Let's Verify Step by Step,\" arXiv preprint arXiv:2305.20050, 2023."}
+		]
+	}
+	]
+}
