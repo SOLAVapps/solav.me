@@ -1,696 +1,75 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="light">
-	<head>
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="author" content="SOLAV Journal">
-		<meta name="publisher" content="Leothar Company">
-		<meta name="copyright" content="Creative Commons Attribution License (CC BY 4.0)">
-		<meta name="language" content="en, ar">
-		<meta name="robots" content="index, follow">
-		<title>SOLAV Journal | Scholarly Open-Access Research</title>
-		<meta name="description" content="SOLAV is a leading open-access, peer-reviewed academic journal dedicated to the rapid publication of high-quality research across applied sciences and interdisciplinary technology. We operate on a continuous publication model to ensure timely dissemination of groundbreaking work.">
-		<meta name="keywords" content="SOLAV journal, open access journal, academic research, applied sciences, interdisciplinary research, peer-reviewed, rapid publication, continuous publication, materials science, renewable energy, artificial intelligence, machine learning, data science, engineering technology, environmental science, biomedical engineering, nanotechnology, computer science, scholarly publishing, CC BY license">
-		<link rel="canonical" href="https://solav.me/">
-		<meta property="og:type" content="website">
-		<meta property="og:url" content="https://solav.me/">
-		<meta property="og:title" content="SOLAV Journal | Scholarly Open-Access Research">
-		<meta property="og:description" content="An Open-Access Platform for Pioneering Research in Applied Sciences and Technology. Submit your work for rapid, rigorous peer review.">
-		<meta property="og:image" content="https://solav.me/images/social-preview.jpg">
-		<meta property="twitter:card" content="summary_large_image">
-		<meta property="twitter:url" content="https://solav.me/">
-		<meta property="twitter:title" content="SOLAV Journal | Scholarly Open-Access Research">
-		<meta property="twitter:description" content="An Open-Access Platform for Pioneering Research in Applied Sciences and Technology. Submit your work for rapid, rigorous peer review.">
-		<meta property="twitter:image" content="https://solav.me/images/social-preview.jpg">
-		<link rel="icon" type="image/x-icon" href="/images/icon.png">
-		<meta name="fediverse:creator" content="@SOLAVjournal@mastodon.social">
-		<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-		<link href="/css/swiper.css" rel="stylesheet">
-		<link href="/css/style.css" rel="stylesheet">
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-RE3FS524EK"></script>
-		<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-		gtag('config', 'G-RE3FS524EK');
-		</script>
-	</head>
-	<body>
-		<main class="page-wrapper" id="top">
-			<header class="header navbar navbar-expand-lg bg-light navbar-sticky py-0">
-				<div class="container px-3">
-					<a href="/" class="navbar-brand pe-3">
-						<img src="/images/logo.svg" class="logo" alt="SOLAV">
-					</a>
-					<div id="navbarNav" class="offcanvas offcanvas-end">
-						<div class="offcanvas-header border-bottom">
-							<h5 class="offcanvas-title">Menu</h5>
-							<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-						</div>
-						<div class="offcanvas-body">
-							<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-								<li class="nav-item">
-									<a href="/aims-scope" class="nav-link">Aims &amp; Scope</a>
-								</li>
-								<li class="nav-item">
-									<a href="/guidelines" class="nav-link">Guidelines</a>
-								</li>
-								<li class="nav-item dropdown">
-									<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-current="page">Submit</a>
-									<ul class="dropdown-menu">
-										<li><a href="/submit" class="dropdown-item">Submit</a></li>
-										<li><a href="/track" class="dropdown-item">Track Paper</a></li>
-									</ul>
-								</li>
-								<li class="nav-item dropdown">
-									<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-current="page">Archive</a>
-									<ul class="dropdown-menu">
-										<li><a href="/archive" class="dropdown-item">Archive</a></li>
-										<li><a href="/authors" class="dropdown-item">Authors</a></li>
-									</ul>
-								</li>
-								<li class="nav-item dropdown">
-									<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-current="page">Policies</a>
-									<ul class="dropdown-menu">
-										<li><a href="/ethics" class="dropdown-item">Publication Ethics</a></li>
-										<li><a href="/apc" class="dropdown-item">Article Processing Charges</a></li>
-										<li><a href="/review" class="dropdown-item">Peer Review Process</a></li>
-										<li><a href="/open-submission" class="dropdown-item">Open Submission Policy</a></li>
-										<li><a href="/access" class="dropdown-item">Open Access & Licensing</a></li>
-										<li><a href="/archiving" class="dropdown-item">Archiving & Management</a></li>
-										<li><a href="/oai-pmh" class="dropdown-item">OAI-PMH Repository</a></li>
-									</ul>
-								</li>
-								<li class="nav-item dropdown">
-									<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-current="page">About</a>
-									<ul class="dropdown-menu">
-										<li><a href="/about" class="dropdown-item">About the journal</a></li>
-										<li><a href="/about#editorialBoard" class="dropdown-item"><i class="bi bi-arrow-return-right"></i> Editorial Board</a></li>
-									</ul>
-								</li>
-							</ul>
-						</div>  
-					</div>
-					<div class="form-check form-switch mode-switch pe-lg-1 ms-auto me-4" data-bs-toggle="mode">
-						<input type="checkbox" class="form-check-input" id="theme-mode">
-						<label class="form-check-label" for="theme-mode"><i class="bi bi-sun"></i></label>
-						<label class="form-check-label" for="theme-mode"><i class="bi bi-moon-stars"></i></label>
-					</div>
-					<button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-						<span class="navbar-toggler-icon"></span>
-					</button>
-				</div>
-			</header>
-			<div class="jarallax mb-lg-5 mb-4 pt-0 card border-0 bg-gradient-primary rounded-0" data-jarallax="" data-speed="0.35" style="height: 36.45vw; min-height: 400px; background-image: url(/images/main-bg.png);" data-jarallax-original-styles="height: 36.45vw; min-height: 400px;">
-				<div id="jarallax-container-0" class="jarallax-container" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; overflow: hidden; z-index: -100; clip-path: polygon(0px 0px, 100% 0px, 100% 100%, 0px 100%);">
-					<div class="jarallax-img w-100" style="background-image: url(/images/main-bg.png); object-fit: cover; object-position: 50% 50%; max-width: none; position: fixed; top: 0px; left: 0px; width: 375.2px; height: 538.55px; overflow: hidden; pointer-events: none; transform-style: preserve-3d; backface-visibility: hidden; margin-top: 64.225px; transform: translate3d(0px, -40.425px, 0px);" data-jarallax-original-styles="background-image: url(./imgs/top-bg.jpg);">
-						<div class="pt-5 mt-md-5 centered-text w-100">
-							<div id="logoContainerP">
-								<div id="logoContainer">
-									<img class ="logoImg" src="/images/logo.svg">
-								</div>
-								<div class="circle">
-									<div class="pulse"></div>
-								</div>
-							</div>
-							<h1 class="fw-bold centered-text pt-3">SOLAV Journal</h1>
-							<h2 class="fs-6 centered-text small px-3">» A Scholarly Platform for Interdisciplinary Visioneering and Applied Futures «</h2>
-						</div>
-					</div>
-				</div>
-			</div>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOLAV AI Research Assistant</title>
+    <style>
+        :root { --primary: #2c3e50; --accent: #3498db; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; background-color: #f9f9f9; }
+        .container { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        h1 { color: var(--primary); border-bottom: 2px solid var(--accent); padding-bottom: 10px; }
+        textarea { width: 100%; height: 150px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px; box-sizing: border-box; margin-bottom: 15px; }
+        button { background-color: var(--accent); color: white; border: none; padding: 12px 30px; border-radius: 6px; cursor: pointer; font-size: 16px; transition: background 0.3s; }
+        button:hover { background-color: #2980b9; }
+        button:disabled { background-color: #bdc3c7; cursor: not-allowed; }
+        #response { margin-top: 25px; padding: 20px; background: #f0f4f8; border-radius: 8px; min-height: 50px; white-space: pre-wrap; }
+        .footer { margin-top: 30px; font-size: 12px; color: #95a5a6; text-align: center; }
+    </style>
+</head>
+<body>
 
-			<section class="container">
-				<div class="card border-primary shadow-sm px-4 px-lg-0 bg-body">
-					<div class="row align-items-center">
-						<div class="col-xl-12 col-md-12 text-center text-md-start p-5 py-2 pt-4">
-							<h2>Welcome to SOLAV</h2>
-							<p>
-								SOLAV (Scholarly Open-Library of Applied Visioneering) is a rigorously peer-reviewed, open-access journal dedicated to the rapid dissemination of significant research across a broad spectrum of applied sciences and interdisciplinary technology. We operate on a continuous publication model, ensuring your work is published as soon as the review process is complete.
-							</p>
-						</div>
-					</div>
-				</div>
-			</section>
+<div class="container">
+    <h1>SOLAV AI Assistant</h1>
+    <p>Submit your research query or abstract for analysis:</p>
+    
+    <textarea id="userInput" placeholder="Type your research question here..."></textarea>
+    
+    <button id="submitBtn">Generate Analysis</button>
 
-			<section class="bg-secondary pb-md-2 pb-lg-5">
-				<div class="d-none d-lg-block" style="margin-top: -60px; padding-top: 60px;"></div>
-				<div class="container pb-4 pt-5">
-					<div class="row">
-						<div class="col-lg-10 mx-auto">
-							<div class="text-center mb-5">
-								<h2 class="h2 mb-4">Advancing Scholarship Through Open Collaboration</h2>
-								<p class="mb-4">
-									In an era of accelerating discovery and global challenges, SOLAV serves as a scholarly commons where rigorous research meets broad accessibility. We believe knowledge should be a public good, not a private commodity.
-								</p>
-							</div>
-							
-							<div class="row g-4">
-								<div class="col-md-4">
-									<div class="card h-100 border-0 shadow-sm bg-light">
-										<div class="card-body p-4">
-											<div class="text-center mb-3">
-												<i class="bi bi-globe-americas display-6 text-primary"></i>
-											</div>
-											<h3 class="h4 text-center mb-3">Global Scholarly Commons</h3>
-											<p>We transcend geographic and institutional boundaries, creating an inclusive platform where researchers from universities, independent laboratories, industry R&D, and grassroots innovation communities contribute equally. Academic merit, not affiliation, defines contribution.</p>
-										</div>
-									</div>
-								</div>
-								
-								<div class="col-md-4">
-									<div class="card h-100 border-0 shadow-sm bg-light">
-										<div class="card-body p-4">
-											<div class="text-center mb-3">
-												<i class="bi bi-lightning-charge display-6 text-primary"></i>
-											</div>
-											<h3 class="h4 text-center mb-3">Accelerated Knowledge Cycle</h3>
-											<p>Our continuous publication model eliminates artificial delays, ensuring that significant findings reach the scholarly community without unnecessary waiting. From final acceptance to citable publication typically occurs within 5-7 business days, accelerating the research lifecycle.</p>
-										</div>
-									</div>
-								</div>
-								
-								<div class="col-md-4">
-									<div class="card h-100 border-0 shadow-sm bg-light">
-										<div class="card-body p-4">
-											<div class="text-center mb-3">
-												<i class="bi bi-shield-check display-6 text-primary"></i>
-											</div>
-											<h3 class="h4 text-center mb-3">Rigor with Purpose</h3>
-											<p>We maintain uncompromising scholarly standards through rigorous peer review while embracing innovative methodologies and interdisciplinary approaches. Quality assessment is constructive, transparent, and focused on advancing understanding rather than gatekeeping.</p>
-										</div>
-									</div>
-								</div>
-							</div>
-							
-							<div class="alert alert-primary mt-5" role="alert">
-								<div class="d-flex align-items-center">
-									<i class="bi bi-quote display-6 flex-shrink-0 me-3"></i>
-									<div>
-										<h4 class="alert-heading">Inclusive Excellence</h4>
-										<p class="mb-0">SOLAV actively welcomes contributions from early-career researchers, independent scholars, practitioners, and established academics alike. We evaluate submissions based on intellectual contribution, methodological rigor, and relevance—not institutional pedigree or geography.</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
+    <div id="response">Waiting for input...</div>
+</div>
 
-			<section class="bg-light py-5">
-				<div class="container">
-					<h2 class="text-center mb-5">A Platform for All Research Communities</h2>
-					
-					<div class="row g-4">
-						<div class="col-md-6">
-							<div class="card h-100 border-primary border-2">
-								<div class="card-header bg-primary text-center p-0 m-0 w-100">
-									<h3 class="h4 mb-0 p-4 centered-text"><i class="bi bi-building me-2"></i>Academic Researchers</h3>
-								</div>
-								<div class="card-body">
-									<p class="card-text">For university-affiliated scholars, SOLAV offers:</p>
-									<ul class="list-unstyled mb-0">
-										<li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Rigorous peer review meeting academic tenure requirements</li>
-										<li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Rapid dissemination supporting grant reporting and impact metrics</li>
-										<li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Interdisciplinary visibility beyond traditional departmental boundaries</li>
-										<li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Compliance with open access mandates from funders and institutions</li>
-										<li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Permanent archiving for long-term citation stability</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						
-						<div class="col-md-6">
-							<div class="card h-100 border-primary border-2">
-								<div class="card-header bg-purple text-center p-0 m-0 w-100">
-									<h3 class="h4 mb-0 p-4 centered-text"><i class="bi bi-person-badge me-2"></i>Independent Scholars & Practitioners</h3>
-								</div>
-								<div class="card-body">
-									<p class="card-text">For researchers outside traditional academia, SOLAV provides:</p>
-									<ul class="list-unstyled mb-0">
-										<li class="mb-2"><i class="bi bi-check-circle-fill text-purple me-2"></i> Merit-based evaluation without institutional bias</li>
-										<li class="mb-2"><i class="bi bi-check-circle-fill text-purple me-2"></i> Global visibility for innovative work from industry, NGOs, and independent labs</li>
-										<li class="mb-2"><i class="bi bi-check-circle-fill text-purple me-2"></i> Practical impact pathways for applied research and technical solutions</li>
-										<li class="mb-2"><i class="bi bi-check-circle-fill text-purple me-2"></i> Support for mixed-methods research bridging theory and practice</li>
-										<li><i class="bi bi-check-circle-fill text-purple me-2"></i> Collaborative opportunities across academic-practice boundaries</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					
-					<div class="row mt-4">
-						<div class="col-lg-8 mx-auto">
-							<div class="card border-0 bg-secondary bg-opacity-10">
-								<div class="card-body p-4">
-									<div class="d-flex">
-										<i class="bi bi-arrow-left-right display-6 text-primary me-4 flex-shrink-0"></i>
-										<div>
-											<h4 class="h5 mb-3">Bridging Communities</h4>
-											<p class="mb-0">SOLAV deliberately creates space for dialogue between academic research and applied practice. We value contributions that translate theoretical insights into practical solutions, and that ground technical innovations in scholarly understanding. This exchange enriches both communities and advances knowledge with real-world relevance.</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
+<div class="footer">
+    Hosted on solav.me | Powered by Gemini 1.5 Flash
+</div>
 
-			<section class="bg-secondary pb-md-2 pb-lg-5">
-				<div class="container pb-4 pt-5">
+<script type="module">
+    // Using a CDN ensures it works on your custom domain without local installation
+    import { GoogleGenerativeAI } from "https://esm.run/@google/genai";
 
-					<div class="card-body border-primary shadow-sm p-4 mb-3 bg-body bg-opacity-25">
-						<div class="d-flex align-items-center">
-							<i class="bi bi-check-circle-fill text-primary fs-4 me-3 flex-shrink-0"></i>
-							<div>
-								<strong>Open Submission Policy:</strong> SOLAV evaluates all manuscripts based on scholarly merit, originality, and relevance. We welcome submissions from researchers at academic institutions, independent scholars, practitioners, and research teams from diverse geographic and institutional backgrounds.
-							</div>
-						</div>
-					</div>
+    const API_KEY = "AIzaSyCAkxSsnUryryIWoE_Fe4sS-qPUmpYFwMo";
+    const genAI = new GoogleGenerativeAI(API_KEY);
+    
+    // Configured for individual researcher use
+    const model = genAI.getGenerativeModel({ 
+        model: "gemini-1.5-flash",
+        systemInstruction: "You are a scholarly assistant for the SOLAV journal. Help researchers analyze preprints, summarize data, and clarify methodologies. Be objective and concise."
+    });
 
-					<h3 class="text-center mb-4 pt-1 pt-md-4">Why Choose SOLAV for Your Research?</h3>
-					<p class="text-center mb-5 lead">Our scholarly infrastructure is designed to maximize the impact and reach of your work while maintaining rigorous academic standards.</p>
-					
-					<div class="row row-cols-1 row-cols-md-2">
+    const btn = document.getElementById('submitBtn');
+    const input = document.getElementById('userInput');
+    const output = document.getElementById('response');
 
-						<div class="col py-4 my-2 my-sm-3">
-							<a class="card card-hover h-100 border-0 shadow-sm text-decoration-none pt-5 px-sm-3 px-md-0 px-lg-3 pb-sm-3 pb-md-0 pb-lg-3 me-xl-2">
-								<div class="card-body pt-3">
-									<div class="d-inline-block bg-primary bg-opacity-25 shadow-primary rounded-3 position-absolute top-0 translate-middle-y p-3">
-										<i class="bi bi-broadcast d-block m-1 h1 text-primary"></i>
-									</div>
-									<h2 class="h4 d-inline-flex align-items-center">
-										Rapid Publication Cycle
-									</h2>
-									<p class="fs-sm text-body mb-0">
-										Our continuous publication model eliminates issue-based delays. From final acceptance to permanent, citable online publication typically occurs within <strong>5-7 business days</strong>, ensuring timely dissemination of significant findings. Articles are archived for permanent access.
-									</p>
-								</div>
-							</a>
-						</div>
+    btn.addEventListener('click', async () => {
+        if (!input.value.trim()) return;
 
-						<div class="col py-4 my-2 my-sm-3">
-							<a class="card card-hover h-100 border-0 shadow-sm text-decoration-none pt-5 px-sm-3 px-md-0 px-lg-3 pb-sm-3 pb-md-0 pb-lg-3 me-xl-2">
-								<div class="card-body pt-3">
-									<div class="d-inline-block bg-primary bg-opacity-25 shadow-primary rounded-3 position-absolute top-0 translate-middle-y p-3">
-										<i class="bi bi-unlock d-block m-1 h1 text-primary"></i>
-									</div>
-									<h2 class="h4 d-inline-flex align-items-center">
-										Unrestricted Global Access
-									</h2>
-									<p class="fs-sm text-body mb-0">
-										All research is freely available worldwide under a <strong>CC BY 4.0 license</strong>, maximizing readership, citation potential, and societal impact. We remove financial barriers to ensure knowledge reaches researchers, practitioners, policymakers, and the public globally.
-									</p>
-								</div>
-							</a>
-						</div>
+        btn.disabled = true;
+        btn.innerText = "Analyzing...";
+        output.innerText = "Consulting AI model...";
 
-						<div class="col py-4 my-2 my-sm-3">
-							<a class="card card-hover h-100 border-0 shadow-sm text-decoration-none pt-5 px-sm-3 px-md-0 px-lg-3 pb-sm-3 pb-md-0 pb-lg-3 me-xl-2">
-								<div class="card-body pt-3">
-									<div class="d-inline-block bg-primary bg-opacity-25 shadow-primary rounded-3 position-absolute top-0 translate-middle-y p-3">
-										<i class="bi bi-file-earmark-check d-block m-1 h1 text-primary"></i>
-									</div>
-									<h2 class="h4 d-inline-flex align-items-center">
-										Rigorous Scholarly Assessment
-									</h2>
-									<p class="fs-sm text-body mb-0">
-										Every submission undergoes thorough, <strong>single-blind peer review</strong> by at least two domain experts. Our editorial board ensures constructive, timely evaluation that upholds academic standards while providing developmental feedback to strengthen scholarship.
-									</p>
-								</div>
-							</a>
-						</div>
+        try {
+            const result = await model.generateContent(input.value);
+            const response = await result.response;
+            output.innerText = response.text();
+        } catch (error) {
+            output.innerHTML = `<span style="color:red">Error: ${error.message}</span>`;
+        } finally {
+            btn.disabled = false;
+            btn.innerText = "Generate Analysis";
+        }
+    });
+</script>
 
-						<div class="col py-4 my-2 my-sm-3">
-							<a class="card card-hover h-100 border-0 shadow-sm text-decoration-none pt-5 px-sm-3 px-md-0 px-lg-3 pb-sm-3 pb-md-0 pb-lg-3 me-xl-2">
-								<div class="card-body pt-3">
-									<div class="d-inline-block bg-primary bg-opacity-25 shadow-primary rounded-3 position-absolute top-0 translate-middle-y p-3">
-										<i class="bi bi-crosshair d-block m-1 h1 text-primary"></i>
-									</div>
-									<h2 class="h4 d-inline-flex align-items-center">
-										Interdisciplinary Engagement
-									</h2>
-									<p class="fs-sm text-body mb-0">
-										SOLAV actively cultivates scholarship at disciplinary intersections. We provide dedicated space for work bridging <strong>engineering with life sciences, data science with social impact, or fundamental research with applied technology</strong>—where transformative insights emerge.
-									</p>
-								</div>
-							</a>
-						</div>
-
-						<div class="col py-4 my-2 my-sm-3">
-							<a class="card card-hover h-100 border-0 shadow-sm text-decoration-none pt-5 px-sm-3 px-md-0 px-lg-3 pb-sm-3 pb-md-0 pb-lg-3 me-xl-2">
-								<div class="card-body pt-3">
-									<div class="d-inline-block bg-primary bg-opacity-25 shadow-primary rounded-3 position-absolute top-0 translate-middle-y p-3">
-										<i class="bi bi-graph-up-arrow d-block m-1 h1 text-primary"></i>
-									</div>
-									<h2 class="h4 d-inline-flex align-items-center">
-										Enhanced Research Visibility
-									</h2>
-									<ul class="mb-0">
-										<li class="mb-2">Indexing in major academic databases</li>
-										<li class="mb-2">OAI-PMH compliance for repository harvesting</li>
-										<li>Full-text indexing by major search engines</li>
-									</ul>
-								</div>
-							</a>
-						</div>
-
-						<div class="col py-4 my-2 my-sm-3">
-							<a class="card card-hover h-100 border-0 shadow-sm text-decoration-none pt-5 px-sm-3 px-md-0 px-lg-3 pb-sm-3 pb-md-0 pb-lg-3 me-xl-2">
-								<div class="card-body pt-3">
-									<div class="d-inline-block bg-primary bg-opacity-25 shadow-primary rounded-3 position-absolute top-0 translate-middle-y p-3">
-										<i class="bi bi-archive d-block m-1 h1 text-primary"></i>
-									</div>
-									<h2 class="h4 d-inline-flex align-items-center">
-										Long-term Preservation
-									</h2>
-									<ul class="mb-0">
-										<li class="mb-2">Permanent ID and landing page</li>
-										<li class="mb-2">Multiple redundant backups and version control</li>
-										<li>10+ years guaranteed digital preservation</li>
-									</ul>
-								</div>
-							</a>
-						</div>
-					</div>
-					
-					<div class="alert alert-primary mt-4" role="alert">
-						<div class="d-flex align-items-center">
-							<i class="bi bi-stars display-6 me-3 flex-shrink-0"></i>
-							<div>
-								<h4 class="alert-heading mb-2">Scholarly Community Building</h4>
-								<p class="mb-0">By publishing with SOLAV, you join a growing international community of researchers committed to open science, interdisciplinary dialogue, and accelerating the translation of discovery into impact. Your work contributes to a scholarly commons that values diversity of perspective, methodological innovation, and practical relevance.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<section class="container p-5">
-				<div class="row g-4">
-					<div class="col-md-6 col-lg-3">
-						<div class="card border-0 bg-primary text-white text-center py-4">
-							<div class="card-body">
-								<div class="display-4 fw-bold mb-2">100%</div>
-								<p class="mb-0">Diamond Open Access</p>
-								<small class="opacity-75">No author-facing charges</small>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6 col-lg-3">
-						<div class="card border-0 bg-light text-center py-4">
-							<div class="card-body">
-								<div class="display-4 fw-bold mb-2 text-primary">4-6</div>
-								<p class="mb-0">Weeks to First Decision</p>
-								<small class="text-muted">Median review timeline</small>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6 col-lg-3">
-						<div class="card border-0 bg-primary text-white text-center py-4">
-							<div class="card-body">
-								<div class="display-4 fw-bold mb-2">CC BY</div>
-								<p class="mb-0">Open License</p>
-								<small class="opacity-75">Maximum reuse rights</small>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6 col-lg-3">
-						<div class="card border-0 bg-light text-center py-4">
-							<div class="card-body">
-								<div class="display-4 fw-bold mb-2 text-primary">∞</div>
-								<p class="mb-0">Permanent Archiving</p>
-								<small class="text-muted">10+ years guaranteed</small>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<section class="py-5 bg-secondary">
-				<div class="container py-5">
-					<h5 class="lead text-center fw-bold">The Scholarly Publication Journey</h5>
-					<p class="fs-lg text-center mb-5">From manuscript submission to global dissemination, our process prioritizes academic rigor, author support, and timely communication.</p>
-					<div class="steps steps-center steps-sm steps-horizontal-lg" style="--si-steps-number-size-sm: 3.5rem; --si-steps-number-inner-size-sm: 3rem; --si-steps-number-bg: rgba(99,102,241,.2); --si-steps-number-inner-bg: #6366f1;">
-						<div class="step w-100 mx-auto">
-							<div class="step-number"><div class="step-number-inner centered-text">1</div></div>
-							<div class="step-body">
-								<h3 class="mb-3">Submission & Initial Screening</h3>
-								<p class="mb-0">Authors submit via our online system. Editorial staff conduct initial checks for scope, formatting, and ethical compliance, with communication within 3 business days.</p>
-							</div>
-						</div>
-						<div class="step w-100 mx-auto">
-							<div class="step-number"><div class="step-number-inner centered-text">2</div></div>
-							<div class="step-body">
-								<h3 class="mb-3">Expert Peer Review</h3>
-								<p class="mb-0">The manuscript is assigned to an academic editor and sent for in-depth evaluation by independent experts selected for methodological and domain expertise.</p>
-							</div>
-						</div>
-						<div class="step w-100 mx-auto">
-							<div class="step-number"><div class="step-number-inner centered-text">3</div></div>
-							<div class="step-body">
-								<h3 class="mb-3">Editorial Decision & Revision</h3>
-								<p class="mb-0">Based on comprehensive reviewer feedback, the editor makes a decision. Authors receive constructive guidance for revision when appropriate.</p>
-							</div>
-						</div>
-						<div class="step w-100 mx-auto">
-							<div class="step-number"><div class="step-number-inner centered-text">4</div></div>
-							<div class="step-body">
-								<h3 class="mb-3">Publication & Global Dissemination</h3>
-								<p class="mb-0">Upon final acceptance, the article undergoes professional formatting and is published online within days, with immediate global accessibility and promotion.</p>
-							</div>
-						</div>
-					</div>
-	
-					<div class="text-center mt-5">
-						<a href="/guidelines" class="btn btn-lg btn-outline-primary rounded-pill me-3">View Detailed Guidelines</a>
-						<a href="/review" class="btn btn-lg btn-primary rounded-pill">Learn About Peer Review</a>
-					</div>
-				</div>
-			</section>
-
-			<section class="container py-5">
-				<div class="row align-items-center">
-					<div class="col-lg-6">
-						<h2 class="mb-4">Contributing to the Scholarly Record</h2>
-						<p class="lead mb-4">Publishing with SOLAV means adding your voice to a growing corpus of open knowledge with lasting academic and societal impact.</p>
-						
-						<div class="d-flex mb-3">
-							<i class="bi bi-quote text-primary fs-2 me-3 flex-shrink-0"></i>
-							<div>
-								<h4 class="h5">Academic Recognition</h4>
-								<p class="mb-0">Our rigorous peer review process ensures published work meets academic standards for tenure, promotion, and grant applications across institutions worldwide.</p>
-							</div>
-						</div>
-						
-						<div class="d-flex mb-3">
-							<i class="bi bi-share text-primary fs-2 me-3 flex-shrink-0"></i>
-							<div>
-								<h4 class="h5">Global Knowledge Exchange</h4>
-								<p class="mb-0">Open access ensures your research reaches scholars in institutions with limited library budgets, practitioners in the Global South, and policymakers shaping evidence-based decisions.</p>
-							</div>
-						</div>
-						
-						<div class="d-flex">
-							<i class="bi bi-arrow-repeat text-primary fs-2 me-3 flex-shrink-0"></i>
-							<div>
-								<h4 class="h5">Methodological Transparency</h4>
-								<p class="mb-0">We encourage open data, open methods, and replication materials, fostering cumulative science and responsible research practices.</p>
-							</div>
-						</div>
-					</div>
-					
-					<div class="col-lg-6">
-						<div class="card border-0 shadow-lg">
-							<div class="card-body p-5">
-								<h3 class="h4 mb-4 text-center">Ready to Advance Your Research?</h3>
-								<p class="mb-4">Join researchers from over 40 countries who have chosen SOLAV for its commitment to scholarly excellence, rapid dissemination, and global accessibility.</p>
-								
-								<div class="d-grid gap-3">
-									<a href="/submit" class="btn btn-primary btn-lg">Start Your Submission</a>
-									<a href="/guidelines" class="btn btn-outline-primary btn-lg">Review Author Guidelines</a>
-									<a href="/archive" class="btn btn-outline-secondary btn-lg">Browse Published Articles</a>
-								</div>
-								
-								<div class="mt-4 text-center">
-									<small class="text-muted">Questions about fit or process? <a href="mailto:editorial@solav.me">Contact our editorial team</a></small>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<div class="col-md-12 d-flex justify-content-evenly mb-3 border-top mt-3 pt-3">
-				<img src="/images/creative_commons_license_with_attribution.svg" alt="CC BY 4.0" class="img-fluid" style="max-height: 46px;">
-				<img src="/images/open_access.svg" alt="Open Access" class="img-fluid" style="max-height: 46px;">
-				<img src="/images/oai_logo.svg" alt="OAI-PMH Compliant" class="img-fluid" style="max-height: 46px;">
-			</div>
-		</main>
-		<a href="#top" class="btn-scroll-top" data-scroll="">
-			<i class="btn-scroll-top-icon bi bi-chevron-up"></i>
-		</a>
-		<footer class="footer border-top bg-primary-subtle">
-			<div class="container py-5">
-				<div class="row g-4">
-					<div class="col-lg-4">
-						<p class="mb-1">
-							SOLAV Journal is an open access, peer-reviewed journal publishing interdisciplinary applied research with real-world impact.
-							<br><span class="font-sm"><strong>Publication Frequency:</strong> Continuous publication.</span>
-							<br><span class="font-sm"><strong>Editor-In-Chief:</strong> Maher Asaad Baker</span>
-							<br><span class="font-sm"><strong>Publisher:</strong> Leothar Company, Riyadh, Saudi Arabia</span>
-						</p>
-						<div class="issn-container mt-0">
-							<img src="/images/issn_logo.svg" alt="ISSN" class="issn-logo">
-							<span class="issn-text">ISSN request pending</span>
-						</div>
-					</div>
-
-					<div class="col-lg-2 col-md-4">
-						<h5 class="mb-3 fw-bold">Quick Links</h5>
-						<ul class="list-unstyled">
-							<li class="mb-2"><a href="/aims-scope" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Aims & Scope</a></li>
-							<li class="mb-2"><a href="/guidelines" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Author Guidelines</a></li>
-							<li class="mb-2"><a href="/submit" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Submit Manuscript</a></li>
-							<li class="mb-2"><a href="/archive" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Article Archive</a></li>
-							<li class="mb-2"><a href="/about" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">About the Journal</a></li>
-						</ul>
-					</div>
-
-					<div class="col-lg-3 col-md-4">
-						<h5 class="mb-3 fw-bold">Policies</h5>
-						<ul class="list-unstyled">
-							<li class="mb-2"><a href="/ethics" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Publication Ethics</a></li>
-							<li class="mb-2"><a href="/apc" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Article Processing Charges</a></li>
-							<li class="mb-2"><a href="/review" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Peer Review Process</a></li>
-							<li class="mb-2"><a href="/access" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Open Access & Licensing</a></li>
-							<li class="mb-2"><a href="/archiving" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Archiving & Management</a></li>
-						</ul>
-					</div>
-
-					<div class="col-lg-3 col-md-4">
-						<h5 class="mb-3 fw-bold">Contact & Support</h5>
-						<ul class="list-unstyled">
-							<li class="mb-2">
-								<i class="bi bi-envelope me-2 text-primary"></i>
-								<a href="mailto:contact@solav.me" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">General Inquiries</a>
-							</li>
-							<li class="mb-2">
-								<i class="bi bi-question-circle me-2 text-primary"></i>
-								<a href="mailto:support@solav.me" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Technical Support</a>
-							</li>
-							<li class="mb-2">
-								<i class="bi bi-shield-check me-2 text-primary"></i>
-								<a href="mailto:ethics@solav.me" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Ethics Concerns</a>
-							</li>
-							<li class="mb-2">
-								<i class="bi bi-currency-exchange me-2 text-primary"></i>
-								<a href="mailto:apc@solav.me" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">APC & Payments</a>
-							</li>
-							<li class="mb-2">
-								<i class="bi bi-people me-2 text-primary"></i>
-								<a href="mailto:editorial@solav.me" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Editorial Board</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-		
-				<div class="row pt-2 border-top">
-					<div class="col-md-6 text-md-end order-md-2 px-2">
-						<div class="row mb-0 h-100 d-flex align-items-end justify-content-lg-end px-3">
-							<div class="col-12 p-0 m-0">
-								<a href="https://bsky.app/profile/solav.me" alt="Bluesky">
-									<img src="/images/bluesky-icon.svg" class="d-Icons" alt="Bluesky"></a>
-								<a rel="me" href="https://mastodon.social/@SOLAVjournal" alt="Mastodon">
-									<img src="/images/mastodon-icon.svg" class="d-IconsL m-0" alt="Mastodon"></a>
-							</div>
-							<ul class="list-inline col-12 p-0 m-0">
-								<li class="list-inline-item p-0 m-0"><a href="/privacy" class="link-primary link-underline-opacity-25 link-underline-opacity-100-hover link-offset-2">Privacy Policy</a><span class="text-primary p-0 m-0 px-2">●</span></li>
-								<li class="list-inline-item p-0 m-0"><a href="/tou" class="link-primary link-underline-opacity-25 link-underline-opacity-100-hover link-offset-2">Terms of Use</a><span class="text-primary p-0 m-0 px-2">●</span></li>
-								<li class="list-inline-item p-0 m-0"><a href="/accessibility" class="link-primary link-underline-opacity-25 link-underline-opacity-100-hover link-offset-2">Accessibility</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-md-6 order-md-1">
-						<p class="mb-0 h-100">
-							<strong>Your privacy matters</strong>. We use cookies to enhance your visit and analyze site traffic. By continuing to browse, you agree to our use of cookies.
-							<br>&copy; <span id="currentYear"></span> SOLAV Journal. This is an open access journal distributed under the 
-							<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" class="link-primary link-underline-opacity-25 link-underline-opacity-100-hover link-offset-2">Creative Commons Attribution License (CC BY 4.0)</a>.
-						</p>
-					</div>
-				</div>
-			</div>
-		</footer>
-		<script src="/js/jarallax.js"></script>
-		<script src="/js/swiper.js"></script>
-		<script src="/js/js.js"></script>
-		<script>
-			document.getElementById('currentYear').textContent = new Date().getFullYear();
-		
-			(() => {
-				'use strict';
-				const getStoredTheme = () => localStorage.getItem('theme');
-				const setStoredTheme = theme => localStorage.setItem('theme', theme);
-				const getPreferredTheme = () => {
-					const storedTheme = getStoredTheme();
-					if (storedTheme) {
-						return storedTheme;
-					}
-					return 'light';
-				};
-				const setTheme = theme => {
-					if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-						document.documentElement.setAttribute('data-bs-theme', 'dark');
-					} else {
-						document.documentElement.setAttribute('data-bs-theme', theme);
-					}
-				};
-				const updateLogos = theme => {
-					const logos = document.querySelectorAll('.logo');
-					logos.forEach(logo => {
-						logo.src = theme === 'dark' ? '/images/logo-white.svg' : '/images/logo-black.svg';
-					});
-				};
-				setTheme(getPreferredTheme());
-				const showActiveTheme = theme => {
-					const themeSwitcher = document.querySelector('[data-bs-toggle="mode"]');
-					const themeSwitcherCheck = themeSwitcher.querySelector('input[type="checkbox"]');
-					if (!themeSwitcher) {
-						return;
-					}
-					if (theme === 'dark') {
-						themeSwitcherCheck.checked = true;
-					} else {
-						themeSwitcherCheck.checked = false;
-					}
-					updateLogos(theme);
-				};
-				window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-					const storedTheme = getStoredTheme();
-					if (storedTheme !== 'light' && storedTheme !== 'dark') {
-						const newTheme = getPreferredTheme();
-						setTheme(newTheme);
-						showActiveTheme(newTheme);
-					}
-				});
-				window.addEventListener('DOMContentLoaded', () => {
-					showActiveTheme(getPreferredTheme());
-					document.querySelectorAll('[data-bs-toggle="mode"]').forEach(toggle => {
-						toggle.addEventListener('click', () => {
-							const themeSwitcherCheck = toggle.querySelector('input[type="checkbox"]');
-							const theme = themeSwitcherCheck.checked ? 'dark' : 'light';
-							setStoredTheme(theme);
-							setTheme(theme);
-							showActiveTheme(theme);
-						});
-					});
-				});
-			})();
-
-		</script>
-	</body>
+</body>
 </html>
