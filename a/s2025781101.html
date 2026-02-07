@@ -75,6 +75,7 @@
 		<meta property="og:title" content="Launching SOLAV Journal: Vision, Scope, and Commitment to Scholarly Excellence">
 		<meta property="og:url" content="https://solav.me/a/s2025781101">
 		<link rel="icon" type="image/x-icon" href="/images/icon.png">
+		<meta name="fediverse:creator" content="@SOLAVjournal@mastodon.social">
 		<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 		<link href="/css/swiper.css" rel="stylesheet">
@@ -154,8 +155,12 @@
 										<li><a href="/oai-pmh" class="dropdown-item">OAI-PMH Repository</a></li>
 									</ul>
 								</li>
-								<li class="nav-item">
-									<a href="/about" class="nav-link">About</a>
+								<li class="nav-item dropdown">
+									<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-current="page">About</a>
+									<ul class="dropdown-menu">
+										<li><a href="/about" class="dropdown-item">About the journal</a></li>
+										<li><a href="/about#editorialBoard" class="dropdown-item"><i class="bi bi-arrow-return-right"></i> Editorial Board</a></li>
+									</ul>
 								</li>
 							</ul>
 						</div>  
@@ -350,21 +355,27 @@
 					</div>
 				</div>
 				<div class="row pt-2 border-top">
-					<div class="col-md-6">
+					<div class="col-md-6 text-md-end order-md-2 px-2">
+						<div class="row mb-0 h-100 d-flex align-items-end justify-content-lg-end px-3">
+							<div class="col-12 p-0 m-0">
+								<a href="https://bsky.app/profile/solav.me" alt="Bluesky">
+									<img src="/images/bluesky-icon.svg" class="d-Icons" alt="Bluesky"></a>
+								<a rel="me" href="https://mastodon.social/@SOLAVjournal" alt="Mastodon">
+									<img src="/images/mastodon-icon.svg" class="d-Icons" alt="Mastodon"></a>
+							</div>
+							<ul class="list-inline col-12 p-0 m-0">
+								<li class="list-inline-item p-0 m-0"><a href="/privacy" class="link-primary link-underline-opacity-25 link-underline-opacity-100-hover link-offset-2">Privacy Policy</a><span class="text-primary p-0 m-0 px-2">●</span></li>
+								<li class="list-inline-item p-0 m-0"><a href="/tou" class="link-primary link-underline-opacity-25 link-underline-opacity-100-hover link-offset-2">Terms of Use</a><span class="text-primary p-0 m-0 px-2">●</span></li>
+								<li class="list-inline-item p-0 m-0"><a href="/accessibility" class="link-primary link-underline-opacity-25 link-underline-opacity-100-hover link-offset-2">Accessibility</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-6 order-md-1">
 						<p class="mb-0 h-100">
 							<strong>Your privacy matters</strong>. We use cookies to enhance your visit and analyze site traffic. By continuing to browse, you agree to our use of cookies.
 							<br>&copy; <span id="currentYear"></span> SOLAV Journal. This is an open access journal distributed under the 
-							<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Creative Commons Attribution License (CC BY 4.0)</a>.
+							<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" class="link-primary link-underline-opacity-25 link-underline-opacity-100-hover link-offset-2">Creative Commons Attribution License (CC BY 4.0)</a>.
 						</p>
-					</div>
-					<div class="col-md-6 text-md-end">
-						<ul class="list-inline mb-0 h-100 d-flex align-items-end justify-content-lg-end">
-							<li class="list-inline-item"><a href="/privacy" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Privacy Policy</a></li>
-							<li class="list-inline-item">·</li>
-							<li class="list-inline-item"><a href="/tou" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Terms of Use</a></li>
-							<li class="list-inline-item">·</li>
-							<li class="list-inline-item"><a href="/accessibility" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Accessibility</a></li>
-						</ul>
 					</div>
 				</div>
 			</div>
