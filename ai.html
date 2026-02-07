@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOLAV AI Research Assistant</title>
+    <style>
+        :root { --primary: #2c3e50; --accent: #3498db; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; background-color: #f9f9f9; }
+        .container { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        h1 { color: var(--primary); border-bottom: 2px solid var(--accent); padding-bottom: 10px; }
+        textarea { width: 100%; height: 150px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px; box-sizing: border-box; margin-bottom: 15px; }
+        button { background-color: var(--accent); color: white; border: none; padding: 12px 30px; border-radius: 6px; cursor: pointer; font-size: 16px; transition: background 0.3s; }
+        button:hover { background-color: #2980b9; }
+        button:disabled { background-color: #bdc3c7; cursor: not-allowed; }
+        #response { margin-top: 25px; padding: 20px; background: #f0f4f8; border-radius: 8px; min-height: 50px; white-space: pre-wrap; }
+        .footer { margin-top: 30px; font-size: 12px; color: #95a5a6; text-align: center; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>SOLAV AI Assistant</h1>
+    <p>Submit your research query or abstract for analysis:</p>
+    
+    <textarea id="userInput" placeholder="Type your research question here..."></textarea>
+    
+    <button id="submitBtn">Generate Analysis</button>
+
+    <div id="response">Waiting for input...</div>
+</div>
+
+<div class="footer">
+    Hosted on solav.me | Powered by Gemini 1.5 Flash
+</div>
+
+<script type="module">
+    // Using a CDN ensures it works on your custom domain without local installation
+    import { GoogleGenerativeAI } from "https://esm.run/@google/genai";
+
+    const API_KEY = "AIzaSyCAkxSsnUryryIWoE_Fe4sS-qPUmpYFwMo";
+    const genAI = new GoogleGenerativeAI(API_KEY);
+    
+    // Configured for individual researcher use
+    const model = genAI.getGenerativeModel({ 
+        model: "gemini-1.5-flash",
+        systemInstruction: "You are a scholarly assistant for the SOLAV journal. Help researchers analyze preprints, summarize data, and clarify methodologies. Be objective and concise."
+    });
+
+    const btn = document.getElementById('submitBtn');
+    const input = document.getElementById('userInput');
+    const output = document.getElementById('response');
+
+    btn.addEventListener('click', async () => {
+        if (!input.value.trim()) return;
+
+        btn.disabled = true;
+        btn.innerText = "Analyzing...";
+        output.innerText = "Consulting AI model...";
+
+        try {
+            const result = await model.generateContent(input.value);
+            const response = await result.response;
+            output.innerText = response.text();
+        } catch (error) {
+            output.innerHTML = `<span style="color:red">Error: ${error.message}</span>`;
+        } finally {
+            btn.disabled = false;
+            btn.innerText = "Generate Analysis";
+        }
+    });
+</script>
+
+</body>
+</html>
