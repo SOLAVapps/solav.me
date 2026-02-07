@@ -83,8 +83,12 @@
 										<li><a href="/oai-pmh" class="dropdown-item">OAI-PMH Repository</a></li>
 									</ul>
 								</li>
-								<li class="nav-item">
-									<a href="/about" class="nav-link">About</a>
+								<li class="nav-item dropdown">
+									<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-current="page">About</a>
+									<ul class="dropdown-menu">
+										<li><a href="/about" class="dropdown-item">About the journal</a></li>
+										<li><a href="/about#editorialBoard" class="dropdown-item"><i class="bi bi-arrow-return-right"></i> Editorial Board</a></li>
+									</ul>
 								</li>
 							</ul>
 						</div>  
@@ -157,14 +161,96 @@
 					</div>
 
 					<div class="col-lg-9">
-						<section class="card p-2 p-lg-3 mb-5 bg-light shadow-lg rounded-3 border border-opacity-10">
+						<!-- Updated Publication Ethics and Malpractice Statement Section -->
+						<section class="card p-4 mb-5 bg-light shadow-lg rounded-3 border border-primary border-2">
 							<div class="card-body">
-								<p class="lead fs-5">
-									SOLAV Journal is committed to upholding the highest standards of <strong>publication ethics</strong> and takes all forms of misconduct seriously. Our policies are aligned with guidelines from the <a href="https://publicationethics.org/" target="_blank" class="link-primary">Committee on Publication Ethics (COPE)</a> and support our mission of rigorous, transparent, and trustworthy interdisciplinary research.
-								</p>
+								<div class="d-flex align-items-center mb-4">
+									<div class="bg-primary bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 60px; height: 60px;">
+										<i class="bi bi-shield-check text-primary fs-4"></i>
+									</div>
+									<div>
+										<h2 class="h3 mb-1">Publication Ethics and Malpractice Statement</h2>
+										<p class="text-muted mb-0">Official COPE-aligned statement of ethical principles</p>
+									</div>
+								</div>
+								
+								<div class="border-start border-3 border-primary ps-4 mb-4">
+									<p class="lead mb-3">
+										<strong>SOLAV Journal</strong> is committed to maintaining the highest standards of publication ethics and academic integrity.
+									</p>
+									<p class="mb-3">
+										The journal follows the principles and guidelines of the <a href="https://publicationethics.org/" target="_blank" class="link-primary fw-bold">Committee on Publication Ethics (COPE)</a> to ensure best practices in scholarly publishing.
+									</p>
+									<p class="mb-0">
+										All parties involved in the publication process — authors, editors, reviewers, and publishers — are expected to adhere to these ethical standards.
+									</p>
+								</div>
+								
+								<div class="row g-4 mt-3">
+									<div class="col-md-6">
+										<div class="card h-100 border border-opacity-10">
+											<div class="card-body">
+												<h5 class="card-title text-primary mb-3">
+													<i class="bi bi-pencil me-2"></i>Authors' Responsibilities
+												</h5>
+												<ul class="mb-0">
+													<li>Authors must ensure that their work is original and has not been published elsewhere</li>
+													<li>Proper citation of sources and acknowledgment of contributions is required</li>
+													<li>Plagiarism, data fabrication, and falsification are strictly prohibited</li>
+													<li>Any conflicts of interest must be disclosed</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									
+									<div class="col-md-6">
+										<div class="card h-100 border border-opacity-10">
+											<div class="card-body">
+												<h5 class="card-title text-primary mb-3">
+													<i class="bi bi-person-badge me-2"></i>Editors' Responsibilities
+												</h5>
+												<ul class="mb-0">
+													<li>Editors evaluate manuscripts based on academic merit and relevance to the journal's scope</li>
+													<li>Editorial decisions are made independently and without discrimination</li>
+													<li>Confidentiality of submitted manuscripts is maintained</li>
+													<li>Editors take reasonable steps to identify and prevent misconduct</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									
+									<div class="col-md-6">
+										<div class="card h-100 border border-opacity-10">
+											<div class="card-body">
+												<h5 class="card-title text-primary mb-3">
+													<i class="bi bi-search me-2"></i>Reviewers' Responsibilities
+												</h5>
+												<ul class="mb-0">
+													<li>Reviewers provide objective, constructive, and timely evaluations</li>
+													<li>Confidentiality of manuscripts is respected</li>
+													<li>Reviewers must declare any conflicts of interest</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									
+									<div class="col-md-6">
+										<div class="card h-100 border border-opacity-10">
+											<div class="card-body">
+												<h5 class="card-title text-primary mb-3">
+													<i class="bi bi-exclamation-triangle me-2"></i>Handling of Misconduct
+												</h5>
+												<p class="mb-0">
+													In cases of suspected misconduct, including plagiarism, redundant publication, or unethical research practices, SOLAV Journal follows COPE procedures for investigation and resolution. Appropriate actions may include manuscript rejection, correction, retraction, or notification of relevant institutions.
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								
 								<div class="alert alert-primary mt-4" role="alert">
 									<h5 class="alert-heading"><i class="bi bi-exclamation-triangle me-2"></i>Reporting Misconduct</h5>
-									<p class="mb-0">To report suspected ethical concerns or publication misconduct, contact our Ethics Committee at <a href="mailto:ethics@solav.me" class="alert-link">ethics@solav.me</a>. All reports are treated confidentially and investigated promptly following COPE guidelines.</p>
+									<p class="mb-0">To report suspected ethical concerns or publication misconduct, contact our Ethics Committee at <a href="mailto:ethics@solav.me" class="alert-link fw-bold">ethics@solav.me</a>. All reports are treated confidentially and investigated promptly following COPE guidelines.</p>
 								</div>
 							</div>
 						</section>
@@ -244,13 +330,13 @@
 						</section>
 
 						<section class="mb-5">
-							<h2 class="h1 mb-4">Responsibilities</h2>
+							<h2 class="h1 mb-4">Detailed Responsibilities</h2>
 							
 							<div class="accordion bg-light shadow-lg rounded-3 border border-opacity-10" id="responsibilitiesAccordion">
 								<div class="accordion-item bg-light border-opacity-10">
 									<h2 class="accordion-header">
 										<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#authors">
-											<i class="bi bi-pencil me-2"></i> Authors' Responsibilities
+											<i class="bi bi-pencil me-2"></i> Authors' Detailed Responsibilities
 										</button>
 									</h2>
 									<div id="authors" class="accordion-collapse collapse show" data-bs-parent="#responsibilitiesAccordion">
@@ -271,7 +357,7 @@
 								<div class="accordion-item bg-light border-opacity-10">
 									<h2 class="accordion-header">
 										<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#reviewers">
-											<i class="bi bi-search me-2"></i> Reviewers' Responsibilities
+											<i class="bi bi-search me-2"></i> Reviewers' Detailed Responsibilities
 										</button>
 									</h2>
 									<div id="reviewers" class="accordion-collapse collapse" data-bs-parent="#responsibilitiesAccordion">
@@ -290,7 +376,7 @@
 								<div class="accordion-item bg-light border-opacity-10">
 									<h2 class="accordion-header">
 										<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#editors">
-											<i class="bi bi-person-badge me-2"></i> Editors' Responsibilities
+											<i class="bi bi-person-badge me-2"></i> Editors' Detailed Responsibilities
 										</button>
 									</h2>
 									<div id="editors" class="accordion-collapse collapse" data-bs-parent="#responsibilitiesAccordion">
@@ -329,12 +415,12 @@
 										</div>
 										<div class="col-md-6">
 											<div class="border-start border-3 border-warning ps-3 mb-4">
-												<h5 class="mb-2">Reporting Process</h5>
+												<h5 class="mb-2">COPE-Based Reporting Process</h5>
 												<ol class="mb-0">
 													<li>Email detailed concern to <a href="mailto:ethics@solav.me">ethics@solav.me</a></li>
 													<li>Initial assessment by Ethics Committee</li>
 													<li>Evidence gathering & confidential investigation</li>
-													<li>Decision & appropriate action</li>
+													<li>Decision & appropriate action following COPE guidelines</li>
 													<li>Notification to relevant parties</li>
 												</ol>
 											</div>
