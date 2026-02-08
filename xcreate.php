@@ -1,85 +1,161 @@
+<?php
+// Load JSON data
+$jsonFile = './a/s2026781202.json';
+$jsonData = json_decode(file_get_contents($jsonFile), true);
 
+// Extract article data (assuming first article in array)
+$article = $jsonData['articles'][0];
+
+// Helper function to generate author list for metadata
+function generateAuthorList($authors) {
+	$authorList = [];
+	foreach ($authors as $author) {
+		$authorList[] = $author['name'];
+	}
+	return implode('; ', $authorList);
+}
+
+// Helper function to generate keywords list for metadata
+function generateKeywordsList($keywords) {
+	return implode('; ', $keywords);
+}
+
+// Extract page numbers
+function extractPageNumbers($pages) {
+	$pageParts = explode('-', $pages);
+	return [
+		'firstpage' => $pageParts[0] ?? '',
+		'lastpage' => $pageParts[1] ?? $pageParts[0] ?? ''
+	];
+}
+
+$pages = extractPageNumbers($article['pages']);
+
+// Generate citation author metadata (multiple entries)
+$citationAuthors = '';
+foreach ($article['authors'] as $author) {
+$citationAuthors .= '		<meta name="citation_author" content="' . htmlspecialchars($author['name']) . '"/>' . PHP_EOL;
+$citationAuthors .= '		<meta name="citation_author_institution" content="' . htmlspecialchars($author['affiliation']) . '"/>' . PHP_EOL;
+}
+
+// Generate citation keywords metadata (multiple entries)
+$citationKeywords = '';
+foreach ($article['keywords'] as $keyword) {
+$citationKeywords .= '		<meta name="citation_keywords" content="' . htmlspecialchars($keyword) . '"/>' . PHP_EOL;
+}
+
+// Generate citation references metadata (multiple entries)
+$citationReferences = '';
+if (!empty($article['reference'])) {
+	foreach ($article['reference'] as $reference) {
+		$citationReferences .= '		<meta name="citation_reference" content="' . htmlspecialchars($reference['data']) . '"/>' . PHP_EOL;
+	}
+}
+
+// Generate DC creator metadata (multiple entries)
+$dcCreators = '';
+foreach ($article['authors'] as $author) {
+	$dcCreators .= '		<meta name="DC.Creator.PersonalName" content="' . htmlspecialchars($author['name']) . '"/>' . PHP_EOL;
+}
+
+// Generate DC subject metadata (multiple entries)
+$dcSubjects = '';
+foreach ($article['keywords'] as $keyword) {
+	$dcSubjects .= '		<meta name="DC.Subject" xml:lang="en" content="' . htmlspecialchars($keyword) . '"/>' . PHP_EOL;
+}
+
+// Generate references HTML
+$referencesHtml = '';
+if (!empty($article['reference'])) {
+	$referencesHtml = '<div class="references-box mt-4 mb-4">';
+	$referencesHtml .= '<h3 class="h5 mb-3"><i class="bi bi-bookmarks me-2"></i>References</h3>';
+	$referencesHtml .= '<ol class="references-list">';
+	
+	foreach ($article['reference'] as $index => $reference) {
+		$referencesHtml .= '<li class="mb-2">' . htmlspecialchars($reference['data']) . '</li>';
+	}
+	
+	$referencesHtml .= '</ol>';
+	$referencesHtml .= '</div>';
+}
+
+// Determine corresponding author
+$correspondingAuthor = null;
+foreach ($article['authors'] as $author) {
+	if ($author['corresponding'] == 1) {
+		$correspondingAuthor = $author;
+		break;
+	}
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Advancing Open, Ethical, and Interdisciplinary Scholarship: Reflections on Volume One and a Call for Contributions to Volume Two (2026) | SOLAV Journal</title>
-		<meta name="description" content="This editorial reflects on the achievements and lessons of SOLAV Journal’s inaugural volume and outlines the journal’s strategic priorities for 2026. It reaffirms the journal’s commitment to open access, rigorous peer review, and ethical publishing, and formally invites original scholarly contributions for Volume Two. Through this call for papers, the journal seeks to strengthen its role as a collaborative platform for innovative, socially relevant, and methodologically sound research.">
-		<link rel="canonical" href="https://solav.me/a/s2026781201">
+		<title><?php echo htmlspecialchars($article['title']); ?> | SOLAV Journal</title>
+		<meta name="description" content="<?php echo htmlspecialchars($article['abstract']); ?>">
+		<link rel="canonical" href="<?php echo htmlspecialchars($article['abstract_url']); ?>">
 		<meta name="gs_meta_revision" content=""/>
-		<meta name="citation_title" content="Advancing Open, Ethical, and Interdisciplinary Scholarship: Reflections on Volume One and a Call for Contributions to Volume Two (2026)">
+		<meta name="citation_title" content="<?php echo htmlspecialchars($article['title']); ?>">
 		<meta name="citation_journal_title" content="SOLAV Journal"/>
 		<meta name="citation_journal_abbrev" content="SOLAV J."/>
 		<meta name="citation_issn" content=""/>
-		<meta name="citation_author" content="Baker, Maher Asaad"/>
-		<meta name="citation_author_institution" content="SOLAV, Riyadh, Saudi Arabia"/>
-		<meta name="citation_language" content="en"/>
-		<meta name="citation_publication_date" content="2026-02-08"/>
-		<meta name="citation_volume" content="2"/>
+<?php echo $citationAuthors; ?>
+		<meta name="citation_language" content="<?php echo $article['language']; ?>"/>
+		<meta name="citation_publication_date" content="<?php echo $article['published_date']; ?>"/>
+		<meta name="citation_volume" content="<?php echo $article['volume']; ?>"/>
 		<meta name="citation_issue" content=""/>
-		<meta name="citation_firstpage" content="1"/>
-		<meta name="citation_lastpage" content="6"/>
+		<meta name="citation_firstpage" content="<?php echo $pages['firstpage']; ?>"/>
+		<meta name="citation_lastpage" content="<?php echo $pages['lastpage']; ?>"/>
 		<meta name="citation_doi" content=""/>
-		<meta name="citation_abstract_html_url" content="https://solav.me/a/s2026781201"/>
-		<meta name="citation_keywords" content="Scholarly Publishing"/>
-		<meta name="citation_keywords" content="Open Access"/>
-		<meta name="citation_keywords" content="Continuous Publication"/>
-		<meta name="citation_keywords" content="Peer Review"/>
-		<meta name="citation_keywords" content="Research Integrity"/>
-		<meta name="citation_keywords" content="Interdisciplinary Research"/>
-		<meta name="citation_keywords" content="Academic Communication"/>
-		<meta name="citation_keywords" content="Call for Papers"/>
-		<meta name="citation_pdf_url" content="https://solav.me/p/s2026781201.pdf"/>
+		<meta name="citation_abstract_html_url" content="<?php echo htmlspecialchars($article['abstract_url']); ?>"/>
+<?php echo $citationKeywords; ?>
+		<meta name="citation_pdf_url" content="<?php echo htmlspecialchars($article['download_url']); ?>"/>
+<?php echo $citationReferences; ?>
 		<link rel="schema.DC" href="https://purl.org/dc/elements/1.1/" />
-		<meta name="DC.Creator.PersonalName" content="Baker, Maher Asaad"/>
-		<meta name="DC.Date.dateSubmitted" scheme="ISO8601" content="2026-01-19"/>
-		<meta name="DC.Date.issued" scheme="ISO8601" content="2026-02-08"/>
-		<meta name="DC.Date.modified" scheme="ISO8601" content="2026-02-08"/>
-		<meta name="DC.Description" xml:lang="en" content="This editorial reflects on the achievements and lessons of SOLAV Journal’s inaugural volume and outlines the journal’s strategic priorities for 2026. It reaffirms the journal’s commitment to open access, rigorous peer review, and ethical publishing, and formally invites original scholarly contributions for Volume Two. Through this call for papers, the journal seeks to strengthen its role as a collaborative platform for innovative, socially relevant, and methodologically sound research."/>
+<?php echo $dcCreators; ?>
+		<meta name="DC.Date.dateSubmitted" scheme="ISO8601" content="<?php echo $article['received_date']; ?>"/>
+		<meta name="DC.Date.issued" scheme="ISO8601" content="<?php echo $article['published_date']; ?>"/>
+		<meta name="DC.Date.modified" scheme="ISO8601" content="<?php echo $article['version'][0]['date']; ?>"/>
+		<meta name="DC.Description" xml:lang="en" content="<?php echo htmlspecialchars($article['abstract']); ?>"/>
 		<meta name="DC.Format" scheme="IMT" content="text/html"/>
 		<meta name="DC.Format" scheme="IMT" content="application/pdf"/>
-		<meta name="DC.Identifier" content="s2026781201"/>
-		<meta name="DC.Identifier.pageNumber" content="1-6"/>
+		<meta name="DC.Identifier" content="<?php echo $article['id']; ?>"/>
+		<meta name="DC.Identifier.pageNumber" content="<?php echo $article['pages']; ?>"/>
 		<meta name="DC.Identifier.DOI" content=""/>
-		<meta name="DC.Identifier.URI" content="https://solav.me/a/s2026781201"/>
+		<meta name="DC.Identifier.URI" content="<?php echo htmlspecialchars($article['abstract_url']); ?>"/>
 		<meta name="DC.Source.URI" content="https://solav.me"/>
-		<meta name="DC.Language" scheme="ISO639-1" content="en"/>
-		<meta name="DC.Rights" content="CC BY 4.0"/>
+		<meta name="DC.Language" scheme="ISO639-1" content="<?php echo $article['language']; ?>"/>
+		<meta name="DC.Rights" content="<?php echo $article['license']; ?>"/>
 		<meta name="DC.Rights" content="Open Access"/>
 		<meta name="DC.Source" content="SOLAV Journal"/>
 		<meta name="DC.Source.ISSN" content=""/>
 		<meta name="DC.Source.Issue" content=""/>
-		<meta name="DC.Source.Volume" content="2"/>
-		<meta name="DC.Subject" xml:lang="en" content="Scholarly Publishing"/>
-		<meta name="DC.Subject" xml:lang="en" content="Open Access"/>
-		<meta name="DC.Subject" xml:lang="en" content="Continuous Publication"/>
-		<meta name="DC.Subject" xml:lang="en" content="Peer Review"/>
-		<meta name="DC.Subject" xml:lang="en" content="Research Integrity"/>
-		<meta name="DC.Subject" xml:lang="en" content="Interdisciplinary Research"/>
-		<meta name="DC.Subject" xml:lang="en" content="Academic Communication"/>
-		<meta name="DC.Subject" xml:lang="en" content="Call for Papers"/>
-		<meta name="DC.Title" content="Advancing Open, Ethical, and Interdisciplinary Scholarship: Reflections on Volume One and a Call for Contributions to Volume Two (2026)"/>
+		<meta name="DC.Source.Volume" content="<?php echo $article['volume']; ?>"/>
+<?php echo $dcSubjects; ?>
+		<meta name="DC.Title" content="<?php echo htmlspecialchars($article['title']); ?>"/>
 		<meta name="DC.Type" content="Text.Serial.Journal"/>
-		<meta name="DC.Date.created" scheme="ISO8601" content="2026-01-19"/>
-		<meta name="DC.Type.articleType" content="Editorial"/>
-		<meta name="citation_author" content="Baker, Maher Asaad">
-		<meta name="citation_publication_date" content="2026/02/08">
-		<meta name="citation_pdf_url" content="https://solav.me/p/s2026781201.pdf">
+		<meta name="DC.Date.created" scheme="ISO8601" content="<?php echo $article['received_date']; ?>"/>
+		<meta name="DC.Type.articleType" content="<?php echo $article['type']; ?>"/>
+		<meta name="citation_author" content="<?php echo htmlspecialchars(generateAuthorList($article['authors'])); ?>">
+		<meta name="citation_publication_date" content="<?php echo str_replace('-', '/', $article['published_date']); ?>">
+		<meta name="citation_pdf_url" content="<?php echo htmlspecialchars($article['download_url']); ?>">
 		<meta name="citation_journal_title" content="SOLAV Journal">
 		<meta name="citation_issn" content="">
 		<meta name="citation_doi" content="">
-		<meta name="citation_abstract" content="This editorial reflects on the achievements and lessons of SOLAV Journal’s inaugural volume and outlines the journal’s strategic priorities for 2026. It reaffirms the journal’s commitment to open access, rigorous peer review, and ethical publishing, and formally invites original scholarly contributions for Volume Two. Through this call for papers, the journal seeks to strengthen its role as a collaborative platform for innovative, socially relevant, and methodologically sound research.">
-		<meta name="citation_keywords" content="Scholarly Publishing; Open Access; Continuous Publication; Peer Review; Research Integrity; Interdisciplinary Research; Academic Communication; Call for Papers">
-		<meta name="DC.title" content="Advancing Open, Ethical, and Interdisciplinary Scholarship: Reflections on Volume One and a Call for Contributions to Volume Two (2026)">
-		<meta name="DC.creator" content="Baker, Maher Asaad">
-		<meta name="DC.subject" content="Scholarly Publishing; Open Access; Continuous Publication; Peer Review; Research Integrity; Interdisciplinary Research; Academic Communication; Call for Papers">
-		<meta name="DC.identifier" content="s2026781201">
+		<meta name="citation_abstract" content="<?php echo htmlspecialchars($article['abstract']); ?>">
+		<meta name="citation_keywords" content="<?php echo htmlspecialchars(generateKeywordsList($article['keywords'])); ?>">
+		<meta name="DC.title" content="<?php echo htmlspecialchars($article['title']); ?>">
+		<meta name="DC.creator" content="<?php echo htmlspecialchars(generateAuthorList($article['authors'])); ?>">
+		<meta name="DC.subject" content="<?php echo htmlspecialchars(generateKeywordsList($article['keywords'])); ?>">
+		<meta name="DC.identifier" content="<?php echo $article['id']; ?>">
 		<meta name="DC.type" content="Text.Serial.Journal">
 		<meta property="og:type" content="article">
-		<meta property="og:title" content="Advancing Open, Ethical, and Interdisciplinary Scholarship: Reflections on Volume One and a Call for Contributions to Volume Two (2026)">
-		<meta property="og:url" content="https://solav.me/a/s2026781201">
+		<meta property="og:title" content="<?php echo htmlspecialchars($article['title']); ?>">
+		<meta property="og:url" content="<?php echo htmlspecialchars($article['abstract_url']); ?>">
 		<link rel="icon" type="image/x-icon" href="/images/icon.png">
 		<meta name="fediverse:creator" content="@SOLAVjournal@mastodon.social">
 		<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
@@ -103,17 +179,17 @@
 		{
 			"@context": "https://schema.org",
 			"@type": "ScholarlyArticle",
-			"headline": "Advancing Open, Ethical, and Interdisciplinary Scholarship: Reflections on Volume One and a Call for Contributions to Volume Two (2026)",
+			"headline": "<?php echo htmlspecialchars($article['title']); ?>",
 			"author": {
 				"@type": "Person",
-				"name": "Baker, Maher Asaad"
+				"name": "<?php echo htmlspecialchars($article['authors'][0]['name']); ?>"
 			},
-			"datePublished": "2026-02-08",
+			"datePublished": "<?php echo $article['published_date']; ?>",
 			"publisher": {
 				"@type": "Organization",
 				"name": "SOLAV Journal"
 			},
-			"sameAs": "https://solav.me/a/s2026781201"
+			"sameAs": "<?php echo htmlspecialchars($article['abstract_url']); ?>"
 		}
 		</script>
 	</head>
@@ -213,51 +289,63 @@
 						<div id="articleContent">
 							<div class="mb-4">
 								<span class="badge bg-primary metadata-badge">
-									<i class="bi bi-file-earmark-text me-1"></i> Editorial</span>
+									<i class="bi bi-file-earmark-text me-1"></i> <?php echo $article['type']; ?></span>
 							</div>
 						</div>
 						
-						<h1 class="mb-4 h3">Advancing Open, Ethical, and Interdisciplinary Scholarship: Reflections on Volume One and a Call for Contributions to Volume Two (2026)</h1>
+						<h1 class="mb-4 h3"><?php echo htmlspecialchars($article['title']); ?></h1>
 						<div class="mb-4">
 							<div class="author-list mb-2">
 								<i class="bi bi-people text-primary me-2"></i>
-								<a href="/authors?id=00010077">Baker, Maher Asaad</a><sup>*</sup><sup>1</sup><a href="https://orcid.org/0000-0001-8013-6044" target="_blank" class="ms-0 align-middle"><img src="/images/orcid.svg" alt="ORCID" class="orcid-icon"></a></span>
-								
+								<?php foreach ($article['authors'] as $index => $author): ?>
+<?php
+
+echo '<a href="/authors?id='.$author['id'].'">'.htmlspecialchars($author['name']).'</a>';
+if ($author['corresponding'] == 1) {echo'<sup>*</sup>';}
+echo "<sup>". $index + 1 . "</sup>";
+if (!empty($author['orcid'])){
+echo '<a href="https://orcid.org/'.$author['orcid'].'" target="_blank" class="ms-0 align-middle"><img src="/images/orcid.svg" alt="ORCID" class="orcid-icon"></a></span>';
+} echo "\n";?>
+								<?php endforeach; ?>
+
 							</div>
-															
-							<p class="text-muted font-sm mb-0"><sup>*</sup> Corresponding author</p>
-														
-							<div class="author-affiliation mb-3">
-															
-								<span class="mb-0 small">*1</span>
-								<span class="mb-0 mx-2"><i class="bi bi-building me-1"></i> SOLAV, Riyadh, Saudi Arabia</span>
+							<?php if ($correspondingAuthor): ?>
 								
+							<p class="text-muted font-sm mb-0"><sup>*</sup> Corresponding author</p>
+							<?php endif; ?>
+							
+							<div class="author-affiliation mb-3">
+							<?php foreach ($article['authors'] as $index => $author): ?>
+								<?php $corresponding="&nbsp;";if ($author['corresponding'] == 1){$corresponding="*";}?>
+
+								<span class="mb-0 small"><?php echo $corresponding.$index + 1; ?></span>
+								<span class="mb-0 mx-2"><i class="bi bi-building me-1"></i> <?php echo htmlspecialchars($author['affiliation']); ?></span>
+								<?php if (!empty($author['email'])): ?>
+
 								<span class="mb-0 mx-2 font-sm">
-									<i class="bi bi-envelope me-1"></i> <a href="mailto:maher@solav.me">maher@solav.me</a>
+									<i class="bi bi-envelope me-1"></i> <a href="mailto:<?php echo $author['email']; ?>"><?php echo $author['email']; ?></a>
 								</span>
-															
+<?php endif; ?>
+								<?php if (count($article['authors'])>1 && $index != count($article['authors'])-1): ?><br><?php endif; ?>
+							<?php endforeach; ?>
+
 							</div>
 						</div>
 
 						<div class="mb-4">
-							<span class="badge bg-light text-dark border me-2 mb-2">Scholarly Publishing</span>
-							<span class="badge bg-light text-dark border me-2 mb-2">Open Access</span>
-							<span class="badge bg-light text-dark border me-2 mb-2">Continuous Publication</span>
-							<span class="badge bg-light text-dark border me-2 mb-2">Peer Review</span>
-							<span class="badge bg-light text-dark border me-2 mb-2">Research Integrity</span>
-							<span class="badge bg-light text-dark border me-2 mb-2">Interdisciplinary Research</span>
-							<span class="badge bg-light text-dark border me-2 mb-2">Academic Communication</span>
-							<span class="badge bg-light text-dark border me-2 mb-2">Call for Papers</span>
-							
+							<?php foreach ($article['keywords'] as $keyword): ?><span class="badge bg-light text-dark border me-2 mb-2"><?php echo htmlspecialchars($keyword); ?></span>
+							<?php endforeach; ?>
+
 						</div>
 
 						<div class="abstract-box">
 
 							<h3 class="h5 mb-3"><i class="bi bi-file-text me-2"></i>Abstract</h3>
-							<p>This editorial reflects on the achievements and lessons of SOLAV Journal’s inaugural volume and outlines the journal’s strategic priorities for 2026. It reaffirms the journal’s commitment to open access, rigorous peer review, and ethical publishing, and formally invites original scholarly contributions for Volume Two. Through this call for papers, the journal seeks to strengthen its role as a collaborative platform for innovative, socially relevant, and methodologically sound research.</p>
+							<p><?php echo htmlspecialchars($article['abstract']); ?></p>
 						</div>
 
-						
+						<?php echo $referencesHtml; ?>
+
 					</div>
 
 					<div class="col-lg-4">
@@ -265,7 +353,7 @@
 							<div class="card mb-4">
 								<div class="card-body">
 									<div class="d-grid gap-2">
-										<a href="https://solav.me/p/s2026781201.pdf" target="_blank" class="btn btn-sm btn-primary">
+										<a href="<?php echo htmlspecialchars($article['download_url']); ?>" target="_blank" class="btn btn-sm btn-primary">
 											<i class="bi bi-file-earmark-pdf me-1"></i> Download PDF
 										</a>
 										<button id="citeBtn" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#citationModal">
@@ -282,28 +370,35 @@
 								<div class="card-body">
 									<ul class="list-unstyled mb-0">
 										<li class="mb-2">
-											<i class="bi bi-calendar-check text-primary me-2"></i><strong>Received:</strong> 2026-01-19
+											<i class="bi bi-calendar-check text-primary me-2"></i><strong>Received:</strong> <?php echo $article['received_date']; ?>
+
 										</li>
 										<li class="mb-2">
-											<i class="bi bi-check-circle text-primary me-2"></i><strong>Accepted:</strong> 2026-01-20
+											<i class="bi bi-check-circle text-primary me-2"></i><strong>Accepted:</strong> <?php echo $article['accepted_date']; ?>
+
 										</li>
 										<li class="mb-2">
-											<i class="bi bi-calendar-event text-primary me-2"></i><strong>Published:</strong> 2026-02-08
+											<i class="bi bi-calendar-event text-primary me-2"></i><strong>Published:</strong> <?php echo $article['published_date']; ?>
+
 										</li>
 										<li class="mb-2">
-											<i class="bi bi-file-text text-primary me-2"></i><strong>Pages:</strong> 1-6
+											<i class="bi bi-file-text text-primary me-2"></i><strong>Pages:</strong> <?php echo $article['pages']; ?>
+
 										</li>
 										<li class="mb-2">
-											<i class="bi bi-quote text-primary me-2"></i><strong>Citations:</strong> 0
+											<i class="bi bi-quote text-primary me-2"></i><strong>Citations:</strong> <?php echo $article['citation_count']; ?>
+
 										</li>
 										<li class="mb-2">
-											<i class="bi bi-journal-check text-primary me-2"></i><strong>Type:</strong> Editorial
+											<i class="bi bi-journal-check text-primary me-2"></i><strong>Type:</strong> <?php echo $article['type']; ?>
+
 										</li>
 										<li class="mb-2">
-											<i class="bi bi-journal text-primary me-2"></i><strong>Volume:</strong> 2
+											<i class="bi bi-journal text-primary me-2"></i><strong>Volume:</strong> <?php echo $article['volume']; ?>
+
 										</li>
 										<li>
-											<i class="bi bi-clock-history text-primary me-2"></i><strong>Version:</strong> 2026-02-08 (2)
+											<i class="bi bi-clock-history text-primary me-2"></i><strong>Version:</strong> <?php echo $article['version'][0]['date']; ?> (<?php echo $article['version'][0]['number']; ?>)
 										</li>
 									</ul>
 								</div>
@@ -421,7 +516,18 @@
 						<div class="mb-3">
 							<label class="form-label">APA Format</label>
 							<div id="apaCitation" class="citation-box border border-opacity-10">
-								Baker, Maher Asaad 2(2026). Advancing Open, Ethical, and Interdisciplinary Scholarship: Reflections on Volume One and a Call for Contributions to Volume Two (2026). SOLAV Journal, 1-6. https://solav.me/a/s2026781201
+								<?php 
+								$authors = array_map(function($author) {
+									return $author['name'];
+								}, $article['authors']);
+								
+								$firstAuthor = array_shift($authors);
+								$authorString = $firstAuthor;
+								if (!empty($authors)) {
+									$authorString .= '; ' . implode('; ', $authors);
+								}
+								?>
+								<?php echo htmlspecialchars($authorString); ?> <?php echo $article['volume']; ?>(<?php echo substr($article['published_date'], 0, 4); ?>). <?php echo htmlspecialchars($article['title']); ?>. SOLAV Journal, <?php echo $article['pages']; ?>. <?php echo $article['abstract_url']; ?>
 							</div>
 						</div>
 					</div>

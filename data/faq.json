@@ -1,0 +1,859 @@
+{
+	"title": "SOLAV Journal — Comprehensive FAQ Dataset",
+	"source": "https://solav.me/",
+	"version": "1.0",
+	"last_updated": "2026-02-08",
+	"sections": [
+	{
+		"section": "Journal Overview",
+		"questions": [
+		{
+			"id": "GEN-001",
+			"question": "What is SOLAV Journal?",
+			"answer": "SOLAV Journal is a peer-reviewed, open-access academic journal that publishes interdisciplinary applied research and visioneering studies that bridge theory and practice.",
+			"links": ["https://solav.me"]
+		},
+		{
+			"id": "GEN-002",
+			"question": "Is SOLAV an open-access journal?",
+			"answer": "Yes. All articles published in SOLAV are freely available online without subscription or paywall restrictions.",
+			"links": ["https://solav.me/access"]
+		},
+		{
+			"id": "GEN-003",
+			"question": "Who publishes SOLAV Journal?",
+			"answer": "SOLAV Journal is published and managed by its editorial board and administrative team as described on the About page.",
+			"links": ["https://solav.me/about"]
+		},
+		{
+			"id": "GEN-004",
+			"question": "Where can I find published volumes and issues?",
+			"answer": "All published articles and volumes are available in the journal archive.",
+			"links": ["https://solav.me"]
+		},
+		{
+			"id": "GEN-005",
+			"question": "Does SOLAV accept international submissions?",
+			"answer": "Yes. SOLAV welcomes submissions from researchers worldwide without geographic restriction.",
+			"links": ["https://solav.me/open-submission"]
+		}
+		]
+	},
+
+	{
+		"section": "Aims, Scope, and Suitability",
+		"questions": [
+		{
+			"id": "SCOPE-001",
+			"question": "What is the academic focus of SOLAV?",
+			"answer": "SOLAV focuses on interdisciplinary applied research, practical innovation, and future-oriented studies that connect theory with real-world impact.",
+			"links": ["https://solav.me/aims-scope"]
+		},
+		{
+			"id": "SCOPE-002",
+			"question": "Which disciplines are accepted?",
+			"answer": "SOLAV accepts research from multiple disciplines provided it demonstrates applied relevance and interdisciplinary engagement.",
+			"links": ["https://solav.me/aims-scope"]
+		},
+		{
+			"id": "SCOPE-003",
+			"question": "How can I evaluate if my paper fits the journal?",
+			"answer": "Authors should compare their manuscript objectives and methodology with the themes and examples described in the Aims & Scope page.",
+			"links": ["https://solav.me/aims-scope"]
+		},
+		{
+			"id": "SCOPE-004",
+			"question": "Are purely theoretical papers accepted?",
+			"answer": "Purely theoretical papers are considered only if they demonstrate clear applied or interdisciplinary significance.",
+			"links": ["https://solav.me/aims-scope"]
+		},
+		{
+			"id": "SCOPE-005",
+			"question": "Does SOLAV publish review articles?",
+			"answer": "Yes. Systematic reviews, critical reviews, and meta-analyses aligned with the journal’s scope are accepted.",
+			"links": ["https://solav.me/aims-scope"]
+		}
+		]
+	},
+
+	{
+		"section": "Manuscript Submission",
+		"questions": [
+		{
+			"id": "SUB-001",
+			"question": "How do I submit a manuscript?",
+			"answer": "Manuscripts must be submitted electronically through the official submission form on the journal website.",
+			"links": ["https://solav.me/submit"]
+		},
+		{
+			"id": "SUB-002",
+			"question": "Do I need to create an account to submit?",
+			"answer": "Submission is conducted through the journal’s online form and does not require a traditional user account.",
+			"links": ["https://solav.me/submit"]
+		},
+		{
+			"id": "SUB-003",
+			"question": "What documents must be submitted?",
+			"answer": "Authors must submit the main manuscript file, author information, contact details, and supplementary materials if applicable.",
+			"links": ["https://solav.me/guidelines"]
+		},
+		{
+			"id": "SUB-004",
+			"question": "Can I submit more than one manuscript at the same time?",
+			"answer": "Yes. Authors may submit multiple manuscripts provided each meets ethical and originality requirements.",
+			"links": ["https://solav.me/submit"]
+		},
+		{
+			"id": "SUB-005",
+			"question": "Is simultaneous submission to other journals allowed?",
+			"answer": "No. Manuscripts must not be under consideration elsewhere during submission to SOLAV.",
+			"links": ["https://solav.me/submit"]
+		}
+		]
+	},
+
+	{
+		"section": "Author Guidelines and Formatting",
+		"questions": [
+		{
+			"id": "GUIDE-001",
+			"question": "Where can I find manuscript formatting rules?",
+			"answer": "All formatting and structural requirements are described in detail on the Author Guidelines page.",
+			"links": ["https://solav.me/guidelines"]
+		},
+		{
+			"id": "GUIDE-002",
+			"question": "What file format should I use?",
+			"answer": "Manuscripts should be submitted in editable Word (.docx) format.",
+			"links": ["https://solav.me/guidelines"]
+		},
+		{
+			"id": "GUIDE-003",
+			"question": "Is there a maximum word limit?",
+			"answer": "Recommended word limits and structure are specified in the Author Guidelines.",
+			"links": ["https://solav.me/guidelines"]
+		},
+		{
+			"id": "GUIDE-004",
+			"question": "How should tables and figures be prepared?",
+			"answer": "Figures and tables must be clearly labeled, cited in the text, and prepared according to technical specifications in the guidelines.",
+			"links": ["https://solav.me/guidelines"]
+		},
+		{
+			"id": "GUIDE-005",
+			"question": "What reference style does SOLAV use?",
+			"answer": "Authors must follow the citation and reference style specified in the Author Guidelines.",
+			"links": ["https://solav.me/guidelines"]
+		}
+		]
+	},
+
+	{
+		"section": "Article Processing Charges (APC) and Waivers",
+		"questions": [
+		{
+			"id": "APC-001",
+			"question": "Does SOLAV charge Article Processing Charges?",
+			"answer": "Yes. SOLAV applies APCs to support editorial processing, hosting, archiving, and publishing services.",
+			"links": ["https://solav.me/apc"]
+		},
+		{
+			"id": "APC-002",
+			"question": "When is the APC paid?",
+			"answer": "APCs are paid only after the manuscript has been accepted for publication.",
+			"links": ["https://solav.me/apc"]
+		},
+		{
+			"id": "APC-003",
+			"question": "Does paying APC guarantee acceptance?",
+			"answer": "No. Acceptance depends solely on editorial evaluation and peer review outcomes.",
+			"links": ["https://solav.me/apc/", "https://solav.me/review"]
+		},
+		{
+			"id": "APC-004",
+			"question": "Are APC waivers available?",
+			"answer": "Yes. SOLAV provides APC waivers and discounts for authors from low-income regions, special circumstances, and institutional agreements as described on the APC page.",
+			"links": ["https://solav.me/apc"]
+		},
+		{
+			"id": "APC-005",
+			"question": "How do I apply for an APC waiver?",
+			"answer": "Authors should request waivers during submission or contact the editorial office with supporting information as described on the APC page.",
+			"links": ["https://solav.me/apc/", "https://solav.me/submit"]
+		},
+		{
+			"id": "APC-006",
+			"question": "What criteria are used to approve waivers?",
+			"answer": "Waivers are evaluated based on economic conditions, institutional support, geographic factors, and editorial discretion.",
+			"links": ["https://solav.me/apc"]
+		},
+		{
+			"id": "APC-007",
+			"question": "Can students receive APC waivers?",
+			"answer": "Students and early-career researchers may be considered for partial or full waivers subject to editorial approval.",
+			"links": ["https://solav.me/apc"]
+		}
+		]
+	},
+
+	{
+		"section": "Peer Review Process",
+		"questions": [
+		{
+			"id": "REV-001",
+			"question": "What type of peer review does SOLAV use?",
+			"answer": "SOLAV applies a rigorous double-blind peer review process in which both authors and reviewers remain anonymous to ensure impartial evaluation.",
+			"links": ["https://solav.me/review"]
+		},
+		{
+			"id": "REV-002",
+			"question": "How are reviewers selected?",
+			"answer": "Reviewers are selected by editors based on subject expertise, publication record, and absence of conflicts of interest.",
+			"links": ["https://solav.me/review"]
+		},
+		{
+			"id": "REV-003",
+			"question": "How long does the peer review process take?",
+			"answer": "Review timelines vary depending on reviewer availability and manuscript complexity. Typical review cycles are outlined on the Peer Review page.",
+			"links": ["https://solav.me/review"]
+		},
+		{
+			"id": "REV-004",
+			"question": "Can authors suggest reviewers?",
+			"answer": "Yes. Authors may recommend qualified reviewers, subject to editorial approval and conflict of interest screening.",
+			"links": ["https://solav.me/guidelines/", "https://solav.me/review"]
+		},
+		{
+			"id": "REV-005",
+			"question": "What happens if reviewers disagree?",
+			"answer": "When reviewer opinions diverge, editors may seek additional reviews or make an independent editorial assessment.",
+			"links": ["https://solav.me/review"]
+		},
+		{
+			"id": "REV-006",
+			"question": "Can I appeal an editorial decision?",
+			"answer": "Authors may submit a reasoned appeal supported by evidence. Appeals are reviewed by senior editors according to journal policy.",
+			"links": ["https://solav.me/review/", "https://solav.me/submit"]
+		}
+		]
+	},
+
+	{
+		"section": "Editorial Decisions and Revisions",
+		"questions": [
+		{
+			"id": "EDIT-001",
+			"question": "What editorial decisions are possible?",
+			"answer": "Decisions include acceptance, minor revision, major revision, resubmission, or rejection.",
+			"links": ["https://solav.me/review"]
+		},
+		{
+			"id": "EDIT-002",
+			"question": "How should I respond to reviewer comments?",
+			"answer": "Authors must provide a detailed response letter explaining how each comment was addressed or justified.",
+			"links": ["https://solav.me/guidelines"]
+		},
+		{
+			"id": "EDIT-003",
+			"question": "How much time is given for revisions?",
+			"answer": "Revision deadlines are specified in editorial correspondence and vary based on revision scope.",
+			"links": ["https://solav.me/review"]
+		},
+		{
+			"id": "EDIT-004",
+			"question": "Can I request an extension for revisions?",
+			"answer": "Yes. Authors may request deadline extensions by contacting the editorial office before the deadline.",
+			"links": ["https://solav.me/submit"]
+		},
+		{
+			"id": "EDIT-005",
+			"question": "What happens if revisions are not submitted on time?",
+			"answer": "Failure to submit revisions within the specified timeframe may result in manuscript withdrawal.",
+			"links": ["https://solav.me/review"]
+		}
+		]
+	},
+
+	{
+		"section": "Publication Ethics and Research Integrity",
+		"questions": [
+		{
+			"id": "ETH-001",
+			"question": "What ethical framework does SOLAV follow?",
+			"answer": "SOLAV follows international publication ethics standards aligned with COPE principles.",
+			"links": ["https://solav.me/submit"]
+		},
+		{
+			"id": "ETH-002",
+			"question": "What constitutes research misconduct?",
+			"answer": "Misconduct includes plagiarism, data fabrication, falsification, duplicate publication, and unethical experimentation.",
+			"links": ["https://solav.me/submit"]
+		},
+		{
+			"id": "ETH-003",
+			"question": "How are ethical complaints investigated?",
+			"answer": "Complaints are reviewed confidentially by editors following structured investigation procedures.",
+			"links": ["https://solav.me/submit"]
+		},
+		{
+			"id": "ETH-004",
+			"question": "Are human and animal studies regulated?",
+			"answer": "Yes. Authors must confirm compliance with ethical approval standards for human and animal research.",
+			"links": ["https://solav.me/guidelines/", "https://solav.me/submit"]
+		},
+		{
+			"id": "ETH-005",
+			"question": "What happens if misconduct is confirmed?",
+			"answer": "Confirmed misconduct may result in rejection, retraction, public notice, and institutional notification.",
+			"links": ["https://solav.me/submit"]
+		}
+		]
+	},
+
+	{
+		"section": "Plagiarism, Duplication, and Originality",
+		"questions": [
+		{
+			"id": "PLAG-001",
+			"question": "Does SOLAV screen for plagiarism?",
+			"answer": "Yes. All submissions are screened using plagiarism detection tools before and during review.",
+			"links": ["https://solav.me/submit"]
+		},
+		{
+			"id": "PLAG-002",
+			"question": "What level of similarity is acceptable?",
+			"answer": "Minor similarity from references and standard phrases is acceptable. Excessive similarity is not permitted.",
+			"links": ["https://solav.me/submit"]
+		},
+		{
+			"id": "PLAG-003",
+			"question": "Is self-plagiarism allowed?",
+			"answer": "Duplicate publication and excessive reuse of previously published material without citation are prohibited.",
+			"links": ["https://solav.me/submit"]
+		},
+		{
+			"id": "PLAG-004",
+			"question": "What happens if plagiarism is detected?",
+			"answer": "Manuscripts may be rejected or retracted and authors may face sanctions.",
+			"links": ["https://solav.me/submit"]
+		}
+		]
+	},
+
+	{
+		"section": "Corrections, Retractions, and Withdrawals",
+		"questions": [
+		{
+			"id": "CORR-001",
+			"question": "Can published articles be corrected?",
+			"answer": "Yes. Minor errors may be corrected through formal corrigenda or errata notices.",
+			"links": ["https://solav.me/submit"]
+		},
+		{
+			"id": "CORR-002",
+			"question": "When is retraction necessary?",
+			"answer": "Retractions occur in cases of major errors, misconduct, or unreliable findings.",
+			"links": ["https://solav.me/submit"]
+		},
+		{
+			"id": "CORR-003",
+			"question": "Can authors withdraw a submission?",
+			"answer": "Authors may request withdrawal before acceptance, subject to editorial approval.",
+			"links": ["https://solav.me/submit"]
+		},
+		{
+			"id": "CORR-004",
+			"question": "Are retracted articles removed from the website?",
+			"answer": "Retracted articles remain accessible with clear retraction notices to preserve the scholarly record.",
+			"links": ["https://solav.me/submit"]
+		}
+		]
+	},
+
+	{
+		"section": "Authorship, Contributions, and Conflicts of Interest",
+		"questions": [
+		{
+			"id": "AUTH-001",
+			"question": "Who qualifies as an author?",
+			"answer": "Authorship is limited to individuals who have made substantial intellectual contributions to the work.",
+			"links": ["https://solav.me/guidelines"]
+		},
+		{
+			"id": "AUTH-002",
+			"question": "How are author contributions reported?",
+			"answer": "Authors must clearly describe individual contributions during submission.",
+			"links": ["https://solav.me/guidelines"]
+		},
+		{
+			"id": "AUTH-003",
+			"question": "What is a conflict of interest?",
+			"answer": "A conflict exists when personal, financial, or professional relationships could influence research interpretation.",
+			"links": ["https://solav.me/submit"]
+		},
+		{
+			"id": "AUTH-004",
+			"question": "How should conflicts be disclosed?",
+			"answer": "All conflicts must be declared during submission and in the manuscript if applicable.",
+			"links": ["https://solav.me/submit"]
+		},
+		{
+			"id": "AUTH-005",
+			"question": "How are authorship disputes resolved?",
+			"answer": "Disputes are handled according to COPE procedures and may involve institutional mediation.",
+			"links": ["https://solav.me/submit"]
+		}
+		]
+	},
+
+	{
+		"section": "Artificial Intelligence Policy",
+		"questions": [
+		{
+			"id": "AI-001",
+			"question": "Can AI tools be used in manuscript preparation?",
+			"answer": "Yes, AI tools may be used as assistive technologies under full disclosure and human supervision.",
+			"links": ["https://solav.me/ai-policy"]
+		},
+		{
+			"id": "AI-002",
+			"question": "Can AI be listed as an author?",
+			"answer": "No. AI systems cannot be credited as authors because they cannot take responsibility for research integrity.",
+			"links": ["https://solav.me/ai-policy"]
+		},
+		{
+			"id": "AI-003",
+			"question": "Must AI-generated images be disclosed?",
+			"answer": "Yes. All AI-generated visual, textual, or analytical content must be clearly declared.",
+			"links": ["https://solav.me/ai-policy"]
+		},
+		{
+			"id": "AI-004",
+			"question": "Who is responsible for AI-generated content?",
+			"answer": "Authors remain fully responsible for the accuracy, originality, and ethics of all AI-assisted content.",
+			"links": ["https://solav.me/ai-policy"]
+		},
+		{
+			"id": "AI-005",
+			"question": "Is automated peer review allowed?",
+			"answer": "No. Peer review decisions must involve qualified human reviewers.",
+			"links": ["https://solav.me/ai-policy/", "https://solav.me/review"]
+		}
+		]
+	},
+
+	{
+		"section": "Indexing and Discoverability",
+		"questions": [
+		{
+			"id": "IND-001",
+			"question": "How are SOLAV articles indexed and discovered?",
+			"answer": "SOLAV provides structured metadata, open access content, and OAI-PMH harvesting services to support discovery by libraries, search engines, and indexing platforms.",
+			"links": ["https://solav.me/oai-pmh/", "https://solav.me/archiving"]
+		},
+		{
+			"id": "IND-002",
+			"question": "Is SOLAV listed in international databases?",
+			"answer": "The journal actively seeks inclusion in recognized indexing and abstracting services. Current coverage and applications are maintained by the editorial office.",
+			"links": ["https://solav.me/about"]
+		},
+		{
+			"id": "IND-003",
+			"question": "Can institutions harvest SOLAV metadata automatically?",
+			"answer": "Yes. Institutions may harvest metadata using the OAI-PMH interface described on the OAI-PMH page.",
+			"links": ["https://solav.me/oai-pmh"]
+		},
+		{
+			"id": "IND-004",
+			"question": "How can libraries integrate SOLAV into their catalogs?",
+			"answer": "Libraries may use OAI-PMH harvesting, MARC conversion, and direct metadata feeds provided by SOLAV.",
+			"links": ["https://solav.me/oai-pmh"]
+		},
+		{
+			"id": "IND-005",
+			"question": "Does SOLAV support Google Scholar indexing?",
+			"answer": "Yes. SOLAV implements citation metadata tags to support indexing by Google Scholar and similar academic search engines.",
+			"links": ["https://solav.me"]
+		}
+		]
+	},
+
+	{
+		"section": "OAI-PMH and Technical Metadata",
+		"questions": [
+		{
+			"id": "OAI-001",
+			"question": "What is the SOLAV OAI-PMH endpoint?",
+			"answer": "The OAI-PMH endpoint provides standardized access to article metadata for harvesting and interoperability.",
+			"links": ["https://solav.me/oai-pmh"]
+		},
+		{
+			"id": "OAI-002",
+			"question": "Which metadata formats are supported?",
+			"answer": "SOLAV supports Dublin Core and other standard metadata formats as specified on the OAI-PMH page.",
+			"links": ["https://solav.me/oai-pmh"]
+		},
+		{
+			"id": "OAI-003",
+			"question": "What OAI-PMH verbs are implemented?",
+			"answer": "SOLAV supports standard verbs including Identify, ListRecords, GetRecord, ListSets, and ListIdentifiers.",
+			"links": ["https://solav.me/oai-pmh"]
+		},
+		{
+			"id": "OAI-004",
+			"question": "Are resumption tokens supported?",
+			"answer": "Yes. Large metadata sets are delivered using resumption tokens for efficient harvesting.",
+			"links": ["https://solav.me/oai-pmh"]
+		},
+		{
+			"id": "OAI-005",
+			"question": "Who should be contacted for technical harvesting issues?",
+			"answer": "Technical support contact details are listed on the OAI-PMH and About pages.",
+			"links": ["https://solav.me/oai-pmh/", "https://solav.me/about"]
+		}
+		]
+	},
+
+	{
+		"section": "Citation and Referencing Metadata",
+		"questions": [
+		{
+			"id": "CIT-001",
+			"question": "How should SOLAV articles be cited?",
+			"answer": "Each article provides citation metadata and recommended citation formats on its landing page.",
+			"links": ["https://solav.me"]
+		},
+		{
+			"id": "CIT-002",
+			"question": "Does SOLAV provide machine-readable citation tags?",
+			"answer": "Yes. Article pages include meta tags such as citation_title, citation_author, and citation_pdf_url.",
+			"links": ["https://solav.me"]
+		},
+		{
+			"id": "CIT-003",
+			"question": "Can reference managers import SOLAV records?",
+			"answer": "Yes. Reference managers may harvest metadata via OAI-PMH and embedded citation tags.",
+			"links": ["https://solav.me/oai-pmh"]
+		},
+		{
+			"id": "CIT-004",
+			"question": "Does SOLAV provide DOIs?",
+			"answer": "DOI assignment is managed by the journal and subject to current infrastructure and policy status.",
+			"links": ["https://solav.me/about"]
+		}
+		]
+	},
+
+	{
+		"section": "Digital Archiving and Preservation",
+		"questions": [
+		{
+			"id": "ARCH-001",
+			"question": "How are SOLAV articles preserved long-term?",
+			"answer": "Articles are preserved using redundant storage systems, permanent URLs, and controlled backup policies.",
+			"links": ["https://solav.me/archiving"]
+		},
+		{
+			"id": "ARCH-002",
+			"question": "What backup strategies are used?",
+			"answer": "SOLAV maintains multiple backups, geographically distributed storage, and routine integrity checks.",
+			"links": ["https://solav.me/archiving"]
+		},
+		{
+			"id": "ARCH-003",
+			"question": "Are archived articles protected from link rot?",
+			"answer": "Yes. Persistent identifiers and internal archival systems minimize the risk of broken links.",
+			"links": ["https://solav.me/archiving"]
+		},
+		{
+			"id": "ARCH-004",
+			"question": "Can archived articles be updated?",
+			"answer": "Only through formal correction or retraction procedures to preserve record integrity.",
+			"links": ["https://solav.me/archiving/", "https://solav.me/submit"]
+		}
+		]
+	},
+
+	{
+		"section": "Institutional Repositories and Self-Archiving",
+		"questions": [
+		{
+			"id": "REPO-001",
+			"question": "May authors deposit their articles in institutional repositories?",
+			"answer": "Yes. Self-archiving is permitted under the terms defined in the Open Access policy.",
+			"links": ["https://solav.me/access"]
+		},
+		{
+			"id": "REPO-002",
+			"question": "Which article versions may be deposited?",
+			"answer": "Permitted versions (preprint, accepted manuscript, published version) are specified on the Access page.",
+			"links": ["https://solav.me/access"]
+		},
+		{
+			"id": "REPO-003",
+			"question": "Is embargo applied to self-archiving?",
+			"answer": "SOLAV generally does not impose embargo periods on permitted self-archiving.",
+			"links": ["https://solav.me/access"]
+		},
+		{
+			"id": "REPO-004",
+			"question": "Must repository records link back to SOLAV?",
+			"answer": "Yes. Repository records should include links to the official SOLAV publication page.",
+			"links": ["https://solav.me/access"]
+		}
+		]
+	},
+
+	{
+		"section": "Copyright and Licensing",
+		"questions": [
+		{
+			"id": "COPY-001",
+			"question": "Who retains copyright of published articles?",
+			"answer": "Authors retain copyright while granting SOLAV publishing and distribution rights under the specified license.",
+			"links": ["https://solav.me/access"]
+		},
+		{
+			"id": "COPY-002",
+			"question": "What license applies to SOLAV publications?",
+			"answer": "Articles are distributed under Creative Commons Attribution (CC BY 4.0) unless otherwise specified.",
+			"links": ["https://solav.me/access"]
+		},
+		{
+			"id": "COPY-003",
+			"question": "Can others reuse my article commercially?",
+			"answer": "Yes. CC BY 4.0 permits commercial reuse with proper attribution.",
+			"links": ["https://solav.me/access"]
+		},
+		{
+			"id": "COPY-004",
+			"question": "How should reused content be attributed?",
+			"answer": "Reusers must cite the original author(s), article title, journal name, and license.",
+			"links": ["https://solav.me/access"]
+		},
+		{
+			"id": "COPY-005",
+			"question": "Can authors reuse their own work elsewhere?",
+			"answer": "Yes. Authors may reuse their work provided proper citation and license compliance.",
+			"links": ["https://solav.me/access"]
+		}
+		]
+	},
+
+	{
+		"section": "Submission Tracking and Author Services",
+		"questions": [
+		{
+			"id": "TRACK-001",
+			"question": "How can I check the status of my manuscript?",
+			"answer": "Authors may track submission status using the Track Your Paper page by providing their submission reference details.",
+			"links": ["https://solav.me/track"]
+		},
+		{
+			"id": "TRACK-002",
+			"question": "What do the different tracking statuses mean?",
+			"answer": "Statuses indicate stages such as submission received, editorial screening, peer review, revision, acceptance, and publication.",
+			"links": ["https://solav.me/track"]
+		},
+		{
+			"id": "TRACK-003",
+			"question": "What should I do if my status has not changed for a long time?",
+			"answer": "Authors may contact the editorial office via the Submit or About pages to request an update.",
+			"links": ["https://solav.me/submit/", "https://solav.me/about"]
+		},
+		{
+			"id": "TRACK-004",
+			"question": "Can I update my contact information after submission?",
+			"answer": "Yes. Updated contact information should be communicated promptly to the editorial office.",
+			"links": ["https://solav.me/submit"]
+		},
+		{
+			"id": "TRACK-005",
+			"question": "Will I receive email notifications about my submission?",
+			"answer": "Yes. Authors are notified by email regarding major status changes and editorial decisions.",
+			"links": ["https://solav.me/submit"]
+		}
+		]
+	},
+
+	{
+		"section": "Author Profiles and Article Pages",
+		"questions": [
+		{
+			"id": "PROF-001",
+			"question": "Does SOLAV provide individual author profiles?",
+			"answer": "Yes. Author profiles display published articles and affiliation information.",
+			"links": ["https://solav.me"]
+		},
+		{
+			"id": "PROF-002",
+			"question": "Can authors update their profile information?",
+			"answer": "Profile updates may be requested through the editorial office.",
+			"links": ["https://solav.me/submit"]
+		},
+		{
+			"id": "PROF-003",
+			"question": "What information appears on article landing pages?",
+			"answer": "Article pages include title, authors, affiliations, abstract, keywords, PDF links, citation metadata, and licensing information.",
+			"links": ["https://solav.me"]
+		},
+		{
+			"id": "PROF-004",
+			"question": "Can authors request corrections to article metadata?",
+			"answer": "Yes. Metadata corrections may be requested through the editorial office.",
+			"links": ["https://solav.me/submit"]
+		}
+		]
+	},
+
+	{
+		"section": "Website Use and Technical Support",
+		"questions": [
+		{
+			"id": "TECH-001",
+			"question": "Which browsers are supported by the SOLAV website?",
+			"answer": "The website supports modern browsers including Chrome, Firefox, Edge, and Safari.",
+			"links": ["https://solav.me"]
+		},
+		{
+			"id": "TECH-002",
+			"question": "Why is a page not loading correctly?",
+			"answer": "Display issues may result from browser cache, outdated software, or connectivity problems. Users should try refreshing or clearing cache.",
+			"links": ["https://solav.me"]
+		},
+		{
+			"id": "TECH-003",
+			"question": "What should I do if a PDF will not open?",
+			"answer": "Ensure your PDF reader is updated and try downloading the file directly. If problems persist, contact support.",
+			"links": ["https://solav.me/submit"]
+		},
+		{
+			"id": "TECH-004",
+			"question": "How do I report broken links or errors?",
+			"answer": "Technical issues should be reported via the contact information on the About or Submit pages.",
+			"links": ["https://solav.me/about/", "https://solav.me/submit"]
+		},
+		{
+			"id": "TECH-005",
+			"question": "Does SOLAV use cookies?",
+			"answer": "Cookies may be used for essential site functionality in accordance with the Privacy Policy.",
+			"links": ["https://solav.me/submit"]
+		}
+		]
+	},
+
+	{
+		"section": "Privacy, Data Protection, and Legal Compliance",
+		"questions": [
+		{
+			"id": "PRIV-001",
+			"question": "How does SOLAV protect personal data?",
+			"answer": "Personal data is collected and processed in accordance with the Privacy Policy and applicable data protection regulations.",
+			"links": ["https://solav.me/submit"]
+		},
+		{
+			"id": "PRIV-002",
+			"question": "What personal information is collected?",
+			"answer": "Information includes names, affiliations, email addresses, and submission-related data required for editorial processing.",
+			"links": ["https://solav.me/submit"]
+		},
+		{
+			"id": "PRIV-003",
+			"question": "Can I request deletion of my data?",
+			"answer": "Data removal requests may be submitted to the editorial office subject to legal and archival requirements.",
+			"links": ["https://solav.me/submit"]
+		},
+		{
+			"id": "PRIV-004",
+			"question": "Is SOLAV compliant with GDPR principles?",
+			"answer": "SOLAV applies data protection practices consistent with international privacy regulations including GDPR principles.",
+			"links": ["https://solav.me/submit"]
+		}
+		]
+	},
+
+	{
+		"section": "Accessibility and Inclusive Publishing",
+		"questions": [
+		{
+			"id": "ACC-001",
+			"question": "Is the SOLAV website accessible to users with disabilities?",
+			"answer": "SOLAV strives to meet accessibility standards and provides features to improve usability for all users.",
+			"links": ["https://solav.me/submit"]
+		},
+		{
+			"id": "ACC-002",
+			"question": "Can alternative formats be requested?",
+			"answer": "Users may request alternative formats for accessibility purposes by contacting the editorial office.",
+			"links": ["https://solav.me/submit"]
+		},
+		{
+			"id": "ACC-003",
+			"question": "How can accessibility issues be reported?",
+			"answer": "Accessibility concerns should be reported using the contact information provided on the website.",
+			"links": ["https://solav.me/about"]
+		}
+		]
+	},
+
+	{
+		"section": "Complaints, Appeals, and Community Standards",
+		"questions": [
+		{
+			"id": "COMP-001",
+			"question": "How can I submit a formal complaint?",
+			"answer": "Complaints should be submitted in writing to the editorial office with supporting documentation.",
+			"links": ["https://solav.me/submit"]
+		},
+		{
+			"id": "COMP-002",
+			"question": "How are complaints handled?",
+			"answer": "Complaints are reviewed confidentially and resolved according to established ethical procedures.",
+			"links": ["https://solav.me/submit"]
+		},
+		{
+			"id": "COMP-003",
+			"question": "What standards of conduct are expected?",
+			"answer": "Authors, reviewers, and editors are expected to follow principles of professionalism, respect, and academic integrity.",
+			"links": ["https://solav.me/submit"]
+		},
+		{
+			"id": "COMP-004",
+			"question": "Can I report unethical behavior anonymously?",
+			"answer": "Anonymous reports may be considered where sufficient evidence is provided.",
+			"links": ["https://solav.me/submit"]
+		}
+		]
+	},
+
+	{
+		"section": "Contact, Administration, and Governance",
+		"questions": [
+		{
+			"id": "CONT-001",
+			"question": "How can I contact the editorial office?",
+			"answer": "Contact details are available on the About and Submit pages.",
+			"links": ["https://solav.me/about/", "https://solav.me/submit"]
+		},
+		{
+			"id": "CONT-002",
+			"question": "Who are the editors and board members?",
+			"answer": "Editorial board information is published on the About page.",
+			"links": ["https://solav.me/about"]
+		},
+		{
+			"id": "CONT-003",
+			"question": "How are editorial policies updated?",
+			"answer": "Policies are periodically reviewed and updated by the editorial board.",
+			"links": ["https://solav.me/about"]
+		},
+		{
+			"id": "CONT-004",
+			"question": "How can institutions collaborate with SOLAV?",
+			"answer": "Institutional partnerships may be discussed with the editorial office through official contact channels.",
+			"links": ["https://solav.me/about"]
+		}
+		]
+	}
+	]
+}
