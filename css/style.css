@@ -20643,3 +20643,110 @@ html {
 }
 .d-Icons{width:32px!important; height: auto!important;margin-bottom: 10px!important;margin-right: 10px!important}
 .d-IconsL{width:32px!important; height: auto!important;margin-bottom: 10px!important;margin-right: 0px!important}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* Base styles for both button and menu */
+.gemini-dropdown,
+.dropdown-menu.show {
+  --border-width: 2px;
+  border: var(--border-width) solid transparent !important;
+  border-radius: 0.5rem;
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  animation: spin 3s linear infinite;
+}
+
+/* Button Background: Transparent by default, white on hover/click */
+.gemini-dropdown {
+  /* Use light-dark() or manual mode overrides for the inner fill */
+  background-image: 
+    linear-gradient(transparent, transparent), 
+    conic-gradient(from var(--angle), #4285f4, #9b72cb, #d96570, #4285f4);
+  color: inherit; /* Keeps text visible */
+  transition: background-color 0.3s ease;
+}
+
+.gemini-dropdown:hover, 
+.gemini-dropdown:active, 
+.gemini-dropdown.show {
+  background-image: 
+    linear-gradient(white, white), 
+    conic-gradient(from var(--angle), #4285f4, #9b72cb, #d96570, #4285f4);
+  color: #000; /* Ensure text is readable on white */
+}
+
+/* Dropdown Menu Background */
+.dropdown-menu.show {
+  background-image: 
+    linear-gradient(white, white), 
+    conic-gradient(from var(--angle), #4285f4, #9b72cb, #d96570, #4285f4);
+}
+
+/* Dark Mode Overrides */
+[data-bs-theme="dark"] .gemini-dropdown:hover,
+[data-bs-theme="dark"] .gemini-dropdown:active,
+[data-bs-theme="dark"] .gemini-dropdown.show,
+[data-bs-theme="dark"] .dropdown-menu.show {
+  background-image: 
+    linear-gradient(#212529, #212529), 
+    conic-gradient(from var(--angle), #4285f4, #9b72cb, #d96570, #4285f4);
+  color: #fff;
+}
+
+@keyframes spin {
+  from { --angle: 0deg; }
+  to { --angle: 360deg; }
+}
+
+
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.dropdown-menuAnimated{
+  background:#fff;
+  color:#000;
+}
+[data-bs-theme="dark"] .dropdown-menuAnimated{
+  background:#141822;
+    background: 
+    linear-gradient(#212529, #212529) padding-box, 
+    conic-gradient(from var(--angle), #4285f4, #9b72cb, #d96570, #4285f4) border-box!important;
+	  animation: spin 1s linear infinite!important;
+  color:#fff;
+}
+.dropdown-menuAnimated, .dropdown-menuAnimated.show {
+  --border-width: 2px;
+  border: var(--border-width) solid transparent;
+  border-radius: 0.5rem;
+  background: 
+    linear-gradient(white, white) padding-box, 
+    conic-gradient(from var(--angle), #4285f4, #9b72cb, #d96570, #4285f4) border-box;
+  
+  animation: spin 3s linear infinite;
+  color:#000;
+}
+
+[data-bs-theme="dark"] .dropdown-menuAnimated.show {
+--border-width: 2px!important;
+  border: var(--border-width) solid transparent!important;
+  border-radius: 0.5rem;
+  background: 
+    linear-gradient(#212529, #212529) padding-box, 
+    conic-gradient(from var(--angle), #4285f4, #9b72cb, #d96570, #4285f4) border-box!important;
+	  animation: spin 3s linear infinite!important;
+	color:#fff!important;
+}
+
+@keyframes spin {
+  from { --angle: 0deg; }
+  to { --angle: 360deg; }
+}
