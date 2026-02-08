@@ -1,75 +1,687 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SOLAV AI Research Assistant</title>
-    <style>
-        :root { --primary: #2c3e50; --accent: #3498db; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; background-color: #f9f9f9; }
-        .container { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
-        h1 { color: var(--primary); border-bottom: 2px solid var(--accent); padding-bottom: 10px; }
-        textarea { width: 100%; height: 150px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px; box-sizing: border-box; margin-bottom: 15px; }
-        button { background-color: var(--accent); color: white; border: none; padding: 12px 30px; border-radius: 6px; cursor: pointer; font-size: 16px; transition: background 0.3s; }
-        button:hover { background-color: #2980b9; }
-        button:disabled { background-color: #bdc3c7; cursor: not-allowed; }
-        #response { margin-top: 25px; padding: 20px; background: #f0f4f8; border-radius: 8px; min-height: 50px; white-space: pre-wrap; }
-        .footer { margin-top: 30px; font-size: 12px; color: #95a5a6; text-align: center; }
-    </style>
-</head>
-<body>
+<html lang="en" data-bs-theme="light">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="author" content="SOLAV Journal">
+		<meta name="publisher" content="Leothar Company">
+		<meta name="copyright" content="Creative Commons Attribution License (CC BY 4.0)">
+		<meta name="language" content="en, ar">
+		<meta name="robots" content="index, follow">
+		<title>AI in Research Policy | SOLAV Journal</title>
+		<meta name="description" content="SOLAV Journal's policy on AI use in research and publication. Guidelines for responsible AI-augmented research with human oversight.">
+		<meta name="keywords" content="AI in research, artificial intelligence policy, AI-augmented research, research ethics, publication policy, SOLAV">
+		<link rel="canonical" href="https://solav.me/ai-policy/">
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="https://solav.me/">
+		<meta property="og:title" content="AI in Research Policy | SOLAV Journal">
+		<meta property="og:description" content="Guidelines for responsible AI use in research and publication.">
+		<meta property="og:image" content="https://solav.me/images/social-preview.jpg">
+		<meta property="twitter:card" content="summary_large_image">
+		<meta property="twitter:url" content="https://solav.me/">
+		<meta property="twitter:title" content="AI in Research Policy | SOLAV Journal">
+		<meta property="twitter:description" content="Guidelines for responsible AI use in research and publication.">
+		<meta property="twitter:image" content="https://solav.me/images/social-preview.jpg">
+		<link rel="icon" type="image/x-icon" href="/images/icon.png">
+		<meta name="fediverse:creator" content="@SOLAVjournal@mastodon.social">
+		<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+		<link href="/css/swiper.css" rel="stylesheet">
+		<link href="/css/style.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-RE3FS524EK"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-RE3FS524EK');
+		</script>
+	</head>
+	<body>
+		<main class="page-wrapper">
+			<header class="header navbar navbar-expand-lg bg-light navbar-sticky py-0">
+				<div class="container px-3">
+					<a href="/" class="navbar-brand pe-3">
+						<img src="/images/logo.svg" class="logo" alt="SOLAV">
+					</a>
+					<div id="navbarNav" class="offcanvas offcanvas-end">
+						<div class="offcanvas-header border-bottom">
+							<h5 class="offcanvas-title">Menu</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+						</div>
+						<div class="offcanvas-body">
+							<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+								<li class="nav-item">
+									<a href="/aims-scope" class="nav-link">Aims &amp; Sope</a>
+								</li>
+								<li class="nav-item">
+									<a href="/guidelines" class="nav-link">Guidelines</a>
+								</li>
+								<li class="nav-item dropdown">
+									<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-current="page">Submit</a>
+									<ul class="dropdown-menu">
+										<li><a href="/submit" class="dropdown-item">Submit</a></li>
+										<li><a href="/track" class="dropdown-item">Track Paper</a></li>
+									</ul>
+								</li>
+								<li class="nav-item dropdown">
+									<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-current="page">Archive</a>
+									<ul class="dropdown-menu">
+										<li><a href="/archive" class="dropdown-item">Archive</a></li>
+										<li><a href="/authors" class="dropdown-item">Authors</a></li>
+									</ul>
+								</li>
+								<li class="nav-item dropdown">
+									<a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" aria-current="page">Policies</a>
+									<ul class="dropdown-menu">
+										<li><a href="/ethics" class="dropdown-item">Publication Ethics</a></li>
+										<li><a href="/ai" class="dropdown-item active">AI in Research Policy</a></li>
+										<li><a href="/apc" class="dropdown-item">Article Processing Charges</a></li>
+										<li><a href="/review" class="dropdown-item">Peer Review Process</a></li>
+										<li><a href="/open-submission" class="dropdown-item">Open Submission Policy</a></li>
+										<li><a href="/access" class="dropdown-item">Open Access & Licensing</a></li>
+										<li><a href="/archiving" class="dropdown-item">Archiving & Management</a></li>
+									</ul>
+								</li>
+								<li class="nav-item dropdown">
+									<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-current="page">About</a>
+									<ul class="dropdown-menu">
+										<li><a href="/about" class="dropdown-item">About the journal</a></li>
+										<li><a href="/about#editorialBoard" class="dropdown-item"><i class="bi bi-arrow-return-right"></i> Editorial Board</a></li>
+										<li><a href="/oai-pmh" class="dropdown-item active">OAI-PMH Repository</a></li>
+									</ul>
+								</li>
+							</ul>
+						</div>  
+					</div>
+					<div class="form-check form-switch mode-switch pe-lg-1 ms-auto me-4" data-bs-toggle="mode">
+						<input type="checkbox" class="form-check-input" id="theme-mode">
+						<label class="form-check-label" for="theme-mode"><i class="bi bi-sun"></i></label>
+						<label class="form-check-label" for="theme-mode"><i class="bi bi-moon-stars"></i></label>
+					</div>
+					<button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+				</div>
+			</header>
 
-<div class="container">
-    <h1>SOLAV AI Assistant</h1>
-    <p>Submit your research query or abstract for analysis:</p>
-    
-    <textarea id="userInput" placeholder="Type your research question here..."></textarea>
-    
-    <button id="submitBtn">Generate Analysis</button>
+			<div class="jarallax mb-lg-5 mb-4 pt-0 card border-0 bg-gradient-primary rounded-0" data-jarallax="" data-speed="0.35" style="height: 16vw; min-height: 200px; background-image: url(/images/main-bg.png);" data-jarallax-original-styles="height: 16vw; min-height: 200px;">
+				<div id="jarallax-container-0" class="jarallax-container" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; overflow: hidden; z-index: -100; clip-path: polygon(0px 0px, 100% 0px, 100% 100%, 0px 100%);">
+					<div class="jarallax-img w-100" style="background-image: url(/images/main-bg.png); object-fit: cover; object-position: 50% 50%; max-width: none; position: fixed; top: 0px; left: 0px; width: 375.2px; height: 538.55px; overflow: hidden; pointer-events: none; transform-style: preserve-3d; backface-visibility: hidden; margin-top: 64.225px; transform: translate3d(0px, -40.425px, 0px);" data-jarallax-original-styles="background-image: url(./imgs/top-bg.jpg);">
+						<div class="position-absolute top-sm-35 start-50 translate-middle centered-text w-100">
+							<h1 class="fw-bold centered-text">AI in Research Policy</h1>
+							<h2 class="fs-6 centered-text small px-3">Guidelines for Responsible AI-Augmented Research</h2>
+						</div>
+					</div>
+				</div>
+			</div>
 
-    <div id="response">Waiting for input...</div>
-</div>
+			<button class="btn btn-sm btn-primary d-lg-none fixed-bottom end-0 m-0 z-3" data-bs-toggle="offcanvas" data-bs-target="#mobileQuickNav">
+				Quick Navigation
+			</button>
+			<div class="offcanvas offcanvas-start" id="mobileQuickNav">
+				<div class="offcanvas-header border-bottom">
+					<h6>Quick Navigation</h6>
+					<button class="btn-close" data-bs-dismiss="offcanvas"></button>
+				</div>
+				<div class="offcanvas-body"> 
+					<div class="section-nav pt-0 mt-0">
+						<h6 class="mb-3 fw-bold"><i class="bi bi-shield-check me-2"></i>Our Policies</h6>
+						<a href="/ethics" class="d-block mb-2 mobile-nav-link"><i class="bi bi-heart-pulse"></i> Publication Ethics</a>
+						<a href="/ai" class="d-block mb-2 mobile-nav-link active"><i class="bi bi-cpu"></i> AI in Research Policy</a>
+						<a href="/apc" class="d-block mb-2 mobile-nav-link"><i class="bi bi-currency-exchange"></i> Article Processing Charges</a>
+						<a href="/review" class="d-block mb-2 mobile-nav-link"><i class="bi bi-people"></i> Peer Review Process</a>
+						<a href="/open-submission" class="d-block mb-2 mobile-nav-link"><i class="bi bi-door-open"></i> Open Submission Policy</a>
+						<a href="/access" class="d-block mb-2 mobile-nav-link"><i class="bi bi-unlock"></i> Open Access & Licensing</a>
+						<a href="/archiving" class="d-block mb-2 mobile-nav-link"><i class="bi bi-server"></i> Archiving & Management</a>
+						
+						<h6 class="mt-5 mb-3 fw-bold"><i class="bi bi-question-circle me-2"></i>Quick Links</h6>
+						<a href="/guidelines" class="d-block mb-2 mobile-nav-link"><i class="bi bi-journal-text"></i> Author Guidelines</a>
+						<a href="/submit" class="d-block mb-2 mobile-nav-link"><i class="bi bi-send-check"></i> Submit Manuscript</a>
+						<a href="mailto:editorial@solav.me" class="d-block mb-2 mobile-nav-link"><i class="bi bi-envelope"></i> AI Policy Questions</a>
+					</div>
+				</div>
+			</div>
 
-<div class="footer">
-    Hosted on solav.me | Powered by Gemini 1.5 Flash
-</div>
+			<div class="container py-4 py-lg-5">
+				<div class="row">
+					<div class="col-lg-3 d-none d-lg-block">
+						<div class="section-nav mb-4">
+							<h6 class="mb-3 fw-bold"><i class="bi bi-shield-check me-2"></i>Our Policies</h6>
+							<a href="/ethics"><i class="bi bi-heart-pulse"></i> Publication Ethics</a>
+							<a href="/ai" class="active"><i class="bi bi-cpu"></i> AI in Research Policy</a>
+							<a href="/apc"><i class="bi bi-currency-exchange"></i> Article Processing Charges</a>
+							<a href="/review"><i class="bi bi-people"></i> Peer Review Process</a>
+							<a href="/open-submission"><i class="bi bi-door-open"></i> Open Submission Policy</a>
+							<a href="/access"><i class="bi bi-unlock"></i> Open Access & Licensing</a>
+							<a href="/archiving"><i class="bi bi-server"></i> Archiving & Management</a>
 
-<script type="module">
-    // Using a CDN ensures it works on your custom domain without local installation
-    import { GoogleGenerativeAI } from "https://esm.run/@google/genai";
+							<h6 class="mt-5 mb-3 fw-bold"><i class="bi bi-question-circle me-2"></i>Quick Links</h6>
+							<a href="/guidelines"><i class="bi bi-journal-text"></i> Author Guidelines</a>
+							<a href="/submit"><i class="bi bi-send-check"></i> Submit Manuscript</a>
+							<a href="mailto:editorial@solav.me"><i class="bi bi-envelope"></i> AI Policy Questions</a>
+						</div>
+					</div>
 
-    const API_KEY = "AIzaSyCAkxSsnUryryIWoE_Fe4sS-qPUmpYFwMo";
-    const genAI = new GoogleGenerativeAI(API_KEY);
-    
-    // Configured for individual researcher use
-    const model = genAI.getGenerativeModel({ 
-        model: "gemini-1.5-flash",
-        systemInstruction: "You are a scholarly assistant for the SOLAV journal. Help researchers analyze preprints, summarize data, and clarify methodologies. Be objective and concise."
-    });
+					<div class="col-lg-9">
+						<section class="card p-4 mb-5 bg-light shadow-lg rounded-3 border border-primary border-2">
+							<div class="card-body">
+								<div class="d-flex align-items-center mb-4">
+									<div class="bg-primary bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center me-3" style="min-width: 60px; min-height: 60px;">
+										<i class="bi bi-cpu text-primary fs-4"></i>
+									</div>
+									<div>
+										<h2 class="h3 mb-1">AI-Augmented Research Policy</h2>
+										<p class="text-muted mb-0">Human-Centered, AI-Assisted Research Excellence</p>
+									</div>
+								</div>
+								
+								<div class="border-start border-3 border-primary ps-4 mb-4">
+									<p class="lead mb-3">
+										<strong>SOLAV Journal</strong> recognizes artificial intelligence as a transformative tool in research. We support responsible AI use that enhances human capability while maintaining research integrity.
+									</p>
+									<p class="mb-3">
+										This policy outlines acceptable AI applications, disclosure requirements, and our commitment to human-centered research where AI serves as an assistant, not a replacement for human intellect.
+									</p>
+									<p class="mb-0">
+										All research published in SOLAV must be fundamentally human-generated and human-validated, with AI used as an augmentation tool under strict oversight.
+									</p>
+								</div>
+								
+								<div class="row g-4 mt-3">
+									<div class="col-md-6">
+										<div class="card h-100 border border-opacity-10">
+											<div class="card-body">
+												<h5 class="card-title text-primary mb-3">
+													<i class="bi bi-person me-2"></i>Human-Centric Foundation
+												</h5>
+												<ul class="mb-0">
+													<li>Research must originate from human intellect</li>
+													<li>AI cannot be listed as an author or contributor</li>
+													<li>Final responsibility rests with human authors</li>
+													<li>All AI outputs require human verification</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									
+									<div class="col-md-6">
+										<div class="card h-100 border border-opacity-10">
+											<div class="card-body">
+												<h5 class="card-title text-primary mb-3">
+													<i class="bi bi-eye me-2"></i>Transparency Mandatory
+												</h5>
+												<ul class="mb-0">
+													<li>Full disclosure of AI tools used</li>
+													<li>Specific purposes of AI assistance</li>
+													<li>Extent of AI contribution documented</li>
+													<li>Transparency in methods section</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									
+									<div class="col-md-6">
+										<div class="card h-100 border border-opacity-10">
+											<div class="card-body">
+												<h5 class="card-title text-primary mb-3">
+													<i class="bi bi-shield-check me-2"></i>Accountability Unchanged
+												</h5>
+												<ul class="mb-0">
+													<li>Authors accountable for all content</li>
+													<li>AI errors are human responsibility</li>
+													<li>Verification of AI-generated content required</li>
+													<li>Ethical standards apply equally</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									
+									<div class="col-md-6">
+										<div class="card h-100 border border-opacity-10">
+											<div class="card-body">
+												<h5 class="card-title text-primary mb-3">
+													<i class="bi bi-tools me-2"></i>Augmentation, Not Replacement
+												</h5>
+												<p class="mb-0">
+													AI serves to enhance human capabilities in research processes. It cannot replace human critical thinking, intellectual contribution, or ethical decision-making in the research lifecycle.
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								<div class="alert alert-primary mt-4" role="alert">
+									<h5 class="alert-heading"><i class="bi bi-info-circle me-2"></i>Core Principle</h5>
+									<p class="mb-0">AI is a powerful assistant for researchers, but research must remain fundamentally human. We embrace AI as a tool for advancement while safeguarding the human intellect at the heart of academic discovery.</p>
+								</div>
+							</div>
+						</section>
 
-    const btn = document.getElementById('submitBtn');
-    const input = document.getElementById('userInput');
-    const output = document.getElementById('response');
+						<section class="mb-5">
+							<h2 class="h1 mb-4">Acceptable AI Use in Research</h2>
+							<p class="lead mb-5">AI tools are permitted for specific research support functions with appropriate disclosure.</p>
+							
+							<div class="row g-4">
+								<div class="col-md-6 col-lg-4">
+									<div class="card h-100 bg-light shadow-lg rounded-3 border border-opacity-10">
+										<div class="card-body text-center p-4">
+											<div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex justify-content-center align-items-center principle-icon mb-4">
+												<i class="bi bi-search text-primary"></i>
+											</div>
+											<h3 class="h5">Literature Enhancement</h3>
+											<p class="mb-0">AI-assisted literature review, identifying relevant studies, summarizing existing research, or suggesting related references.</p>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6 col-lg-4">
+									<div class="card h-100 bg-light shadow-lg rounded-3 border border-opacity-10">
+										<div class="card-body text-center p-4">
+											<div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex justify-content-center align-items-center principle-icon mb-4">
+												<i class="bi bi-bar-chart text-primary"></i>
+											</div>
+											<h3 class="h5">Data Analysis Support</h3>
+											<p class="mb-0">AI tools for statistical analysis, data visualization, pattern recognition, or processing large datasets.</p>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6 col-lg-4">
+									<div class="card h-100 bg-light shadow-lg rounded-3 border border-opacity-10">
+										<div class="card-body text-center p-4">
+											<div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex justify-content-center align-items-center principle-icon mb-4">
+												<i class="bi bi-code-square text-primary"></i>
+											</div>
+											<h3 class="h5">Code Development</h3>
+											<p class="mb-0">AI assistance in writing, debugging, or optimizing research code, with human verification of all outputs.</p>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6 col-lg-4">
+									<div class="card h-100 bg-light shadow-lg rounded-3 border border-opacity-10">
+										<div class="card-body text-center p-4">
+											<div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex justify-content-center align-items-center principle-icon mb-4">
+												<i class="bi bi-translate text-primary"></i>
+											</div>
+											<h3 class="h5">Language Support</h3>
+											<p class="mb-0">Grammar checking, style enhancement, translation assistance, or readability improvement.</p>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6 col-lg-4">
+									<div class="card h-100 bg-light shadow-lg rounded-3 border border-opacity-10">
+										<div class="card-body text-center p-4">
+											<div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex justify-content-center align-items-center principle-icon mb-4">
+												<i class="bi bi-lightbulb text-primary"></i>
+											</div>
+											<h3 class="h5">Idea Development</h3>
+											<p class="mb-0">Brainstorming assistance, hypothesis generation, or exploring alternative methodologies.</p>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6 col-lg-4">
+									<div class="card h-100 bg-light shadow-lg rounded-3 border border-opacity-10">
+										<div class="card-body text-center p-4">
+											<div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex justify-content-center align-items-center principle-icon mb-4">
+												<i class="bi bi-image text-primary"></i>
+											</div>
+											<h3 class="h5">Visual Creation</h3>
+											<p class="mb-0">AI-assisted creation of diagrams, figures, or visual representations of concepts.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
 
-    btn.addEventListener('click', async () => {
-        if (!input.value.trim()) return;
+						<section class="mb-5">
+							<h2 class="h1 mb-4">Disclosure Requirements</h2>
+							
+							<div class="card bg-light shadow-lg rounded-3 border border-opacity-10">
+								<div class="card-body p-4">
+									<p>Complete transparency is mandatory for any AI use in research submitted to SOLAV Journal.</p>
+									
+									<div class="row mt-4">
+										<div class="col-md-6">
+											<div class="border-start border-3 border-primary ps-3 mb-4">
+												<h5 class="mb-3">Required Disclosure Elements</h5>
+												<ul class="mb-0">
+													<li><strong>AI Tools Used:</strong> Specify names/versions of all AI tools</li>
+													<li><strong>Purpose of Use:</strong> Detailed description of how AI was applied</li>
+													<li><strong>Extent of Contribution:</strong> Percentage/scope of AI assistance</li>
+													<li><strong>Verification Process:</strong> How AI outputs were validated</li>
+													<li><strong>Methodology Section:</strong> Include AI use in methods</li>
+													<li><strong>Separate Statement:</strong> AI disclosure statement</li>
+												</ul>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="border-start border-3 border-warning ps-3 mb-4">
+												<h5 class="mb-3">Disclosure Format Example</h5>
+												<p class="mb-2"><strong>In Methods Section:</strong></p>
+												<code class="d-block bg-dark text-light p-3 rounded mb-3 small">
+AI Assistance: This study utilized ChatGPT-4 for literature review assistance and Grammarly for language polishing. All AI-generated content was thoroughly reviewed and validated by the authors.
+												</code>
+												<p class="mb-2"><strong>In Separate Statement:</strong></p>
+												<code class="d-block bg-dark text-light p-3 rounded small">
+AI Disclosure: The authors used DeepSeek for statistical analysis suggestions and DALL-E for figure generation. Human authors verified all outputs and maintain full responsibility for the research.
+												</code>
+											</div>
+										</div>
+									</div>
+									
+									<div class="alert alert-warning mt-4" role="alert">
+										<h5 class="alert-heading"><i class="bi bi-exclamation-triangle me-2"></i>Non-Disclosure Consequences</h5>
+										<p class="mb-0">Failure to properly disclose AI use constitutes research misconduct. Manuscripts with undisclosed AI assistance will be rejected. Post-publication discovery may lead to retraction.</p>
+									</div>
+								</div>
+							</div>
+						</section>
 
-        btn.disabled = true;
-        btn.innerText = "Analyzing...";
-        output.innerText = "Consulting AI model...";
+						<section class="mb-5">
+							<h2 class="h1 mb-4">Unacceptable AI Use</h2>
+							
+							<div class="accordion bg-light shadow-lg rounded-3 border border-opacity-10" id="unacceptableAI">
+								<div class="accordion-item bg-light border-opacity-10">
+									<h2 class="accordion-header">
+										<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#prohibited">
+											<i class="bi bi-slash-circle me-2"></i> Prohibited AI Applications
+										</button>
+									</h2>
+									<div id="prohibited" class="accordion-collapse collapse show" data-bs-parent="#unacceptableAI">
+										<div class="accordion-body">
+											<ul>
+												<li><strong>Full Manuscript Generation:</strong> AI cannot write entire manuscripts or substantial sections without human intellectual input</li>
+												<li><strong>Data Fabrication:</strong> AI cannot generate or fabricate research data, results, or findings</li>
+												<li><strong>Authorship Attribution:</strong> AI tools cannot be listed as authors, co-authors, or contributors</li>
+												<li><strong>Peer Review Bypass:</strong> AI cannot be used to generate or fake peer review responses</li>
+												<li><strong>Original Idea Generation:</strong> Research cannot be primarily AI-conceived without human intellectual foundation</li>
+												<li><strong>Undisclosed Use:</strong> Any AI assistance used without full transparent disclosure</li>
+												<li><strong>Ethical Review Replacement:</strong> AI cannot replace human ethical oversight and approval processes</li>
+											</ul>
+										</div>
+									</div>
+								</div>
 
-        try {
-            const result = await model.generateContent(input.value);
-            const response = await result.response;
-            output.innerText = response.text();
-        } catch (error) {
-            output.innerHTML = `<span style="color:red">Error: ${error.message}</span>`;
-        } finally {
-            btn.disabled = false;
-            btn.innerText = "Generate Analysis";
-        }
-    });
-</script>
+								<div class="accordion-item bg-light border-opacity-10">
+									<h2 class="accordion-header">
+										<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#responsibilities">
+											<i class="bi bi-person-check me-2"></i> Human Responsibilities
+										</button>
+									</h2>
+									<div id="responsibilities" class="accordion-collapse collapse" data-bs-parent="#unacceptableAI">
+										<div class="accordion-body">
+											<ol>
+												<li><strong>Content Verification:</strong> All AI-generated content must be thoroughly verified for accuracy, appropriateness, and originality</li>
+												<li><strong>Source Validation:</strong> Verify all AI-suggested references and citations actually exist and are correctly attributed</li>
+												<li><strong>Bias Checking:</strong> Actively identify and correct any biases introduced by AI tools</li>
+												<li><strong>Methodological Soundness:</strong> Ensure AI-assisted methods are scientifically valid and reproducible</li>
+												<li><strong>Intellectual Contribution:</strong> Maintain clear documentation of human vs. AI contributions</li>
+												<li><strong>Error Responsibility:</strong> Authors bear full responsibility for any errors in AI-generated content</li>
+												<li><strong>Ethical Compliance:</strong> Ensure AI use complies with all ethical standards and regulations</li>
+											</ol>
+										</div>
+									</div>
+								</div>
 
-</body>
+								<div class="accordion-item bg-light border-opacity-10">
+									<h2 class="accordion-header">
+										<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#compliance">
+											<i class="bi bi-shield-check me-2"></i> Compliance & Enforcement
+										</button>
+									</h2>
+									<div id="compliance" class="accordion-collapse collapse" data-bs-parent="#unacceptableAI">
+										<div class="accordion-body">
+											<ol>
+												<li><strong>Pre-Submission Check:</strong> Authors must complete AI use declaration during submission</li>
+												<li><strong>Editorial Review:</strong> Editors will verify AI disclosure completeness and appropriateness</li>
+												<li><strong>Peer Review Consideration:</strong> Reviewers may be informed of AI use extent for proper evaluation</li>
+												<li><strong>Post-Publication Monitoring:</strong> Ongoing checks for undisclosed AI use in published works</li>
+												<li><strong>Violation Response:</strong> Manuscripts violating this policy will be rejected; published articles may be retracted</li>
+												<li><strong>Appeal Process:</strong> Authors may appeal decisions through editorial@solav.me</li>
+												<li><strong>Policy Updates:</strong> This policy will be reviewed annually and updated as AI technology evolves</li>
+											</ol>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+
+						<section class="mb-5">
+							<h2 class="h1 mb-4">AI Policy Implementation</h2>
+							
+							<div class="row g-4">
+								<div class="col-md-6">
+									<div class="card h-100 border border-primary border-2">
+										<div class="card-body">
+											<h5 class="card-title text-primary mb-3">
+												<i class="bi bi-check-circle me-2"></i>For Authors
+											</h5>
+											<ul class="mb-0">
+												<li>Complete AI disclosure form during submission</li>
+												<li>Include AI statement in manuscript</li>
+												<li>Document verification of AI outputs</li>
+												<li>Maintain records of AI-human collaboration</li>
+												<li>Ensure human intellectual leadership</li>
+												<li>Verify all references and data sources</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								
+								<div class="col-md-6">
+									<div class="card h-100 border border-primary border-2">
+										<div class="card-body">
+											<h5 class="card-title text-primary mb-3">
+												<i class="bi bi-people me-2"></i>For Editors & Reviewers
+											</h5>
+											<ul class="mb-0">
+												<li>Verify AI disclosure completeness</li>
+												<li>Assess appropriateness of AI use</li>
+												<li>Evaluate human oversight quality</li>
+												<li>Check for undisclosed AI patterns</li>
+												<li>Maintain focus on research quality</li>
+												<li>Report suspected policy violations</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="alert alert-info mt-4" role="alert">
+								<h5 class="alert-heading"><i class="bi bi-lightbulb me-2"></i>Best Practices Recommendation</h5>
+								<p class="mb-0">We recommend researchers document their AI use process: what prompts were used, how outputs were verified, what human modifications were made, and how AI contributed to the final work. This documentation, while not required for submission, demonstrates rigorous research practice.</p>
+							</div>
+						</section>
+
+						<section class="card border-primary border-2 p-4 mb-5">
+							<div class="card-body text-center">
+								<h3 class="h4 mb-3"><i class="bi bi-link-45deg text-primary me-2"></i>Related Policies</h3>
+								<p class="mb-4">This policy complements our existing ethical and procedural guidelines:</p>
+								<div class="d-flex flex-wrap justify-content-center gap-3">
+									<a href="/ethics" class="btn btn-lg btn-outline-primary rounded-pill">Publication Ethics</a>
+									<a href="/review" class="btn btn-lg btn-outline-primary rounded-pill">Peer Review Process</a>
+									<a href="/guidelines" class="btn btn-lg btn-outline-primary rounded-pill">Author Guidelines</a>
+								</div>
+							</div>
+						</section>
+
+						<section class="text-center py-5 border-top">
+							<h3 class="h2 mb-4">AI Policy Questions?</h3>
+							<p class="fs-5 mb-4 col-lg-8 mx-auto">Contact our editorial team for clarification on AI use in research or to discuss specific applications.</p>
+							<a href="mailto:editorial@solav.me" class="btn btn-lg btn-primary rounded-pill"><i class="bi bi-envelope me-2"></i>editorial@solav.me</a>
+							<a href="/submit" class="btn btn-lg btn-outline-primary rounded-pill"><i class="bi bi-send-check me-2"></i>Submit Manuscript</a>
+						</section>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12 d-flex justify-content-evenly mb-3 border-top mt-3 pt-3">
+				<img src="/images/creative_commons_license_with_attribution.svg" alt="CC BY 4.0" class="img-fluid" style="max-height: 46px;">
+				<img src="/images/open_access.svg" alt="Open Access" class="img-fluid" style="max-height: 46px;">
+				<img src="/images/oai_logo.svg" alt="OAI-PMH Compliant" class="img-fluid" style="max-height: 46px;">
+			</div>
+		</main>
+		<a href="#top" class="btn-scroll-top" data-scroll="">
+			<i class="btn-scroll-top-icon bi bi-chevron-up"></i>
+		</a>
+		<footer class="footer border-top bg-primary-subtle">
+			<div class="container py-5">
+				<div class="row g-4">
+					<div class="col-lg-4">
+						<p class="mb-1">
+							SOLAV Journal is an open access, peer-reviewed journal publishing interdisciplinary applied research with real-world impact.
+							<br><span class="font-sm"><strong>Publication Frequency:</strong> Continuous publication.</span>
+							<br><span class="font-sm"><strong>Editor-In-Chief:</strong> Maher Asaad Baker</span>
+							<br><span class="font-sm"><strong>Publisher:</strong> Leothar Company, Riyadh, Saudi Arabia</span>
+						</p>
+						<div class="issn-container mt-0">
+							<img src="/images/issn_logo.svg" alt="ISSN" class="issn-logo">
+							<span class="issn-text">ISSN request pending</span>
+						</div>
+
+					</div>
+
+					<div class="col-lg-2 col-md-4">
+						<h5 class="mb-3 fw-bold">Quick Links</h5>
+						<ul class="list-unstyled">
+							<li class="mb-2"><a href="/aims-scope" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Aims & Scope</a></li>
+							<li class="mb-2"><a href="/guidelines" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Author Guidelines</a></li>
+							<li class="mb-2"><a href="/submit" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Submit Manuscript</a></li>
+							<li class="mb-2"><a href="/archive" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Article Archive</a></li>
+							<li class="mb-2"><a href="/about" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">About the Journal</a></li>
+						</ul>
+					</div>
+
+					<div class="col-lg-3 col-md-4">
+						<h5 class="mb-3 fw-bold">Policies</h5>
+						<ul class="list-unstyled">
+							<li class="mb-2"><a href="/ethics" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Publication Ethics</a></li>
+							<li class="mb-2"><a href="/ai-policy" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">AI in Research Policy</a></li>
+							<li class="mb-2"><a href="/apc" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Article Processing Charges</a></li>
+							<li class="mb-2"><a href="/review" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Peer Review Process</a></li>
+							<li class="mb-2"><a href="/access" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Open Access & Licensing</a></li>
+						</ul>
+					</div>
+
+					<div class="col-lg-3 col-md-4">
+						<h5 class="mb-3 fw-bold">Contact & Support</h5>
+						<ul class="list-unstyled">
+							<li class="mb-2">
+								<i class="bi bi-envelope me-2 text-primary"></i>
+								<a href="mailto:contact@solav.me" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">General Inquiries</a>
+							</li>
+							<li class="mb-2">
+								<i class="bi bi-question-circle me-2 text-primary"></i>
+								<a href="mailto:support@solav.me" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Technical Support</a>
+							</li>
+							<li class="mb-2">
+								<i class="bi bi-shield-check me-2 text-primary"></i>
+								<a href="mailto:ethics@solav.me" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Ethics Concerns</a>
+							</li>
+							<li class="mb-2">
+								<i class="bi bi-cpu me-2 text-primary"></i>
+								<a href="mailto:editorial@solav.me" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">AI Policy Questions</a>
+							</li>
+							<li class="mb-2">
+								<i class="bi bi-currency-exchange me-2 text-primary"></i>
+								<a href="mailto:apc@solav.me" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">APC & Payments</a>
+							</li>
+						</ul>
+
+					</div>
+				</div>
+
+				<div class="row pt-2 border-top">
+					<div class="col-md-6 text-md-end order-md-2 px-2">
+						<div class="row mb-0 h-100 d-flex align-items-end justify-content-lg-end px-3">
+							<div class="col-12 p-0 m-0">
+								<a href="https://bsky.app/profile/solav.me" alt="Bluesky">
+									<img src="/images/bluesky-icon.svg" class="d-Icons" alt="Bluesky"></a>
+								<a rel="me" href="https://mastodon.social/@SOLAVjournal" alt="Mastodon">
+									<img src="/images/mastodon-icon.svg" class="d-IconsL m-0" alt="Mastodon"></a>
+							</div>
+							<ul class="list-inline col-12 p-0 m-0">
+								<li class="list-inline-item p-0 m-0"><a href="/privacy" class="link-primary link-underline-opacity-25 link-underline-opacity-100-hover link-offset-2">Privacy Policy</a><span class="text-primary p-0 m-0 px-2">●</span></li>
+								<li class="list-inline-item p-0 m-0"><a href="/tou" class="link-primary link-underline-opacity-25 link-underline-opacity-100-hover link-offset-2">Terms of Use</a><span class="text-primary p-0 m-0 px-2">●</span></li>
+								<li class="list-inline-item p-0 m-0"><a href="/accessibility" class="link-primary link-underline-opacity-25 link-underline-opacity-100-hover link-offset-2">Accessibility</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-6 order-md-1">
+						<p class="mb-0 h-100">
+							<strong>Your privacy matters</strong>. We use cookies to enhance your visit and analyze site traffic. By continuing to browse, you agree to our use of cookies.
+							<br>&copy; <span id="currentYear"></span> SOLAV Journal. This is an open access journal distributed under the 
+							<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" class="link-primary link-underline-opacity-25 link-underline-opacity-100-hover link-offset-2">Creative Commons Attribution License (CC BY 4.0)</a>.
+						</p>
+					</div>
+				</div>
+			</div>
+		</footer>
+	
+		<script src="/js/jarallax.js"></script>
+		<script src="/js/swiper.js"></script>
+		<script src="/js/js.js"></script>
+		<script>
+			document.querySelectorAll('.mobile-nav-link').forEach(function(link) { link.addEventListener('click', function() { document.querySelectorAll('.offcanvas.show').forEach(function(el) { const instance = bootstrap.Offcanvas.getInstance(el); if (instance) { instance.hide(); } }); }); });
+			document.getElementById('currentYear').textContent = new Date().getFullYear();
+			(() => {
+				'use strict';
+				const getStoredTheme = () => localStorage.getItem('theme');
+				const setStoredTheme = theme => localStorage.setItem('theme', theme);
+				const getPreferredTheme = () => {
+				const storedTheme = getStoredTheme();
+					if (storedTheme) {
+						return storedTheme;
+					}
+					return 'light';
+				};
+				const setTheme = theme => {
+					if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+						document.documentElement.setAttribute('data-bs-theme', 'dark');
+					} else {
+						document.documentElement.setAttribute('data-bs-theme', theme);
+					}
+				};
+				const updateLogos = theme => {
+					const logos = document.querySelectorAll('.logo');
+					logos.forEach(logo => {
+						logo.src = theme === 'dark' ? '/images/logo-white.svg' : '/images/logo-black.svg';
+					});
+				};
+				setTheme(getPreferredTheme());
+				const showActiveTheme = theme => {
+					const themeSwitcher = document.querySelector('[data-bs-toggle="mode"]');
+					const themeSwitcherCheck = themeSwitcher.querySelector('input[type="checkbox"]');
+					if (!themeSwitcher) {
+						return;
+					}
+					if (theme === 'dark') {
+						themeSwitcherCheck.checked = true;
+					} else {
+						themeSwitcherCheck.checked = false;
+					}
+					updateLogos(theme);
+				};
+				window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+					const storedTheme = getStoredTheme();
+					if (storedTheme !== 'light' && storedTheme !== 'dark') {
+						const newTheme = getPreferredTheme();
+						setTheme(newTheme);
+						showActiveTheme(newTheme);
+					}
+				});
+				window.addEventListener('DOMContentLoaded', () => {
+					showActiveTheme(getPreferredTheme());
+					document.querySelectorAll('[data-bs-toggle="mode"]').forEach(toggle => {
+						toggle.addEventListener('click', () => {
+							const themeSwitcherCheck = toggle.querySelector('input[type="checkbox"]');
+							const theme = themeSwitcherCheck.checked ? 'dark' : 'light';
+							setStoredTheme(theme);
+							setTheme(theme);
+							showActiveTheme(theme);
+						});
+					});
+				});
+			})();
+		</script>
+	</body>
 </html>
