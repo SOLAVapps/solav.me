@@ -20750,3 +20750,22 @@ html {
   from { --angle: 0deg; }
   to { --angle: 360deg; }
 }
+		.faq-question {
+  cursor: pointer;
+  user-select: none;
+}
+
+.transition-transform {
+  transition: transform 0.25s ease;
+}
+
+.search-match {
+  background-color: #fff3cd;
+  padding: 2px 4px;
+  border-radius: 3px;
+  color:#000
+}
+
+.related-questions {
+  border-left: 2px solid var(--bs-primary);
+}
