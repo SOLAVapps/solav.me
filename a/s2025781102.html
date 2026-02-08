@@ -81,7 +81,7 @@
 		<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 		<link href="/css/swiper.css" rel="stylesheet">
-		<link href="/css/style.css" rel="stylesheet">
+		<link href="/css/style.css?20260208" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-RE3FS524EK"></script>
 		<script>
@@ -139,11 +139,24 @@
 									</ul>
 								</li>
 								<li class="nav-item dropdown">
-									<a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" aria-current="page">Archive</a>
-									<ul class="dropdown-menu">
-										<li><a href="/archive" class="dropdown-item">Archive</a></li>
-										<li><a href="/authors" class="dropdown-item">Authors</a></li>
-									</ul>
+									<a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" aria-expanded="true">Archive</a>
+									<div class="dropdown-menu" data-bs-popper="static">
+										<div class="d-lg-flex pt-lg-3">
+											<div class="mega-dropdown-column">
+												<ul class="list-unstyled mb-3">
+													<li><a href="/archive" class="dropdown-item">2(2026)</a></li>
+													<li><hr class="dropdown-divider"></li>
+													<li><a href="/authors" class="dropdown-item">Authors</a></li>
+												</ul>
+											</div>
+											<div class="mega-dropdown-column">
+												<h6 class="px-3 mb-2">Older Archives</h6>
+												<ul class="list-unstyled mb-3">
+													<li><a href="/archive2025" class="dropdown-item active">Voulme 1(2025)</a></li>
+												</ul>
+											</div>
+										</div>
+									</div>
 								</li>
 								<li class="nav-item dropdown">
 									<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-current="page">Policies</a>
@@ -184,7 +197,10 @@
 					</div>
 				</div>
 			</div>
-			<div class="container py-2 py-lg-3" id="articleContainer">
+			<div class="container pb-2 pb-lg-3 pt-0" id="articleContainer">
+				<a href="/archive2025" class="btn btn-sm btn-secondary mb-1">
+					<i class="bi bi-arrow-left me-1"></i> Browse All Articles
+				</a><hr class="m-0 mb-3 p-0">
 				<div class="row">
 					<div class="col-lg-8">
 						<div id="articleContent">

@@ -28,7 +28,7 @@
 		<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 		<link href="/css/swiper.css" rel="stylesheet">
-		<link href="/css/style.css" rel="stylesheet">
+		<link href="/css/style.css?20260208" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-RE3FS524EK"></script>
 		<script>
@@ -69,11 +69,24 @@
 									</ul>
 								</li>
 								<li class="nav-item dropdown">
-									<a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" aria-current="page">Archive</a>
-									<ul class="dropdown-menu">
-										<li><a href="/archive" class="dropdown-item active">Archive</a></li>
-										<li><a href="/authors" class="dropdown-item">Authors</a></li>
-									</ul>
+									<a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" aria-expanded="true">Archive</a>
+									<div class="dropdown-menu" data-bs-popper="static">
+										<div class="d-lg-flex pt-lg-3">
+											<div class="mega-dropdown-column">
+												<ul class="list-unstyled mb-3">
+													<li><a href="/archive" class="dropdown-item active">2(2026)</a></li>
+													<li><hr class="dropdown-divider"></li>
+													<li><a href="/authors" class="dropdown-item">Authors</a></li>
+												</ul>
+											</div>
+											<div class="mega-dropdown-column">
+												<h6 class="px-3 mb-2">Older Archives</h6>
+												<ul class="list-unstyled mb-3">
+													<li><a href="/archive2025" class="dropdown-item">Voulme 1(2025)</a></li>
+												</ul>
+											</div>
+										</div>
+									</div>
 								</li>
 								<li class="nav-item dropdown">
 									<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-current="page">Policies</a>
@@ -113,14 +126,38 @@
 				<div id="jarallax-container-0" class="jarallax-container">
 					<div class="jarallax-img w-100" style="background-image: url(/images/main-bg.png);">
 						<div class="position-absolute top-sm-35 start-50 translate-middle centered-text w-100">
-							<h1 class="fw-bold centered-text">Archive 2025</h1>
-							<h2 class="fs-6 centered-text px-3">Volume 1</h2>
+							<h1 class="fw-bold centered-text">Archive 2026</h1>
+							<h2 class="fs-4 centered-text px-3">Volume 2</h2>
 						</div>
 					</div>
 				</div>
 			</div>
 
-			<div class="container py-4 py-lg-5">
+			<section class="container py-2 card bg-secondary">
+				<div class="row align-items-center">
+					<div class="col-md-8">
+						<p class="fw-bold mb-1">Previous Volumes</p>
+						<p class="mb-0 small">
+							As part of our commitment to preserving the scholarly record, 
+							all previous volumes of SOLAV Journal remain permanently accessible.
+						</p>
+					</div>
+					<div class="col-md-4 text-md-end">
+						<div class="btn-group">
+							<button type="button" class="dropdown-menuAnimated btn primaryAnimated dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+								Complete Journal Archive
+							</button>
+							<ul class="dropdown-menu dropdown-menuAnimated">
+								<li><a class="dropdown-item" href="/archive">Current Volume: 2(2026)</a></li>
+								<li><hr class="dropdown-divider"></li>
+								<li><a class="dropdown-item" href="/archive2025">1(2025)</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<div class="container pt-3">
 				<div class="row mb-4">
 					<div class="col-md-8">
 						<div class="input-group">
@@ -505,7 +542,7 @@
 			}
 			async function loadArticles() {
 				try {
-					const response = await fetch('/data/a2025.json');
+					const response = await fetch('/data/a2026.json');
 					if (!response.ok) throw new Error('Failed to load articles');
 					
 					const data = await response.json();

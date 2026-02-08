@@ -1,0 +1,59 @@
+{
+  "year": "2026",
+  "articles": [
+		{
+		"id": "s2026781201",
+		"type": "Editorial",
+		"title": "Advancing Open, Ethical, and Interdisciplinary Scholarship: Reflections on Volume One and a Call for Contributions to Volume Two (2026)",
+		"status": "published",
+		"authors": [
+			{
+			"id": "00010077",
+			"name_first": "Maher Asaad",
+			"name_last": "Baker",
+			"name": "Baker, Maher Asaad",
+			"corresponding": 1,
+			"affiliation": "SOLAV, Riyadh, Saudi Arabia",
+			"roles": [
+				"Conceptualization",
+				"Writing – Original Draft",
+				"Editorial Oversight"
+			],
+			"email": "maher@solav.me",
+			"orcid": "0000-0001-8013-6044"
+			}
+		],
+		"keywords": [
+			"Scholarly Publishing",
+			"Open Access",
+			"Continuous Publication",
+			"Peer Review",
+			"Research Integrity",
+			"Interdisciplinary Research",
+			"Academic Communication",
+			"Call for Papers"
+		],
+		"abstract": "This editorial reflects on the achievements and lessons of SOLAV Journal’s inaugural volume and outlines the journal’s strategic priorities for 2026. It reaffirms the journal’s commitment to open access, rigorous peer review, and ethical publishing, and formally invites original scholarly contributions for Volume Two. Through this call for papers, the journal seeks to strengthen its role as a collaborative platform for innovative, socially relevant, and methodologically sound research.",
+		"version": [
+			{
+			"date": "2026-02-08",
+			"number": "2"
+			}
+		],
+			"abstract_url": "https://solav.me/a/s2026781201",
+			"download_url": "https://solav.me/p/s2026781201.pdf",
+			"received_date": "2026-01-19",
+			"evaluated_date": "2026-01-20",
+			"peer_reviewed_date": "2026-01-20",
+			"accepted_date": "2026-01-20",
+			"published_date": "2026-02-08",
+			"volume": "2",
+			"pages": "1-6",
+			"citation_count": 0,
+			"date": "2026-02-08",
+			"language": "en",
+			"license": "CC BY 4.0",
+			"reference": []
+		}
+	]
+}

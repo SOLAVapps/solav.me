@@ -9,19 +9,19 @@
 		<meta name="copyright" content="Creative Commons Attribution License (CC BY 4.0)">
 		<meta name="language" content="en, ar">
 		<meta name="robots" content="index, follow">
-		<title>SOLAV Journal | Scholarly Open-Access Research</title>
+		<title>Archive 2024 | Scholarly Open-Access Research</title>
 		<meta name="description" content="SOLAV is a leading open-access, peer-reviewed academic journal dedicated to the rapid publication of high-quality research across applied sciences and interdisciplinary technology. We operate on a continuous publication model to ensure timely dissemination of groundbreaking work.">
 		<meta name="keywords" content="SOLAV journal, open access journal, academic research, applied sciences, interdisciplinary research, peer-reviewed, rapid publication, continuous publication, materials science, renewable energy, artificial intelligence, machine learning, data science, engineering technology, environmental science, biomedical engineering, nanotechnology, computer science, scholarly publishing, CC BY license">
 		<link rel="canonical" href="https://solav.me/">
 		<meta property="og:type" content="website">
 		<meta property="og:url" content="https://solav.me/">
-		<meta property="og:title" content="SOLAV Journal | Scholarly Open-Access Research">
-		<meta property="og:description" content="An Open-Access Platform for Pioneering Research in Applied Sciences and Technology. Submit your work for rapid, rigorous peer review.">
+		<meta property="og:title" content="Archive 2024 | Scholarly Open-Access Research">
+		<meta property="og:description" content="2024 archive of SOLAV Journal articles.">
 		<meta property="og:image" content="https://solav.me/images/social-preview.jpg">
 		<meta property="twitter:card" content="summary_large_image">
 		<meta property="twitter:url" content="https://solav.me/">
-		<meta property="twitter:title" content="SOLAV Journal | Scholarly Open-Access Research">
-		<meta property="twitter:description" content="An Open-Access Platform for Pioneering Research in Applied Sciences and Technology. Submit your work for rapid, rigorous peer review.">
+		<meta property="twitter:title" content="Archive 2024 | Scholarly Open-Access Research">
+		<meta property="twitter:description" content="2024 archive of SOLAV Journal articles.">
 		<meta property="twitter:image" content="https://solav.me/images/social-preview.jpg">
 		<link rel="icon" type="image/x-icon" href="/images/icon.png">
 		<meta name="fediverse:creator" content="@SOLAVjournal@mastodon.social">
@@ -37,6 +37,9 @@
 		gtag('js', new Date());
 		gtag('config', 'G-RE3FS524EK');
 		</script>
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Expires" content="0">
 	</head>
 	<body>
 		<main class="page-wrapper">
@@ -119,20 +122,82 @@
 				</div>
 			</header>
 
-			<section class="container text-center">
-				<div class="card m-5 border-0">
-					<div class="row align-items-center">
-						<div class="col-xl-12 col-md-12 text-center text-md-start p-5 py-2 pt-4">
-							<h1 class="text-center">404</h1>
-							<p class="text-center">
-								RESOURCE NOT FOUND
-							</p>
-							<img src="/images/404.svg" class="img-fluid" alt="404">
+			<div class="jarallax mb-lg-5 mb-4 pt-0 card border-0 bg-gradient-primary rounded-0" data-jarallax="" data-speed="0.35" style="height: 16vw; min-height: 200px; background-image: url(/images/main-bg.png);">
+				<div id="jarallax-container-0" class="jarallax-container">
+					<div class="jarallax-img w-100" style="background-image: url(/images/main-bg.png);">
+						<div class="position-absolute top-sm-35 start-50 translate-middle centered-text w-100">
+							<h1 class="fw-bold centered-text">Archive 2025</h1>
+							<h2 class="fs-4 centered-text px-3">Volume 1</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<section class="container py-2 card bg-secondary">
+				<div class="row align-items-center">
+					<div class="col-md-8">
+						<p class="fw-bold mb-1">Previous Volumes</p>
+						<p class="mb-0 small">
+							As part of our commitment to preserving the scholarly record, 
+							all previous volumes of SOLAV Journal remain permanently accessible.
+						</p>
+					</div>
+					<div class="col-md-4 text-md-end">
+						<div class="btn-group">
+							<button type="button" class="dropdown-menuAnimated btn primaryAnimated dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+								Complete Journal Archive
+							</button>
+							<ul class="dropdown-menu dropdown-menuAnimated">
+								<li><a class="dropdown-item" href="/archive">Current Volume: 2(2026)</a></li>
+								<li><hr class="dropdown-divider"></li>
+								<li><a class="dropdown-item" href="/archive2025">1(2025)</a></li>
+							</ul>
 						</div>
 					</div>
 				</div>
 			</section>
 
+			<div class="container pt-3">
+				<div class="row mb-4">
+					<div class="col-md-8">
+						<div class="input-group">
+							<span class="input-group-text"><i class="bi bi-search"></i></span>
+							<input type="text" id="searchInput" class="form-control" placeholder="Search articles by title, author, or keywords...">
+							<button class="btn btn-outline-secondary" type="button" id="clearSearch">Clear</button>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<select class="form-select" id="sortSelect">
+							<option value="newest">Newest First</option>
+							<option value="oldest">Oldest First</option>
+							<option value="title">Title A-Z</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="row mb-3">
+					<div class="col-12">
+						<p id="resultsCount" class="text-muted mb-0">Loading articles...</p>
+					</div>
+				</div>
+
+				<div id="articlesContainer" class="row g-4">
+
+				</div>
+
+				<div id="loadingSpinner" class="text-center py-5">
+					<div class="spinner-border text-primary" role="status">
+						<span class="visually-hidden">Loading articles...</span>
+					</div>
+				</div>
+
+				<div id="noResults" class="text-center py-5" style="display: none;">
+					<i class="bi bi-search display-1 text-muted mb-3"></i>
+					<h3>No articles found</h3>
+					<p class="text-muted">Try different search terms or filters</p>
+				</div>
+			</div>
+			
 			<div class="col-md-12 d-flex justify-content-evenly mb-3 border-top mt-3 pt-3">
 				<img src="/images/creative_commons_license_with_attribution.svg" alt="CC BY 4.0" class="img-fluid" style="max-height: 46px;">
 				<img src="/images/open_access.svg" alt="Open Access" class="img-fluid" style="max-height: 46px;">
@@ -235,11 +300,280 @@
 				</div>
 			</div>
 		</footer>
-	
+		<div class="modal fade" id="citationModal" tabindex="-1" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">APA Citation</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+					</div>
+					<div class="modal-body">
+						<div id="citationContent" class="border rounded p-3 bg-light" style="font-size: 0.9rem;"></div>
+					</div>
+					<div class="modal-footer">
+						<button id="copyCitationBtn" class="btn btn-primary">
+						<i class="bi bi-clipboard me-1"></i> Copy
+						</button>
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+						Close
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
 		<script src="/js/jarallax.js"></script>
 		<script src="/js/swiper.js"></script>
 		<script src="/js/js.js"></script>
 		<script>
+
+			let allArticles = [];
+			let filteredArticles = [];
+
+			const articlesContainer = document.getElementById('articlesContainer');
+			const loadingSpinner = document.getElementById('loadingSpinner');
+			const noResults = document.getElementById('noResults');
+			const resultsCount = document.getElementById('resultsCount');
+			const searchInput = document.getElementById('searchInput');
+			const clearSearch = document.getElementById('clearSearch');
+			const sortSelect = document.getElementById('sortSelect');
+
+			function formatDate(dateString) {
+				const options = { year: 'numeric', month: 'long', day: 'numeric' };
+				return new Date(dateString).toLocaleDateString('en-US', options);
+			}
+
+			function getAuthorsHTML(authors) {
+				return authors.map(author => {
+					const star = author.corresponding ? '<sup>*</sup>' : '';
+
+					const orcidIcon = author.orcid
+					? `<a href="https://orcid.org/${author.orcid}" target="_blank" class="ms-0 align-middle"><img src="/images/orcid.svg" alt="ORCID" class="orcid-icon"></a>`
+					: '';
+
+					return `<span class="author-item"><a href="/authors?id=${author.id}">${author.name_last}, ${author.name_first}</a>${star}${orcidIcon}</span>`;
+				}).join(', ');
+			}
+
+			function generateAPACitation(article) {
+				const firstAuthor = article.authors[0];
+				let authorName = firstAuthor.name_last + ', ' + firstAuthor.name_first;
+				if (article.authors.length > 1){
+					const secondAuthor = article.authors[1];
+					authorName += "; " + secondAuthor.name_last + ', ' + secondAuthor.name_first;
+				}
+				const otherAuthors = article.authors.length > 2 ? ' et al.' : '';
+				const volume = article.volume;
+				const year = article && article.published_date ? (isNaN(new Date(article.published_date).getFullYear()) ? '' : new Date(article.published_date).getFullYear()) : '';
+				const url = `https://solav.me/a/${article.id}`;
+
+				return `${authorName}${otherAuthors} ${volume}(${year}). ${article.title}. <em>SOLAV Journal</em>, ${article.pages}. ${url}`;
+			}
+
+			function createArticleCard(article) {
+				const hasPublishedDate = article.published_date && article.published_date !== '';
+				const publishedDateText = hasPublishedDate ? formatDate(article.published_date) : 'To be announced';
+				
+				return `
+					<div class="col-12">
+						<div class="card article-card h-100">
+							<div class="card-body">
+								<div class="row">
+									<div class="col-lg-8">
+										<div class="mb-1">
+											<span class="badge bg-secondary me-2">
+												${article.type}
+											</span>
+											<span class="badge bg-success">
+												<i class="bi bi-check-circle me-1"></i> Published
+											</span>
+										</div>
+
+										<h3 class="h5 card-title">
+											<a href="/a/${article.id}" class="text-decoration-none text-dark">
+												${article.title}
+											</a>
+										</h3>
+
+										<div class="author-list mb-2">
+											<i class="bi bi-person me-1 text-primary"></i>
+											${getAuthorsHTML(article.authors)}
+										</div>
+										${Array.isArray(article.authors) && article.authors.some(a => a.corresponding) ? '<p class="text-muted font-sm mb-3"><sup>*</sup> Corresponding author</p>' : ''}
+										
+										<div class="mb-3">
+											${article.keywords.map(keyword => 
+												`<span class="badge keyword-badge bg-light text-dark border">${keyword}</span>`
+											).join('')}
+										</div>
+										
+										<div class="d-flex gap-3 small text-muted mb-3">
+											<span><i class="bi bi-calendar me-1"></i> Published: ${publishedDateText}</span>
+											<span><i class="bi bi-file-text me-1"></i> Pages: ${article.pages || 'N/A'}</span>
+											<span><i class="bi bi-journal me-1"></i> Vol. ${article.volume}</span>
+											${article.citation_count ? `<span><i class="bi bi-quote me-1"></i> Citations: ${article.citation_count}</span>` : ''}
+										</div>
+									</div>
+									
+									<div class="col-lg-4">
+										<div class="d-flex flex-column h-100">
+											<div class="mt-auto">
+												<div class="d-grid gap-2">
+													<a href="/a/${article.id}" class="btn btn-sm btn-outline-primary">
+														<i class="bi bi-eye me-1"></i> View Article
+													</a>
+													<a href="/p/${article.id}.pdf" target = "_blank" class="btn btn-sm btn-primary">
+														<i class="bi bi-download me-1"></i> Download PDF
+													</a>
+													<button class="btn btn-sm btn-outline-secondary citation-btn" onclick="showCitationModal('${article.id}')">
+														<i class="bi bi-quote me-1"></i> Cite
+													</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				`;
+			}
+
+			let currentCitationText = '';
+
+			function showCitationModal(articleId) {
+				const article = allArticles.find(a => a.id === articleId);
+				if (!article) return;
+					const apaCitation = generateAPACitation(article);
+					currentCitationText = apaCitation.replace(/<em>|<\/em>/g, '');
+
+					const contentEl = document.getElementById('citationContent');
+					contentEl.innerHTML = apaCitation;
+
+					const modalEl = document.getElementById('citationModal');
+					const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
+					modal.show();
+				}
+
+				document.getElementById('copyCitationBtn').addEventListener('click', () => {
+				if (!currentCitationText) return;
+
+				navigator.clipboard.writeText(currentCitationText).then(() => {
+					const btn = document.getElementById('copyCitationBtn');
+					const original = btn.innerHTML;
+					btn.innerHTML = '<i class="bi bi-check me-1"></i> Copied!';
+					setTimeout(() => {
+					btn.innerHTML = original;
+					}, 1500);
+				});
+			});
+
+			function copyCitation(articleId) {
+				const article = allArticles.find(a => a.id === articleId);
+				if (!article) return;
+				
+				const apaCitation = generateAPACitation(article);
+				const plainText = apaCitation.replace(/<em>|<\/em>/g, '');
+				
+				navigator.clipboard.writeText(plainText).then(() => {
+					const buttons = document.querySelectorAll(`[data-article-id="${articleId}"]`);
+					buttons.forEach(button => {
+						const originalText = button.innerHTML;
+						button.innerHTML = '<i class="bi bi-check me-1"></i> Copied!';
+						setTimeout(() => {
+							button.innerHTML = originalText;
+						}, 2000);
+					});
+					document.querySelectorAll('.citation-popup').forEach(el => el.remove());
+				});
+			}
+			function filterArticles() {
+				const searchTerm = searchInput.value.toLowerCase().trim();
+				
+				if (!searchTerm) {
+					filteredArticles = [...allArticles];
+				} else {
+					filteredArticles = allArticles.filter(article => {
+						const titleMatch = article.title.toLowerCase().includes(searchTerm);
+						const authorLastMatch = article.authors.some(author => 
+							author.name_last.toLowerCase().includes(searchTerm)
+						);
+						const authorFirstMatch = article.authors.some(author => 
+							author.name_first.toLowerCase().includes(searchTerm)
+						);
+						const keywordMatch = article.keywords.some(keyword => 
+							keyword.toLowerCase().includes(searchTerm)
+						);
+						
+						return titleMatch || authorLastMatch || authorFirstMatch || keywordMatch;
+					});
+				}
+				
+				sortArticles();
+			}
+			function sortArticles() {
+				const sortBy = sortSelect.value;
+				
+				filteredArticles.sort((a, b) => {
+					switch (sortBy) {
+						case 'newest':
+							return new Date(b.published_date) - new Date(a.published_date);
+						case 'oldest':
+							return new Date(a.published_date) - new Date(b.published_date);
+						case 'title':
+							return a.title.localeCompare(b.title);
+						default:
+							return 0;
+					}
+				});
+				
+				renderArticles();
+			}
+			function renderArticles() {
+				if (filteredArticles.length === 0) {
+					articlesContainer.innerHTML = '';
+					noResults.style.display = 'block';
+					resultsCount.textContent = 'No articles found';
+				} else {
+					articlesContainer.innerHTML = filteredArticles.map(createArticleCard).join('');
+					noResults.style.display = 'none';
+					resultsCount.textContent = `Showing ${filteredArticles.length} of ${allArticles.length} articles`;
+				}
+			}
+			async function loadArticles() {
+				try {
+					const response = await fetch('/data/a2025.json');
+					if (!response.ok) throw new Error('Failed to load articles');
+					
+					const data = await response.json();
+
+					allArticles = data.articles.filter(article => 
+						article.status === 'published' || !article.status
+					);
+					
+					filteredArticles = [...allArticles];
+					loadingSpinner.style.display = 'none';
+					sortArticles();
+					
+				} catch (error) {
+					console.error('Error loading articles:', error);
+					loadingSpinner.innerHTML = `
+						<div class="alert alert-danger">
+							<i class="bi bi-exclamation-triangle me-2"></i>
+							Failed to load articles. Please try again later.
+						</div>
+					`;
+				}
+			}
+			searchInput.addEventListener('input', filterArticles);
+			clearSearch.addEventListener('click', () => {
+				searchInput.value = '';
+				filterArticles();
+			});
+			sortSelect.addEventListener('change', sortArticles);
+			document.addEventListener('DOMContentLoaded', loadArticles);
+
+
 			document.getElementById('currentYear').textContent = new Date().getFullYear();
 			(() => {
 				'use strict';

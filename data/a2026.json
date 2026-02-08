@@ -1,0 +1,126 @@
+{
+  "year": "2026",
+  "articles": [
+	{
+		"id": "s2026781202",
+		"type": "Editorial",
+		"title": "Responsible Artificial Intelligence and Sustainable Technologies: Emerging Research Frontiers",
+		"status": "published",
+		"authors": [
+			{
+			"id": "00010077",
+			"name_first": "Maher Asaad",
+			"name_last": "Baker",
+			"name": "Baker, Maher Asaad",
+			"corresponding": 1,
+			"affiliation": "SOLAV, Riyadh, Saudi Arabia",
+			"roles": [
+				"Conceptualization",
+				"Writing – Original Draft",
+				"Writing – Review & Editing",
+				"Editorial Oversight"
+			],
+			"email": "maher@solav.me",
+			"orcid": "0000-0001-8013-6044"
+			}
+		],
+		"keywords": [
+			"Responsible Artificial Intelligence",
+			"Sustainable Technologies",
+			"Ethical Computing",
+			"Environmental Monitoring",
+			"Energy Systems",
+			"AI Governance",
+			"Open Science",
+			"Interdisciplinary Research"
+		],
+		"abstract": "This editorial examines the evolving intersection between responsible artificial intelligence and sustainable technologies, emphasizing the need for transparent, accountable, and human-centered AI systems in addressing complex sustainability problems. It outlines emerging research frontiers and identifies critical challenges in governance, ethics, and implementation. The article argues that interdisciplinary collaboration and strong ethical oversight are essential for ensuring that AI-driven innovation contributes positively to sustainable development.",
+		"version": [
+			{
+			"date": "2026-02-08",
+			"number": "2"
+			}
+		],
+		"abstract_url": "https://solav.me/a/s2026781202",
+		"download_url": "https://solav.me/p/s2026781202.pdf",
+		"received_date": "2026-01-24",
+		"evaluated_date": "2026-01-24",
+		"peer_reviewed_date": "2026-01-28",
+		"accepted_date": "2026-01-28",
+		"published_date": "2026-02-08",
+		"volume": "2",
+		"pages": "7-12",
+		"citation_count": 0,
+		"date": "2026-02-08",
+		"language": "en",
+		"license": "CC BY 4.0",
+		"reference": [
+			{"data": "Toderas, M. (2025). Artificial intelligence for sustainability: A systematic review and critical analysis. Sustainability, 17(17), 8049. https://doi.org/10.3390/su17178049"},
+			{"data": "Fan, Z., Yan, Z., & Wen, S. (2023). Deep learning in sustainability. Sustainability, 15(18), 13493. https://doi.org/10.3390/su151813493"},
+			{"data": "Vega, J. (2026). Rethinking AI in the age of climate collapse. arXiv. https://arxiv.org/abs/2601.18462"},
+			{"data": "Rohde, F., Wagner, J., Meyer, A., et al. (2023). Broadening the perspective for sustainable AI. arXiv. https://arxiv.org/abs/2306.13686"},
+			{"data": "Umunnawuike, C., et al. (2025). Responsible AI governance. SPE Conference."},
+			{"data": "Floridi, L., et al. (2018). AI4People. Minds and Machines, 28, 689–707."},
+			{"data": "Alsaigh, R., Mehmood, R., & Katib, I. (2023). AI in smart energy systems. Frontiers in Energy Research."},
+			{"data": "Jean, N., et al. (2016). Satellite imagery and poverty. Science, 353, 790–794."},
+			{"data": "Kitchin, R. (2014). The data revolution. Sage."},
+			{"data": "Jobin, A., Ienca, M., & Vayena, E. (2019). Global AI ethics guidelines. Nature Machine Intelligence, 1, 389–399."},
+			{"data": "Lazer, D., et al. (2020). Computational social science. Science, 369, 1060–1062."},
+			{"data": "Graham, M., et al. (2019). Digital divides. Geoforum, 99, 1–5."}
+		]
+		},{
+		"id": "s2026781201",
+		"type": "Editorial",
+		"title": "Advancing Open, Ethical, and Interdisciplinary Scholarship: Reflections on Volume One and a Call for Contributions to Volume Two (2026)",
+		"status": "published",
+		"authors": [
+			{
+			"id": "00010077",
+			"name_first": "Maher Asaad",
+			"name_last": "Baker",
+			"name": "Baker, Maher Asaad",
+			"corresponding": 1,
+			"affiliation": "SOLAV, Riyadh, Saudi Arabia",
+			"roles": [
+				"Conceptualization",
+				"Writing – Original Draft",
+				"Editorial Oversight"
+			],
+			"email": "maher@solav.me",
+			"orcid": "0000-0001-8013-6044"
+			}
+		],
+		"keywords": [
+			"Scholarly Publishing",
+			"Open Access",
+			"Continuous Publication",
+			"Peer Review",
+			"Research Integrity",
+			"Interdisciplinary Research",
+			"Academic Communication",
+			"Call for Papers"
+		],
+		"abstract": "This editorial reflects on the achievements and lessons of SOLAV Journal’s inaugural volume and outlines the journal’s strategic priorities for 2026. It reaffirms the journal’s commitment to open access, rigorous peer review, and ethical publishing, and formally invites original scholarly contributions for Volume Two. Through this call for papers, the journal seeks to strengthen its role as a collaborative platform for innovative, socially relevant, and methodologically sound research.",
+		"version": [
+			{
+			"date": "2026-02-08",
+			"number": "2"
+			}
+		],
+			"abstract_url": "https://solav.me/a/s2026781201",
+			"download_url": "https://solav.me/p/s2026781201.pdf",
+			"received_date": "2026-01-19",
+			"evaluated_date": "2026-01-20",
+			"peer_reviewed_date": "2026-01-20",
+			"accepted_date": "2026-01-20",
+			"published_date": "2026-02-08",
+			"volume": "2",
+			"pages": "1-6",
+			"citation_count": 0,
+			"date": "2026-02-08",
+			"language": "en",
+			"license": "CC BY 4.0",
+			"reference": []
+		}
+	]
+}
