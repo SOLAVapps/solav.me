@@ -2347,42 +2347,42 @@ progress {
 }
 
 .table-responsive {
-	overflow-x: auto;
-	-webkit-overflow-scrolling: touch
+	overflow-x: auto!important;
+	-webkit-overflow-scrolling: touch!important
 }
 
 @media(max-width: 499.98px) {
 	.table-responsive-sm {
-		overflow-x: auto;
-		-webkit-overflow-scrolling: touch
+		overflow-x: auto!important;
+		-webkit-overflow-scrolling: touch!important
 	}
 }
 
 @media(max-width: 767.98px) {
 	.table-responsive-md {
-		overflow-x: auto;
-		-webkit-overflow-scrolling: touch
+		overflow-x: auto!important;
+		-webkit-overflow-scrolling: touch!important
 	}
 }
 
 @media(max-width: 991.98px) {
 	.table-responsive-lg {
-		overflow-x: auto;
-		-webkit-overflow-scrolling: touch
+		overflow-x: auto!important;
+		-webkit-overflow-scrolling: touch!important
 	}
 }
 
 @media(max-width: 1199.98px) {
 	.table-responsive-xl {
-		overflow-x: auto;
-		-webkit-overflow-scrolling: touch
+		overflow-x: auto!important;
+		-webkit-overflow-scrolling: touch!important
 	}
 }
 
 @media(max-width: 1399.98px) {
 	.table-responsive-xxl {
-		overflow-x: auto;
-		-webkit-overflow-scrolling: touch
+		overflow-x: auto!important;
+		-webkit-overflow-scrolling: touch!important
 	}
 }
 
@@ -20379,14 +20379,19 @@ html {
 				text-decoration: none;
 				display: block;
 				padding: 0.5rem 0;
-				transition: all 0.2s;
+				transition: all 0.4s!important;
 			}
 			.section-nav a.active {
 				font-weight: 500;
+				color: #8a5cf6!important;
+				text-decoration: underline dotted 1px;
+				padding: 0.5rem!important;
+				text-decoration-color: #BBBBF8!important;
 			}
 			.section-nav a:hover {
 				padding-left: 0.5rem;
 				font-weight: 500;
+				color: #8a5cf6!important;
 			}
 			.section-nav a i {
 				width: 20px;
@@ -20624,7 +20629,7 @@ html {
 }
 .jarallax-img {
     animation: imageFadeIn 2s ease-in-out forwards;
-    /* Start at 0 so it doesn't "flash" before the animation starts */
+
     opacity: 0; 
 }
 
