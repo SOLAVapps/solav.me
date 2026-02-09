@@ -3,6 +3,11 @@
 	"articles": [
 	{
 		"id": "s2025781101",
+		"identifiers": {
+			"archive_doi": "10.5281/zenodo.18538151",
+			"archive_repository": "Zenodo",
+			"publisher_doi": null
+		},
 		"type": "Editorial",
 		"title": "Launching SOLAV Journal: Vision, Scope, and Commitment to Scholarly Excellence",
 		"status": "published",

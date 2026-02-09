@@ -3,6 +3,11 @@
 	"articles": [
 	{
 		"id": "s2025781102",
+		"identifiers": {
+			"archive_doi": "10.5281/zenodo.18538363",
+			"archive_repository": "Zenodo",
+			"publisher_doi": null
+		},
 		"type": "Editorial",
 		"title": "Editorial Policies, Peer Review, and Ethical Standards of SOLAV Journal",
 		"status": "published",

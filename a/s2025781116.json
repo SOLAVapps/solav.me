@@ -3,6 +3,11 @@
 	"articles": [
 	{
 		"id": "s2025781116",
+		"identifiers": {
+			"archive_doi": "10.5281/zenodo.18539073",
+			"archive_repository": "Zenodo",
+			"publisher_doi": null
+		},
 		"type": "Research Article",
 		"title": "Interpretable Machine Learning for Transparent Decision-Making: A Conceptual and Applied Framework for Explainable Artificial Intelligence",
 		"status": "published",

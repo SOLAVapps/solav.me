@@ -3,6 +3,11 @@
 	"articles": [
 	{
 		"id": "s2025781117",
+		"identifiers": {
+			"archive_doi": "10.5281/zenodo.18539543",
+			"archive_repository": "Zenodo",
+			"publisher_doi": null
+		},
 		"type": "Research Article",
 		"title": "Design and Performance Evaluation of Hybrid Solar-Wind Energy Systems with Battery Storage for Sustainable Community Power Supply",
 		"status": "published",

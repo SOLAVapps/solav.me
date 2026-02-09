@@ -3,6 +3,11 @@
 	"articles": [
 	{
 		"id": "s2025781107",
+		"identifiers": {
+			"archive_doi": "10.5281/zenodo.18538479",
+			"archive_repository": "Zenodo",
+			"publisher_doi": null
+		},
 		"type": "Research Article",
 		"title": "Continuous Publication in Online Scholarly Journals: Opportunities, Challenges, and Editorial Implications",
 		"status": "published",

@@ -3,6 +3,11 @@
 	"articles": [
 	{
 		"id": "s2025781112",
+		"identifiers": {
+			"archive_doi": "10.5281/zenodo.18538736",
+			"archive_repository": "Zenodo",
+			"publisher_doi": null
+		},
 		"type": "Research Article",
 		"title": "Mitigating Hallucination in Small Language Models via Contrastive Chain-of-Thought Fine-Tuning",
 		"status": "published",

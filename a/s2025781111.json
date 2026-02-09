@@ -3,6 +3,11 @@
 	"articles": [
 	{
 		"id": "s2025781111",
+		"identifiers": {
+			"archive_doi": "10.5281/zenodo.18538586",
+			"archive_repository": "Zenodo",
+			"publisher_doi": null
+		},
 		"type": "Research Article",
 		"title": "Reframing Scholarly Communication in the Digital Era: Open Access, Research Integrity, and the Evolving Role of Academic Journals",
 		"status": "published",
