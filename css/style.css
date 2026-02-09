@@ -20719,7 +20719,7 @@ html {
   background:#141822;
     background: 
     linear-gradient(#212529, #212529) padding-box, 
-    conic-gradient(from var(--angle), #4285f4, #9b72cb, #d96570, #4285f4) border-box!important;
+    conic-gradient(from var(--angle), #4285f4, #9b72cb, transparent, #4285f4) border-box!important;
 	  animation: spin 1s linear infinite!important;
   color:#fff;
 }
@@ -20729,7 +20729,7 @@ html {
   border-radius: 0.5rem;
   background: 
     linear-gradient(white, white) padding-box, 
-    conic-gradient(from var(--angle), #4285f4, #9b72cb, #d96570, #4285f4) border-box;
+    conic-gradient(from var(--angle), #4285f4, #9b72cb, transparent, #4285f4) border-box;
   
   animation: spin 3s linear infinite;
   color:#000;
@@ -20741,7 +20741,7 @@ html {
   border-radius: 0.5rem;
   background: 
     linear-gradient(#212529, #212529) padding-box, 
-    conic-gradient(from var(--angle), #4285f4, #9b72cb, #d96570, #4285f4) border-box!important;
+    conic-gradient(from var(--angle), #4285f4, #9b72cb, transparent, #4285f4) border-box!important;
 	  animation: spin 3s linear infinite!important;
 	color:#fff!important;
 }
@@ -20769,3 +20769,19 @@ html {
 .related-questions {
   border-left: 2px solid var(--bs-primary);
 }
+
+
+.border-dashed {
+    border-style: dashed !important;
+    border-width: 1.5px !important;
+    transition: all 0.2s ease-in-out;
+}
+.border-dashed:hover {
+    background-color: var(--bs-primary-subtle) !important;
+    border-color: var(--bs-primary) !important;
+    color: var(--bs-primary) !important;
+}
+[data-bs-theme="dark"] .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
