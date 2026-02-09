@@ -39,6 +39,23 @@
 		gtag('config', 'G-RE3FS524EK');
 		!function(){const e=localStorage.getItem("theme"),t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light",a=e||t;document.documentElement.setAttribute("data-bs-theme",a)}();
 		</script>
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "Periodical",
+			"name": "SOLAV Journal",
+			"url": "https://solav.me",
+			"publisher": {
+				"@type": "Organization",
+				"name": "Leothar Company"
+			},
+			"sameAs": [
+				"https://zenodo.org/communities/solav",
+				"https://commons.datacite.org/doi.org?query=SOLAV+Journal",
+				"https://explore.openaire.eu/search/find?fv0=solav%20journal&f0=q"
+			]
+		}
+		</script>
 	</head>
 	<body>
 		<main class="page-wrapper">
@@ -203,13 +220,45 @@
 						<section class="mb-5">
 							<h2 class="h1 mb-4">Digital Preservation Strategy</h2>
 							
+							<div class="alert alert-info mb-4" role="alert">
+								<h5 class="alert-heading"><i class="bi bi-info-circle me-2"></i>Our DOI & Archiving Approach</h5>
+								<p class="mb-0">All SOLAV Journal articles receive All SOLAV Journal articles are archived in Zenodo and assigned persistent identifiers (DOIs) via DataCite for preservation and citation. Regardless of format, every article remains permanently citable and accessible.</p>
+							</div>
+							
 							<div class="row g-4">
 								<div class="col-md-12 col-lg-12">
 									<div class="card h-100 bg-light shadow-lg rounded-3 border border-opacity-10">
-										<div class="card-body text-center p-4">
-											<p class="mb-0">SOLAV Journal articles are preserved in <a href="https://zenodo.org/communities/solav" alt="Zenodo">
-									<img src="/images/zenodo-icon-blue.svg" class="d-Icons" alt="Zenodo">Zenodo</a> and assigned persistent DOIs via <a href="https://commons.datacite.org/doi.org?query=SOLAV+Journal" alt="DataCite">
-									<img src="/images/datacite-logo.svg" class="d-Icons" alt="DataCite.">DataCite</a>.</p>
+										<div class="card-body p-4">
+											<h3 class="h4 mb-3 text-center">Our Preservation Stack</h3>
+											<div class="row align-items-center justify-content-center g-4">
+												<div class="col-6 col-md-3 text-center">
+													<a href="https://zenodo.org/communities/solav" class="d-block">
+														<img src="/images/zenodo-icon-blue.svg" class="img-fluid mb-2" alt="Zenodo" style="height: 60px;">
+														<p class="small mb-0">Primary Archiving</p>
+													</a>
+												</div>
+												<div class="col-6 col-md-3 text-center">
+													<a href="https://datacite.org" class="d-block">
+														<img src="/images/datacite-logo.svg" class="img-fluid mb-2" alt="DataCite" style="height: 50px;">
+														<p class="small mb-0">DOI Registration</p>
+													</a>
+												</div>
+												<div class="col-6 col-md-3 text-center">
+													<div class="d-block">
+														<img src="/images/cloud-backup.svg" class="img-fluid mb-2" alt="Cloud Backups" style="height: 50px;">
+														<p class="small mb-0">Cloud Backups</p>
+													</div>
+												</div>
+												<div class="col-6 col-md-3 text-center">
+													<div class="d-block">
+														<img src="/images/backup.svg" class="img-fluid mb-2" alt="Cloud Backups" style="height: 50px;">
+														<p class="small mb-0">Local Mirrors</p>
+													</div>
+												</div>
+											</div>
+											<div class="text-center mt-3">
+												<small class="text-muted">Additional archiving partnerships under development</small>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -242,32 +291,41 @@
 												<i class="bi bi-file-earmark-arrow-down text-primary"></i>
 											</div>
 											<h3 class="h5">Format Preservation</h3>
-											<p class="mb-0">Articles preserved in multiple formats: PDF/A for long-term stability, HTML for accessibility, XML for data mining.</p>
+											<p class="mb-0">Articles preserved in multiple formats: PDF/A for long-term stability, XML for data mining.</p>
 										</div>
 									</div>
 								</div>
 							</div>
 							
-							<div class="card bg-light shadow-lg rounded-3 border border-opacity-10 mt-4">
-								<div class="card-body p-4">
-									<h3 class="h4 mb-3"><i class="bi bi-calendar-check text-primary me-2"></i>Preservation Timeline</h3>
-									<div class="row">
-										<div class="col-md-4 text-center mb-3 mb-md-0">
-											<div class="display-6 fw-bold text-primary">10+</div>
-											<p class="mb-0">Years of guaranteed<br>online availability</p>
-										</div>
-										<div class="col-md-4 text-center mb-3 mb-md-0">
-											<div class="display-6 fw-bold text-primary">Monthly</div>
-											<p class="mb-0">Backup and integrity<br>checks performed</p>
-										</div>
-										<div class="col-md-4 text-center">
-											<div class="display-6 fw-bold text-primary">24/7</div>
-											<p class="mb-0">Uptime monitoring<br>and technical support</p>
-										</div>
+						<div class="card bg-light shadow-lg rounded-3 border border-opacity-10 mt-4">
+							<div class="card-body p-4">
+								<h3 class="h4 mb-3"><i class="bi bi-calendar-check text-primary me-2"></i>Preservation Timeline & Commitments</h3>
+								<div class="row">
+									<div class="col-md-3 text-center mb-3 mb-md-0">
+										<div class="display-6 fw-bold text-primary">25+</div>
+										<p class="mb-0">Years of guaranteed preservation commitment</p>
+									</div>
+									<div class="col-md-3 text-center mb-3 mb-md-0">
+										<div class="display-6 fw-bold text-primary">Monthly</div>
+										<p class="mb-0">Backup & integrity verification</p>
+									</div>
+									<div class="col-md-3 text-center mb-3 mb-md-0">
+										<div class="display-6 fw-bold text-primary">Annual</div>
+										<p class="mb-0">Format migration assessment</p>
+									</div>
+									<div class="col-md-3 text-center">
+										<div class="display-6 fw-bold text-primary">24/7</div>
+										<p class="mb-0">Uptime & accessibility monitoring</p>
 									</div>
 								</div>
+								<div class="mt-4 pt-3 border-top">
+									<h5 class="h6 mb-2"><i class="bi bi-shield-check text-primary me-2"></i>Our Preservation Promise</h5>
+									<p class="small mb-0">We commit to maintaining accessible copies of all published content for a minimum of 25 years, with clear succession plans for content migration should the journal cease operations. All articles will remain under their assigned persistent identifiers (DOIs) regardless of future platform changes.</p>
+									<p class="small mb-0">This commitment is supported through third-party repositories (Zenodo), persistent identifiers (DOI), and geographically distributed backups.</p>
+								</div>
 							</div>
-						</section>
+						</div>
+					</section>
 
 						<section class="mb-5">
 							<h2 class="h1 mb-4">Content Management</h2>
@@ -390,7 +448,7 @@
 									
 									<div class="alert alert-success mt-4" role="alert">
 										<h5 class="alert-heading"><i class="bi bi-check-circle me-2"></i>Contingency Planning</h5>
-										<p class="mb-0">Should SOLAV Journal cease operations, all content will be transferred to a trusted digital preservation service or institutional repository to ensure permanent public access. Authors will be notified of any such transitions with at least 6 months' notice.</p>
+										<p class="mb-0">Should SOLAV Journal cease operations, all content will be transferred to a trusted digital preservation service or institutional repository to ensure permanent public access. Authors will be notified of any such transitions with at least 6 months' notice. In such cases, content will remain accessible through Zenodo and other trusted repositories.</p>
 									</div>
 								</div>
 							</div>
