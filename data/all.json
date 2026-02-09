@@ -6,6 +6,7 @@
 		"type": "Editorial",
 		"title": "Responsible Artificial Intelligence and Sustainable Technologies: Emerging Research Frontiers",
 		"status": "published",
+		"cover_url": "https://solav.me/images/cover2.jpg",
 		"authors": [
 			{
 			"id": "00010077",
@@ -73,6 +74,7 @@
 		"type": "Editorial",
 		"title": "Advancing Open, Ethical, and Interdisciplinary Scholarship: Reflections on Volume One and a Call for Contributions to Volume Two (2026)",
 		"status": "published",
+		"cover_url": "https://solav.me/images/cover2.jpg",
 		"authors": [
 			{
 			"id": "00010077",
@@ -126,6 +128,7 @@
 		"type": "Research Article",
 		"title": "Design and Performance Evaluation of Hybrid Solar-Wind Energy Systems with Battery Storage for Sustainable Community Power Supply",
 		"status": "published",
+		"cover_url": "https://solav.me/images/cover.jpg",
 		"authors": [
 		{
 			"id": "00010091",
@@ -165,6 +168,7 @@
 		"type": "Research Article",
 		"title": "Interpretable Machine Learning for Transparent Decision-Making: A Conceptual and Applied Framework for Explainable Artificial Intelligence",
 		"status": "published",
+		"cover_url": "https://solav.me/images/cover.jpg",
 		"authors": [
 		{
 			"id": "00010090",
@@ -204,6 +208,7 @@
 		"type": "Research Article",
 		"title": "Mitigating Hallucination in Small Language Models via Contrastive Chain-of-Thought Fine-Tuning",
 		"status": "published",
+		"cover_url": "https://solav.me/images/cover.jpg",
 		"authors": [
 		{
 			"id": "00010077",
@@ -253,6 +258,7 @@
 		"type": "Research Article",
 		"title": "Reframing Scholarly Communication in the Digital Era: Open Access, Research Integrity, and the Evolving Role of Academic Journals",
 		"status": "published",
+		"cover_url": "https://solav.me/images/cover.jpg",
 		"authors": [
 		{
 			"id": "00010088",
@@ -292,6 +298,7 @@
 		"type": "Research Article",
 		"title": "Continuous Publication in Online Scholarly Journals: Opportunities, Challenges, and Editorial Implications",
 		"status": "published",
+		"cover_url": "https://solav.me/images/cover.jpg",
 		"authors": [
 		{
 			"id": "00010082",
@@ -331,6 +338,7 @@
 		"type": "Editorial",
 		"title": "Editorial Policies, Peer Review, and Ethical Standards of SOLAV Journal",
 		"status": "published",
+		"cover_url": "https://solav.me/images/cover.jpg",
 		"authors": [
 		{
 			"id": "00010077",
@@ -370,6 +378,7 @@
 		"type": "Editorial",
 		"title": "Launching SOLAV Journal: Vision, Scope, and Commitment to Scholarly Excellence",
 		"status": "published",
+		"cover_url": "https://solav.me/images/cover.jpg",
 		"authors": [
 		{
 			"id": "00010077",
