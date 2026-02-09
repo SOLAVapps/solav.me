@@ -3,6 +3,11 @@
 	"articles": [
 		{
 		"id": "s2026781202",
+		"identifiers": {
+			"archive_doi": "10.5281/zenodo.18540225",
+			"archive_repository": "Zenodo",
+			"publisher_doi": null
+		},
 		"type": "Editorial",
 		"title": "Responsible Artificial Intelligence and Sustainable Technologies: Emerging Research Frontiers",
 		"status": "published",
@@ -71,6 +76,11 @@
 		]
 		},{
 		"id": "s2026781201",
+		"identifiers": {
+			"archive_doi": "10.5281/zenodo.18539901",
+			"archive_repository": "Zenodo",
+			"publisher_doi": null
+		},
 		"type": "Editorial",
 		"title": "Advancing Open, Ethical, and Interdisciplinary Scholarship: Reflections on Volume One and a Call for Contributions to Volume Two (2026)",
 		"status": "published",
@@ -125,6 +135,11 @@
 			"reference": []
 		},{
 		"id": "s2025781117",
+		"identifiers": {
+			"archive_doi": "10.5281/zenodo.18539543",
+			"archive_repository": "Zenodo",
+			"publisher_doi": null
+		},
 		"type": "Research Article",
 		"title": "Design and Performance Evaluation of Hybrid Solar-Wind Energy Systems with Battery Storage for Sustainable Community Power Supply",
 		"status": "published",
@@ -165,6 +180,11 @@
 		"license": "CC BY 4.0"
 	},{
 		"id": "s2025781116",
+		"identifiers": {
+			"archive_doi": "10.5281/zenodo.18539073",
+			"archive_repository": "Zenodo",
+			"publisher_doi": null
+		},
 		"type": "Research Article",
 		"title": "Interpretable Machine Learning for Transparent Decision-Making: A Conceptual and Applied Framework for Explainable Artificial Intelligence",
 		"status": "published",
@@ -205,6 +225,11 @@
 		"license": "CC BY 4.0"
 	},{
 		"id": "s2025781112",
+		"identifiers": {
+			"archive_doi": "10.5281/zenodo.18538736",
+			"archive_repository": "Zenodo",
+			"publisher_doi": null
+		},
 		"type": "Research Article",
 		"title": "Mitigating Hallucination in Small Language Models via Contrastive Chain-of-Thought Fine-Tuning",
 		"status": "published",
@@ -255,6 +280,11 @@
 		"license": "CC BY 4.0"
 	},{
 		"id": "s2025781111",
+		"identifiers": {
+			"archive_doi": "10.5281/zenodo.18538586",
+			"archive_repository": "Zenodo",
+			"publisher_doi": null
+		},
 		"type": "Research Article",
 		"title": "Reframing Scholarly Communication in the Digital Era: Open Access, Research Integrity, and the Evolving Role of Academic Journals",
 		"status": "published",
@@ -295,6 +325,11 @@
 		"license": "CC BY 4.0"
 	},{
 		"id": "s2025781107",
+		"identifiers": {
+			"archive_doi": "10.5281/zenodo.18538479",
+			"archive_repository": "Zenodo",
+			"publisher_doi": null
+		},
 		"type": "Research Article",
 		"title": "Continuous Publication in Online Scholarly Journals: Opportunities, Challenges, and Editorial Implications",
 		"status": "published",
@@ -335,6 +370,11 @@
 		"license": "CC BY 4.0"
 		},{
 		"id": "s2025781102",
+		"identifiers": {
+			"archive_doi": "10.5281/zenodo.18538363",
+			"archive_repository": "Zenodo",
+			"publisher_doi": null
+		},
 		"type": "Editorial",
 		"title": "Editorial Policies, Peer Review, and Ethical Standards of SOLAV Journal",
 		"status": "published",
@@ -375,6 +415,11 @@
 		"license": "CC BY 4.0"
 		},{
 		"id": "s2025781101",
+		"identifiers": {
+			"archive_doi": "10.5281/zenodo.18538151",
+			"archive_repository": "Zenodo",
+			"publisher_doi": null
+		},
 		"type": "Editorial",
 		"title": "Launching SOLAV Journal: Vision, Scope, and Commitment to Scholarly Excellence",
 		"status": "published",

@@ -3,9 +3,15 @@
   "articles": [
 	{
 		"id": "s2026781202",
+		"identifiers": {
+			"archive_doi": "10.5281/zenodo.18540225",
+			"archive_repository": "Zenodo",
+			"publisher_doi": null
+		},
 		"type": "Editorial",
 		"title": "Responsible Artificial Intelligence and Sustainable Technologies: Emerging Research Frontiers",
 		"status": "published",
+		"cover_url": "https://solav.me/images/cover2.jpg",
 		"authors": [
 			{
 			"id": "00010077",
@@ -70,9 +76,15 @@
 		]
 		},{
 		"id": "s2026781201",
+		"identifiers": {
+			"archive_doi": "10.5281/zenodo.18539901",
+			"archive_repository": "Zenodo",
+			"publisher_doi": null
+		},
 		"type": "Editorial",
 		"title": "Advancing Open, Ethical, and Interdisciplinary Scholarship: Reflections on Volume One and a Call for Contributions to Volume Two (2026)",
 		"status": "published",
+		"cover_url": "https://solav.me/images/cover2.jpg",
 		"authors": [
 			{
 			"id": "00010077",

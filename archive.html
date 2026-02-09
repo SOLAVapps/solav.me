@@ -9,19 +9,19 @@
 		<meta name="copyright" content="Creative Commons Attribution License (CC BY 4.0)">
 		<meta name="language" content="en, ar">
 		<meta name="robots" content="index, follow">
-		<title>Archive 2024 | Scholarly Open-Access Research</title>
+		<title>Archive 2026 | Scholarly Open-Access Research</title>
 		<meta name="description" content="SOLAV is a leading open-access, peer-reviewed academic journal dedicated to the rapid publication of high-quality research across applied sciences and interdisciplinary technology. We operate on a continuous publication model to ensure timely dissemination of groundbreaking work.">
 		<meta name="keywords" content="SOLAV journal, open access journal, academic research, applied sciences, interdisciplinary research, peer-reviewed, rapid publication, continuous publication, materials science, renewable energy, artificial intelligence, machine learning, data science, engineering technology, environmental science, biomedical engineering, nanotechnology, computer science, scholarly publishing, CC BY license">
 		<link rel="canonical" href="https://solav.me/">
 		<meta property="og:type" content="website">
 		<meta property="og:url" content="https://solav.me/">
-		<meta property="og:title" content="Archive 2024 | Scholarly Open-Access Research">
-		<meta property="og:description" content="2024 archive of SOLAV Journal articles.">
+		<meta property="og:title" content="Archive 2026 | Scholarly Open-Access Research">
+		<meta property="og:description" content="2026 archive of SOLAV Journal articles.">
 		<meta property="og:image" content="https://solav.me/images/social-preview.jpg">
 		<meta property="twitter:card" content="summary_large_image">
 		<meta property="twitter:url" content="https://solav.me/">
-		<meta property="twitter:title" content="Archive 2024 | Scholarly Open-Access Research">
-		<meta property="twitter:description" content="2024 archive of SOLAV Journal articles.">
+		<meta property="twitter:title" content="Archive 2026 | Scholarly Open-Access Research">
+		<meta property="twitter:description" content="2026 archive of SOLAV Journal articles.">
 		<meta property="twitter:image" content="https://solav.me/images/social-preview.jpg">
 		<link rel="icon" type="image/x-icon" href="/images/icon.png">
 		<meta name="fediverse:creator" content="@SOLAVjournal@mastodon.social">
@@ -503,6 +503,10 @@
 													<button class="btn btn-sm btn-outline-secondary citation-btn" onclick="showCitationModal('${article.id}')">
 														<i class="bi bi-quote me-1"></i> Cite
 													</button>
+													<small class="text-muted text-xs mt-2"><i class="bi bi-info-circle"></i> This DOI is provided for long-term preservation and open archiving.</small>
+													<a href="https://doi.org/${article.identifiers.archive_doi}" target="_blank" class="btn btn-sm btn-outline-primary"  style="white-space: normal;">
+														<img src="/images/doi_logo.svg" class="doiIcon mx-2" alt="(${article.identifiers.archive_repository})"> Archival DOI (${article.identifiers.archive_repository})
+													</a>
 												</div>
 											</div>
 										</div>

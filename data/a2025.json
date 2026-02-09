@@ -3,9 +3,15 @@
 	"articles": [
 		{
 		"id": "s2025781117",
+		"identifiers": {
+			"archive_doi": "10.5281/zenodo.18539543",
+			"archive_repository": "Zenodo",
+			"publisher_doi": null
+		},
 		"type": "Research Article",
 		"title": "Design and Performance Evaluation of Hybrid Solar-Wind Energy Systems with Battery Storage for Sustainable Community Power Supply",
 		"status": "published",
+		"cover_url": "https://solav.me/images/cover.jpg",
 		"authors": [
 		{
 			"id": "00010091",
@@ -42,9 +48,15 @@
 		"license": "CC BY 4.0"
 	},{
 		"id": "s2025781116",
+		"identifiers": {
+			"archive_doi": "10.5281/zenodo.18539073",
+			"archive_repository": "Zenodo",
+			"publisher_doi": null
+		},
 		"type": "Research Article",
 		"title": "Interpretable Machine Learning for Transparent Decision-Making: A Conceptual and Applied Framework for Explainable Artificial Intelligence",
 		"status": "published",
+		"cover_url": "https://solav.me/images/cover.jpg",
 		"authors": [
 		{
 			"id": "00010090",
@@ -81,9 +93,15 @@
 		"license": "CC BY 4.0"
 	},{
 		"id": "s2025781112",
+		"identifiers": {
+			"archive_doi": "10.5281/zenodo.18538736",
+			"archive_repository": "Zenodo",
+			"publisher_doi": null
+		},
 		"type": "Research Article",
 		"title": "Mitigating Hallucination in Small Language Models via Contrastive Chain-of-Thought Fine-Tuning",
 		"status": "published",
+		"cover_url": "https://solav.me/images/cover.jpg",
 		"authors": [
 		{
 			"id": "00010077",
@@ -130,9 +148,15 @@
 		"license": "CC BY 4.0"
 	},{
 		"id": "s2025781111",
+		"identifiers": {
+			"archive_doi": "10.5281/zenodo.18538586",
+			"archive_repository": "Zenodo",
+			"publisher_doi": null
+		},
 		"type": "Research Article",
 		"title": "Reframing Scholarly Communication in the Digital Era: Open Access, Research Integrity, and the Evolving Role of Academic Journals",
 		"status": "published",
+		"cover_url": "https://solav.me/images/cover.jpg",
 		"authors": [
 		{
 			"id": "00010088",
@@ -169,9 +193,15 @@
 		"license": "CC BY 4.0"
 	},{
 		"id": "s2025781107",
+		"identifiers": {
+			"archive_doi": "10.5281/zenodo.18538479",
+			"archive_repository": "Zenodo",
+			"publisher_doi": null
+		},
 		"type": "Research Article",
 		"title": "Continuous Publication in Online Scholarly Journals: Opportunities, Challenges, and Editorial Implications",
 		"status": "published",
+		"cover_url": "https://solav.me/images/cover.jpg",
 		"authors": [
 		{
 			"id": "00010082",
@@ -208,9 +238,15 @@
 		"license": "CC BY 4.0"
 		},{
 		"id": "s2025781102",
+		"identifiers": {
+			"archive_doi": "10.5281/zenodo.18538363",
+			"archive_repository": "Zenodo",
+			"publisher_doi": null
+		},
 		"type": "Editorial",
 		"title": "Editorial Policies, Peer Review, and Ethical Standards of SOLAV Journal",
 		"status": "published",
+		"cover_url": "https://solav.me/images/cover.jpg",
 		"authors": [
 		{
 			"id": "00010077",
@@ -247,9 +283,15 @@
 		"license": "CC BY 4.0"
 		},{
 		"id": "s2025781101",
+		"identifiers": {
+			"archive_doi": "10.5281/zenodo.18538151",
+			"archive_repository": "Zenodo",
+			"publisher_doi": null
+		},
 		"type": "Editorial",
 		"title": "Launching SOLAV Journal: Vision, Scope, and Commitment to Scholarly Excellence",
 		"status": "published",
+		"cover_url": "https://solav.me/images/cover.jpg",
 		"authors": [
 		{
 			"id": "00010077",
