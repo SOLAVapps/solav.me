@@ -1,6 +1,6 @@
 {
 	"title": "SOLAV Journal — Comprehensive FAQ Dataset",
-	"source": "https://solav.me/",
+	"source": "https://solav.me",
 	"version": "1.0",
 	"last_updated": "2026-02-08",
 	"sections": [
@@ -167,7 +167,7 @@
 			"id": "APC-003",
 			"question": "Does paying APC guarantee acceptance?",
 			"answer": "No. Acceptance depends solely on editorial evaluation and peer review outcomes.",
-			"links": ["https://solav.me/apc/", "https://solav.me/review"]
+			"links": ["https://solav.me/apc", "https://solav.me/review"]
 		},
 		{
 			"id": "APC-004",
@@ -179,7 +179,7 @@
 			"id": "APC-005",
 			"question": "How do I apply for an APC waiver?",
 			"answer": "Authors should request waivers during submission or contact the editorial office with supporting information as described on the APC page.",
-			"links": ["https://solav.me/apc/", "https://solav.me/submit"]
+			"links": ["https://solav.me/apc", "https://solav.me/submit"]
 		},
 		{
 			"id": "APC-006",
@@ -221,7 +221,7 @@
 			"id": "REV-004",
 			"question": "Can authors suggest reviewers?",
 			"answer": "Yes. Authors may recommend qualified reviewers, subject to editorial approval and conflict of interest screening.",
-			"links": ["https://solav.me/guidelines/", "https://solav.me/review"]
+			"links": ["https://solav.me/guidelines", "https://solav.me/review"]
 		},
 		{
 			"id": "REV-005",
@@ -233,7 +233,7 @@
 			"id": "REV-006",
 			"question": "Can I appeal an editorial decision?",
 			"answer": "Authors may submit a reasoned appeal supported by evidence. Appeals are reviewed by senior editors according to journal policy.",
-			"links": ["https://solav.me/review/", "https://solav.me/submit"]
+			"links": ["https://solav.me/review", "https://solav.me/submit"]
 		}
 		]
 	},
@@ -299,7 +299,7 @@
 			"id": "ETH-004",
 			"question": "Are human and animal studies regulated?",
 			"answer": "Yes. Authors must confirm compliance with ethical approval standards for human and animal research.",
-			"links": ["https://solav.me/guidelines/", "https://solav.me/submit"]
+			"links": ["https://solav.me/guidelines", "https://solav.me/submit"]
 		},
 		{
 			"id": "ETH-005",
@@ -437,7 +437,7 @@
 			"id": "AI-005",
 			"question": "Is automated peer review allowed?",
 			"answer": "No. Peer review decisions must involve qualified human reviewers.",
-			"links": ["https://solav.me/ai-policy/", "https://solav.me/review"]
+			"links": ["https://solav.me/ai-policy", "https://solav.me/review"]
 		}
 		]
 	},
@@ -449,7 +449,7 @@
 			"id": "IND-001",
 			"question": "How are SOLAV articles indexed and discovered?",
 			"answer": "SOLAV provides structured metadata, open access content, and OAI-PMH harvesting services to support discovery by libraries, search engines, and indexing platforms.",
-			"links": ["https://solav.me/oai-pmh/", "https://solav.me/archiving"]
+			"links": ["https://solav.me/oai-pmh", "https://solav.me/archiving"]
 		},
 		{
 			"id": "IND-002",
@@ -509,7 +509,7 @@
 			"id": "OAI-005",
 			"question": "Who should be contacted for technical harvesting issues?",
 			"answer": "Technical support contact details are listed on the OAI-PMH and About pages.",
-			"links": ["https://solav.me/oai-pmh/", "https://solav.me/about"]
+			"links": ["https://solav.me/oai-pmh", "https://solav.me/about"]
 		}
 		]
 	},
@@ -569,7 +569,7 @@
 			"id": "ARCH-004",
 			"question": "Can archived articles be updated?",
 			"answer": "Only through formal correction or retraction procedures to preserve record integrity.",
-			"links": ["https://solav.me/archiving/", "https://solav.me/submit"]
+			"links": ["https://solav.me/archiving", "https://solav.me/submit"]
 		}
 		]
 	},
@@ -659,7 +659,7 @@
 			"id": "TRACK-003",
 			"question": "What should I do if my status has not changed for a long time?",
 			"answer": "Authors may contact the editorial office via the Submit or About pages to request an update.",
-			"links": ["https://solav.me/submit/", "https://solav.me/about"]
+			"links": ["https://solav.me/submit", "https://solav.me/about"]
 		},
 		{
 			"id": "TRACK-004",
@@ -731,7 +731,7 @@
 			"id": "TECH-004",
 			"question": "How do I report broken links or errors?",
 			"answer": "Technical issues should be reported via the contact information on the About or Submit pages.",
-			"links": ["https://solav.me/about/", "https://solav.me/submit"]
+			"links": ["https://solav.me/about", "https://solav.me/submit"]
 		},
 		{
 			"id": "TECH-005",
@@ -833,7 +833,7 @@
 			"id": "CONT-001",
 			"question": "How can I contact the editorial office?",
 			"answer": "Contact details are available on the About and Submit pages.",
-			"links": ["https://solav.me/about/", "https://solav.me/submit"]
+			"links": ["https://solav.me/about", "https://solav.me/submit"]
 		},
 		{
 			"id": "CONT-002",
