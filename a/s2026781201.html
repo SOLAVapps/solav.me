@@ -85,7 +85,7 @@
 		<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 		<link href="/css/swiper.css" rel="stylesheet">
-		<link href="/css/style.css?20260208.2" rel="stylesheet">
+		<link href="/css/style.css?20260209" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-RE3FS524EK"></script>
 		<script>
@@ -184,6 +184,11 @@
 										<li><a href="/oai-pmh" class="dropdown-item">OAI-PMH Repository</a></li>
 										<li><a href="/faq" class="dropdown-item">Frequently Asked Questions</a></li>
 									</ul>
+								</li>
+								<li class="nav-item dropdown ms-lg-2">
+									<a href="#" class="nav-link py-2 search-toggle" data-bs-toggle="modal" data-bs-target="#gsearchModal" aria-label="Search">
+										<i class="bi bi-search fs-5"></i><span class="d-block d-md-none mx-2">search</span>
+									</a>
 								</li>
 							</ul>
 						</div>  
@@ -319,6 +324,71 @@
 				<img src="/images/oai_logo.svg" alt="OAI-PMH Compliant" class="img-fluid" style="max-height: 46px;">
 			</div>
 		</main>
+		<div class="modal fade" id="gsearchModal" tabindex="-1" aria-hidden="true">
+			<div class="modal-dialog modal-lg modal-dialog-centered">
+				<div class="modal-content border-0 shadow-lg">
+					<div class="modal-header border-0 pb-0">
+						<h5 class="modal-title text-primary fw-bold">
+							<i class="bi bi-search me-2"></i>Search SOLAV Journal
+						</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<form action="https://www.google.com/search" method="get" target="_blank" class="mb-4">
+							<div class="input-group input-group-lg shadow-sm">
+								<input type="hidden" name="as_sitesearch" value="solav.me">
+								<input type="text" 
+									name="q" 
+									class="form-control border-primary-subtle bg-body-tertiary" 
+									placeholder="Search articles, authors, or technology..."
+									id="gsearchQueryInput"
+									autocomplete="off"
+									required>
+								<button class="btn btn-primary px-4" type="submit">
+									<i class="bi bi-search me-2"></i>Search
+								</button>
+							</div>
+							<div class="form-text mt-2 ps-1">
+								<small class="opacity-75">Indexing provided by Google for solav.me</small>
+							</div>
+						</form>
+
+						<div class="pt-2">
+							<h6 class="text-muted small text-uppercase fw-bold mb-3 ls-1">Quick Access</h6>
+							<div class="row g-2">
+								<div class="col-6 col-md-3">
+									<a href="/archive" class="btn btn-outline-secondary w-100 py-3 border-dashed">
+										<i class="bi bi-journal-richtext d-block mb-1 fs-4"></i>
+										<span class="small ms-2">Latest</span>
+									</a>
+								</div>
+								<div class="col-6 col-md-3">
+									<a href="/authors" class="btn btn-outline-secondary w-100 py-3 border-dashed">
+										<i class="bi bi-people d-block mb-1 fs-4"></i>
+										<span class="small ms-2">Authors</span>
+									</a>
+								</div>
+								<div class="col-6 col-md-3">
+									<a href="/guidelines" class="btn btn-outline-secondary w-100 py-3 border-dashed">
+										<i class="bi bi-file-earmark-text d-block mb-1 fs-4"></i>
+										<span class="small ms-2">Guidelines</span>
+									</a>
+								</div>
+								<div class="col-6 col-md-3">
+									<a href="/faq" class="btn btn-outline-secondary w-100 py-3 border-dashed">
+										<i class="bi bi-question-circle d-block mb-1 fs-4"></i>
+										<span class="small ms-2">FAQ</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer border-0 justify-content-center pb-4">
+						<span class="badge bg-primary-subtle text-primary rounded-pill px-3">Open Access Scholarly Repository</span>
+					</div>
+				</div>
+			</div>
+		</div>
 		<a href="#top" class="btn-scroll-top" data-scroll="">
 			<i class="btn-scroll-top-icon bi bi-chevron-up"></i>
 		</a>
@@ -537,6 +607,9 @@
 					});
 				})();
 			});
+			const gsearchModal = document.getElementById('gsearchModal');
+			const gsearchInput = document.getElementById('gsearchQueryInput');
+			gsearchModal.addEventListener('shown.bs.modal', () => {gsearchInput.focus();});
 		</script>
 	</body>
 </html>
