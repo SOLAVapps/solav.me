@@ -10,7 +10,7 @@
 		{
 			"id": "GEN-001",
 			"question": "What is SOLAV Journal?",
-			"answer": "SOLAV Journal is a peer-reviewed, open-access academic journal that publishes interdisciplinary applied research and visioneering studies that bridge theory and practice.",
+			"answer": "SOLAV Journal is a peer-reviewed, open-access academic journal that publishes interdisciplinary applied futures research that bridge theory and practice.",
 			"links": ["https://solav.me"]
 		},
 		{
@@ -22,7 +22,7 @@
 		{
 			"id": "GEN-003",
 			"question": "Who publishes SOLAV Journal?",
-			"answer": "SOLAV Journal is published and managed by its editorial board and administrative team as described on the About page.",
+			"answer": "SOLAV Journal is published by Leothar Company, Riyadh, Saudi Arabia, with full editorial independence maintained by the international academic editorial board.",
 			"links": ["https://solav.me/about"]
 		},
 		{
@@ -202,7 +202,7 @@
 		{
 			"id": "REV-001",
 			"question": "What type of peer review does SOLAV use?",
-			"answer": "SOLAV applies a rigorous double-blind peer review process in which both authors and reviewers remain anonymous to ensure impartial evaluation.",
+			"answer": "SOLAV applies a rigorous single-blind peer review process in which reviewers know author identities, but authors do not know reviewer identities, to ensure impartial evaluation.",
 			"links": ["https://solav.me/review"]
 		},
 		{
@@ -413,31 +413,31 @@
 			"id": "AI-001",
 			"question": "Can AI tools be used in manuscript preparation?",
 			"answer": "Yes, AI tools may be used as assistive technologies under full disclosure and human supervision.",
-			"links": ["https://solav.me/ai-policy"]
+			"links": ["https://solav.me/ai"]
 		},
 		{
 			"id": "AI-002",
 			"question": "Can AI be listed as an author?",
 			"answer": "No. AI systems cannot be credited as authors because they cannot take responsibility for research integrity.",
-			"links": ["https://solav.me/ai-policy"]
+			"links": ["https://solav.me/ai"]
 		},
 		{
 			"id": "AI-003",
 			"question": "Must AI-generated images be disclosed?",
 			"answer": "Yes. All AI-generated visual, textual, or analytical content must be clearly declared.",
-			"links": ["https://solav.me/ai-policy"]
+			"links": ["https://solav.me/ai"]
 		},
 		{
 			"id": "AI-004",
 			"question": "Who is responsible for AI-generated content?",
 			"answer": "Authors remain fully responsible for the accuracy, originality, and ethics of all AI-assisted content.",
-			"links": ["https://solav.me/ai-policy"]
+			"links": ["https://solav.me/ai"]
 		},
 		{
 			"id": "AI-005",
 			"question": "Is automated peer review allowed?",
 			"answer": "No. Peer review decisions must involve qualified human reviewers.",
-			"links": ["https://solav.me/ai-policy", "https://solav.me/review"]
+			"links": ["https://solav.me/ai", "https://solav.me/review"]
 		}
 		]
 	},
@@ -538,7 +538,7 @@
 		{
 			"id": "CIT-004",
 			"question": "Does SOLAV provide DOIs?",
-			"answer": "DOI assignment is managed by the journal and subject to current infrastructure and policy status.",
+			"answer": "Yes. All published articles receive permanent DOIs via Zenodo (CERN), a CoreTrustSeal-certified repository, ensuring persistent citation and long-term accessibility.",
 			"links": ["https://solav.me/about"]
 		}
 		]
@@ -852,6 +852,24 @@
 			"question": "How can institutions collaborate with SOLAV?",
 			"answer": "Institutional partnerships may be discussed with the editorial office through official contact channels.",
 			"links": ["https://solav.me/about"]
+		}
+		]
+	},
+
+	{
+		"section": "Editorial Board and Governance",
+		"questions": [
+		{
+		"id": "BOARD-001",
+		"question": "Who serves on the SOLAV editorial board?",
+		"answer": "SOLAV's editorial board comprises international scholars with expertise across applied sciences, engineering, and interdisciplinary research domains. Board members are selected based on publication record, research experience, and commitment to open scholarship.",
+		"links": ["https://solav.me/about"]
+		},
+		{
+		"id": "BOARD-002",
+		"question": "How is editorial independence maintained?",
+		"answer": "Editorial decisions are made independently by the academic editorial board. The publisher (Leothar Company) has no influence over acceptance/rejection decisions, peer review outcomes, or editorial content.",
+		"links": ["https://solav.me/about", "https://solav.me/editorial"]
 		}
 		]
 	}
