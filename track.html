@@ -284,21 +284,16 @@
 									</div>
 								</div>
 								<div class="step w-100 mx-auto">
-									<div class="step-number"><div class="step-number-inner fw-light text-white"><i class="bi bi-arrow-right-short mt-1 d-none d-lg-block"></i><i class="bi bi-arrow-down-short d-lg-none"></i></div></div>
-									<div class="step-body">
-										<p class="mb-0 fw-bold">Decision</p>
-										<p class="mb-0">1-2 weeks after reviews</p>
-									</div>
-								</div>
-								<div class="step w-100 mx-auto">
 									<div class="step-number"><div class="step-number-inner fw-light font-sm text-white"><i class="bi bi-patch-check mt-s"></i></div></div>
 									<div class="step-body">
 										<p class="mb-0 fw-bold">Publication</p>
-										<p class="mb-0">2-3 weeks after acceptance</p>
+										<p class="mb-0">5-7 business days after acceptance</p>
 									</div>
 								</div>
 							</div>
-							
+							<div class="timeline-note px-4">
+								<p><strong>Note:</strong> Publication occurs within 5-7 business days after APC payment confirmation and final formatting. This rapid timeline is enabled by our continuous publication model (no issue-based delays).</p>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -709,7 +704,6 @@
 				papersContainer.innerHTML = '';
 				noResults.style.display = 'none';
 				resultsCount.textContent = 'Searching...';
-				noResults.scrollIntoView({ behavior: 'smooth', block: 'start' });
 				try {
 					const papers = await loadPapersForYear(year);
 
@@ -745,6 +739,7 @@
 					<h3>${message}</h3>
 					<p class="text-muted">Please check your manuscript ID and try again.</p>
 				`;
+				noResults.scrollIntoView({ behavior: 'smooth', block: 'start' });
 			}
 
 			function showNotFound(paperId, year) {
