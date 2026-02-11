@@ -20203,14 +20203,14 @@ html {
 }
 
 .logoImg {
-	width: 180px;
+	width: 160px;
 	height: auto
 }
 
 .circle {
 	position: relative;
-	width: 250px;
-	height: 250px;
+	width: 220px;
+	height: 220px;
 	background: linear-gradient(#b039df, #55bbfb, #b97aff, #367dee, #9515e4, #b97aff);
 	animation: 5s linear infinite rotateAnimation
 }
@@ -20261,10 +20261,10 @@ html {
 .circle::after {
 	content: "";
 	position: absolute;
-	top: 10px;
-	left: 10px;
-	right: 10px;
-	bottom: 10px;
+	top: 5px;
+	left: 5px;
+	right: 5px;
+	bottom: 5px;
 	background: radial-gradient(#fff, #fff, #a9c7e9)
 }
 
@@ -20650,61 +20650,6 @@ html {
   inherits: false;
 }
 
-/* Base styles for both button and menu */
-.gemini-dropdown,
-.dropdown-menu.show {
-  --border-width: 2px;
-  border: var(--border-width) solid transparent !important;
-  border-radius: 0.5rem;
-  background-origin: border-box;
-  background-clip: padding-box, border-box;
-  animation: spin 3s linear infinite;
-}
-
-/* Button Background: Transparent by default, white on hover/click */
-.gemini-dropdown {
-  /* Use light-dark() or manual mode overrides for the inner fill */
-  background-image: 
-    linear-gradient(transparent, transparent), 
-    conic-gradient(from var(--angle), #4285f4, #9b72cb, #d96570, #4285f4);
-  color: inherit; /* Keeps text visible */
-  transition: background-color 0.3s ease;
-}
-
-.gemini-dropdown:hover, 
-.gemini-dropdown:active, 
-.gemini-dropdown.show {
-  background-image: 
-    linear-gradient(white, white), 
-    conic-gradient(from var(--angle), #4285f4, #9b72cb, #d96570, #4285f4);
-  color: #000; /* Ensure text is readable on white */
-}
-
-/* Dropdown Menu Background */
-.dropdown-menu.show {
-  background-image: 
-    linear-gradient(white, white), 
-    conic-gradient(from var(--angle), #4285f4, #9b72cb, #d96570, #4285f4);
-}
-
-/* Dark Mode Overrides */
-[data-bs-theme="dark"] .gemini-dropdown:hover,
-[data-bs-theme="dark"] .gemini-dropdown:active,
-[data-bs-theme="dark"] .gemini-dropdown.show,
-[data-bs-theme="dark"] .dropdown-menu.show {
-  background-image: 
-    linear-gradient(#212529, #212529), 
-    conic-gradient(from var(--angle), #4285f4, #9b72cb, #d96570, #4285f4);
-  color: #fff;
-}
-
-@keyframes spin {
-  from { --angle: 0deg; }
-  to { --angle: 360deg; }
-}
-
-
-
 @property --angle {
   syntax: "<angle>";
   initial-value: 0deg;
@@ -20786,5 +20731,49 @@ html {
 }
 .doiIcon{width:24px!important;height:24px!important;}
 .text-xs {
-    font-size: 0.70rem!important;;
+    font-size: 0.70rem!important;
+}
+
+.gradient-border-btn {
+    position: relative;
+    color: black;
+    background: #9b72cb;
+    z-index: 1;
+    overflow: hidden;
+	border-radius: var(--si-border-radius-pill) !important;
+}
+
+.gradient-border-btn::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(transparent, #fff, #b039df, transparent 30%);
+    animation: rotate 4s linear infinite;
+    z-index: -2;
+	border-radius: var(--si-border-radius-pill) !important;
+}
+
+.gradient-border-btn::after {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: #fff;
+    z-index: -1;
+	border-radius: var(--si-border-radius-pill) !important;
+}
+
+@keyframes rotate {
+    100% { transform: rotate(360deg); }
+}
+/*#b039df, #55bbfb, #b97aff, #367dee, #9515e4, #b97aff*/
+.gradient-text {
+  background-image: linear-gradient(to right, #654aef, #885df6);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  display: inline-block; 
 }
