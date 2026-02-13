@@ -414,19 +414,37 @@
 			<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h5 class="modal-title">APA Citation</h5>
+						<h5 class="modal-title">Cite this article</h5>
 						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
 					</div>
 					<div class="modal-body">
-						<div id="citationContent" class="border rounded p-3 bg-light" style="font-size: 0.9rem;"></div>
+						<div class="mb-3">
+							<label for="citationStyleSelect" class="form-label fw-bold">Citation style</label>
+							<select id="citationStyleSelect" class="form-select">
+								<option value="apa" selected>APA 7th</option>
+								<option value="mla">MLA 9th</option>
+								<option value="chicago">Chicago 17th (author-date)</option>
+								<option value="ieee">IEEE</option>
+								<option value="bibtex">BibTeX</option>
+								<option value="ris">RIS (EndNote/Zotero)</option>
+							</select>
+						</div>
+						<div id="citationContent" class="border rounded p-3 bg-light" style="font-size: 0.9rem; white-space: pre-wrap;"></div>
 					</div>
-					<div class="modal-footer">
-						<button id="copyCitationBtn" class="btn btn-primary">
-						<i class="bi bi-clipboard me-1"></i> Copy
-						</button>
-						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-						Close
-						</button>
+					<div class="modal-footer d-flex justify-content-between">
+						<div>
+							<button id="downloadCitationBtn" class="btn btn-outline-primary">
+								<i class="bi bi-download me-1"></i> Download
+							</button>
+						</div>
+						<div>
+							<button id="copyCitationBtn" class="btn btn-primary">
+								<i class="bi bi-clipboard me-1"></i> Copy
+							</button>
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+								Close
+							</button>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -436,9 +454,10 @@
 		<script src="/js/swiper.js"></script>
 		<script src="/js/js.js"></script>
 		<script>
-
 			let allArticles = [];
 			let filteredArticles = [];
+			let currentArticle = null;
+			let currentStyle = 'apa';
 
 			const articlesContainer = document.getElementById('articlesContainer');
 			const loadingSpinner = document.getElementById('loadingSpinner');
@@ -456,28 +475,270 @@
 			function getAuthorsHTML(authors) {
 				return authors.map(author => {
 					const star = author.corresponding ? '<sup>*</sup>' : '';
-
 					const orcidIcon = author.orcid
-					? `<a href="https://orcid.org/${author.orcid}" target="_blank" class="ms-0 align-middle"><img src="/images/orcid.svg" alt="ORCID" class="orcid-icon"></a>`
-					: '';
-
+						? `<a href="https://orcid.org/${author.orcid}" target="_blank" class="ms-0 align-middle"><img src="/images/orcid.svg" alt="ORCID" class="orcid-icon"></a>`
+						: '';
 					return `<span class="author-item"><a href="/authors?id=${author.id}">${author.name_last}, ${author.name_first}</a>${star}${orcidIcon}</span>`;
 				}).join(', ');
 			}
 
-			function generateAPACitation(article) {
-				const firstAuthor = article.authors[0];
-				let authorName = firstAuthor.name_last + ', ' + firstAuthor.name_first;
-				if (article.authors.length > 1){
-					const secondAuthor = article.authors[1];
-					authorName += "; " + secondAuthor.name_last + ', ' + secondAuthor.name_first;
-				}
-				const otherAuthors = article.authors.length > 2 ? ' et al.' : '';
+			function getInitials(firstName) {
+				return firstName.split(' ').map(part => part.charAt(0).toUpperCase() + '.').join(' ');
+			}
+
+			function generateAPA(article) {
+				const authors = article.authors;
+				const year = article.published_date ? new Date(article.published_date).getFullYear() : 'n.d.';
+				const title = article.title;
+				const journal = '<em>SOLAV Journal</em>';
 				const volume = article.volume;
-				const year = article && article.published_date ? (isNaN(new Date(article.published_date).getFullYear()) ? '' : new Date(article.published_date).getFullYear()) : '';
+				const pages = article.pages || 'n. pag.';
 				const url = `https://solav.me/a/${article.id}`;
 
-				return `${authorName}${otherAuthors} ${volume}(${year}). ${article.title}. <em>SOLAV Journal</em>, ${article.pages}. ${url}`;
+				let authorStr = '';
+				if (authors.length === 1) {
+					const a = authors[0];
+					authorStr = `${a.name_last}, ${getInitials(a.name_first)}`;
+				} else if (authors.length === 2) {
+					const a1 = authors[0];
+					const a2 = authors[1];
+					authorStr = `${a1.name_last}, ${getInitials(a1.name_first)} & ${a2.name_last}, ${getInitials(a2.name_first)}`;
+				} else if (authors.length > 2) {
+					const a1 = authors[0];
+					authorStr = `${a1.name_last}, ${getInitials(a1.name_first)} et al.`;
+				}
+
+				const html = `${authorStr} (${year}). ${title}. ${journal}, ${volume}, ${pages}. ${url}`;
+				const text = html.replace(/<em>|<\/em>/g, '');
+				return { html, text };
+			}
+
+			function generateMLA(article) {
+				const authors = article.authors;
+				const year = article.published_date ? new Date(article.published_date).getFullYear() : 'n.d.';
+				const title = article.title;
+				const journal = 'SOLAV Journal';
+				const volume = article.volume;
+				const pages = article.pages || 'n. pag.';
+				const url = `https://solav.me/a/${article.id}`;
+
+				let authorStr = '';
+				if (authors.length === 1) {
+					const a = authors[0];
+					authorStr = `${a.name_last}, ${a.name_first}`;
+				} else if (authors.length === 2) {
+					const a1 = authors[0];
+					const a2 = authors[1];
+					authorStr = `${a1.name_last}, ${a1.name_first} and ${a2.name_first} ${a2.name_last}`;
+				} else if (authors.length > 2) {
+					const a1 = authors[0];
+					authorStr = `${a1.name_last}, ${a1.name_first} et al.`;
+				}
+
+				const html = `${authorStr} "${title}" <em>${journal}</em>, vol. ${volume}, ${year}, pp. ${pages}. ${url}.`;
+				const text = html.replace(/<em>|<\/em>/g, '');
+				return { html, text };
+			}
+
+			function generateChicago(article) {
+				const authors = article.authors;
+				const year = article.published_date ? new Date(article.published_date).getFullYear() : 'n.d.';
+				const title = article.title;
+				const journal = 'SOLAV Journal';
+				const volume = article.volume;
+				const pages = article.pages || 'n. pag.';
+				const url = `https://solav.me/a/${article.id}`;
+
+				let authorStr = '';
+				if (authors.length === 1) {
+					const a = authors[0];
+					authorStr = `${a.name_last}, ${a.name_first}`;
+				} else if (authors.length === 2) {
+					const a1 = authors[0];
+					const a2 = authors[1];
+					authorStr = `${a1.name_last}, ${a1.name_first} and ${a2.name_first} ${a2.name_last}`;
+				} else if (authors.length > 2) {
+					const a1 = authors[0];
+					authorStr = `${a1.name_last}, ${a1.name_first} et al.`;
+				}
+
+				const html = `${authorStr} ${year}. "${title}" <em>${journal}</em> ${volume}: ${pages}. ${url}.`;
+				const text = html.replace(/<em>|<\/em>/g, '');
+				return { html, text };
+			}
+
+			function generateIEEE(article) {
+				const authors = article.authors;
+				const year = article.published_date ? new Date(article.published_date).getFullYear() : 'n.d.';
+				const month = article.published_date ? new Date(article.published_date).toLocaleString('default', { month: 'short' }) : 'n.d.';
+				const title = article.title;
+				const journal = 'SOLAV Journal';
+				const volume = article.volume;
+				const pages = article.pages || 'n. pag.';
+				const url = `https://solav.me/a/${article.id}`;
+
+				let authorStr = '';
+				if (authors.length === 1) {
+					const a = authors[0];
+					authorStr = `${getInitials(a.name_first)} ${a.name_last}`;
+				} else if (authors.length === 2) {
+					const a1 = authors[0];
+					const a2 = authors[1];
+					authorStr = `${getInitials(a1.name_first)} ${a1.name_last} and ${getInitials(a2.name_first)} ${a2.name_last}`;
+				} else if (authors.length > 2) {
+					const a1 = authors[0];
+					authorStr = `${getInitials(a1.name_first)} ${a1.name_last} et al.`;
+				}
+
+				const html = `${authorStr}, "${title}" <em>${journal}</em>, vol. ${volume}, no. ?, pp. ${pages}, ${month} ${year}. ${url}`;
+				const text = html.replace(/<em>|<\/em>/g, '');
+				return { html, text };
+			}
+
+			function generateBibTeX(article) {
+				const authors = article.authors;
+				const year = article.published_date ? new Date(article.published_date).getFullYear() : 'n.d.';
+				const title = article.title;
+				const journal = 'SOLAV Journal';
+				const volume = article.volume;
+				const pages = article.pages || '';
+				const doi = article.identifiers?.archive_doi;
+				const url = `https://solav.me/a/${article.id}`;
+				const key = authors[0]?.name_last.toLowerCase() + year + article.id.slice(-4);
+
+				let authorBib = authors.map(a => `${a.name_last}, ${a.name_first}`).join(' and ');
+
+				let bib = `@article{${key},\n  title = {${title}},\n  author = {${authorBib}},\n  journal = {${journal}},\n  volume = {${volume}},\n  year = {${year}},\n  pages = {${pages}},\n  url = {${url}},\n`;
+				if (doi) bib += `  doi = {${doi}},\n`;
+				bib += `}`;
+
+				return { html: `<pre>${bib}</pre>`, text: bib };
+			}
+
+			function generateRIS(article) {
+				const authors = article.authors;
+				const year = article.published_date ? new Date(article.published_date).getFullYear() : 'n.d.';
+				const title = article.title;
+				const journal = 'SOLAV Journal';
+				const volume = article.volume;
+				const pages = article.pages || '';
+				const doi = article.identifiers?.archive_doi;
+				const url = `https://solav.me/a/${article.id}`;
+
+				let ris = `TY  - JOUR\n`;
+				authors.forEach(a => {
+					ris += `AU  - ${a.name_last}, ${a.name_first}\n`;
+				});
+				ris += `PY  - ${year}\n`;
+				ris += `TI  - ${title}\n`;
+				ris += `T2  - ${journal}\n`;
+				ris += `VL  - ${volume}\n`;
+				if (pages) ris += `SP  - ${pages.split('-')[0]}\n`;
+				if (pages && pages.includes('-')) ris += `EP  - ${pages.split('-')[1]}\n`;
+				if (doi) ris += `DO  - ${doi}\n`;
+				ris += `UR  - ${url}\n`;
+				ris += `ER  - \n`;
+
+				return { html: `<pre>${ris}</pre>`, text: ris };
+			}
+
+			function updateCitationDisplay() {
+				if (!currentArticle) return;
+
+				let result;
+				switch (currentStyle) {
+					case 'apa':
+						result = generateAPA(currentArticle);
+						break;
+					case 'mla':
+						result = generateMLA(currentArticle);
+						break;
+					case 'chicago':
+						result = generateChicago(currentArticle);
+						break;
+					case 'ieee':
+						result = generateIEEE(currentArticle);
+						break;
+					case 'bibtex':
+						result = generateBibTeX(currentArticle);
+						break;
+					case 'ris':
+						result = generateRIS(currentArticle);
+						break;
+					default:
+						result = generateAPA(currentArticle);
+				}
+
+				document.getElementById('citationContent').innerHTML = result.html;
+				window.currentCitationText = result.text;
+			}
+
+			function showCitationModal(articleId) {
+				const article = allArticles.find(a => a.id === articleId);
+				if (!article) return;
+				currentArticle = article;
+				currentStyle = document.getElementById('citationStyleSelect').value;
+				updateCitationDisplay();
+
+				const modalEl = document.getElementById('citationModal');
+				const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
+				modal.show();
+			}
+
+			function filterArticles() {
+				const searchTerm = searchInput.value.toLowerCase().trim();
+				
+				if (!searchTerm) {
+					filteredArticles = [...allArticles];
+				} else {
+					filteredArticles = allArticles.filter(article => {
+						const titleMatch = article.title.toLowerCase().includes(searchTerm);
+						const authorLastMatch = article.authors.some(author => 
+							author.name_last.toLowerCase().includes(searchTerm)
+						);
+						const authorFirstMatch = article.authors.some(author => 
+							author.name_first.toLowerCase().includes(searchTerm)
+						);
+						const keywordMatch = article.keywords.some(keyword => 
+							keyword.toLowerCase().includes(searchTerm)
+						);
+						
+						return titleMatch || authorLastMatch || authorFirstMatch || keywordMatch;
+					});
+				}
+				
+				sortArticles();
+			}
+
+			function sortArticles() {
+				const sortBy = sortSelect.value;
+				
+				filteredArticles.sort((a, b) => {
+					switch (sortBy) {
+						case 'newest':
+							return new Date(b.published_date) - new Date(a.published_date);
+						case 'oldest':
+							return new Date(a.published_date) - new Date(b.published_date);
+						case 'title':
+							return a.title.localeCompare(b.title);
+						default:
+							return 0;
+					}
+				});
+				
+				renderArticles();
+			}
+
+			function renderArticles() {
+				if (filteredArticles.length === 0) {
+					articlesContainer.innerHTML = '';
+					noResults.style.display = 'block';
+					resultsCount.textContent = 'No articles found';
+				} else {
+					articlesContainer.innerHTML = filteredArticles.map(createArticleCard).join('');
+					noResults.style.display = 'none';
+					resultsCount.textContent = `Showing ${filteredArticles.length} of ${allArticles.length} articles`;
+				}
 			}
 
 			function createArticleCard(article) {
@@ -536,7 +797,7 @@
 														<i class="bi bi-download me-1"></i> Download PDF
 													</a>
 													<button class="btn btn-sm btn-outline-secondary citation-btn" onclick="showCitationModal('${article.id}')">
-														<i class="bi bi-quote me-1"></i> Cite
+														<i class="bi bi-quote me-1"></i> Cite This Article
 													</button>
 													<small class="text-muted text-xs mt-2"><i class="bi bi-info-circle"></i> This DOI is provided for long-term preservation and open archiving.</small>
 													<a href="https://doi.org/${article.identifiers.archive_doi}" target="_blank" class="btn btn-sm btn-outline-primary"  style="white-space: normal;">
@@ -553,114 +814,12 @@
 				`;
 			}
 
-			let currentCitationText = '';
-
-			function showCitationModal(articleId) {
-				const article = allArticles.find(a => a.id === articleId);
-				if (!article) return;
-					const apaCitation = generateAPACitation(article);
-					currentCitationText = apaCitation.replace(/<em>|<\/em>/g, '');
-
-					const contentEl = document.getElementById('citationContent');
-					contentEl.innerHTML = apaCitation;
-
-					const modalEl = document.getElementById('citationModal');
-					const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
-					modal.show();
-				}
-
-				document.getElementById('copyCitationBtn').addEventListener('click', () => {
-				if (!currentCitationText) return;
-
-				navigator.clipboard.writeText(currentCitationText).then(() => {
-					const btn = document.getElementById('copyCitationBtn');
-					const original = btn.innerHTML;
-					btn.innerHTML = '<i class="bi bi-check me-1"></i> Copied!';
-					setTimeout(() => {
-					btn.innerHTML = original;
-					}, 1500);
-				});
-			});
-
-			function copyCitation(articleId) {
-				const article = allArticles.find(a => a.id === articleId);
-				if (!article) return;
-				
-				const apaCitation = generateAPACitation(article);
-				const plainText = apaCitation.replace(/<em>|<\/em>/g, '');
-				
-				navigator.clipboard.writeText(plainText).then(() => {
-					const buttons = document.querySelectorAll(`[data-article-id="${articleId}"]`);
-					buttons.forEach(button => {
-						const originalText = button.innerHTML;
-						button.innerHTML = '<i class="bi bi-check me-1"></i> Copied!';
-						setTimeout(() => {
-							button.innerHTML = originalText;
-						}, 2000);
-					});
-					document.querySelectorAll('.citation-popup').forEach(el => el.remove());
-				});
-			}
-			function filterArticles() {
-				const searchTerm = searchInput.value.toLowerCase().trim();
-				
-				if (!searchTerm) {
-					filteredArticles = [...allArticles];
-				} else {
-					filteredArticles = allArticles.filter(article => {
-						const titleMatch = article.title.toLowerCase().includes(searchTerm);
-						const authorLastMatch = article.authors.some(author => 
-							author.name_last.toLowerCase().includes(searchTerm)
-						);
-						const authorFirstMatch = article.authors.some(author => 
-							author.name_first.toLowerCase().includes(searchTerm)
-						);
-						const keywordMatch = article.keywords.some(keyword => 
-							keyword.toLowerCase().includes(searchTerm)
-						);
-						
-						return titleMatch || authorLastMatch || authorFirstMatch || keywordMatch;
-					});
-				}
-				
-				sortArticles();
-			}
-			function sortArticles() {
-				const sortBy = sortSelect.value;
-				
-				filteredArticles.sort((a, b) => {
-					switch (sortBy) {
-						case 'newest':
-							return new Date(b.published_date) - new Date(a.published_date);
-						case 'oldest':
-							return new Date(a.published_date) - new Date(b.published_date);
-						case 'title':
-							return a.title.localeCompare(b.title);
-						default:
-							return 0;
-					}
-				});
-				
-				renderArticles();
-			}
-			function renderArticles() {
-				if (filteredArticles.length === 0) {
-					articlesContainer.innerHTML = '';
-					noResults.style.display = 'block';
-					resultsCount.textContent = 'No articles found';
-				} else {
-					articlesContainer.innerHTML = filteredArticles.map(createArticleCard).join('');
-					noResults.style.display = 'none';
-					resultsCount.textContent = `Showing ${filteredArticles.length} of ${allArticles.length} articles`;
-				}
-			}
 			async function loadArticles() {
 				try {
 					const response = await fetch('/data/a2026.json');
 					if (!response.ok) throw new Error('Failed to load articles');
 					
 					const data = await response.json();
-
 					allArticles = data.articles.filter(article => 
 						article.status === 'published' || !article.status
 					);
@@ -679,6 +838,7 @@
 					`;
 				}
 			}
+
 			searchInput.addEventListener('input', filterArticles);
 			clearSearch.addEventListener('click', () => {
 				searchInput.value = '';
@@ -687,6 +847,64 @@
 			sortSelect.addEventListener('change', sortArticles);
 			document.addEventListener('DOMContentLoaded', loadArticles);
 
+			document.addEventListener('DOMContentLoaded', () => {
+				const styleSelect = document.getElementById('citationStyleSelect');
+				if (styleSelect) {
+					styleSelect.addEventListener('change', (e) => {
+						currentStyle = e.target.value;
+						updateCitationDisplay();
+					});
+				}
+
+				const copyBtn = document.getElementById('copyCitationBtn');
+				if (copyBtn) {
+					copyBtn.addEventListener('click', () => {
+						if (!window.currentCitationText) return;
+						navigator.clipboard.writeText(window.currentCitationText).then(() => {
+							const btn = document.getElementById('copyCitationBtn');
+							const original = btn.innerHTML;
+							btn.innerHTML = '<i class="bi bi-check me-1"></i> Copied!';
+							setTimeout(() => {
+								btn.innerHTML = original;
+							}, 1500);
+						});
+					});
+				}
+
+				const downloadBtn = document.getElementById('downloadCitationBtn');
+				if (downloadBtn) {
+					downloadBtn.addEventListener('click', () => {
+						if (!window.currentCitationText || !currentArticle) return;
+
+						let filename = `citation-${currentArticle.id}`;
+						let extension = 'txt';
+						switch (currentStyle) {
+							case 'bibtex': extension = 'bib'; break;
+							case 'ris': extension = 'ris'; break;
+							default: extension = 'txt';
+						}
+
+						const blob = new Blob([window.currentCitationText], { type: 'text/plain' });
+						const url = URL.createObjectURL(blob);
+						const a = document.createElement('a');
+						a.href = url;
+						a.download = `${filename}.${extension}`;
+						document.body.appendChild(a);
+						a.click();
+						document.body.removeChild(a);
+						URL.revokeObjectURL(url);
+					});
+				}
+
+				const modalEl = document.getElementById('citationModal');
+				if (modalEl) {
+					modalEl.addEventListener('hidden.bs.modal', () => {
+						currentStyle = 'apa';
+						styleSelect.value = 'apa';
+						if (currentArticle) updateCitationDisplay();
+					});
+				}
+			});
 
 			document.getElementById('currentYear').textContent = new Date().getFullYear();
 			(() => {
@@ -694,7 +912,7 @@
 				const getStoredTheme = () => localStorage.getItem('theme');
 				const setStoredTheme = theme => localStorage.setItem('theme', theme);
 				const getPreferredTheme = () => {
-				const storedTheme = getStoredTheme();
+					const storedTheme = getStoredTheme();
 					if (storedTheme) {
 						return storedTheme;
 					}
@@ -748,6 +966,7 @@
 					});
 				});
 			})();
+
 			const gsearchModal = document.getElementById('gsearchModal');
 			const gsearchInput = document.getElementById('gsearchQueryInput');
 			gsearchModal.addEventListener('shown.bs.modal', () => {gsearchInput.focus();});
