@@ -202,7 +202,7 @@
 		{
 			"id": "REV-001",
 			"question": "What type of peer review does SOLAV use?",
-			"answer": "SOLAV applies a rigorous single-blind peer review process in which reviewers know author identities, but authors do not know reviewer identities, to ensure impartial evaluation.",
+			"answer": "SOLAV applies a rigorous single-blind peer review process in which reviewers know author identities but authors do not know reviewer identities, to ensure impartial evaluation while promoting reviewer accountability.",
 			"links": ["https://solav.me/review"]
 		},
 		{
