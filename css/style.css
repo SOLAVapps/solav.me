@@ -20643,6 +20643,8 @@ html {
 }
 .d-Icons{width:32px!important; height: auto!important;margin-bottom: 10px!important;margin-right: 10px!important}
 .d-IconsL{width:32px!important; height: auto!important;margin-bottom: 10px!important;margin-right: 0px!important}
+.d-sIcons{width:24px!important; height: auto!important;margin-bottom: 10px!important;margin-right: 10px!important}
+.d-sIconsL{width:24px!important; height: auto!important;margin-bottom: 10px!important;margin-right: 0px!important}
 
 @property --angle {
   syntax: "<angle>";
@@ -20768,7 +20770,6 @@ html {
 @keyframes rotate {
     100% { transform: rotate(360deg); }
 }
-/*#b039df, #55bbfb, #b97aff, #367dee, #9515e4, #b97aff*/
 .gradient-text {
   background-image: linear-gradient(to right, #654aef, #885df6);
   background-clip: text;
