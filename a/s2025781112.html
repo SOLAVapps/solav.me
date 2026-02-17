@@ -25,6 +25,13 @@
 		<meta name="citation_lastpage" content="53"/>
 		<meta name="citation_doi" content=""/>
 		<meta name="citation_abstract_html_url" content="https://solav.me/a/s2025781112"/>
+		<meta name="citation_publication_date" content="2025/07/05">
+		<meta name="citation_pdf_url" content="https://solav.me/p/s2025781112.pdf">
+		<meta name="citation_journal_title" content="SOLAV Journal">
+		<meta name="citation_issn" content="">
+		<meta name="citation_doi" content="">
+		<meta name="citation_abstract" content="Small Language Models (SLMs), typically comprising fewer than 3 billion parameters, offer efficient deployment for edge computing but are susceptible to reasoning hallucinations: they generate plausible but logically unsound multi-step solutions. While Chain-of-Thought (CoT) prompting enhances reasoning in larger models, SLMs often lack the capacity to maintain coherent reasoning chains. This paper introduces Contrastive Chain-of-Thought (CCoT) Fine-Tuning, a novel parameter-efficient training method that pairs correct reasoning paths with explicitly labeled logical fallacies during fine-tuning. Using Low-Rank Adaptation (LoRA) on the Phi-2 model, we show that exposing SLMs to curated negative reasoning examples sharpens their decision boundaries between valid and hallucinatory logic. Comprehensive evaluation on arithmetic (GSM8K) and symbolic reasoning (BBH) benchmarks shows that CCoT significantly reduces hallucination rates, measured by stepwise logical consistency, and improves final-answer accuracy by 12.5% relative to standard fine-tuning. This work provides a scalable, hardware-accessible framework for improving the reliability of resource-constrained language models in edge AI applications.">
+		<meta name="citation_keywords" content="Small Language Models (SLMs); Chain-of-Thought Reasoning; Hallucination Mitigation; Parameter-Efficient Fine-Tuning (PEFT); Low-Rank Adaptation (LoRA); Contrastive Learning; Reliable AI; Edge Computing">
 		<meta name="citation_keywords" content="Small Language Models (SLMs)"/>
 		<meta name="citation_keywords" content="Chain-of-Thought Reasoning"/>
 		<meta name="citation_keywords" content="Hallucination Mitigation"/>
@@ -102,15 +109,6 @@
 		<meta name="DC.Type" content="Text.Serial.Journal"/>
 		<meta name="DC.Date.created" scheme="ISO8601" content="2025-06-09"/>
 		<meta name="DC.Type.articleType" content="Research Article"/>
-		<meta name="citation_author" content="Baker, Maher Asaad; Al-Qrize, Fuad">
-		<meta name="citation_publication_date" content="2025/07/05">
-		<meta name="citation_pdf_url" content="https://solav.me/p/s2025781112.pdf">
-		<meta name="citation_journal_title" content="SOLAV Journal">
-		<meta name="citation_issn" content="">
-		<meta name="citation_doi" content="">
-		<meta name="citation_abstract" content="Small Language Models (SLMs), typically comprising fewer than 3 billion parameters, offer efficient deployment for edge computing but are susceptible to reasoning hallucinations: they generate plausible but logically unsound multi-step solutions. While Chain-of-Thought (CoT) prompting enhances reasoning in larger models, SLMs often lack the capacity to maintain coherent reasoning chains. This paper introduces Contrastive Chain-of-Thought (CCoT) Fine-Tuning, a novel parameter-efficient training method that pairs correct reasoning paths with explicitly labeled logical fallacies during fine-tuning. Using Low-Rank Adaptation (LoRA) on the Phi-2 model, we show that exposing SLMs to curated negative reasoning examples sharpens their decision boundaries between valid and hallucinatory logic. Comprehensive evaluation on arithmetic (GSM8K) and symbolic reasoning (BBH) benchmarks shows that CCoT significantly reduces hallucination rates, measured by stepwise logical consistency, and improves final-answer accuracy by 12.5% relative to standard fine-tuning. This work provides a scalable, hardware-accessible framework for improving the reliability of resource-constrained language models in edge AI applications.">
-		<meta name="citation_keywords" content="Small Language Models (SLMs); Chain-of-Thought Reasoning; Hallucination Mitigation; Parameter-Efficient Fine-Tuning (PEFT); Low-Rank Adaptation (LoRA); Contrastive Learning; Reliable AI; Edge Computing">
-		<meta name="DC.title" content="Mitigating Hallucination in Small Language Models via Contrastive Chain-of-Thought Fine-Tuning">
 		<meta name="DC.creator" content="Baker, Maher Asaad; Al-Qrize, Fuad">
 		<meta name="DC.subject" content="Small Language Models (SLMs); Chain-of-Thought Reasoning; Hallucination Mitigation; Parameter-Efficient Fine-Tuning (PEFT); Low-Rank Adaptation (LoRA); Contrastive Learning; Reliable AI; Edge Computing">
 		<meta name="DC.identifier" content="s2025781112">
@@ -138,40 +136,84 @@
 		<meta http-equiv="Pragma" content="no-cache">
 		<meta http-equiv="Expires" content="0">
 		<script type="application/ld+json">
-		{
-			"@context": "https://schema.org",
-			"@type": "ScholarlyArticle",
-			"headline": "Mitigating Hallucination in Small Language Models via Contrastive Chain-of-Thought Fine-Tuning",
-			"author": {
-				"@type": "Person",
-				"name": "Baker, Maher Asaad"
-			},
-			"datePublished": "2025-07-05",
-			"publisher": {
-				"@type": "Organization",
-				"name": "SOLAV Journal"
-			},
-			"sameAs": "https://solav.me/a/s2025781112",
-						"https://doi.org/10.5281/zenodo.18538736"
-		}
-		</script>
-		<script type="application/ld+json">
-		{
-			"@context": "https://schema.org",
-			"@type": "Periodical",
-			"name": "SOLAV Journal",
-			"url": "https://solav.me",
-			"publisher": {
-				"@type": "Organization",
-				"name": "Leothar Company"
-			},
-			"sameAs": [
-				"https://zenodo.org/communities/solav",
-				"https://commons.datacite.org/doi.org?query=SOLAV+Journal",
-				"https://explore.openaire.eu/search/find?fv0=solav%20journal&f0=q"
-			]
-		}
-		</script>
+{
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "@id": "https://solav.me/a/s2025781112",
+    "headline": "Mitigating Hallucination in Small Language Models via Contrastive Chain-of-Thought Fine-Tuning",
+    "name": "Mitigating Hallucination in Small Language Models via Contrastive Chain-of-Thought Fine-Tuning",
+    "url": "https://solav.me/a/s2025781112",
+    "identifier": [
+        {
+            "@type": "PropertyValue",
+            "propertyID": "InternalID",
+            "value": "s2025781112"
+        },
+        {
+            "@type": "PropertyValue",
+            "propertyID": "DOI",
+            "value": "10.5281/zenodo.18538736"
+        }
+    ],
+    "author": [
+        {
+            "@type": "Person",
+            "name": "Baker, Maher Asaad",
+            "givenName": "Maher Asaad",
+            "familyName": "Baker",
+            "affiliation": {
+                "@type": "Organization",
+                "name": "SOLAV, Riyadh, Saudi Arabia"
+            },
+            "sameAs": "https://orcid.org/0000-0001-8013-6044"
+        },
+        {
+            "@type": "Person",
+            "name": "Al-Qrize, Fuad",
+            "givenName": "Fuad",
+            "familyName": "Al-Qrize",
+            "affiliation": {
+                "@type": "Organization",
+                "name": "Al-Qrize Productions, Ibb, Yemen"
+            },
+            "sameAs": "https://orcid.org/0000-0003-3380-2176"
+        }
+    ],
+    "publisher": {
+        "@type": "Organization",
+        "name": "SOLAV Journal",
+        "url": "https://solav.me"
+    },
+    "isPartOf": {
+        "@type": "Periodical",
+        "name": "SOLAV Journal",
+        "url": "https://solav.me",
+        "issn": ""
+    },
+    "dateReceived": "2025-06-09",
+    "dateAccepted": "2025-07-02",
+    "datePublished": "2025-07-05",
+    "volumeNumber": "1",
+    "issueNumber": "",
+    "pagination": "33-53",
+    "inLanguage": "en",
+    "articleSection": "Research Article",
+    "abstract": "Small Language Models (SLMs), typically comprising fewer than 3 billion parameters, offer efficient deployment for edge computing but are susceptible to reasoning hallucinations: they generate plausible but logically unsound multi-step solutions. While Chain-of-Thought (CoT) prompting enhances reasoning in larger models, SLMs often lack the capacity to maintain coherent reasoning chains. This paper introduces Contrastive Chain-of-Thought (CCoT) Fine-Tuning, a novel parameter-efficient training method that pairs correct reasoning paths with explicitly labeled logical fallacies during fine-tuning. Using Low-Rank Adaptation (LoRA) on the Phi-2 model, we show that exposing SLMs to curated negative reasoning examples sharpens their decision boundaries between valid and hallucinatory logic. Comprehensive evaluation on arithmetic (GSM8K) and symbolic reasoning (BBH) benchmarks shows that CCoT significantly reduces hallucination rates, measured by stepwise logical consistency, and improves final-answer accuracy by 12.5% relative to standard fine-tuning. This work provides a scalable, hardware-accessible framework for improving the reliability of resource-constrained language models in edge AI applications.",
+    "keywords": [
+        "Small Language Models (SLMs)",
+        "Chain-of-Thought Reasoning",
+        "Hallucination Mitigation",
+        "Parameter-Efficient Fine-Tuning (PEFT)",
+        "Low-Rank Adaptation (LoRA)",
+        "Contrastive Learning",
+        "Reliable AI",
+        "Edge Computing"
+    ],
+    "license": "CC BY 4.0",
+    "sameAs": [
+        "https://doi.org/10.5281/zenodo.18538736"
+    ]
+}		</script>
 	</head>
 	<body>
 		<main class="page-wrapper">
@@ -215,7 +257,7 @@
 												<div class="card ms-2 h-100 dropdown-menuAnimated">
 													<h6 class="px-3 mb-2 pt-1">Older Archives</h6>
 													<ul class="list-unstyled mb-3">
-														<li><a href="/archive2025" class="dropdown-item"><span class="text-primary p-0 m-0 ps-2">●</span> Volume 1 (2025)</a></li>
+														<li><a href="/archive2025" class="dropdown-item">Voulme 1 (2025)</a></li>
 													</ul>													
 												</div>
 											</div>
@@ -479,7 +521,7 @@
 						</div>
 					</div>
 					<div class="modal-footer border-0 justify-content-center pb-4">
-						<span class="badge bg-primary-subtle text-primary rounded-pill px-3">Open Access Journal for Interdisciplinary Applied Research</span>
+						<span class="badge bg-primary-subtle text-primary rounded-pill px-3">Open Access Scholarly Repository</span>
 					</div>
 				</div>
 			</div>
