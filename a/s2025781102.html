@@ -376,6 +376,9 @@
 										</li>
 									</ul>
 								</div>
+								<div class="card-footer d-flex justify-content-evenly">
+									<img id="qr">
+								</div>
 							</div>
 						</div>
 					</div>
@@ -954,6 +957,22 @@
 			const gsearchModal = document.getElementById('gsearchModal');
 			const gsearchInput = document.getElementById('gsearchQueryInput');
 			gsearchModal.addEventListener('shown.bs.modal', () => {gsearchInput.focus();});
+		</script>
+		<script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+		<script>
+			QRCode.toDataURL("https://solav.me/a/s2025781102", {
+				type: "svg",
+				width: 100,
+				margin: 3,
+				errorCorrectionLevel: "H",
+				color: {
+					dark: "#000",
+					light: "#fff"
+				}
+			}, (err, url) => {
+				if (err) throw err;
+				document.getElementById("qr").src = url;
+			});
 		</script>
 	</body>
 </html>
