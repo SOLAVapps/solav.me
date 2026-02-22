@@ -28,7 +28,7 @@
 		<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 		<link href="/css/swiper.css" rel="stylesheet">
-		<link href="/css/style.css?v=20260222" rel="stylesheet">
+		<link href="/css/style.css?v=20260223" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-RE3FS524EK"></script>
 		<script>
@@ -252,7 +252,7 @@
 							</div>
 						</section>
 
-						<section class="mb-5">
+						<section class="mb-5" id="article-types">
 							<h2 class="h1 mb-4">2. Article Types</h2>
 							<div class="table-responsive p-2 bg-light shadow-lg rounded-3 border border-opacity-10">
 								<table class="table table-hover table-guidelines">
@@ -437,7 +437,7 @@
 									</div>
 								</div>
 								
-								<div class="col-lg-6">
+								<div class="col-lg-6" id="tables">
 									<div class="card h-100 bg-light shadow-lg rounded-3 border border-opacity-10">
 										<div class="card-body p-4">
 											<h3 class="h4 mb-3"><i class="bi bi-table text-primary me-2"></i>Tables</h3>
@@ -576,6 +576,9 @@ Virtanen, P., et al. (2020). SciPy 1.0: Fundamental algorithms for scientific co
 										<a href="/submit" class="btn btn-lg btn-primary rounded-pill"><i class="bi bi-send-check me-2"></i>Proceed to Submission</a>
 									</div>
 								</div>
+							</div>
+							<div class="row mt-5">
+								<div id="knowledge-check-guidelines"></div>
 							</div>
 						</section>
 
@@ -796,7 +799,7 @@ Virtanen, P., et al. (2020). SciPy 1.0: Fundamental algorithms for scientific co
 	
 		<script src="/js/jarallax.js"></script>
 		<script src="/js/swiper.js"></script>
-		<script src="/js/js.js?v=20260222"></script>
+		<script src="/js/js.js?v=20260223"></script>
 		<script>
 			document.querySelectorAll('.mobile-nav-link').forEach(function(link) { link.addEventListener('click', function() { document.querySelectorAll('.offcanvas.show').forEach(function(el) { const instance = bootstrap.Offcanvas.getInstance(el); if (instance) { instance.hide(); } }); }); });
 			document.getElementById('currentYear').textContent = new Date().getFullYear();
