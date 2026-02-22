@@ -1,0 +1,333 @@
+{
+  "meta": {
+    "title": "Author Knowledge Checks",
+    "description": "Optional self-assessment to ensure your manuscript meets SOLAV's ethical and formatting standards. No certificate issued — this is purely for your benefit."
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "section": "ethics",
+      "text": "You discover a significant error in your published article after peer review. What is the CORRECT action?",
+      "options": [
+        "Ignore it — peer review already validated the work",
+        "Contact the journal immediately to discuss correction options",
+        "Publish a new article with the corrected data without mentioning the error"
+      ],
+      "correct": 1,
+      "feedback": "✅ Correct. Per COPE guidelines, authors must promptly notify journals of significant errors. SOLAV will work with you to issue a Correction notice. Ignoring errors or publishing silent corrections violates research integrity standards.",
+      "reference": "/corrections-retractions"
+    },
+    {
+      "id": "q2",
+      "section": "ethics",
+      "text": "Which scenario constitutes plagiarism?",
+      "options": [
+        "Quoting a source with quotation marks and citation",
+        "Paraphrasing your own previously published work with citation",
+        "Using text from another paper with minor word substitutions but no citation"
+      ],
+      "correct": 2,
+      "feedback": "✅ Correct. Plagiarism includes unattributed text reuse even with minor rewording. Proper paraphrasing requires both citation AND substantial rephrasing in your own words. Self-plagiarism (text recycling) also requires citation per ICMJE guidelines.",
+      "reference": "/plagiarism"
+    },
+    {
+      "id": "q3",
+      "section": "ethics",
+      "text": "You're submitting to SOLAV while the same manuscript is under review at another journal. Is this acceptable?",
+      "options": [
+        "Yes — simultaneous submission speeds up publication",
+        "No — this violates publication ethics unless explicitly permitted",
+        "Only if the other journal is in a different discipline"
+      ],
+      "correct": 1,
+      "feedback": "✅ Correct. Simultaneous submission to multiple journals is prohibited by COPE and ICMJE guidelines. It wastes editorial resources and creates potential duplicate publication. Withdraw from other journals before submitting to SOLAV.",
+      "reference": "/ethics#authors"
+    },
+    {
+      "id": "q4",
+      "section": "ethics",
+      "text": "Which individuals qualify for authorship per ICMJE criteria?",
+      "options": [
+        "Anyone who provided funding for the research",
+        "Those who made substantial contributions to conception, drafting, AND final approval",
+        "All lab members who were present during experiments"
+      ],
+      "correct": 1,
+      "feedback": "✅ Correct. ICMJE requires ALL four criteria: (1) substantial contributions to conception/design, (2) drafting or critical revision, (3) final approval of version to be published, AND (4) agreement to be accountable. Gift authorship (including funders/lab members without contribution) violates ethics standards.",
+      "reference": "/ethics#authors"
+    },
+    {
+      "id": "q5",
+      "section": "guidelines",
+      "text": "Your manuscript includes a figure adapted from a previously published paper. What must you do?",
+      "options": [
+        "Nothing — adaptation means it's your original work",
+        "Include citation in caption and obtain permission from copyright holder",
+        "Only cite the source — no permission needed for adaptations"
+      ],
+      "correct": 1,
+      "feedback": "✅ Correct. Adapted figures require BOTH proper citation AND written permission from the copyright holder (usually publisher). SOLAV requires proof of permission during submission. Failure to obtain permission may result in desk rejection or post-publication retraction.",
+      "reference": "/guidelines#figures"
+    },
+    {
+      "id": "q6",
+      "section": "guidelines",
+      "text": "What is REQUIRED in your Data Availability Statement?",
+      "options": [
+        "A statement that 'data is available upon request'",
+        "Specific location (repository DOI/URL) where data can be accessed",
+        "Only raw data files attached to the manuscript"
+      ],
+      "correct": 1,
+      "feedback": "✅ Correct. SOLAV requires specific, persistent identifiers (DOI/URL) to publicly accessible data repositories (Zenodo, Figshare, institutional repos). 'Available upon request' statements are insufficient per FAIR data principles and may delay publication.",
+      "reference": "/guidelines#backMatter"
+    },
+    {
+      "id": "q7",
+      "section": "guidelines",
+      "text": "Your research involved human participants. What documentation is REQUIRED?",
+      "options": [
+        "A statement that 'ethical standards were followed'",
+        "Institutional Review Board (IRB) approval number or exemption documentation",
+        "Signed consent forms from all participants attached to submission"
+      ],
+      "correct": 1,
+      "feedback": "✅ Correct. SOLAV requires IRB approval number or formal exemption documentation in the Methods section. For independent researchers without institutional IRB access, we accept ethics review from independent boards (e.g., Advarra, independent ethics committees) or detailed justification of exempt status per Declaration of Helsinki.",
+      "reference": "/ethics#authors"
+    },
+    {
+      "id": "q8",
+      "section": "guidelines",
+      "text": "Which reference format does SOLAV require?",
+      "options": [
+        "Vancouver (numbered) style",
+        "APA 7th edition",
+        "Chicago author-date style"
+      ],
+      "correct": 1,
+      "feedback": "✅ Correct. SOLAV uses APA 7th edition for all references. Use reference managers (Zotero, Mendeley) with APA 7th style. Verify all DOIs are active and include DOIs/URLs for all accessible sources including datasets and software.",
+      "reference": "/guidelines#references"
+    },
+    {
+      "id": "q9",
+      "section": "ethics",
+      "text": "You have a financial relationship with a company whose product is evaluated in your study. How must you disclose this?",
+      "options": [
+        "No disclosure needed if the relationship didn't influence results",
+        "Disclose in Conflict of Interest statement regardless of influence",
+        "Only disclose if the company funded the research"
+      ],
+      "correct": 1,
+      "feedback": "✅ Correct. All potential conflicts (financial, personal, professional) must be disclosed in the Conflict of Interest statement per ICMJE guidelines — even if you believe they didn't influence the work. Transparency is required; editors/journals assess whether conflicts affect interpretation.",
+      "reference": "/conflict-of-interest"
+    },
+    {
+      "id": "q10",
+      "section": "guidelines",
+      "text": "Your manuscript is 9,500 words for a Research Article. Is this acceptable?",
+      "options": [
+        "Yes — word limits are flexible guidelines",
+        "No — Research Articles must not exceed 8,000 words including references",
+        "Only if you pay an additional APC for longer manuscripts"
+      ],
+      "correct": 1,
+      "feedback": "✅ Correct. Research Articles have a strict 8,000-word limit including abstract, main text, references, and figure/table legends. Exceeding limits causes desk rejection. Consider splitting into two manuscripts or submitting as a Review Article (10,000-word limit) if appropriate.",
+      "reference": "/guidelines#article-types"
+    },
+    {
+      "id": "q11",
+      "section": "ethics",
+      "text": "You discover that a co-author included fabricated data in your manuscript after submission. What is the CORRECT action?",
+      "options": [
+        "Ignore it — the co-author is responsible for their own data",
+        "Immediately contact the journal editor to report the issue and request withdrawal",
+        "Wait until peer review is complete before addressing it"
+      ],
+      "correct": 1,
+      "feedback": "✅ Correct. Per COPE guidelines, you must immediately notify the journal of data fabrication. Failure to report known misconduct makes you complicit. The editor will guide withdrawal and investigation procedures.",
+      "reference": "/ethics#misconduct"
+    },
+    {
+      "id": "q12",
+      "section": "guidelines",
+      "text": "Your manuscript includes patient data from a clinical study. What documentation is REQUIRED?",
+      "options": [
+        "A statement that 'data was collected ethically'",
+        "Institutional Review Board (IRB) approval number and patient consent documentation",
+        "Only author signatures confirming ethical collection"
+      ],
+      "correct": 1,
+      "feedback": "✅ Correct. SOLAV requires IRB approval number AND documented patient consent (written or verbal with documentation) for all human subject research. For retrospective studies using anonymized data, formal IRB exemption documentation is required.",
+      "reference": "/ethics#authors"
+    },
+    {
+      "id": "q13",
+      "section": "ethics",
+      "text": "Which statement about authorship order is CORRECT?",
+      "options": [
+        "Order should reflect contribution significance, with corresponding author typically listed last or first",
+        "Alphabetical order is always required for fairness",
+        "The most senior author must always be listed first regardless of contribution"
+      ],
+      "correct": 1,
+      "feedback": "✅ Correct. Author order should reflect relative contribution (first author = primary contributor, last author = senior/PI). Corresponding author may be listed anywhere but must be clearly marked. Discuss and agree on order before submission to avoid disputes.",
+      "reference": "/guidelines#authors"
+    },
+    {
+      "id": "q14",
+      "section": "guidelines",
+      "text": "You're submitting a Review Article. What is the MAXIMUM word count?",
+      "options": [
+        "5,000 words",
+        "8,000 words",
+        "10,000 words including references"
+      ],
+      "correct": 2,
+      "feedback": "✅ Correct. Review Articles have a 10,000-word limit including abstract, main text, references, and figure/table legends. Exceeding this limit causes desk rejection. Consider splitting comprehensive reviews into multiple manuscripts if scope is too broad.",
+      "reference": "/guidelines#article-types"
+    },
+    {
+      "id": "q15",
+      "section": "ethics",
+      "text": "Your research was funded by a pharmaceutical company that manufactures a product evaluated in your study. How must this be disclosed?",
+      "options": [
+        "No disclosure needed if the company didn't influence results",
+        "Disclose funding source AND any potential conflicts in separate statements",
+        "Only mention funding in acknowledgments section"
+      ],
+      "correct": 1,
+      "feedback": "✅ Correct. All funding sources AND potential conflicts must be disclosed in dedicated sections. Funding statement: 'This research was funded by [Company].' Conflict statement: '[Author] has received consulting fees from [Company].' Transparency is required regardless of influence.",
+      "reference": "/conflict-of-interest"
+    },
+    {
+      "id": "q16",
+      "section": "guidelines",
+      "text": "Your manuscript includes a table with statistical results. What information is REQUIRED?",
+      "options": [
+        "Only p-values for significant results",
+        "Effect sizes, confidence intervals, and measures of variation (SD/SE) for all reported statistics",
+        "Raw data values for every measurement"
+      ],
+      "correct": 1,
+      "feedback": "✅ Correct. SOLAV requires complete statistical reporting: effect sizes, confidence intervals, and measures of variation (standard deviation, standard error, or confidence intervals) for all statistical tests. Reporting only p-values is insufficient and may lead to revision requests.",
+      "reference": "/guidelines#tables"
+    },
+    {
+      "id": "q17",
+      "section": "ethics",
+      "text": "You want to use an image from a previously published paper in your manuscript. What is REQUIRED?",
+      "options": [
+        "Citation only — no permission needed for scholarly use",
+        "Written permission from copyright holder AND proper citation",
+        "Only permission from the original authors (not publisher)"
+      ],
+      "correct": 1,
+      "feedback": "✅ Correct. Using copyrighted images requires BOTH written permission from the copyright holder (usually publisher) AND proper citation. SOLAV requires proof of permission during submission. Fair use exceptions are narrow and do not typically apply to published journal figures.",
+      "reference": "/guidelines#figures"
+    },
+    {
+      "id": "q18",
+      "section": "guidelines",
+      "text": "Your manuscript includes supplementary material (datasets, code). Where should this be hosted?",
+      "options": [
+        "Attached as files to the submission system only",
+        "In a public, persistent repository (Zenodo, GitHub, institutional repo) with DOI/URL in manuscript",
+        "On your personal website with link in manuscript"
+      ],
+      "correct": 1,
+      "feedback": "✅ Correct. Supplementary materials must be hosted in public, persistent repositories (Zenodo, Figshare, GitHub with Zenodo integration, institutional repositories) with DOIs or stable URLs. Personal websites are not acceptable due to link rot risk. Include repository links in Data Availability Statement.",
+      "reference": "/guidelines#preparation"
+    },
+    {
+      "id": "q19",
+      "section": "ethics",
+      "text": "During peer review, you realize your manuscript contains a significant error in methodology. What should you do?",
+      "options": [
+        "Wait until after publication to issue a correction",
+        "Contact the editor immediately to explain the error and provide corrected version",
+        "Ignore it — reviewers will catch it during review"
+      ],
+      "correct": 1,
+      "feedback": "✅ Correct. If you discover errors during review, immediately contact the editor with explanation and corrected manuscript. Transparency during review is viewed favorably. Waiting until after publication requires formal correction/retraction, which is more damaging to credibility.",
+      "reference": "/corrections-retractions"
+    },
+    {
+      "id": "q20",
+      "section": "guidelines",
+      "text": "Your manuscript uses non-standard abbreviations. How should these be handled?",
+      "options": [
+        "Define all abbreviations at first use, then use abbreviated form throughout",
+        "Use abbreviations without definition if they're commonly known in your field",
+        "Include a separate abbreviations list at the end of the manuscript"
+      ],
+      "correct": 1,
+      "feedback": "✅ Correct. All non-standard abbreviations must be defined at first use (e.g., 'artificial intelligence (AI)') and then used in abbreviated form throughout. Standard abbreviations (DNA, RNA, HIV) may be used without definition. Avoid excessive abbreviations that hinder readability.",
+      "reference": "/guidelines#preparation"
+    },
+    {
+      "id": "q21",
+      "section": "ethics",
+      "text": "You're reviewing a manuscript for SOLAV and realize the authors are your direct competitors. What should you do?",
+      "options": [
+        "Proceed with review — competition doesn't affect objectivity",
+        "Decline the review and inform the editor of the conflict",
+        "Review but focus only on minor issues to avoid helping competitors"
+      ],
+      "correct": 1,
+      "feedback": "✅ Correct. You must decline the review and inform the editor of the conflict. Reviewing work from direct competitors creates a conflict of interest that compromises review integrity. Editors appreciate transparency and will find alternative reviewers.",
+      "reference": "/review"
+    },
+    {
+      "id": "q22",
+      "section": "guidelines",
+      "text": "Your manuscript includes animal research. What documentation is REQUIRED?",
+      "options": [
+        "A statement that 'animals were treated humanely'",
+        "Institutional Animal Care and Use Committee (IACUC) approval number or equivalent ethics documentation",
+        "Only photographs showing animals in good condition"
+      ],
+      "correct": 1,
+      "feedback": "✅ Correct. SOLAV requires IACUC or equivalent ethics committee approval number/documentation for all animal research. Include approval number in Methods section. For studies in countries without formal IACUC, provide detailed justification of ethical treatment following ARRIVE guidelines.",
+      "reference": "/ethics#authors"
+    },
+    {
+      "id": "q23",
+      "section": "ethics",
+      "text": "You discover plagiarism in a published SOLAV article. What is the CORRECT reporting procedure?",
+      "options": [
+        "Contact the authors directly to demand correction",
+        "Report to SOLAV Ethics Committee at ethics@solav.me with evidence",
+        "Post about it on social media to alert the community"
+      ],
+      "correct": 1,
+      "feedback": "✅ Correct. Report suspected plagiarism to SOLAV Ethics Committee at ethics@solav.me with specific evidence (original source, plagiarized text, page numbers). All reports are treated confidentially and investigated following COPE guidelines. Public accusations before investigation are unethical.",
+      "reference": "/ethics#misconduct"
+    },
+    {
+      "id": "q24",
+      "section": "guidelines",
+      "text": "Your manuscript includes mathematical equations. How should these be formatted?",
+      "options": [
+        "As plain text with asterisks for multiplication",
+        "Using MathType or Equation Editor with consecutive numbering",
+        "As images of handwritten equations"
+      ],
+      "correct": 1,
+      "feedback": "✅ Correct. All equations must be created using MathType or Word's Equation Editor (not images) and numbered consecutively in parentheses on the right margin (e.g., (1), (2)). This ensures accessibility, editability, and proper rendering in all formats.",
+      "reference": "/guidelines#preparation"
+    },
+    {
+      "id": "q25",
+      "section": "ethics",
+      "text": "Your research involves indigenous communities. What additional ethical consideration is REQUIRED?",
+      "options": [
+        "Standard IRB approval is sufficient",
+        "Community engagement, informed consent from community leaders, and benefit-sharing agreements",
+        "Only individual participant consent is needed"
+      ],
+      "correct": 1,
+      "feedback": "✅ Correct. Research involving indigenous communities requires community-level engagement, consent from recognized leaders/elders, and benefit-sharing agreements beyond standard IRB approval. SOLAV follows CARE principles (Collective Benefit, Authority to Control, Responsibility, Ethics) for indigenous data governance.",
+      "reference": "/ethics"
+    }
+  ]
+}
