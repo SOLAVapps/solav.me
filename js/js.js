@@ -307,7 +307,7 @@ function setupFingerprintModal() {
   `;
   document.body.appendChild(modal);
   
-  // Add event listeners after modal is in DOM
+
   setTimeout(() => {
     updateModalConsentStatus();
     
@@ -375,3 +375,118 @@ function showToast(message) {
   });
 }
 
+class KnowledgeCheck {
+  constructor(container, section) {
+    this.container = container;
+    this.section = section;
+    this.questions = [];
+    this.current = 0;
+    this.init();
+  }
+
+  async init() {
+    try {
+      if (!this.container) return;
+      
+      const res = await fetch('/data/akc.json?v=20260222');
+      if (!res.ok) throw new Error('Failed to load knowledge checks');
+      
+      const data = await res.json();
+      this.questions = data.questions.filter(q => q.section === this.section);
+      
+      if (this.questions.length > 0) {
+        this.render();
+      } else {
+        this.container.innerHTML = '<p class="text-muted">No knowledge checks available for this section.</p>';
+      }
+    } catch (e) {
+      console.error('Knowledge checks failed to load:', e);
+      if (this.container) {
+        this.container.innerHTML = '<p class="text-muted">Knowledge checks unavailable. Please try again later.</p>';
+      }
+    }
+  }
+
+  render() {
+    if (this.current >= this.questions.length) {
+      this.container.innerHTML = `
+        <div class="knowledge-check">
+          <h4><i class="bi bi-check-circle-fill"></i> Knowledge Check Complete</h4>
+          <p>You've reviewed key requirements for ${this.section === 'ethics' ? 'publication ethics' : 'manuscript preparation'}. These checks are purely educational — no certificate is issued.</p>
+          <div class="kc-disclaimer">
+            <strong>Note:</strong> Knowledge checks are optional self-assessment tools. They do not affect submission eligibility or peer review outcomes.
+          </div>
+        </div>
+      `;
+      return;
+    }
+
+    const q = this.questions[this.current];
+    this.container.innerHTML = `
+      <div class="knowledge-check">
+        <h4><i class="bi bi-question-circle-fill"></i> Knowledge Check #${this.current + 1} of ${this.questions.length}</h4>
+        <p class="mb-3">${q.text}</p>
+        <div class="kc-options" id="kc-options-${q.id}">
+          ${q.options.map((opt, idx) => `
+            <div class="kc-option" data-index="${idx}">
+              ${opt}
+            </div>
+          `).join('')}
+        </div>
+        <div class="kc-feedback" id="kc-feedback-${q.id}"></div>
+        <div class="kc-actions">
+          <button class="btn btn-sm btn-primary" id="kc-check-${q.id}" disabled>Check Answer</button>
+          <button class="btn btn-sm btn-outline-secondary" id="kc-next-${q.id}" style="display:none">Next Question</button>
+        </div>
+        <div class="kc-disclaimer">
+          <strong>Educational purpose only:</strong> These checks help authors avoid common submission errors. No certificate is issued, and completion is not required for manuscript submission.
+        </div>
+      </div>
+    `;
+
+    document.querySelectorAll(`#kc-options-${q.id} .kc-option`).forEach(el => {
+      el.addEventListener('click', () => {
+        document.querySelectorAll(`#kc-options-${q.id} .kc-option`).forEach(o => o.classList.remove('selected'));
+        el.classList.add('selected');
+        document.getElementById(`kc-check-${q.id}`).disabled = false;
+      });
+    });
+
+    document.getElementById(`kc-check-${q.id}`).addEventListener('click', () => {
+      const selected = document.querySelector(`#kc-options-${q.id} .kc-option.selected`);
+      if (!selected) return;
+      
+      const selectedIndex = parseInt(selected.dataset.index);
+      const feedbackEl = document.getElementById(`kc-feedback-${q.id}`);
+      
+      if (selectedIndex === q.correct) {
+        feedbackEl.className = 'kc-feedback correct show';
+        feedbackEl.innerHTML = `<strong>Correct:</strong> ${q.feedback} ${q.reference ? `<br><a href="${q.reference}" class="btn btn-sm btn-outline-primary mt-2">Review policy section</a>` : ''}`;
+      } else {
+        feedbackEl.className = 'kc-feedback incorrect show';
+        feedbackEl.innerHTML = `<strong>Incorrect:</strong> ${q.feedback} ${q.reference ? `<br><a href="${q.reference}" class="btn btn-sm btn-outline-primary mt-2">Review policy section</a>` : ''}`;
+      }
+      
+      document.getElementById(`kc-check-${q.id}`).style.display = 'none';
+      document.getElementById(`kc-next-${q.id}`).style.display = 'inline-block';
+    });
+
+    document.getElementById(`kc-next-${q.id}`).addEventListener('click', () => {
+      this.current++;
+      this.render();
+    });
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  const ethicsCheck = document.getElementById('knowledge-check-ethics');
+  if (ethicsCheck) {
+    new KnowledgeCheck(ethicsCheck, 'ethics');
+  }
+  
+  const guidelinesCheck = document.getElementById('knowledge-check-guidelines');
+  if (guidelinesCheck) {
+    new KnowledgeCheck(guidelinesCheck, 'guidelines');
+  }
+
+});
