@@ -28,15 +28,10 @@
 		<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 		<link href="/css/swiper.css" rel="stylesheet">
-		<link href="/css/style.css?20260215" rel="stylesheet">
+		<link href="/css/style.css?v=20260222" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-RE3FS524EK"></script>
 		<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-		gtag('config', 'G-RE3FS524EK');
-		!function(){const e=localStorage.getItem("theme"),t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light",a=e||t;document.documentElement.setAttribute("data-bs-theme",a)}();
+		!function(){const e=localStorage.getItem("theme"),t=window.matchMedia("(prefers-color-scheme: dark)").matches,n=e||(t?"dark":"light");document.documentElement.setAttribute("data-bs-theme",n),"undefined"!=typeof document&&document.addEventListener("DOMContentLoaded",(function(){const e=document.getElementById("theme-mode");e&&(e.checked="dark"===n,e.addEventListener("change",(function(){const e=this.checked?"dark":"light";document.documentElement.setAttribute("data-bs-theme",e),localStorage.setItem("theme",e)})))}))}();
 		</script>
 		<script type="application/ld+json">
 		{
@@ -703,7 +698,7 @@
 						</div>
 						<div class="col-md-6 order-md-1">
 							<p class="mb-0 h-100">
-								<strong>Your privacy matters</strong>. We use cookies to enhance your visit and analyze site traffic. By continuing to browse, you agree to our use of cookies.
+								<strong>Your privacy matters</strong>. Essential cookies enable core functionality. Analytics cookies require consent.
 								<br>&copy; <span id="currentYear"></span> SOLAV Journal. This is an open access journal distributed under the 
 								<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" class="link-primary link-underline-opacity-25 link-underline-opacity-100-hover link-offset-2">Creative Commons Attribution License (CC BY 4.0)</a>.
 							</p>
@@ -715,7 +710,7 @@
 	
 		<script src="/js/jarallax.js"></script>
 		<script src="/js/swiper.js"></script>
-		<script src="/js/js.js"></script>
+		<script src="/js/js.js?v=20260222"></script>
 		<script>
 			document.querySelectorAll('.mobile-nav-link').forEach(function(link) { link.addEventListener('click', function() { document.querySelectorAll('.offcanvas.show').forEach(function(el) { const instance = bootstrap.Offcanvas.getInstance(el); if (instance) { instance.hide(); } }); }); });
 			document.getElementById('currentYear').textContent = new Date().getFullYear();
