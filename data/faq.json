@@ -778,7 +778,7 @@
 		{
 			"id": "PRIV-003",
 			"question": "Can I request deletion of my data?",
-			"answer": "Data removal requests may be submitted to contact@solav.me subject to legal and archival requirements.",
+			"answer": "Data removal requests may be submitted to contact@solav.me subject to legal and archival requirements. Note: Research data deposited in external repositories (e.g., Zenodo) is governed by that repository's policies.",
 			"links": ["https://solav.me/submit"]
 		},
 		{
