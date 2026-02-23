@@ -82,14 +82,14 @@
 		{
 			"id": "SUB-001",
 			"question": "How do I submit a manuscript?",
-			"answer": "Manuscripts must be submitted electronically through the official submission form on the journal website.",
-			"links": ["https://solav.me/submit"]
+			"answer": "Manuscripts must be submitted electronically through the Online Submission Form.",
+			"links": ["https://solav.me/guidelines", "https://solav.me/submit"]
 		},
 		{
 			"id": "SUB-002",
 			"question": "Do I need to create an account to submit?",
 			"answer": "Submission is conducted through the journal’s online form and does not require a traditional user account.",
-			"links": ["https://solav.me/submit"]
+			"links": ["https://solav.me/guidelines", "https://solav.me/submit"]
 		},
 		{
 			"id": "SUB-003",
@@ -101,13 +101,13 @@
 			"id": "SUB-004",
 			"question": "Can I submit more than one manuscript at the same time?",
 			"answer": "Yes. Authors may submit multiple manuscripts provided each meets ethical and originality requirements.",
-			"links": ["https://solav.me/submit"]
+			"links": ["https://solav.me/guidelines", "https://solav.me/submit"]
 		},
 		{
 			"id": "SUB-005",
 			"question": "Is simultaneous submission to other journals allowed?",
 			"answer": "No. Manuscripts must not be under consideration elsewhere during submission to SOLAV.",
-			"links": ["https://solav.me/submit"]
+			"links": ["https://solav.me/guidelines", "https://solav.me/submit"]
 		}
 		]
 	},
@@ -142,7 +142,7 @@
 		{
 			"id": "GUIDE-005",
 			"question": "What reference style does SOLAV use?",
-			"answer": "Authors must follow the citation and reference style specified in the Author Guidelines.",
+			"answer": "Authors must follow APA 7th Edition style as specified in the Author Guidelines.",
 			"links": ["https://solav.me/guidelines"]
 		}
 		]
@@ -178,7 +178,7 @@
 		{
 			"id": "APC-005",
 			"question": "How do I apply for an APC waiver?",
-			"answer": "Authors should request waivers during submission or contact the editorial office with supporting information as described on the APC page.",
+			"answer": "Authors should request waivers during submission or contact the APC team at apc@solav.me with supporting information as described on the APC page.",
 			"links": ["https://solav.me/apc", "https://solav.me/submit"]
 		},
 		{
@@ -214,7 +214,7 @@
 		{
 			"id": "REV-003",
 			"question": "How long does the peer review process take?",
-			"answer": "Review timelines vary depending on reviewer availability and manuscript complexity. Typical review cycles are outlined on the Peer Review page.",
+			"answer": "The median peer review cycle is 4-6 weeks. Timelines vary depending on reviewer availability and manuscript complexity.",
 			"links": ["https://solav.me/review"]
 		},
 		{
@@ -232,8 +232,8 @@
 		{
 			"id": "REV-006",
 			"question": "Can I appeal an editorial decision?",
-			"answer": "Authors may submit a reasoned appeal supported by evidence. Appeals are reviewed by senior editors according to journal policy.",
-			"links": ["https://solav.me/review", "https://solav.me/submit"]
+			"answer": "Authors may submit a reasoned appeal supported by evidence. Appeals are reviewed by senior editors according to journal policy. Contact editorial@solav.me for appeal procedures.",
+			"links": ["https://solav.me/review", "https://solav.me/appeals-complaints"]
 		}
 		]
 	},
@@ -292,8 +292,8 @@
 		{
 			"id": "ETH-003",
 			"question": "How are ethical complaints investigated?",
-			"answer": "Complaints are reviewed confidentially by editors following structured investigation procedures.",
-			"links": ["https://solav.me/submit"]
+			"answer": "Complaints are reviewed confidentially by the Ethics Committee following structured investigation procedures. Contact ethics@solav.me to report concerns.",
+			"links": ["https://solav.me/ethics"]
 		},
 		{
 			"id": "ETH-004",
@@ -305,7 +305,7 @@
 			"id": "ETH-005",
 			"question": "What happens if misconduct is confirmed?",
 			"answer": "Confirmed misconduct may result in rejection, retraction, public notice, and institutional notification.",
-			"links": ["https://solav.me/submit"]
+			"links": ["https://solav.me/ethics"]
 		}
 		]
 	},
@@ -347,7 +347,7 @@
 			"id": "CORR-001",
 			"question": "Can published articles be corrected?",
 			"answer": "Yes. Minor errors may be corrected through formal corrigenda or errata notices.",
-			"links": ["https://solav.me/submit"]
+			"links": ["https://solav.me/corrections-retractions"]
 		},
 		{
 			"id": "CORR-002",
@@ -365,7 +365,7 @@
 			"id": "CORR-004",
 			"question": "Are retracted articles removed from the website?",
 			"answer": "Retracted articles remain accessible with clear retraction notices to preserve the scholarly record.",
-			"links": ["https://solav.me/submit"]
+			"links": ["https://solav.me/corrections-retractions"]
 		}
 		]
 	},
@@ -389,19 +389,19 @@
 			"id": "AUTH-003",
 			"question": "What is a conflict of interest?",
 			"answer": "A conflict exists when personal, financial, or professional relationships could influence research interpretation.",
-			"links": ["https://solav.me/submit"]
+			"links": ["https://solav.me/ethics", "https://solav.me/conflict-of-interest"]
 		},
 		{
 			"id": "AUTH-004",
 			"question": "How should conflicts be disclosed?",
 			"answer": "All conflicts must be declared during submission and in the manuscript if applicable.",
-			"links": ["https://solav.me/submit"]
+			"links": ["https://solav.me/ethics", "https://solav.me/conflict-of-interest"]
 		},
 		{
 			"id": "AUTH-005",
 			"question": "How are authorship disputes resolved?",
 			"answer": "Disputes are handled according to COPE procedures and may involve institutional mediation.",
-			"links": ["https://solav.me/submit"]
+			"links": ["https://solav.me/ethics", "https://solav.me/conflict-of-interest"]
 		}
 		]
 	},
@@ -454,8 +454,8 @@
 		{
 			"id": "IND-002",
 			"question": "Is SOLAV listed in international databases?",
-			"answer": "The journal actively seeks inclusion in recognized indexing and abstracting services. Current coverage and applications are maintained by the editorial office.",
-			"links": ["https://solav.me/about"]
+			"answer": "SOLAV is a CORE Approved Provider (ID 25920) and is indexed in WorldCat, Google Scholar, and OpenAlex. Applications for additional services are maintained by the editorial office.",
+			"links": ["https://solav.me/about", "https://solav.me/archiving"]
 		},
 		{
 			"id": "IND-003",
@@ -508,7 +508,7 @@
 		{
 			"id": "OAI-005",
 			"question": "Who should be contacted for technical harvesting issues?",
-			"answer": "Technical support contact details are listed on the OAI-PMH and About pages.",
+			"answer": "Contact support@solav.me for technical harvesting issues. Details are listed on the OAI-PMH and About pages.",
 			"links": ["https://solav.me/oai-pmh", "https://solav.me/about"]
 		}
 		]
@@ -658,8 +658,8 @@
 		{
 			"id": "TRACK-003",
 			"question": "What should I do if my status has not changed for a long time?",
-			"answer": "Authors may contact the editorial office via the Submit or About pages to request an update.",
-			"links": ["https://solav.me/submit", "https://solav.me/about"]
+			"answer": "Authors may contact the editorial office at editorial@solav.me to request an update.",
+			"links": ["https://solav.me/track", "https://solav.me/about"]
 		},
 		{
 			"id": "TRACK-004",
@@ -737,7 +737,7 @@
 			"id": "TECH-005",
 			"question": "Does SOLAV use cookies?",
 			"answer": "Cookies may be used for essential site functionality in accordance with the Privacy Policy.",
-			"links": ["https://solav.me/submit"]
+			"links": ["https://solav.me/privacy"]
 		}
 		]
 	},
@@ -749,7 +749,7 @@
 			"id": "PRIV-001",
 			"question": "How does SOLAV protect personal data?",
 			"answer": "Personal data is collected and processed in accordance with the Privacy Policy and applicable data protection regulations.",
-			"links": ["https://solav.me/submit"]
+			"links": ["https://solav.me/privacy"]
 		},
 		{
 			"id": "PRIV-002",
@@ -760,14 +760,14 @@
 		{
 			"id": "PRIV-003",
 			"question": "Can I request deletion of my data?",
-			"answer": "Data removal requests may be submitted to the editorial office subject to legal and archival requirements.",
+			"answer": "Data removal requests may be submitted to contact@solav.me subject to legal and archival requirements.",
 			"links": ["https://solav.me/submit"]
 		},
 		{
 			"id": "PRIV-004",
 			"question": "Is SOLAV compliant with GDPR principles?",
 			"answer": "SOLAV applies data protection practices consistent with international privacy regulations including GDPR principles.",
-			"links": ["https://solav.me/submit"]
+			"links": ["https://solav.me/privacy"]
 		}
 		]
 	},
@@ -779,19 +779,19 @@
 			"id": "ACC-001",
 			"question": "Is the SOLAV website accessible to users with disabilities?",
 			"answer": "SOLAV strives to meet accessibility standards and provides features to improve usability for all users.",
-			"links": ["https://solav.me/submit"]
+			"links": ["https://solav.me/accessibility"]
 		},
 		{
 			"id": "ACC-002",
 			"question": "Can alternative formats be requested?",
 			"answer": "Users may request alternative formats for accessibility purposes by contacting the editorial office.",
-			"links": ["https://solav.me/submit"]
+			"links": ["https://solav.me/accessibility"]
 		},
 		{
 			"id": "ACC-003",
 			"question": "How can accessibility issues be reported?",
 			"answer": "Accessibility concerns should be reported using the contact information provided on the website.",
-			"links": ["https://solav.me/about"]
+			"links": ["https://solav.me/accessibility", "https://solav.me/about"]
 		}
 		]
 	},
@@ -802,8 +802,8 @@
 		{
 			"id": "COMP-001",
 			"question": "How can I submit a formal complaint?",
-			"answer": "Complaints should be submitted in writing to the editorial office with supporting documentation.",
-			"links": ["https://solav.me/submit"]
+			"answer": "Complaints should be submitted in writing to contact@solav.me with supporting documentation.",
+			"links": ["https://solav.me/appeals-complaints",  "https://solav.me/ethics"]
 		},
 		{
 			"id": "COMP-002",
@@ -821,7 +821,7 @@
 			"id": "COMP-004",
 			"question": "Can I report unethical behavior anonymously?",
 			"answer": "Anonymous reports may be considered where sufficient evidence is provided.",
-			"links": ["https://solav.me/submit"]
+			"links": ["https://solav.me/appeals-complaints",  "https://solav.me/ethics"]
 		}
 		]
 	},
@@ -832,7 +832,7 @@
 		{
 			"id": "CONT-001",
 			"question": "How can I contact the editorial office?",
-			"answer": "Contact details are available on the About and Submit pages.",
+			"answer": "Contact details are available on the About and Submit pages. General inquiries: contact@solav.me.",
 			"links": ["https://solav.me/about", "https://solav.me/submit"]
 		},
 		{
