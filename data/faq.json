@@ -214,7 +214,7 @@
 		{
 			"id": "REV-003",
 			"question": "How long does the peer review process take?",
-			"answer": "The median peer review cycle is 4-6 weeks. Timelines vary depending on reviewer availability and manuscript complexity.",
+			"answer": "The median peer review cycle is 4-6 weeks (median). Timelines vary depending on reviewer availability and manuscript complexity.",
 			"links": ["https://solav.me/review"]
 		},
 		{
@@ -570,6 +570,24 @@
 			"question": "Can archived articles be updated?",
 			"answer": "Only through formal correction or retraction procedures to preserve record integrity.",
 			"links": ["https://solav.me/archiving", "https://solav.me/submit"]
+		},
+		{
+			"id":  "ARCH-005 ",
+			"question": "Is data sharing mandatory for publication?",
+			"answer": "Yes. Authors must deposit data in a public repository and include a Data Availability Statement. Exemptions are granted for privacy, legal, or ethical constraints with justification.",
+			"links": ["https://solav.me/guidelines", "https://solav.me/ethics"]
+		},
+		{
+			"id": "ARCH-006 ",
+			"question": "Which repositories are recommended for data?",
+			"answer": "Trusted repositories include Zenodo, Figshare, OSF, Dryad, or discipline-specific repositories. Data must receive a persistent identifier (DOI or URL).",
+			"links": ["https://solav.me/archiving"]
+		},
+		{
+			"id": "ARCH-007",
+			"question": "What license should be applied to shared data?",
+			"answer": "CC0 (Public Domain Dedication) or CC BY 4.0 are recommended to maximize reuse. Restrictions must be justified in the Data Availability Statement.",
+			"links ": ["https://solav.me/access"]
 		}
 		]
 	},
