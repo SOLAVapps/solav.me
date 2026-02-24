@@ -92,6 +92,7 @@ function setupFingerprintModal() {
   btn.className = 'btn btn-primary rounded-circle d-flex align-items-center justify-content-center me-3 shadow-lg position-fixed start-0 bottom-0 m-3 px-1';
   btn.setAttribute('data-bs-toggle', 'modal');
   btn.setAttribute('data-bs-target', '#privacyModal');
+  btn.setAttribute('data-default-tab', 'servicesTab');
   btn.style.zIndex = '1030';
   btn.style.width = '48px';
   btn.style.minWidth = '48px';
@@ -307,6 +308,27 @@ function setupFingerprintModal() {
   `;
   document.body.appendChild(modal);
   
+  const modalEl = document.getElementById('privacyModal');
+  
+  modalEl.addEventListener('show.bs.modal', function(event) {
+    const trigger = event.relatedTarget;
+    const targetTab = trigger?.getAttribute('data-activate-tab') || 
+                      trigger?.getAttribute('data-default-tab');
+    if (targetTab) {
+      modalEl.dataset.targetTab = targetTab;
+    }
+  });
+  
+  modalEl.addEventListener('shown.bs.modal', function() {
+    const targetTab = this.dataset.targetTab;
+    if (targetTab) {
+      const tabTriggerEl = document.querySelector(`[data-bs-target="#${targetTab}"]`);
+      if (tabTriggerEl) {
+        new bootstrap.Tab(tabTriggerEl).show();
+      }
+      delete this.dataset.targetTab;
+    }
+  });
 
   setTimeout(() => {
     updateModalConsentStatus();
