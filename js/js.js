@@ -434,7 +434,7 @@ class KnowledgeCheck {
       this.container.innerHTML = `
         <div class="knowledge-check">
           <h4><i class="bi bi-check-circle-fill"></i> Knowledge Check Complete</h4>
-          <p>You've reviewed key requirements for ${this.section === 'ethics' ? 'publication ethics' : 'manuscript preparation'}. These checks are purely educational — no certificate is issued.</p>
+          <p>You've reviewed key requirements for ${this.section === 'ethics' ? 'publication ethics' : 'manuscript preparation'}. These checks are purely educational.</p>
           <div class="kc-disclaimer">
             <strong>Note:</strong> Knowledge checks are optional self-assessment tools. They do not affect submission eligibility or peer review outcomes.
           </div>
@@ -461,7 +461,7 @@ class KnowledgeCheck {
           <button class="btn btn-sm btn-outline-secondary" id="kc-next-${q.id}" style="display:none">Next Question</button>
         </div>
         <div class="kc-disclaimer">
-          <strong>Educational purpose only:</strong> These checks help authors avoid common submission errors. No certificate is issued, and completion is not required for manuscript submission.
+          <strong>Educational purpose only:</strong> These checks help authors avoid common submission errors. Completion is not required for manuscript submission.
         </div>
       </div>
     `;
