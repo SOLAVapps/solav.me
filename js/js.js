@@ -243,7 +243,7 @@ function setupFingerprintModal() {
               <li>Google Analytics is disabled by default and requires explicit consent before activation</li>
               <li>No personal data is sold or shared for advertising purposes</li>
               <li>Full privacy policy available at <a href="/privacy">solav.me/privacy</a></li>
-              <li>Data protection contact: <a href="mailto:privacy@solav.me">privacy@solav.me</a></li>
+              <li>Data protection contact: <a href="mailto:contact@solav.me">contact@solav.me</a></li>
             </ul>
           </div>
         </div>
@@ -293,7 +293,7 @@ function setupFingerprintModal() {
           <div class="mt-4 p-3 bg-light rounded">
             <p class="mb-0 small">
               <strong>Need help?</strong> Contact our data protection team at 
-              <a href="mailto:privacy@solav.me">privacy@solav.me</a>
+              <a href="mailto:contact@solav.me">contact@solav.me</a>
             </p>
           </div>
         </div>
