@@ -46,13 +46,15 @@ function showCookieBannerIfNeeded() {
   
   const banner = document.createElement('div');
   banner.id = 'cookieConsent';
-  banner.className = 'fixed-bottom bg-light border-top shadow p-3';
+  banner.className = 'fixed-bottom bg-light border-top p-3 shadow-lg pb-4';
   banner.style.zIndex = '9999';
-  banner.style.display = 'none';
+  banner.style.opacity = '0';
+  banner.style.transform = 'translateY(100%)';
+  banner.style.transition = 'opacity 0.5s ease, transform 1s ease';
   banner.innerHTML = `
     <div class="container">
       <div class="row align-items-center">
-        <div class="col-md-8 mb-2 mb-md-0">
+        <div class="col-md-8 mb-3 mb-md-0">
           <p class="mb-0">
             <strong>Cookie Preferences</strong><br>
             <small>Essential cookies enable core functionality. Analytics cookies require your consent.</small>
@@ -68,22 +70,30 @@ function showCookieBannerIfNeeded() {
   document.body.appendChild(banner);
   
   setTimeout(() => {
-    banner.style.display = 'block';
+    banner.style.opacity = '1';
+    banner.style.transform = 'translateY(0)';
   }, 2000);
   
   document.getElementById('acceptAnalytics').addEventListener('click', function() {
     localStorage.setItem('solav_cookie_consent', 'analytics_granted');
-    banner.style.display = 'none';
+    hideBanner(banner);
     loadGoogleAnalytics();
     updateModalConsentStatus();
   });
   
   document.getElementById('rejectAnalytics').addEventListener('click', function() {
     localStorage.setItem('solav_cookie_consent', 'analytics_denied');
-    banner.style.display = 'none';
+    hideBanner(banner);
     blockGoogleAnalytics();
     updateModalConsentStatus();
   });
+  function hideBanner(banner) {
+    banner.style.opacity = '0';
+    banner.style.transform = 'translateY(100%)';
+    setTimeout(() => {
+      banner.remove();
+    }, 500);
+  }
 }
 
 function setupFingerprintModal() {
