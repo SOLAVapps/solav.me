@@ -118,7 +118,7 @@
 		<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 		<link href="/css/swiper.css" rel="stylesheet">
-		<link href="/css/style.css?v=20260224" rel="stylesheet">
+		<link href="/css/style.css?v=20260225" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 		<script>
 		!function(){const e=localStorage.getItem("theme"),t=window.matchMedia("(prefers-color-scheme: dark)").matches,n=e||(t?"dark":"light");document.documentElement.setAttribute("data-bs-theme",n),"undefined"!=typeof document&&document.addEventListener("DOMContentLoaded",(function(){const e=document.getElementById("theme-mode");e&&(e.checked="dark"===n,e.addEventListener("change",(function(){const e=this.checked?"dark":"light";document.documentElement.setAttribute("data-bs-theme",e),localStorage.setItem("theme",e)})))}))}();
@@ -199,7 +199,7 @@
 		<main class="page-wrapper">
 			<header class="header navbar navbar-expand-lg bg-light navbar-sticky py-0">
 				<div class="container px-3">
-					<a href="/" class="navbar-brand pe-3">
+					<a href="/" class="navbar-brand pe-0">
 						<img src="/images/logo.svg" class="logo" alt="SOLAV">
 					</a>
 					<div id="navbarNav" class="offcanvas offcanvas-end">
@@ -274,9 +274,12 @@
 										<li><a href="/faq" class="dropdown-item">Frequently Asked Questions</a></li>
 									</ul>
 								</li>
+								<li class="nav-item">
+									<a href="/contact" class="nav-link">Contact</a>
+								</li>
 								<li class="nav-item dropdown ms-lg-2">
 									<a href="#" class="nav-link py-2 search-toggle" data-bs-toggle="modal" data-bs-target="#gsearchModal" aria-label="Search">
-										<i class="bi bi-search fs-5"></i><span class="d-block d-md-none mx-2">search</span>
+										<i class="bi bi-search fs-5"></i><span class="d-block d-lg-none mx-2">search</span>
 									</a>
 								</li>
 							</ul>
