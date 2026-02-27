@@ -1,0 +1,1006 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Design and Performance Evaluation of Hybrid Solar-Wind Energy Systems with Battery Storage for Sustainable Community Power Supply | SOLAV Journal</title>
+		<meta name="description" content="The global shift toward sustainable energy has increased demand for decentralized, reliable power solutions that integrate renewables. Hybrid renewable energy systems—combining multiple sources with storage—address the intermittency of individual renewables, making them ideal for remote or underserved communities. This study analyzes a hybrid solar-wind-battery system for community-scale electricity. The proposed architecture integrates photovoltaic arrays, wind turbines, and lithium-ion batteries via an intelligent power management unit. Using high-resolution meteorological data and realistic load profiles, we assess performance in energy reliability, economic feasibility, and environmental impact. Hourly simulations over one year show that optimized hybrid systems can achieve over 85% renewable penetration, drastically reducing fossil fuel dependence. Economic analysis, using levelized cost of energy and net present cost metrics, highlights long-term viability, especially with declining technology costs and potential carbon pricing. The findings emphasize the role of integrated renewables as cornerstones of sustainable, community-focused energy infrastructure, advancing both climate goals and energy access.">
+		<link rel="canonical" href="https://solav.me/a/s2025781117">
+		<meta name="gs_meta_revision" content=""/>
+		<meta name="citation_title" content="Design and Performance Evaluation of Hybrid Solar-Wind Energy Systems with Battery Storage for Sustainable Community Power Supply">
+		<meta name="citation_journal_title" content="SOLAV Journal"/>
+		<meta name="citation_journal_abbrev" content="SOLAV J."/>
+		<meta name="citation_issn" content=""/>
+		<meta name="citation_author" content="Samara, Daud"/>
+		<meta name="citation_author_institution" content="Independent Researcher"/>
+		<meta name="citation_language" content="en"/>
+		<meta name="citation_publication_date" content="2025-11-06"/>
+		<meta name="citation_volume" content="1"/>
+		<meta name="citation_issue" content=""/>
+		<meta name="citation_firstpage" content="74"/>
+		<meta name="citation_lastpage" content="91"/>
+		<meta name="citation_doi" content=""/>
+		<meta name="citation_abstract_html_url" content="https://solav.me/a/s2025781117"/>
+		<meta name="citation_publication_date" content="2025/11/06">
+		<meta name="citation_pdf_url" content="https://solav.me/p/s2025781117.pdf">
+		<meta name="citation_journal_title" content="SOLAV Journal">
+		<meta name="citation_issn" content="">
+		<meta name="citation_doi" content="">
+		<meta name="citation_abstract" content="The global shift toward sustainable energy has increased demand for decentralized, reliable power solutions that integrate renewables. Hybrid renewable energy systems—combining multiple sources with storage—address the intermittency of individual renewables, making them ideal for remote or underserved communities. This study analyzes a hybrid solar-wind-battery system for community-scale electricity. The proposed architecture integrates photovoltaic arrays, wind turbines, and lithium-ion batteries via an intelligent power management unit. Using high-resolution meteorological data and realistic load profiles, we assess performance in energy reliability, economic feasibility, and environmental impact. Hourly simulations over one year show that optimized hybrid systems can achieve over 85% renewable penetration, drastically reducing fossil fuel dependence. Economic analysis, using levelized cost of energy and net present cost metrics, highlights long-term viability, especially with declining technology costs and potential carbon pricing. The findings emphasize the role of integrated renewables as cornerstones of sustainable, community-focused energy infrastructure, advancing both climate goals and energy access.">
+		<meta name="citation_keywords" content="Hybrid Renewable Energy Systems; Solar PV; Wind Energy; Battery Energy Storage; Community Microgrids; Sustainable Energy; Energy Management; Renewable Integration; Decentralized Power Systems">
+		<meta name="citation_keywords" content="Hybrid Renewable Energy Systems"/>
+		<meta name="citation_keywords" content="Solar PV"/>
+		<meta name="citation_keywords" content="Wind Energy"/>
+		<meta name="citation_keywords" content="Battery Energy Storage"/>
+		<meta name="citation_keywords" content="Community Microgrids"/>
+		<meta name="citation_keywords" content="Sustainable Energy"/>
+		<meta name="citation_keywords" content="Energy Management"/>
+		<meta name="citation_keywords" content="Renewable Integration"/>
+		<meta name="citation_keywords" content="Decentralized Power Systems"/>
+		<meta name="citation_pdf_url" content="https://solav.me/p/s2025781117.pdf"/>
+		<meta name="citation_reference" content="IPCC, &quot;Climate Change 2022: Mitigation of Climate Change. Contribution of Working Group III to the Sixth Assessment Report of the Intergovernmental Panel on Climate Change,&quot; Cambridge University Press, 2022."/>
+		<meta name="citation_reference" content="IEA, &quot;World Energy Outlook 2023,&quot; International Energy Agency, Paris, 2023."/>
+		<meta name="citation_reference" content="IRENA, &quot;Renewable Power Generation Costs in 2022,&quot; International Renewable Energy Agency, Abu Dhabi, 2023."/>
+		<meta name="citation_reference" content="A. Khalid, &quot;Intermittency and variability of renewable energy sources: Technical challenges and solutions,&quot; Renewable Energy, vol. 145, pp. 2303-2315, 2020."/>
+		<meta name="citation_reference" content="H. S. Das, C. W. Tan, A. H. M. Yatim, and K. Y. Lau, &quot;Feasibility analysis of hybrid photovoltaic/battery/fuel cell energy system for an indigenous residence in East Malaysia,&quot; Renewable and Sustainable Energy Reviews, vol. 76, pp. 1332-1347, 2017."/>
+		<meta name="citation_reference" content="M. Fadaee and M. A. Radzi, &quot;Multi-objective optimization of a stand-alone hybrid renewable energy system by using evolutionary algorithms: A review,&quot; Renewable and Sustainable Energy Reviews, vol. 16, no. 5, pp. 3364-3369, 2012."/>
+		<meta name="citation_reference" content="J. P. Barton and D. G. Infield, &quot;Energy storage and its use with intermittent renewable energy,&quot; IEEE Transactions on Energy Conversion, vol. 19, no. 2, pp. 441-448, 2004."/>
+		<meta name="citation_reference" content="S. Ashok, &quot;Optimised model for community-based hybrid energy system,&quot; Renewable Energy, vol. 32, no. 7, pp. 1155-1164, 2007."/>
+		<meta name="citation_reference" content="A. Kaabeche and R. Ibtiouen, &quot;Techno-economic optimization of hybrid photovoltaic/wind/diesel/battery generation in a stand-alone power system,&quot; Solar Energy, vol. 103, pp. 171-182, 2014."/>
+		<meta name="citation_reference" content="D. B. Nelson, M. H. Nehrir, and C. Wang, &quot;Unit sizing and cost analysis of stand-alone hybrid wind/PV/fuel cell power generation systems,&quot; Renewable Energy, vol. 31, no. 10, pp. 1641-1656, 2006."/>
+		<meta name="citation_reference" content="H. S. Das, T. K. A. Rahim, and C. W. Tan, &quot;Optimal sizing of stand-alone hybrid renewable energy systems using evolutionary algorithms,&quot; Energy Procedia, vol. 158, pp. 6383-6388, 2019."/>
+		<meta name="citation_reference" content="B. Zakeri and S. Syri, &quot;Electrical energy storage systems: A comparative life cycle cost analysis,&quot; Renewable and Sustainable Energy Reviews, vol. 42, pp. 569-596, 2015."/>
+		<meta name="citation_reference" content="M. Ross, C. Abbey, F. Bouffard, and G. Joós, &quot;Microgrid system energy management and control: State of the art and future trends,&quot; IEEE Transactions on Smart Grid, vol. 9, no. 6, pp. 5984-5997, 2018."/>
+		<meta name="citation_reference" content="R. Luna-Rubio, M. Trejo-Perea, D. Vargas-Vázquez, and G. J. Ríos-Moreno, &quot;Optimal sizing of renewable hybrids energy systems: A review of methodologies,&quot; Solar Energy, vol. 86, no. 4, pp. 1077-1088, 2012."/>
+		<meta name="citation_reference" content="S. Sinha and S. S. Chandel, &quot;Review of software tools for hybrid renewable energy systems,&quot; Renewable and Sustainable Energy Reviews, vol. 32, pp. 192-205, 2014."/>
+		<meta name="citation_reference" content="P. Bajpai and V. Dash, &quot;Hybrid renewable energy systems for power generation in stand-alone applications: A review,&quot; Renewable and Sustainable Energy Reviews, vol. 16, no. 5, pp. 2926-2939, 2012."/>
+		<meta name="citation_reference" content="A. G. Olabi, &quot;Renewable energy and energy storage systems,&quot; Energy, vol. 136, pp. 1-6, 2017."/>
+		<meta name="citation_reference" content="M. A. Green, &quot;Solar cell efficiency tables (version 62),&quot;"/>
+		<meta name="citation_reference" content="S. Mathew, Wind Energy: Fundamentals, Resource Analysis and Economics. Springer, 2006."/>
+		<meta name="citation_reference" content="M. A. Hannan, M. M. Hoque, A. Mohamed, and A. Ayob, &quot;Review of energy storage systems for electric vehicle applications: Issues and challenges,&quot; Renewable and Sustainable Energy Reviews, vol. 69, pp. 771-789, 2017."/>
+		<meta name="citation_reference" content="NASA POWER, &quot;Prediction of Worldwide Energy Resources,&quot; NASA Langley Research Center, 2023. [Online]. Available: https://power.larc.nasa.gov/"/>
+		<meta name="citation_reference" content="C. Wang and M. H. Nehrir, &quot;Power management of a stand-alone wind/photovoltaic/fuel cell energy system,&quot; IEEE Transactions on Energy Conversion, vol. 23, no. 3, pp. 957-967, 2008."/>
+		<meta name="citation_reference" content="S. Rehman and L. M. Al-Hadhrami, &quot;Study of a solar PV-diesel-battery hybrid power system for a remotely located population near Rafha, Saudi Arabia,&quot; Energy, vol. 35, no. 12, pp. 4986-4995, 2010."/>
+		<meta name="citation_reference" content="L. Xu, X. Ruan, C. Mao, B. Zhang, and Y. Luo, &quot;An improved optimal sizing method for wind-solar-battery hybrid power system,&quot; IEEE Transactions on Sustainable Energy, vol. 4, no. 3, pp. 774-785, 2013."/>
+		<meta name="citation_reference" content="BloombergNEF, &quot;Battery Price Survey 2022,&quot; Bloomberg New Energy Finance, 2022."/>
+		<link rel="schema.DC" href="https://purl.org/dc/elements/1.1/" />
+		<meta name="DC.Creator.PersonalName" content="Samara, Daud"/>
+		<meta name="DC.Date.dateSubmitted" scheme="ISO8601" content="2025-10-03"/>
+		<meta name="DC.Date.issued" scheme="ISO8601" content="2025-11-06"/>
+		<meta name="DC.Date.modified" scheme="ISO8601" content="2025-11-06"/>
+		<meta name="DC.Description" xml:lang="en" content="The global shift toward sustainable energy has increased demand for decentralized, reliable power solutions that integrate renewables. Hybrid renewable energy systems—combining multiple sources with storage—address the intermittency of individual renewables, making them ideal for remote or underserved communities. This study analyzes a hybrid solar-wind-battery system for community-scale electricity. The proposed architecture integrates photovoltaic arrays, wind turbines, and lithium-ion batteries via an intelligent power management unit. Using high-resolution meteorological data and realistic load profiles, we assess performance in energy reliability, economic feasibility, and environmental impact. Hourly simulations over one year show that optimized hybrid systems can achieve over 85% renewable penetration, drastically reducing fossil fuel dependence. Economic analysis, using levelized cost of energy and net present cost metrics, highlights long-term viability, especially with declining technology costs and potential carbon pricing. The findings emphasize the role of integrated renewables as cornerstones of sustainable, community-focused energy infrastructure, advancing both climate goals and energy access."/>
+		<meta name="DC.Format" scheme="IMT" content="text/html"/>
+		<meta name="DC.Format" scheme="IMT" content="application/pdf"/>
+		<meta name="DC.Identifier" content="s2025781117"/>
+		<meta name="DC.Identifier.pageNumber" content="74-91"/>
+		<meta name="DC.Identifier.DOI" content=""/>
+		<meta name="DC.Identifier.URI" content="https://solav.me/a/s2025781117"/>
+		<meta name="DC.Source.URI" content="https://solav.me"/>
+		<meta name="DC.Language" scheme="ISO639-1" content="en"/>
+		<meta name="DC.Rights" content="CC BY 4.0"/>
+		<meta name="DC.Rights" content="Open Access"/>
+		<meta name="DC.Source" content="SOLAV Journal"/>
+		<meta name="DC.Source.ISSN" content=""/>
+		<meta name="DC.Source.Issue" content=""/>
+		<meta name="DC.Source.Volume" content="1"/>
+		<meta name="DC.Subject" xml:lang="en" content="Hybrid Renewable Energy Systems"/>
+		<meta name="DC.Subject" xml:lang="en" content="Solar PV"/>
+		<meta name="DC.Subject" xml:lang="en" content="Wind Energy"/>
+		<meta name="DC.Subject" xml:lang="en" content="Battery Energy Storage"/>
+		<meta name="DC.Subject" xml:lang="en" content="Community Microgrids"/>
+		<meta name="DC.Subject" xml:lang="en" content="Sustainable Energy"/>
+		<meta name="DC.Subject" xml:lang="en" content="Energy Management"/>
+		<meta name="DC.Subject" xml:lang="en" content="Renewable Integration"/>
+		<meta name="DC.Subject" xml:lang="en" content="Decentralized Power Systems"/>
+		<meta name="DC.Title" content="Design and Performance Evaluation of Hybrid Solar-Wind Energy Systems with Battery Storage for Sustainable Community Power Supply"/>
+		<meta name="DC.Type" content="Text.Serial.Journal"/>
+		<meta name="DC.Date.created" scheme="ISO8601" content="2025-10-03"/>
+		<meta name="DC.Type.articleType" content="Research Article"/>
+		<meta name="DC.creator" content="Samara, Daud">
+		<meta name="DC.subject" content="Hybrid Renewable Energy Systems; Solar PV; Wind Energy; Battery Energy Storage; Community Microgrids; Sustainable Energy; Energy Management; Renewable Integration; Decentralized Power Systems">
+		<meta name="DC.identifier" content="s2025781117">
+		<meta name="DC.type" content="Text.Serial.Journal">
+		<meta name="DC.relation" content="IsArchivedAt https://doi.org/10.5281/zenodo.18539543">
+		<meta property="og:type" content="article">
+		<meta property="og:title" content="Design and Performance Evaluation of Hybrid Solar-Wind Energy Systems with Battery Storage for Sustainable Community Power Supply">
+		<meta property="og:url" content="https://solav.me/a/s2025781117">
+		<link rel="icon" type="image/x-icon" href="/images/icon.png">
+		<meta name="fediverse:creator" content="@SOLAVjournal@mastodon.social">
+		<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+		<link href="/css/swiper.css" rel="stylesheet">
+		<link href="/css/style.css?v=20260227" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+		<script>
+		!function(){const e=localStorage.getItem("theme"),t=window.matchMedia("(prefers-color-scheme: dark)").matches,n=e||(t?"dark":"light");document.documentElement.setAttribute("data-bs-theme",n),"undefined"!=typeof document&&document.addEventListener("DOMContentLoaded",(function(){const e=document.getElementById("theme-mode");e&&(e.checked="dark"===n,e.addEventListener("change",(function(){const e=this.checked?"dark":"light";document.documentElement.setAttribute("data-bs-theme",e),localStorage.setItem("theme",e)})))}))}();
+		</script>
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Expires" content="0">
+		<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "@id": "https://solav.me/a/s2025781117",
+    "headline": "Design and Performance Evaluation of Hybrid Solar-Wind Energy Systems with Battery Storage for Sustainable Community Power Supply",
+    "name": "Design and Performance Evaluation of Hybrid Solar-Wind Energy Systems with Battery Storage for Sustainable Community Power Supply",
+    "url": "https://solav.me/a/s2025781117",
+    "identifier": [
+        {
+            "@type": "PropertyValue",
+            "propertyID": "InternalID",
+            "value": "s2025781117"
+        },
+        {
+            "@type": "PropertyValue",
+            "propertyID": "DOI",
+            "value": "10.5281/zenodo.18539543"
+        }
+    ],
+    "author": [
+        {
+            "@type": "Person",
+            "name": "Samara, Daud",
+            "givenName": "Daud",
+            "familyName": "Samara",
+            "affiliation": {
+                "@type": "Organization",
+                "name": "Independent Researcher"
+            },
+            "sameAs": "https://orcid.org/0009-0001-4389-3043"
+        }
+    ],
+    "publisher": {
+        "@type": "Organization",
+        "name": "SOLAV Journal",
+        "url": "https://solav.me"
+    },
+    "isPartOf": {
+        "@type": "Periodical",
+        "name": "SOLAV Journal",
+        "url": "https://solav.me",
+        "issn": ""
+    },
+    "dateReceived": "2025-10-03",
+    "dateAccepted": "2025-10-30",
+    "datePublished": "2025-11-06",
+    "volumeNumber": "1",
+    "issueNumber": "",
+    "pagination": "74-91",
+    "inLanguage": "en",
+    "articleSection": "Research Article",
+    "abstract": "The global shift toward sustainable energy has increased demand for decentralized, reliable power solutions that integrate renewables. Hybrid renewable energy systems—combining multiple sources with storage—address the intermittency of individual renewables, making them ideal for remote or underserved communities. This study analyzes a hybrid solar-wind-battery system for community-scale electricity. The proposed architecture integrates photovoltaic arrays, wind turbines, and lithium-ion batteries via an intelligent power management unit. Using high-resolution meteorological data and realistic load profiles, we assess performance in energy reliability, economic feasibility, and environmental impact. Hourly simulations over one year show that optimized hybrid systems can achieve over 85% renewable penetration, drastically reducing fossil fuel dependence. Economic analysis, using levelized cost of energy and net present cost metrics, highlights long-term viability, especially with declining technology costs and potential carbon pricing. The findings emphasize the role of integrated renewables as cornerstones of sustainable, community-focused energy infrastructure, advancing both climate goals and energy access.",
+    "keywords": [
+        "Hybrid Renewable Energy Systems",
+        "Solar PV",
+        "Wind Energy",
+        "Battery Energy Storage",
+        "Community Microgrids",
+        "Sustainable Energy",
+        "Energy Management",
+        "Renewable Integration",
+        "Decentralized Power Systems"
+    ],
+    "license": "CC BY 4.0",
+    "sameAs": [
+        "https://doi.org/10.5281/zenodo.18539543"
+    ]
+}		</script>
+	</head>
+	<body>
+		<main class="page-wrapper">
+			<header class="header navbar navbar-expand-lg bg-light navbar-sticky py-0">
+				<div class="container px-3">
+					<a href="/" class="navbar-brand pe-0">
+						<img src="/images/logo.svg" class="logo" alt="SOLAV">
+					</a>
+					<div id="navbarNav" class="offcanvas offcanvas-end">
+						<div class="offcanvas-header border-bottom">
+							<h5 class="offcanvas-title">Menu</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+						</div>
+						<div class="offcanvas-body">
+							<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+								<li class="nav-item">
+									<a href="/aims-scope" class="nav-link">Aims & Scope</a>
+								</li>
+								<li class="nav-item">
+									<a href="/guidelines" class="nav-link">Guidelines</a>
+								</li>
+								<li class="nav-item dropdown">
+									<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-current="page">Submit</a>
+									<ul class="dropdown-menu">
+										<li><a href="/submit" class="dropdown-item">Submit</a></li>
+										<li><a href="/track" class="dropdown-item">Track Paper</a></li>
+									</ul>
+								</li>
+								<li class="nav-item dropdown">
+									<a href="#" class="nav-link dropdown-toggle active pe-auto" data-bs-toggle="dropdown" aria-expanded="true">Archive</a>
+									<div class="dropdown-menu" data-bs-popper="static">
+										<div class="d-lg-flex pt-lg-1">
+											<div class="mega-dropdown-column px-0">
+												<ul class="list-unstyled mb-3">
+													<li><a href="/archive" class="dropdown-item active pe-auto">Volume 2 (2026)</a></li>
+													<li><hr class="dropdown-divider"></li>
+													<li><a href="/authors" class="dropdown-item">Authors</a></li>
+												</ul>
+											</div>
+											<div class="mega-dropdown-column">
+												<div class="card ms-2 h-100 dropdown-menuAnimated">
+													<h6 class="px-3 mb-2 pt-1">Older Archives</h6>
+													<ul class="list-unstyled mb-3">
+														<li><a href="/archive2025" class="dropdown-item">Volume 1 (2025)</a></li>
+													</ul>													
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li class="nav-item dropdown">
+									<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-current="page">Policies</a>
+									<ul class="dropdown-menu">
+										<li><a href="/ethics" class="dropdown-item">Publication Ethics</a></li>
+										<li><a href="/ai" class="dropdown-item">AI in Research</a></li>
+										<li><a href="/apc" class="dropdown-item">Article Processing Charges (APC)</a></li>
+										<li><a href="/review" class="dropdown-item">Peer Review Process</a></li>
+										<li><a href="/open-submission" class="dropdown-item">Open Submission</a></li>
+										<li><a href="/access" class="dropdown-item">Open Access & Licensing</a></li>
+										<li><a href="/archiving" class="dropdown-item">Archiving & Management</a></li>
+										<li><a href="/corrections-retractions" class="dropdown-item">Corrections, Retractions & Withdrawal</a></li>
+										<li><a href="/appeals-complaints" class="dropdown-item">Appeals & Complaints</a></li>
+										<li><a href="/conflict-of-interest" class="dropdown-item">Conflict of Interest</a></li>
+										<li><a href="/plagiarism" class="dropdown-item">Plagiarism</a></li>
+										<li><a href="/editorial" class="dropdown-item">Editorial</a></li>
+										<li><a href="/research-integrity" class="dropdown-item">Research Integrity</a></li>
+										<li><a href="/copyright-licensing" class="dropdown-item">Copyright and Licensing</a></li>
+									</ul>
+								</li>
+								<li class="nav-item dropdown">
+									<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-current="page">About</a>
+									<ul class="dropdown-menu">
+										<li><a href="/about" class="dropdown-item">About the journal</a></li>
+										<li><a href="/about#indexing" class="dropdown-item">&emsp;<i class="bi bi-arrow-return-right"></i> Indexing & Global Discovery</a></li>
+										<li><a href="/about#editorialBoard" class="dropdown-item">&emsp;<i class="bi bi-arrow-return-right"></i> Editorial Board</a></li>
+										<li><hr class="dropdown-divider"></li>
+										<li><a href="/oai-pmh" class="dropdown-item">OAI-PMH Repository</a></li>
+										<li><a href="/faq" class="dropdown-item">Frequently Asked Questions</a></li>
+									</ul>
+								</li>
+								<li class="nav-item">
+									<a href="/contact" class="nav-link">Contact</a>
+								</li>
+								<li class="nav-item dropdown ms-lg-2">
+									<a href="#" class="nav-link py-2 search-toggle" data-bs-toggle="modal" data-bs-target="#gsearchModal" aria-label="Search">
+										<i class="bi bi-search fs-5"></i><span class="d-block d-lg-none mx-2">search</span>
+									</a>
+								</li>
+							</ul>
+						</div>  
+					</div>
+					<div class="form-check form-switch mode-switch pe-lg-1 ms-auto me-4" data-bs-toggle="mode">
+						<input type="checkbox" class="form-check-input" id="theme-mode">
+						<label class="form-check-label" for="theme-mode"><i class="bi bi-sun"></i></label>
+						<label class="form-check-label" for="theme-mode"><i class="bi bi-moon-stars"></i></label>
+					</div>
+					<button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+				</div>
+			</header>
+			<div class="jarallax mb-lg-5 mb-4 pt-0 card border-0 bg-gradient-primary rounded-0" data-jarallax="" data-speed="0.35" style="height: 1vw; min-height: 10px; background-image: url(/images/main-bg.png);">
+				<div id="jarallax-container-0" class="jarallax-container">
+					<div class="jarallax-img w-100" style="background-image: url(/images/main-bg.png);">
+					</div>
+				</div>
+			</div>
+			<div class="container pb-2 pb-lg-3 pt-0" id="articleContainer">
+				<a href="/archive2025" class="btn btn-sm btn-secondary mb-1">
+					<i class="bi bi-arrow-left me-1"></i> Browse All Articles
+				</a><hr class="m-0 mb-3 p-0">
+				<div class="row">
+					<div class="col-lg-8">
+						<div id="articleContent">
+							<div class="mb-4">
+								<span class="badge bg-primary metadata-badge">
+									<i class="bi bi-file-earmark-text me-1"></i> Research Article</span>
+								<div class="d-md-none btn-group btn-group-sm" role="group" aria-label="Small button group">
+									<a href="#dcds" class="btn-sm py-1 btn btn-outline-primary fs-sm text-decoration-none"><i class="bi bi-download"></i></a>
+									<a href="#dcds" class="btn-sm py-1 btn btn-outline-primary fs-sm text-decoration-none"><i class="bi bi-quote"></i></a>
+									<a href="#dcds" class="btn-sm py-1 btn btn-outline-primary fs-sm text-decoration-none"><i class="bi bi-info-circle"></i></a>
+								</div>
+							</div>
+						</div>
+						
+						<h1 class="mb-4 h3">Design and Performance Evaluation of Hybrid Solar-Wind Energy Systems with Battery Storage for Sustainable Community Power Supply</h1>
+						<div class="mb-4">
+							<div class="author-list mb-2">
+								<i class="bi bi-people text-primary me-2"></i>
+								<a href="/authors?id=00010091">Samara, Daud</a><sup>*</sup><sup>1</sup><a href="https://orcid.org/0009-0001-4389-3043" target="_blank" class="ms-0 align-middle"><img src="/images/orcid.svg" alt="ORCID" class="orcid-icon"></a></span>
+								
+							</div>
+															
+							<p class="text-muted font-sm mb-0"><sup>*</sup> Corresponding author</p>
+														
+							<div class="author-affiliation mb-3">
+															
+								<span class="mb-0 small">*1</span>
+								<span class="mb-0 mx-2"><i class="bi bi-building me-1"></i> Independent Researcher</span>
+								
+								<span class="mb-0 mx-2 font-sm">
+									<i class="bi bi-envelope me-1"></i> <a href="mailto:lili9632025@gmail.com">lili9632025@gmail.com</a>
+								</span>
+															
+							</div>
+						</div>
+
+						<div class="mb-4">
+							<span class="badge bg-light text-dark border me-2 mb-2">Hybrid Renewable Energy Systems</span>
+							<span class="badge bg-light text-dark border me-2 mb-2">Solar PV</span>
+							<span class="badge bg-light text-dark border me-2 mb-2">Wind Energy</span>
+							<span class="badge bg-light text-dark border me-2 mb-2">Battery Energy Storage</span>
+							<span class="badge bg-light text-dark border me-2 mb-2">Community Microgrids</span>
+							<span class="badge bg-light text-dark border me-2 mb-2">Sustainable Energy</span>
+							<span class="badge bg-light text-dark border me-2 mb-2">Energy Management</span>
+							<span class="badge bg-light text-dark border me-2 mb-2">Renewable Integration</span>
+							<span class="badge bg-light text-dark border me-2 mb-2">Decentralized Power Systems</span>
+							
+						</div>
+
+						<div class="abstract-box">
+
+							<h3 class="h5 mb-3"><i class="bi bi-file-text me-2"></i>Abstract</h3>
+							<p>The global shift toward sustainable energy has increased demand for decentralized, reliable power solutions that integrate renewables. Hybrid renewable energy systems—combining multiple sources with storage—address the intermittency of individual renewables, making them ideal for remote or underserved communities. This study analyzes a hybrid solar-wind-battery system for community-scale electricity. The proposed architecture integrates photovoltaic arrays, wind turbines, and lithium-ion batteries via an intelligent power management unit. Using high-resolution meteorological data and realistic load profiles, we assess performance in energy reliability, economic feasibility, and environmental impact. Hourly simulations over one year show that optimized hybrid systems can achieve over 85% renewable penetration, drastically reducing fossil fuel dependence. Economic analysis, using levelized cost of energy and net present cost metrics, highlights long-term viability, especially with declining technology costs and potential carbon pricing. The findings emphasize the role of integrated renewables as cornerstones of sustainable, community-focused energy infrastructure, advancing both climate goals and energy access.</p>
+						</div>
+
+						<div class="references-box mt-4 mb-4"><h3 class="h5 mb-3"><i class="bi bi-bookmarks me-2"></i>References</h3><ol class="references-list"><li class="mb-2">IPCC, &quot;Climate Change 2022: Mitigation of Climate Change. Contribution of Working Group III to the Sixth Assessment Report of the Intergovernmental Panel on Climate Change,&quot; Cambridge University Press, 2022.</li><li class="mb-2">IEA, &quot;World Energy Outlook 2023,&quot; International Energy Agency, Paris, 2023.</li><li class="mb-2">IRENA, &quot;Renewable Power Generation Costs in 2022,&quot; International Renewable Energy Agency, Abu Dhabi, 2023.</li><li class="mb-2">A. Khalid, &quot;Intermittency and variability of renewable energy sources: Technical challenges and solutions,&quot; Renewable Energy, vol. 145, pp. 2303-2315, 2020.</li><li class="mb-2">H. S. Das, C. W. Tan, A. H. M. Yatim, and K. Y. Lau, &quot;Feasibility analysis of hybrid photovoltaic/battery/fuel cell energy system for an indigenous residence in East Malaysia,&quot; Renewable and Sustainable Energy Reviews, vol. 76, pp. 1332-1347, 2017.</li><li class="mb-2">M. Fadaee and M. A. Radzi, &quot;Multi-objective optimization of a stand-alone hybrid renewable energy system by using evolutionary algorithms: A review,&quot; Renewable and Sustainable Energy Reviews, vol. 16, no. 5, pp. 3364-3369, 2012.</li><li class="mb-2">J. P. Barton and D. G. Infield, &quot;Energy storage and its use with intermittent renewable energy,&quot; IEEE Transactions on Energy Conversion, vol. 19, no. 2, pp. 441-448, 2004.</li><li class="mb-2">S. Ashok, &quot;Optimised model for community-based hybrid energy system,&quot; Renewable Energy, vol. 32, no. 7, pp. 1155-1164, 2007.</li><li class="mb-2">A. Kaabeche and R. Ibtiouen, &quot;Techno-economic optimization of hybrid photovoltaic/wind/diesel/battery generation in a stand-alone power system,&quot; Solar Energy, vol. 103, pp. 171-182, 2014.</li><li class="mb-2">D. B. Nelson, M. H. Nehrir, and C. Wang, &quot;Unit sizing and cost analysis of stand-alone hybrid wind/PV/fuel cell power generation systems,&quot; Renewable Energy, vol. 31, no. 10, pp. 1641-1656, 2006.</li><li class="mb-2">H. S. Das, T. K. A. Rahim, and C. W. Tan, &quot;Optimal sizing of stand-alone hybrid renewable energy systems using evolutionary algorithms,&quot; Energy Procedia, vol. 158, pp. 6383-6388, 2019.</li><li class="mb-2">B. Zakeri and S. Syri, &quot;Electrical energy storage systems: A comparative life cycle cost analysis,&quot; Renewable and Sustainable Energy Reviews, vol. 42, pp. 569-596, 2015.</li><li class="mb-2">M. Ross, C. Abbey, F. Bouffard, and G. Joós, &quot;Microgrid system energy management and control: State of the art and future trends,&quot; IEEE Transactions on Smart Grid, vol. 9, no. 6, pp. 5984-5997, 2018.</li><li class="mb-2">R. Luna-Rubio, M. Trejo-Perea, D. Vargas-Vázquez, and G. J. Ríos-Moreno, &quot;Optimal sizing of renewable hybrids energy systems: A review of methodologies,&quot; Solar Energy, vol. 86, no. 4, pp. 1077-1088, 2012.</li><li class="mb-2">S. Sinha and S. S. Chandel, &quot;Review of software tools for hybrid renewable energy systems,&quot; Renewable and Sustainable Energy Reviews, vol. 32, pp. 192-205, 2014.</li><li class="mb-2">P. Bajpai and V. Dash, &quot;Hybrid renewable energy systems for power generation in stand-alone applications: A review,&quot; Renewable and Sustainable Energy Reviews, vol. 16, no. 5, pp. 2926-2939, 2012.</li><li class="mb-2">A. G. Olabi, &quot;Renewable energy and energy storage systems,&quot; Energy, vol. 136, pp. 1-6, 2017.</li><li class="mb-2">M. A. Green, &quot;Solar cell efficiency tables (version 62),&quot;</li><li class="mb-2">S. Mathew, Wind Energy: Fundamentals, Resource Analysis and Economics. Springer, 2006.</li><li class="mb-2">M. A. Hannan, M. M. Hoque, A. Mohamed, and A. Ayob, &quot;Review of energy storage systems for electric vehicle applications: Issues and challenges,&quot; Renewable and Sustainable Energy Reviews, vol. 69, pp. 771-789, 2017.</li><li class="mb-2">NASA POWER, &quot;Prediction of Worldwide Energy Resources,&quot; NASA Langley Research Center, 2023. [Online]. Available: https://power.larc.nasa.gov/</li><li class="mb-2">C. Wang and M. H. Nehrir, &quot;Power management of a stand-alone wind/photovoltaic/fuel cell energy system,&quot; IEEE Transactions on Energy Conversion, vol. 23, no. 3, pp. 957-967, 2008.</li><li class="mb-2">S. Rehman and L. M. Al-Hadhrami, &quot;Study of a solar PV-diesel-battery hybrid power system for a remotely located population near Rafha, Saudi Arabia,&quot; Energy, vol. 35, no. 12, pp. 4986-4995, 2010.</li><li class="mb-2">L. Xu, X. Ruan, C. Mao, B. Zhang, and Y. Luo, &quot;An improved optimal sizing method for wind-solar-battery hybrid power system,&quot; IEEE Transactions on Sustainable Energy, vol. 4, no. 3, pp. 774-785, 2013.</li><li class="mb-2">BloombergNEF, &quot;Battery Price Survey 2022,&quot; Bloomberg New Energy Finance, 2022.</li></ol></div>
+					</div>
+
+					<div class="col-lg-4" id="dcds">
+						<div class="article-actions">
+							<div class="card mb-4">
+								<div class="card-body">
+									<div class="d-grid gap-2">
+										<a href="https://solav.me/p/s2025781117.pdf" target="_blank" class="btn btn-sm btn-primary">
+											<i class="bi bi-file-earmark-pdf me-1"></i> Download PDF
+										</a>
+										<button id="citeBtn" class="btn btn-sm btn-outline-primary">
+											<i class="bi bi-quote me-1"></i> Cite This Article
+										</button>
+										<small class="text-muted text-xs mt-2"><i class="bi bi-info-circle"></i> This DOI is provided for long-term preservation and open archiving.</small>
+										<a href="https://doi.org/10.5281/zenodo.18539543" target="_blank" class="btn btn-sm btn-outline-primary"  style="white-space: normal;">
+											<img src="/images/doi_logo.svg" class="doiIcon mx-2" alt="(Zenodo)"> Archival DOI (Zenodo)
+										</a>
+									</div>
+								</div>
+							</div>
+							
+							<div class="card">
+								<div class="card-header bg-secondary text-center p-0 m-0 w-100">
+									<h5 class="mb-0 p-3 py-1"><i class="bi bi-info-circle me-2"></i>Article Info</h5>
+								</div>
+								<div class="card-body">
+									<ul class="list-unstyled mb-0">
+										<li class="mb-2">
+											<i class="bi bi-calendar-check text-primary me-2"></i><strong>Received:</strong> 2025-10-03
+										</li>
+										<li class="mb-2">
+											<i class="bi bi-check-circle text-primary me-2"></i><strong>Accepted:</strong> 2025-10-30
+										</li>
+										<li class="mb-2">
+											<i class="bi bi-calendar-event text-primary me-2"></i><strong>Published:</strong> 2025-11-06
+										</li>
+										<li class="mb-2">
+											<i class="bi bi-file-text text-primary me-2"></i><strong>Pages:</strong> 74-91
+										</li>
+										<li class="mb-2">
+											<i class="bi bi-quote text-primary me-2"></i><strong>Citations:</strong> 0
+										</li>
+										<li class="mb-2">
+											<i class="bi bi-journal-check text-primary me-2"></i><strong>Type:</strong> Research Article
+										</li>
+										<li class="mb-2">
+											<i class="bi bi-journal text-primary me-2"></i><strong>Volume:</strong> 1
+										</li>
+										<li class="mb-2">
+											<i class="bi bi-clock-history text-primary me-2"></i><strong>Version:</strong> 2025-11-06 (1)
+										</li>
+										<li>
+											<i class="bi bi-c-circle text-primary me-2"></i><strong>License:</strong> <a href="https://creativecommons.org/licenses/by/4.0/" rel="license" target="_blank">CC BY 4.0</a>
+										</li>
+									</ul>
+								</div>
+								<div class="card-footer d-flex justify-content-evenly">
+									<img id="qr">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+
+
+		</main>
+		<div class="modal fade" id="gsearchModal" tabindex="-1" aria-hidden="true">
+			<div class="modal-dialog modal-lg modal-dialog-centered">
+				<div class="modal-content border-0 shadow-lg">
+					<div class="modal-header border-0 pb-0">
+						<h5 class="modal-title text-primary fw-bold">
+							<i class="bi bi-search me-2"></i>Search SOLAV Journal
+						</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<form action="https://www.google.com/search" method="get" target="_blank" class="mb-4">
+							<div class="input-group input-group-lg shadow-sm">
+								<input type="hidden" name="as_sitesearch" value="solav.me">
+								<input type="text" 
+									name="q" 
+									class="form-control border-primary-subtle bg-body-tertiary" 
+									placeholder="Search articles, authors, or technology..."
+									id="gsearchQueryInput"
+									autocomplete="off"
+									required>
+								<button class="btn btn-primary px-4" type="submit">
+									<i class="bi bi-search me-2"></i>Search
+								</button>
+							</div>
+							<div class="form-text mt-2 ps-1">
+								<small class="opacity-75">Search provided by Google</small>
+							</div>
+						</form>
+
+						<div class="pt-2">
+							<h6 class="text-muted small text-uppercase fw-bold mb-3 ls-1">Quick Access</h6>
+							<div class="row g-2">
+								<div class="col-6 col-md-3">
+									<a href="/archive" class="btn btn-outline-secondary w-100 py-3 border-dashed">
+										<i class="bi bi-journal-richtext d-block mb-1 fs-4"></i>
+										<span class="small ms-2">Latest</span>
+									</a>
+								</div>
+								<div class="col-6 col-md-3">
+									<a href="/authors" class="btn btn-outline-secondary w-100 py-3 border-dashed">
+										<i class="bi bi-people d-block mb-1 fs-4"></i>
+										<span class="small ms-2">Authors</span>
+									</a>
+								</div>
+								<div class="col-6 col-md-3">
+									<a href="/guidelines" class="btn btn-outline-secondary w-100 py-3 border-dashed">
+										<i class="bi bi-file-earmark-text d-block mb-1 fs-4"></i>
+										<span class="small ms-2">Guidelines</span>
+									</a>
+								</div>
+								<div class="col-6 col-md-3">
+									<a href="/faq" class="btn btn-outline-secondary w-100 py-3 border-dashed">
+										<i class="bi bi-question-circle d-block mb-1 fs-4"></i>
+										<span class="small ms-2">FAQ</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer border-0 justify-content-center pb-4">
+						<span class="badge bg-primary-subtle text-primary rounded-pill px-3">Open Access Journal for Interdisciplinary Applied Research</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<a href="#top" class="btn-scroll-top" data-scroll="">
+			<i class="btn-scroll-top-icon bi bi-chevron-up"></i>
+		</a>
+		<footer class="footer border-top border-primary-subtle bg-secondary-subtle shadow-lg py-4">
+			<div class="bg-light bg-opacity-50 p-0">
+				<div class="container">
+					<div class="row g-4">
+						<div class="col-lg-4">
+							<p class="mb-1">
+								SOLAV Journal is an open access, peer-reviewed journal publishing interdisciplinary applied research with real-world impact.
+								<br><span class="font-sm"><strong>Publication Frequency:</strong> Continuous publication.</span>
+								<br><span class="font-sm"><strong>Editor-In-Chief:</strong> Maher Asaad Baker</span>
+								<br><span class="font-sm"><strong>Publisher:</strong> Leothar Company, Riyadh, Saudi Arabia</span>
+							</p>
+							<div class="issn-container mt-0">
+								<img src="/images/issn_logo.svg" alt="ISSN" class="issn-logo">
+								<span class="issn-text">ISSN request pending</span>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-4">
+							<h5 class="mb-3 fw-bold">Quick Links</h5>
+							<ul class="list-unstyled">
+								<li class="mb-2"><a href="/aims-scope" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Aims & Scope</a></li>
+								<li class="mb-2"><a href="/guidelines" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Author Guidelines</a></li>
+								<li class="mb-2"><a href="/submit" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Submit Manuscript</a></li>
+								<li class="mb-2"><a href="/archive" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Article Archive</a></li>
+								<li class="mb-2"><a href="/about" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">About the Journal</a></li>
+							</ul>
+						</div>
+						<div class="col-lg-3 col-md-4">
+							<h5 class="mb-3 fw-bold">Policies</h5>
+							<ul class="list-unstyled">
+								<li class="mb-2"><a href="/ethics" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Publication Ethics</a></li>
+								<li class="mb-2"><a href="/apc" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Article Processing Charges</a></li>
+								<li class="mb-2"><a href="/review" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Peer Review Process</a></li>
+								<li class="mb-2"><a href="/access" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Open Access & Licensing</a></li>
+								<li class="mb-2"><a href="/archiving" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Archiving & Management</a></li>
+							</ul>
+						</div>
+						<div class="col-lg-3 col-md-4">
+							<h5 class="mb-3 fw-bold">Contact & Support</h5>
+							<ul class="list-unstyled">
+								<li class="mb-2">
+									<i class="bi bi-envelope me-2 text-primary"></i>
+									<a href="mailto:contact@solav.me" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">General Inquiries</a>
+								</li>
+								<li class="mb-2">
+									<i class="bi bi-question-circle me-2 text-primary"></i>
+									<a href="mailto:support@solav.me" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Technical Support</a>
+								</li>
+								<li class="mb-2">
+									<i class="bi bi-shield-check me-2 text-primary"></i>
+									<a href="mailto:ethics@solav.me" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Ethics Concerns</a>
+								</li>
+								<li class="mb-2">
+									<i class="bi bi-currency-exchange me-2 text-primary"></i>
+									<a href="mailto:apc@solav.me" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">APC & Payments</a>
+								</li>
+								<li class="mb-2">
+									<i class="bi bi-people me-2 text-primary"></i>
+									<a href="mailto:editorial@solav.me" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Editorial Board</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="p-0">
+				<div class="container">	
+					<div class="row pt-2 border-top">
+						<div class="col-md-6 text-md-end order-md-2 px-2">
+							<div class="row mb-0 h-100 d-flex align-items-end justify-content-lg-end px-3">
+								<div class="col-12 p-0 m-0">
+									<div class="pb-1">
+										<a href="https://core.ac.uk/data-providers/25920" 
+										title="Indexed by CORE (COnnecting REpositories)" 
+										target="_blank"><img src="https://core.ac.uk/images/resources/core_starting_member_square.svg" class="d-Icons" alt="CORE indexed journal"></a>
+										<a href="https://search.worldcat.org/search?q=pb%3A%22SOLAV+Journal%22" 
+										title="Discoverable in WorldCat global library catalog" 
+										target="_blank"><img src="/images/worldcat_icon.svg" class="d-Icons" alt="WorldCat global library catalog"></a>
+										<a href="https://scholar.google.com/scholar?q=%22SOLAV+Journal%22" 
+										title="Search SOLAV Journal articles in Google Scholar" 
+										target="_blank"><img src="/images/google_scholar_icon.svg" class="d-Icons" alt="Google Scholar"></a>
+										<a href="https://openalex.org/works?page=1&filter=title_and_abstract.search:solav+journal" 
+										title="Scholarly metadata harvested and discoverable in OpenAlex database" 
+										target="_blank"><img src="/images/openalex_icon.svg" class="d-Icons m-0" alt="OpenAlex scholarly database"></a>
+										<a href="https://zenodo.org/communities/solav" 
+										title="Permanent archival of all articles in Zenodo (CERN), a CoreTrustSeal-certified repository" 
+										target="_blank"><img src="/images/zenodo-icon-blue.svg" class="d-Icons" alt="Zenodo repository archive"></a>
+										<a href="https://commons.datacite.org/doi.org?query=SOLAV+Journal" 
+										title="Persistent Digital Object Identifiers (DOIs) and metadata registered via DataCite" 
+										target="_blank"><img src="/images/datacite-logo.svg" class="d-sIcons" alt="DataCite DOI registration"></a>
+										<a href="https://osf.io/2yskf/" 
+										title="Supplementary metadata preservation via OSF" 
+										target="_blank" rel="noopener"><img src="/images/osf-logo.svg" class="d-sIcons" alt="OSF metadata preservation repository"></a>
+										<a href="https://isni.org/isni/0000000506340505" 
+										title="International Standard Name Identifier (ISNI)" 
+										target="_blank" rel="noopener"><img src="/images/isni-logo.svg" class="d-sIconsL" alt="ISNI identifier for SOLAV Journal"></a>
+									</div>
+									<div>
+										<a href="https://bsky.app/profile/solav.me" 
+										title="Official journal communications channel on Bluesky social network" 
+										target="_blank"><img src="/images/bluesky-icon.svg" class="d-sIcons" alt="Bluesky communications channel"></a>
+										<a rel="me" href="https://mastodon.social/@SOLAVjournal" 
+										title="Official journal presence on Mastodon federated social network" 
+										target="_blank"><img src="/images/mastodon-icon.svg" class="d-sIconsL m-0" alt="Mastodon scholarly presence"></a>
+									</div>
+								</div>
+								<ul class="list-inline col-12 p-0 m-0">
+									<li class="list-inline-item p-0 m-0"><a href="/privacy" class="link-primary link-underline-opacity-25 link-underline-opacity-100-hover link-offset-2">Privacy Policy</a><span class="text-primary p-0 m-0 px-2">●</span></li>
+									<li class="list-inline-item p-0 m-0"><a href="/tou" class="link-primary link-underline-opacity-25 link-underline-opacity-100-hover link-offset-2">Terms of Use</a><span class="text-primary p-0 m-0 px-2">●</span></li>
+									<li class="list-inline-item p-0 m-0"><a href="/accessibility" class="link-primary link-underline-opacity-25 link-underline-opacity-100-hover link-offset-2">Accessibility</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-6 order-md-1">
+							<p class="mb-0 h-100">
+								<strong>Your privacy matters</strong>. Essential cookies enable core functionality. Analytics cookies are disabled until explicit consent is given via <a href="#" class="link-primary link-underline-opacity-25 link-underline-opacity-100-hover" data-bs-toggle="modal" data-bs-target="#privacyModal" data-activate-tab="cookiesTab">Cookie Preferences</a>.
+								<br><strong>Platform Infrastructure:</strong> Proprietary Static Publishing Architecture developed by Leothar Company.
+								<br>&copy; <span id="currentYear"></span> SOLAV Journal. This is an open access journal distributed under the 
+								<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" class="link-primary link-underline-opacity-25 link-underline-opacity-100-hover">CC BY 4.0</a>.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<div class="modal fade" id="citationModal" tabindex="-1" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title"><i class="bi bi-quote me-2"></i>Cite this article</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+					</div>
+					<div class="modal-body">
+						<div class="mb-3">
+							<label for="citationStyleSelect" class="form-label fw-bold">Citation style</label>
+							<select id="citationStyleSelect" class="form-select">
+								<option value="apa" selected>APA 7th</option>
+								<option value="mla">MLA 9th</option>
+								<option value="chicago">Chicago 17th (author-date)</option>
+								<option value="ieee">IEEE</option>
+								<option value="bibtex">BibTeX</option>
+								<option value="ris">RIS (EndNote/Zotero)</option>
+							</select>
+						</div>
+						<div id="citationContent" class="border rounded p-3 bg-light" style="font-size: 0.9rem; white-space: pre-wrap;"></div>
+					</div>
+					<div class="modal-footer d-flex justify-content-between">
+						<div>
+							<button id="downloadCitationBtn" class="btn btn-outline-primary">
+								<i class="bi bi-download me-1"></i> Download
+							</button>
+							</div>
+							<div>
+							<button id="copyCitationBtn" class="btn btn-primary">
+								<i class="bi bi-clipboard me-1"></i> Copy
+							</button>
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+								Close
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="/js/jarallax.js"></script>
+		<script src="/js/swiper.js"></script>
+		<script src="/js/js.js?v=20260227"></script>
+		<script>
+			let currentArticle = null;
+			let currentStyle = 'apa';
+
+			function getInitials(firstName) {
+				return firstName.split(' ').map(part => part.charAt(0).toUpperCase() + '.').join(' ');
+			}
+
+			function generateAPA(article) {
+				const authors = article.authors;
+				const year = article.published_date ? new Date(article.published_date).getFullYear() : 'n.d.';
+				const title = article.title;
+				const journal = '<em>SOLAV Journal</em>';
+				const volume = article.volume;
+				const pages = article.pages || 'n. pag.';
+				const url = `https://solav.me/a/${article.id}`;
+
+				let authorStr = '';
+				if (authors.length === 1) {
+					const a = authors[0];
+					authorStr = `${a.name_last}, ${getInitials(a.name_first)}`;
+				} else if (authors.length === 2) {
+					const a1 = authors[0];
+					const a2 = authors[1];
+					authorStr = `${a1.name_last}, ${getInitials(a1.name_first)} & ${a2.name_last}, ${getInitials(a2.name_first)}`;
+				} else if (authors.length > 2) {
+					const a1 = authors[0];
+					authorStr = `${a1.name_last}, ${getInitials(a1.name_first)} et al.`;
+				}
+
+				const html = `${authorStr} (${year}). ${title}. ${journal}, ${volume}, ${pages}. ${url}`;
+				const text = html.replace(/<em>|<\/em>/g, '');
+				return { html, text };
+			}
+
+			function generateMLA(article) {
+				const authors = article.authors;
+				const year = article.published_date ? new Date(article.published_date).getFullYear() : 'n.d.';
+				const title = article.title;
+				const journal = 'SOLAV Journal';
+				const volume = article.volume;
+				const pages = article.pages || 'n. pag.';
+				const url = `https://solav.me/a/${article.id}`;
+
+				let authorStr = '';
+				if (authors.length === 1) {
+					const a = authors[0];
+					authorStr = `${a.name_last}, ${a.name_first}`;
+				} else if (authors.length === 2) {
+					const a1 = authors[0];
+					const a2 = authors[1];
+					authorStr = `${a1.name_last}, ${a1.name_first} and ${a2.name_first} ${a2.name_last}`;
+				} else if (authors.length > 2) {
+					const a1 = authors[0];
+					authorStr = `${a1.name_last}, ${a1.name_first} et al.`;
+				}
+
+				const html = `${authorStr} "${title}" <em>${journal}</em>, vol. ${volume}, ${year}, pp. ${pages}. ${url}.`;
+				const text = html.replace(/<em>|<\/em>/g, '');
+				return { html, text };
+			}
+
+			function generateChicago(article) {
+				const authors = article.authors;
+				const year = article.published_date ? new Date(article.published_date).getFullYear() : 'n.d.';
+				const title = article.title;
+				const journal = 'SOLAV Journal';
+				const volume = article.volume;
+				const pages = article.pages || 'n. pag.';
+				const url = `https://solav.me/a/${article.id}`;
+
+				let authorStr = '';
+				if (authors.length === 1) {
+					const a = authors[0];
+					authorStr = `${a.name_last}, ${a.name_first}`;
+				} else if (authors.length === 2) {
+					const a1 = authors[0];
+					const a2 = authors[1];
+					authorStr = `${a1.name_last}, ${a1.name_first} and ${a2.name_first} ${a2.name_last}`;
+				} else if (authors.length > 2) {
+					const a1 = authors[0];
+					authorStr = `${a1.name_last}, ${a1.name_first} et al.`;
+				}
+
+				const html = `${authorStr} ${year}. "${title}" <em>${journal}</em> ${volume}: ${pages}. ${url}.`;
+				const text = html.replace(/<em>|<\/em>/g, '');
+				return { html, text };
+			}
+
+			function generateIEEE(article) {
+				const authors = article.authors;
+				const year = article.published_date ? new Date(article.published_date).getFullYear() : 'n.d.';
+				const month = article.published_date ? new Date(article.published_date).toLocaleString('default', { month: 'short' }) : 'n.d.';
+				const title = article.title;
+				const journal = 'SOLAV Journal';
+				const volume = article.volume;
+				const pages = article.pages || 'n. pag.';
+				const url = `https://solav.me/a/${article.id}`;
+
+				let authorStr = '';
+				if (authors.length === 1) {
+					const a = authors[0];
+					authorStr = `${getInitials(a.name_first)} ${a.name_last}`;
+				} else if (authors.length === 2) {
+					const a1 = authors[0];
+					const a2 = authors[1];
+					authorStr = `${getInitials(a1.name_first)} ${a1.name_last} and ${getInitials(a2.name_first)} ${a2.name_last}`;
+				} else if (authors.length > 2) {
+					const a1 = authors[0];
+					authorStr = `${getInitials(a1.name_first)} ${a1.name_last} et al.`;
+				}
+
+				const html = `${authorStr}, "${title}" <em>${journal}</em>, vol. ${volume}, no. ?, pp. ${pages}, ${month} ${year}. ${url}`;
+				const text = html.replace(/<em>|<\/em>/g, '');
+				return { html, text };
+			}
+
+			function generateBibTeX(article) {
+				const authors = article.authors;
+				const year = article.published_date ? new Date(article.published_date).getFullYear() : 'n.d.';
+				const title = article.title;
+				const journal = 'SOLAV Journal';
+				const volume = article.volume;
+				const pages = article.pages || '';
+				const doi = article.identifiers?.archive_doi;
+				const url = `https://solav.me/a/${article.id}`;
+				const key = authors[0]?.name_last.toLowerCase() + year + article.id.slice(-4);
+
+				let authorBib = authors.map(a => `${a.name_last}, ${a.name_first}`).join(' and ');
+
+				let bib = `@article{${key},\n  title = {${title}},\n  author = {${authorBib}},\n  journal = {${journal}},\n  volume = {${volume}},\n  year = {${year}},\n  pages = {${pages}},\n  url = {${url}},\n`;
+				if (doi) bib += `  doi = {${doi}},\n`;
+				bib += `}`;
+
+				return { html: `<pre>${bib}</pre>`, text: bib };
+			}
+
+			function generateRIS(article) {
+				const authors = article.authors;
+				const year = article.published_date ? new Date(article.published_date).getFullYear() : 'n.d.';
+				const title = article.title;
+				const journal = 'SOLAV Journal';
+				const volume = article.volume;
+				const pages = article.pages || '';
+				const doi = article.identifiers?.archive_doi;
+				const url = `https://solav.me/a/${article.id}`;
+
+				let ris = `TY  - JOUR\n`;
+				authors.forEach(a => {
+					ris += `AU  - ${a.name_last}, ${a.name_first}\n`;
+				});
+				ris += `PY  - ${year}\n`;
+				ris += `TI  - ${title}\n`;
+				ris += `T2  - ${journal}\n`;
+				ris += `VL  - ${volume}\n`;
+				if (pages) ris += `SP  - ${pages.split('-')[0]}\n`;
+				if (pages && pages.includes('-')) ris += `EP  - ${pages.split('-')[1]}\n`;
+				if (doi) ris += `DO  - ${doi}\n`;
+				ris += `UR  - ${url}\n`;
+				ris += `ER  - \n`;
+
+				return { html: `<pre>${ris}</pre>`, text: ris };
+			}
+
+			function updateCitationDisplay() {
+				if (!currentArticle) return;
+
+				let result;
+				switch (currentStyle) {
+					case 'apa': result = generateAPA(currentArticle); break;
+					case 'mla': result = generateMLA(currentArticle); break;
+					case 'chicago': result = generateChicago(currentArticle); break;
+					case 'ieee': result = generateIEEE(currentArticle); break;
+					case 'bibtex': result = generateBibTeX(currentArticle); break;
+					case 'ris': result = generateRIS(currentArticle); break;
+					default: result = generateAPA(currentArticle);
+				}
+
+				document.getElementById('citationContent').innerHTML = result.html;
+				window.currentCitationText = result.text;
+			}
+
+			function showCitationModal() {
+				if (!currentArticle) {
+					console.error('Article data not loaded yet.');
+					return;
+				}
+				currentStyle = document.getElementById('citationStyleSelect').value;
+				updateCitationDisplay();
+
+				const modalEl = document.getElementById('citationModal');
+				const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
+				modal.show();
+			}
+
+			async function loadArticleData() {
+				try {
+					const jsonUrl = '/a/s2025781117.json';
+					const response = await fetch(jsonUrl);
+					if (!response.ok) throw new Error('Failed to load article data');
+
+					const data = await response.json();
+					currentArticle = data.articles[0];
+
+				} catch (error) {
+					console.error('Error loading article data:', error);
+				}
+			}
+
+			document.addEventListener('DOMContentLoaded', function() {
+				loadArticleData();
+				document.getElementById('currentYear').textContent = new Date().getFullYear();
+				const citeBtn = document.getElementById('citeBtn');
+				if (citeBtn) {
+					citeBtn.addEventListener('click', showCitationModal);
+				}
+
+				const styleSelect = document.getElementById('citationStyleSelect');
+				if (styleSelect) {
+					styleSelect.addEventListener('change', (e) => {
+						currentStyle = e.target.value;
+						updateCitationDisplay();
+					});
+				}
+
+				const copyBtn = document.getElementById('copyCitationBtn');
+				if (copyBtn) {
+					copyBtn.addEventListener('click', () => {
+						if (!window.currentCitationText) return;
+						navigator.clipboard.writeText(window.currentCitationText).then(() => {
+							const original = copyBtn.innerHTML;
+							copyBtn.innerHTML = '<i class="bi bi-check me-1"></i> Copied!';
+							setTimeout(() => {
+								copyBtn.innerHTML = original;
+							}, 1500);
+						});
+					});
+				}
+
+				const downloadBtn = document.getElementById('downloadCitationBtn');
+				if (downloadBtn) {
+					downloadBtn.addEventListener('click', () => {
+						if (!window.currentCitationText || !currentArticle) return;
+
+						let filename = `citation-${currentArticle.id}`;
+						let extension = 'txt';
+						switch (currentStyle) {
+							case 'bibtex': extension = 'bib'; break;
+							case 'ris': extension = 'ris'; break;
+							default: extension = 'txt';
+						}
+
+						const blob = new Blob([window.currentCitationText], { type: 'text/plain' });
+						const url = URL.createObjectURL(blob);
+						const a = document.createElement('a');
+						a.href = url;
+						a.download = `${filename}.${extension}`;
+						document.body.appendChild(a);
+						a.click();
+						document.body.removeChild(a);
+						URL.revokeObjectURL(url);
+					});
+				}
+
+				const modalEl = document.getElementById('citationModal');
+				if (modalEl) {
+					modalEl.addEventListener('hidden.bs.modal', () => {
+						currentStyle = 'apa';
+						styleSelect.value = 'apa';
+						if (currentArticle) updateCitationDisplay();
+					});
+				}
+
+				(function() {
+					'use strict';
+					const getStoredTheme = () => localStorage.getItem('theme');
+					const setStoredTheme = theme => localStorage.setItem('theme', theme);
+					const getPreferredTheme = () => {
+						const storedTheme = getStoredTheme();
+						return storedTheme || 'light';
+					};
+					const setTheme = theme => {
+						if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+							document.documentElement.setAttribute('data-bs-theme', 'dark');
+						} else {
+							document.documentElement.setAttribute('data-bs-theme', theme);
+						}
+					};
+					const updateLogos = theme => {
+						const logos = document.querySelectorAll('.logo');
+						logos.forEach(logo => {
+							logo.src = theme === 'dark' ? '/images/logo-white.svg' : '/images/logo-black.svg';
+						});
+					};
+					setTheme(getPreferredTheme());
+					const showActiveTheme = theme => {
+						const themeSwitcher = document.querySelector('[data-bs-toggle="mode"]');
+						if (!themeSwitcher) return;
+						const themeSwitcherCheck = themeSwitcher.querySelector('input[type="checkbox"]');
+						themeSwitcherCheck.checked = (theme === 'dark');
+						updateLogos(theme);
+					};
+					window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+						const storedTheme = getStoredTheme();
+						if (storedTheme !== 'light' && storedTheme !== 'dark') {
+							const newTheme = getPreferredTheme();
+							setTheme(newTheme);
+							showActiveTheme(newTheme);
+						}
+					});
+					showActiveTheme(getPreferredTheme());
+					document.querySelectorAll('[data-bs-toggle="mode"]').forEach(toggle => {
+						toggle.addEventListener('click', () => {
+							const themeSwitcherCheck = toggle.querySelector('input[type="checkbox"]');
+							const theme = themeSwitcherCheck.checked ? 'dark' : 'light';
+							setStoredTheme(theme);
+							setTheme(theme);
+							showActiveTheme(theme);
+						});
+					});
+				})();
+			});
+
+			const gsearchModal = document.getElementById('gsearchModal');
+			const gsearchInput = document.getElementById('gsearchQueryInput');
+			gsearchModal.addEventListener('shown.bs.modal', () => {gsearchInput.focus();});
+		</script>
+		<script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+		<script>
+			QRCode.toDataURL("https://solav.me/a/s2025781117", {
+				type: "svg",
+				width: 100,
+				margin: 3,
+				errorCorrectionLevel: "H",
+				color: {
+					dark: "#000",
+					light: "#fff"
+				}
+			}, (err, url) => {
+				if (err) throw err;
+				document.getElementById("qr").src = url;
+			});
+		</script>
+	</body>
+</html>
