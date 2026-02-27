@@ -28,7 +28,7 @@
 		<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 		<link href="/css/swiper.css" rel="stylesheet">
-		<link href="/css/style.css?v=20260225" rel="stylesheet">
+		<link href="/css/style.css?v=20260227" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 		<script>
 		!function(){const e=localStorage.getItem("theme"),t=window.matchMedia("(prefers-color-scheme: dark)").matches,n=e||(t?"dark":"light");document.documentElement.setAttribute("data-bs-theme",n),"undefined"!=typeof document&&document.addEventListener("DOMContentLoaded",(function(){const e=document.getElementById("theme-mode");e&&(e.checked="dark"===n,e.addEventListener("change",(function(){const e=this.checked?"dark":"light";document.documentElement.setAttribute("data-bs-theme",e),localStorage.setItem("theme",e)})))}))}();
@@ -281,27 +281,22 @@
 								</div>
 							</div>
 							
-							<div class="card bg-light shadow-lg rounded-3 border border-opacity-10 mt-4">
+							<div class="card bg-light shadow-lg rounded-3 border border-opacity-10 mb-4 mt-4">
 								<div class="card-body p-4">
-									<h3 class="h4 mb-3"><i class="bi bi-list-check text-primary me-2"></i>What APC Covers</h3>
-									<div class="row">
-										<div class="col-md-6">
-											<ul class="mb-0">
-												<li>Rigorous peer review management</li>
-												<li>Professional copyediting and typesetting</li>
-												<li>Plagiarism checking software</li>
-												<li>Online hosting and server maintenance</li>
-											</ul>
-										</div>
-										<div class="col-md-6">
-											<ul class="mb-0">
-												<li>Digital preservation and archiving</li>
-												<li>Editorial board support</li>
-												<li>Platform development and security</li>
-												<li>Long-term accessibility</li>
-											</ul>
-										</div>
-									</div>
+									<h5 class="card-title h6 mb-3"><i class="bi bi-list-check text-primary me-2"> </i>What APC Covers</h5>
+									<p class="card-text">SOLAV Journal maintains complete transparency about APC allocation. Our fee structure supports sustainable operations while leveraging free infrastructure where available:</p>
+									
+									<h6 class="h6 mt-3 mb-2">Editorial & Operational Costs</h6>
+									<ul class="mb-3">
+										<li>Editorial management and peer review coordination (handling editor time, reviewer communications)</li>
+										<li>Editorial decision processing and author correspondence</li>
+										<li>Professional copyediting and formatting</li>
+										<li>Communication infrastructure (email systems, domain management)</li>
+										<li>Domain registration and maintenance</li>
+										<li>Payment processing fees</li>
+										<li>Operational sustainability reserve (future service enhancements)</li>
+										<li>Emergency contingencies (unexpected technical or administrative costs)</li>
+									</ul>
 								</div>
 							</div>
 						</section>
@@ -317,18 +312,18 @@
 										<div class="accordion-item bg-light border-opacity-10">
 											<h2 class="accordion-header">
 												<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#automaticWaiver">
-													<i class="bi bi-globe-americas me-2"></i> Automatic Waivers
+													<i class="bi bi-globe-americas me-2"></i> Standard Waiver Eligibility
 												</button>
 											</h2>
 											<div id="automaticWaiver" class="accordion-collapse collapse show" data-bs-parent="#waiverAccordion">
 												<div class="accordion-body">
 													<p><strong>100% APC waiver</strong> for corresponding authors from:</p>
 													<ul>
-														<li>Low-income economies (World Bank classification)</li>
+														<li>Low-income economies (World Bank classification). <a href="https://datahelpdesk.worldbank.org/knowledgebase/articles/906519-world-bank-country-and-lending-groups" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">See current list <i class="bi bi-box-arrow-up-right ms-1 small"></i></a></li>
 														<li>Lower-middle-income economies with HDI below 0.65</li>
 														<li>Countries with active pe-auto armed conflicts or humanitarian crises</li>
 													</ul>
-													<p class="mb-0"><em>Automatic approval upon verification of institutional affiliation.</em></p>
+													<p class="mb-0"><em>Eligible authors receive priority consideration. Final approval subject to verification and editorial discretion.</em></p>
 												</div>
 											</div>
 										</div>
@@ -343,9 +338,9 @@
 												<div class="accordion-body">
 													<p><strong>Partial or full waiver</strong> considered on case-by-case basis for:</p>
 													<ul>
-														<li>Independent researchers without institutional funding</li>
-														<li>Graduate students (Master's or PhD candidates)</li>
-														<li>Early-career researchers within 5 years of terminal degree</li>
+														<li>Independent researchers without institutional funding (must provide statement of no funding)</li>
+														<li>Graduate students "Master's or PhD candidates", (student ID or enrollment verification required)</li>
+														<li>Early-career researchers within 5 years of terminal degree (CV or graduation certificate required)</li>
 														<li>Authors experiencing unexpected financial hardship</li>
 														<li>Non-profit organizations and community-based research groups</li>
 													</ul>
@@ -368,21 +363,77 @@
 														<li>Research institutes with 10+ articles annually: <strong>25% discount</strong></li>
 														<li>Consortia agreements for multiple institutions</li>
 													</ul>
-													<p class="mb-0"><em>Contact <a href="mailto:institutional@solav.me">institutional@solav.me</a> for partnership inquiries.</em></p>
+													<p class="mb-0"><em>Contact <a href="mailto:apc@solav.me">apc@solav.me</a> for partnership inquiries.</em></p>
 												</div>
 											</div>
 										</div>
 									</div>
-									
+
+									<div class="card bg-light shadow-lg rounded-3 border border-opacity-10 mb-4 mt-4">
+										<div class="card-body p-4">
+											<h5 class="card-title h6 mb-3">Waiver Documentation Requirements</h5>
+											<p class="card-text">All waiver requests require supporting documentation for verification:</p>
+											<div class="table-responsive">
+												<table class="table table-sm table-bordered mb-0">
+													<thead class="table-light">
+														<tr>
+															<th scope="col" style="width: 40%;">Waiver Type</th>
+															<th scope="col">Required Documentation</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td>Low-Income Country</td>
+															<td>Institutional email or country of residence proof</td>
+														</tr>
+														<tr>
+															<td>Independent Researcher</td>
+															<td>Signed statement of no institutional funding</td>
+														</tr>
+														<tr>
+															<td>Graduate Student</td>
+															<td>Student ID or enrollment verification letter</td>
+														</tr>
+														<tr>
+															<td>Early-Career Researcher</td>
+															<td>CV showing graduation date (within 5 years)</td>
+														</tr>
+														<tr>
+															<td>Financial Hardship</td>
+															<td>Brief statement explaining circumstances</td>
+														</tr>
+														<tr>
+															<td>Institutional Discount</td>
+															<td>Partnership agreement or volume commitment letter</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+
 									<div class="alert alert-success mt-4" role="alert">
 										<h5 class="alert-heading"><i class="bi bi-check-circle me-2"></i>Waiver Application Process</h5>
 										<ol class="mb-0">
 											<li>Indicate waiver request during manuscript submission</li>
-											<li>Provide brief justification and supporting information</li>
-											<li>Await confirmation from editorial office (within 5 business days)</li>
+											<li>Provide brief justification and required supporting documentation (see Documentation Requirements below)</li>
+											<li>Await confirmation from APC team (within 5-7 business days)</li>
 											<li>If approved, proceed with publication at reduced or zero APC</li>
 										</ol>
 										<p class="mt-2 mb-0"><strong>Note:</strong> Waiver decisions are based solely on financial need and do not affect editorial evaluation.</p>
+									</div>
+
+									<div class="card bg-light shadow-lg rounded-3 border border-opacity-10 mb-4">
+										<div class="card-body p-4">
+											<h5 class="card-title h6 mb-3">Waiver Decision Appeals</h5>
+											<p class="card-text">If your waiver request is denied, you may appeal within 14 business days:</p>
+											<ol class="mb-0">
+												<li>Email <a href="mailto:apc@solav.me">apc@solav.me</a> with "APC WAIVER APPEAL" in subject line</li>
+												<li>Include manuscript ID and additional supporting documentation</li>
+												<li>Appeals reviewed by senior editorial team (not original decision-maker)</li>
+												<li>Final decision communicated within 7 business days</li>
+											</ol>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -413,7 +464,7 @@
 												<ul class="mb-0">
 													<li><strong>No refunds</strong> after payment processing begins</li>
 													<li>Articles remain unpublished until APC is settled</li>
-													<li>Extensions available upon request (max 30 business days)</li>
+													<li>Extensions available upon request (max 14 business days)</li>
 													<li>Institutional payments may require purchase order</li>
 													<li>Currency: USD only (PayPal handles conversion)</li>
 												</ul>
@@ -522,19 +573,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-md-12 d-flex justify-content-evenly mb-3 border-top mt-3 pt-3">
-				<a href="/access" title="View Open Access & Licensing Policy" class="text-decoration-none"> <img src="/images/creative_commons_license_with_attribution.svg" alt="Creative Commons Attribution 4.0 International License (CC BY 4.0)" class="img-fluid" style="max-height: 46px;"></a>
-				<a href="/copyright-licensing" title="Why SOLAV is Truly Open Access" class="text-decoration-none"><img src="/images/open_access.svg" alt="Gold Open Access Journal" class="img-fluid" style="max-height: 46px;"></a>
-				<a href="/oai-pmh" title="OAI-PMH Metadata Harvesting Details" class="text-decoration-none"><img src="/images/oai_logo.svg" alt="OAI-PMH Compliant Metadata Provider" class="img-fluid" style="max-height: 46px;"></a>
-			</div>
-			<div class="col-md-12 text-center mb-3 mt-2">
-				<a href="https://publicationethics.org/core-practices" target="_blank" rel="noopener" 
-					class="text-muted text-decoration-none" 
-					title="SOLAV follows COPE Core Practices for publication ethics">
-					<small class="ms-1 text-xs">Adheres to <strong>COPE Core Practices</strong></small>
-					<span class="ms-1"><i class="bi bi-box-arrow-up-right text-xs"></i></span>
-				</a>
-			</div>
+
 		</main>
 		<div class="modal fade" id="gsearchModal" tabindex="-1" aria-hidden="true">
 			<div class="modal-dialog modal-lg modal-dialog-centered">
@@ -731,7 +770,7 @@
 	
 		<script src="/js/jarallax.js"></script>
 		<script src="/js/swiper.js"></script>
-		<script src="/js/js.js?v=20260225.2"></script>
+		<script src="/js/js.js?v=20260227"></script>
 		<script>
 			document.querySelectorAll('.mobile-nav-link').forEach(function(link) { link.addEventListener('click', function() { document.querySelectorAll('.offcanvas.show').forEach(function(el) { const instance = bootstrap.Offcanvas.getInstance(el); if (instance) { instance.hide(); } }); }); });
 			document.getElementById('currentYear').textContent = new Date().getFullYear();
