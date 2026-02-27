@@ -172,25 +172,25 @@
 		{
 			"id": "APC-004",
 			"question": "Are APC waivers available?",
-			"answer": "Yes. SOLAV provides APC waivers and discounts for authors from low-income regions, special circumstances, and institutional agreements as described on the APC page.",
+			"answer": "Yes. SOLAV considers APC waiver requests from authors from low-income regions, special circumstances, and institutional agreements as described on the APC page. Eligibility does not guarantee approval.",
 			"links": ["https://solav.me/apc"]
 		},
 		{
 			"id": "APC-005",
 			"question": "How do I apply for an APC waiver?",
-			"answer": "Authors should request waivers during submission or contact the APC team at apc@solav.me with supporting information as described on the APC page.",
+			"answer": "Authors should request waivers during submission or contact the APC team at apc@solav.me with required documentation as described on the APC page.",
 			"links": ["https://solav.me/apc", "https://solav.me/submit"]
 		},
 		{
 			"id": "APC-006",
 			"question": "What criteria are used to approve waivers?",
-			"answer": "Waivers are evaluated based on economic conditions, institutional support, geographic factors, and editorial discretion.",
+			"answer": "Waivers are evaluated based on World Bank income classification, institutional funding status, geographic factors, documentation completeness, and editorial discretion.",
 			"links": ["https://solav.me/apc"]
 		},
 		{
 			"id": "APC-007",
 			"question": "Can students receive APC waivers?",
-			"answer": "Students and early-career researchers may be considered for partial or full waivers subject to editorial approval.",
+			"answer": "Students and early-career researchers may be considered for partial or full waivers with verification documentation subject to editorial approval.",
 			"links": ["https://solav.me/apc"]
 		}
 		]
