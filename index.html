@@ -10,8 +10,8 @@
 		<meta name="language" content="en, ar">
 		<meta name="robots" content="index, follow">
 		<title>SOLAV Journal | Scholarly Open-Access Research</title>
-		<meta name="description" content="SOLAV is a leading open-access, peer-reviewed academic journal dedicated to the rapid publication of high-quality research across applied sciences and interdisciplinary technology. We operate on a continuous publication model to ensure timely dissemination of groundbreaking work.">
-		<meta name="keywords" content="SOLAV journal, open access journal, academic research, applied sciences, interdisciplinary research, peer-reviewed, rapid publication, continuous publication, materials science, renewable energy, artificial intelligence, machine learning, data science, engineering technology, environmental science, biomedical engineering, nanotechnology, computer science, scholarly publishing, CC BY license">
+		<meta name="description" content="SOLAV Journal is a leading open-access, peer-reviewed academic journal dedicated to the rapid publication of high-quality research across applied sciences and interdisciplinary technology. We operate on a continuous publication model to ensure timely dissemination of groundbreaking work.">
+		<meta name="keywords" content="SOLAV Journal, open access journal, academic research, applied sciences, interdisciplinary research, peer-reviewed, rapid publication, continuous publication, materials science, renewable energy, artificial intelligence, machine learning, data science, engineering technology, environmental science, biomedical engineering, nanotechnology, computer science, scholarly publishing, CC BY license">
 		<link rel="canonical" href="https://solav.me/">
 		<meta property="og:type" content="website">
 		<meta property="og:url" content="https://solav.me/">
@@ -34,21 +34,41 @@
 		!function(){const e=localStorage.getItem("theme"),t=window.matchMedia("(prefers-color-scheme: dark)").matches,n=e||(t?"dark":"light");document.documentElement.setAttribute("data-bs-theme",n),"undefined"!=typeof document&&document.addEventListener("DOMContentLoaded",(function(){const e=document.getElementById("theme-mode");e&&(e.checked="dark"===n,e.addEventListener("change",(function(){const e=this.checked?"dark":"light";document.documentElement.setAttribute("data-bs-theme",e),localStorage.setItem("theme",e)})))}))}();
 		</script>
 		<script type="application/ld+json">
-		{
+			{
 			"@context": "https://schema.org",
-			"@type": "Periodical",
-			"name": "SOLAV Journal",
-			"url": "https://solav.me",
-			"publisher": {
+			"@graph": [
+
+				{
 				"@type": "Organization",
-				"name": "Leothar Company"
-			},
-			"sameAs": [
-				"https://zenodo.org/communities/solav",
-				"https://commons.datacite.org/doi.org?query=SOLAV+Journal",
-				"https://explore.openaire.eu/search/find?fv0=solav%20journal&f0=q"
+				"@id": "https://solav.me/",
+				"name": "SOLAV Journal",
+				"url": "https://solav.me/",
+				"logo": "https://solav.me/images/logo.svg",
+				"sameAs": [
+					"https://zenodo.org/communities/solav",
+					"https://isni.org/isni/0000000506340505",
+					"https://bsky.app/profile/solav.me",
+					"https://mastodon.social/@SOLAVjournal"
+				]
+				},{
+				"@type": "Periodical",
+				"@id": "https://solav.me/",
+				"name": "SOLAV Journal",
+				"url": "https://solav.me/",
+				"publisher": {
+					"@id": "https://solav.me/"
+					}
+				},{
+				"@type": "WebSite",
+				"@id": "https://solav.me/",
+				"url": "https://solav.me/",
+				"name": "SOLAV Journal",
+				"publisher": {
+					"@id": "https://solav.me/"
+					}
+				}
 			]
-		}
+			}
 		</script>
 	</head>
 	<body>
@@ -175,9 +195,9 @@
 				<div class="card border-primary shadow-sm px-4 px-lg-0 bg-body">
 					<div class="row align-items-center">
 						<div class="col-xl-12 col-md-12 text-center text-md-start p-5 py-2 pt-4">
-							<h2>Welcome to SOLAV</h2>
+							<h2>Welcome to SOLAV Journal</h2>
 							<p>
-								SOLAV (A Scholarly Platform for Interdisciplinary Applied Futures Research) is a rigorously peer-reviewed, open-access journal dedicated to the rapid dissemination of significant research across a broad spectrum of applied sciences and interdisciplinary technology. We operate on a continuous publication model, ensuring your work is published as soon as the review process is complete.
+								SOLAV Journal (A Scholarly Platform for Interdisciplinary Applied Futures Research) is a rigorously peer-reviewed, open-access journal dedicated to the rapid dissemination of significant research across a broad spectrum of applied sciences and interdisciplinary technology. We operate on a continuous publication model, ensuring your work is published as soon as the review process is complete.
 							</p>
 						</div>
 					</div>

@@ -38,24 +38,44 @@
 		<meta http-equiv="Expires" content="0">
 		<meta http-equiv="refresh" content="0; url=/archive">
 		<script type="text/javascript">
-			//window.location.href = "/archive";
+			window.location.href = "/archive";
 		</script>
 		<script type="application/ld+json">
-		{
+			{
 			"@context": "https://schema.org",
-			"@type": "Periodical",
-			"name": "SOLAV Journal",
-			"url": "https://solav.me",
-			"publisher": {
+			"@graph": [
+
+				{
 				"@type": "Organization",
-				"name": "Leothar Company"
-			},
-			"sameAs": [
-				"https://zenodo.org/communities/solav",
-				"https://commons.datacite.org/doi.org?query=SOLAV+Journal",
-				"https://explore.openaire.eu/search/find?fv0=solav%20journal&f0=q"
+				"@id": "https://solav.me/",
+				"name": "SOLAV Journal",
+				"url": "https://solav.me/",
+				"logo": "https://solav.me/images/logo.svg",
+				"sameAs": [
+					"https://zenodo.org/communities/solav",
+					"https://isni.org/isni/0000000506340505",
+					"https://bsky.app/profile/solav.me",
+					"https://mastodon.social/@SOLAVjournal"
+				]
+				},{
+				"@type": "Periodical",
+				"@id": "https://solav.me/",
+				"name": "SOLAV Journal",
+				"url": "https://solav.me/",
+				"publisher": {
+					"@id": "https://solav.me/"
+					}
+				},{
+				"@type": "WebSite",
+				"@id": "https://solav.me/",
+				"url": "https://solav.me/",
+				"name": "SOLAV Journal",
+				"publisher": {
+					"@id": "https://solav.me/"
+					}
+				}
 			]
-		}
+			}
 		</script>
 	</head>
 	<body>
@@ -173,10 +193,14 @@
 			<section class="container py-2 card bg-secondary mb-5">
 				<div class="row align-items-center">
 					<div class="col-md-12">
-						<p class="fw-bold mb-1">Redirecting...</p>
 						<p class="mb-0 small">
 							If you are not redirected automatically, follow this <a href="/archive" class="link-primary link-underline-opacity-25 link-underline-opacity-100-hover">link to the archive</a>.
 						</p>
+						<div id="loadingSpinner" class="text-center py-5">
+							<div class="spinner-border text-primary" role="status">
+								<span class="visually-hidden">Redirecting...</span>
+							</div>
+						</div>
 					</div>
 				</div>
 			</section>

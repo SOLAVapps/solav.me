@@ -34,21 +34,51 @@
 		!function(){const e=localStorage.getItem("theme"),t=window.matchMedia("(prefers-color-scheme: dark)").matches,n=e||(t?"dark":"light");document.documentElement.setAttribute("data-bs-theme",n),"undefined"!=typeof document&&document.addEventListener("DOMContentLoaded",(function(){const e=document.getElementById("theme-mode");e&&(e.checked="dark"===n,e.addEventListener("change",(function(){const e=this.checked?"dark":"light";document.documentElement.setAttribute("data-bs-theme",e),localStorage.setItem("theme",e)})))}))}();
 		</script>
 		<script type="application/ld+json">
-		{
+			{
 			"@context": "https://schema.org",
-			"@type": "Periodical",
-			"name": "SOLAV Journal",
-			"url": "https://solav.me",
-			"publisher": {
+			"@graph": [
+
+				{
 				"@type": "Organization",
-				"name": "Leothar Company"
-			},
-			"sameAs": [
-				"https://zenodo.org/communities/solav",
-				"https://commons.datacite.org/doi.org?query=SOLAV+Journal",
-				"https://explore.openaire.eu/search/find?fv0=solav%20journal&f0=q"
+				"@id": "https://solav.me/",
+				"name": "SOLAV Journal",
+				"url": "https://solav.me/",
+				"logo": "https://solav.me/images/logo.svg",
+				"sameAs": [
+					"https://zenodo.org/communities/solav",
+					"https://isni.org/isni/0000000506340505",
+					"https://bsky.app/profile/solav.me",
+					"https://mastodon.social/@SOLAVjournal"
+				]
+				},{
+				"@type": "Periodical",
+				"@id": "https://solav.me/",
+				"name": "SOLAV Journal",
+				"url": "https://solav.me/",
+				"publisher": {
+					"@id": "https://solav.me/"
+					}
+				},{
+				"@type": "WebSite",
+				"@id": "https://solav.me/",
+				"url": "https://solav.me/",
+				"name": "SOLAV Journal",
+				"publisher": {
+					"@id": "https://solav.me/"
+					}
+				}
 			]
-		}
+			}
+		</script>
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "BreadcrumbList",
+				"itemListElement": [
+					{"@type": "ListItem","position": 1,"name": "Home","item": "https://solav.me/"},
+					{"@type": "ListItem","position": 2,"name": "Contact","item": "https://solav.me/contact"}
+				]
+			}
 		</script>
 	</head>
 	<body>
@@ -167,8 +197,8 @@
 
 				<section class="text-center mb-5">
 					<div class="row justify-content-center">
-						<div class="col-lg-10">
-							<p class="lead fs-4 mb-4">
+						<div class="col">
+							<p class="lead fs-4 mb-2">
 								We are committed to responsive communication with our authors, reviewers, and readers. Please select the appropriate contact channel below to ensure your inquiry is routed to the correct team for prompt assistance.
 							</p>
 						</div>
@@ -177,8 +207,8 @@
 
 				<div class="row g-4 mb-5">
 					<div class="col-md-6">
-						<div class="card border-0 bg-secondary bg-opacity-10 h-100 p-4">
-							<div class="d-flex align-items-center mb-3">
+						<div class="card border-0 bg-secondary bg-opacity-10 h-100 p-4 pb-1">
+							<div class="d-flex align-items-center">
 								<i class="bi bi-clock-history fs-1 text-primary me-3"></i>
 								<h3 class="h4 mb-0">Response Time</h3>
 							</div>
@@ -186,13 +216,12 @@
 						</div>
 					</div>
 					<div class="col-md-6">
-						<div class="card border-0 bg-secondary bg-opacity-10 h-100 p-4">
-							<div class="d-flex align-items-center mb-3">
+						<div class="card border-0 bg-secondary bg-opacity-10 h-100 p-4 pb-1">
+							<div class="d-flex align-items-center">
 								<i class="bi bi-question-circle fs-1 text-primary me-3"></i>
 								<h3 class="h4 mb-0">Before You Contact Us</h3>
 							</div>
 							<p>Many common questions are answered in our <a href="/faq" class="fw-bold">Frequently Asked Questions</a> section. Checking the FAQ first ensures you receive immediate answers without waiting for email correspondence.</p>
-							<a href="/faq" class="btn btn-sm btn-outline-primary rounded-pill align-self-start mt-2"><i class="bi bi-arrow-right me-2"></i>View Frequently Asked Questions</a>
 						</div>
 					</div>
 				</div>
@@ -206,7 +235,7 @@
 								<div class="card-header bg-primary bg-opacity-10 border-0 fw-bold text-primary fs-5 py-3 px-4 m-0 w-100">
 									<i class="bi bi-pencil-square me-2"></i>Editorial & Submissions
 								</div>
-								<div class="card-body p-4">
+								<div class="card-body p-4 pb-1">
 									<p class="text-muted mb-3">For inquiries regarding manuscript status, peer review, editorial policies, or submission guidelines.</p>
 									<ul class="list-unstyled">
 										<li class="mb-3 pb-1 border-bottom">
@@ -219,7 +248,7 @@
 											<p class="mb-1 small">Problems with the online submission form, file uploads, or confirmation emails.</p>
 											<a href="mailto:support@solav.me" class="text-primary text-decoration-none">support@solav.me <i class="bi bi-box-arrow-up-right ms-1 small"></i></a>
 										</li>
-										<li class="mb-3 pb-1">
+										<li class="mb-0 pb-0">
 											<small class="text-secondary-emphasis fw-semibold">Appeals & Decisions</small>
 											<p class="mb-1 small">Formal appeals regarding editorial decisions or rejections.</p>
 											<a href="mailto:editorial@solav.me" class="text-primary text-decoration-none">editorial@solav.me <i class="bi bi-box-arrow-up-right ms-1 small"></i></a>
@@ -234,7 +263,7 @@
 								<div class="card-header bg-primary bg-opacity-10 border-0 fw-bold text-primary fs-5 py-3 px-4 m-0 w-100">
 									<i class="bi bi-currency-exchange me-2"></i>APC & Payments
 								</div>
-								<div class="card-body p-4">
+								<div class="card-body p-4 pb-1">
 									<p class="text-muted mb-3">For inquiries regarding Article Processing Charges, waivers, invoices, and payment confirmation.</p>
 									<ul class="list-unstyled">
 										<li class="mb-3 pb-1 border-bottom">
@@ -247,7 +276,7 @@
 											<p class="mb-1 small">Invoice requests, payment confirmation, or transaction errors.</p>
 											<a href="mailto:apc@solav.me" class="text-primary text-decoration-none">apc@solav.me <i class="bi bi-box-arrow-up-right ms-1 small"></i></a>
 										</li>
-										<li class="mb-3 pb-1">
+										<li class="mb-0 pb-0">
 											<small class="text-secondary-emphasis fw-semibold">Institutional Partnerships</small>
 											<p class="mb-1 small">Inquiries regarding bulk discounts or institutional agreements.</p>
 											<a href="mailto:apc@solav.me" class="text-primary text-decoration-none">apc@solav.me <i class="bi bi-box-arrow-up-right ms-1 small"></i></a>
@@ -262,7 +291,7 @@
 								<div class="card-header bg-primary bg-opacity-10 border-0 fw-bold text-primary fs-5 py-3 px-4 m-0 w-100">
 									<i class="bi bi-shield-check me-2"></i>Ethics & Integrity
 								</div>
-								<div class="card-body p-4">
+								<div class="card-body p-4 pb-1">
 									<p class="text-muted mb-3">For reporting misconduct, ethical concerns, conflicts of interest, or plagiarism allegations.</p>
 									<ul class="list-unstyled">
 										<li class="mb-3 pb-1 border-bottom">
@@ -275,7 +304,7 @@
 											<p class="mb-1 small">Disclosure questions or reporting undeclared conflicts.</p>
 											<a href="mailto:ethics@solav.me" class="text-primary text-decoration-none">ethics@solav.me <i class="bi bi-box-arrow-up-right ms-1 small"></i></a>
 										</li>
-										<li class="mb-3 pb-1">
+										<li class="mb-0 pb-0">
 											<small class="text-secondary-emphasis fw-semibold">Complaints & Appeals</small>
 											<p class="mb-1 small">Formal complaints regarding editorial conduct or process.</p>
 											<a href="mailto:ethics@solav.me" class="text-primary text-decoration-none">ethics@solav.me <i class="bi bi-box-arrow-up-right ms-1 small"></i></a>
@@ -290,7 +319,7 @@
 								<div class="card-header bg-primary bg-opacity-10 border-0 fw-bold text-primary fs-5 py-3 px-4 m-0 w-100">
 									<i class="bi bi-gear me-2"></i>Technical & Support
 								</div>
-								<div class="card-body p-4">
+								<div class="card-body p-4 pb-1">
 									<p class="text-muted mb-3">For website accessibility, OAI-PMH harvesting, metadata, or general technical assistance.</p>
 									<ul class="list-unstyled">
 										<li class="mb-3 pb-1 border-bottom">
@@ -303,7 +332,7 @@
 											<p class="mb-1 small">Harvesting issues, metadata formats, or library integration.</p>
 											<a href="mailto:support@solav.me" class="text-primary text-decoration-none">support@solav.me <i class="bi bi-box-arrow-up-right ms-1 small"></i></a>
 										</li>
-										<li class="mb-3 pb-1">
+										<li class="mb-0 pb-0">
 											<small class="text-secondary-emphasis fw-semibold">Accessibility</small>
 											<p class="mb-1 small">Requests for alternative formats or accessibility accommodations.</p>
 											<a href="mailto:support@solav.me" class="text-primary text-decoration-none">support@solav.me <i class="bi bi-box-arrow-up-right ms-1 small"></i></a>
@@ -317,7 +346,7 @@
 
 				<div class="row g-4 mb-5">
 					<div class="col-lg-6 rounded-3">
-						<div class="card border-0 bg-light p-4 h-100 bg-primary-subtle">
+						<div class="card border-primary-subtle shadow-sm p-4 h-100 bg-secondary-subtle">
 							<h3 class="h4 mb-3"><i class="bi bi-envelope me-2 text-primary"></i>General Inquiries</h3>
 							<p class="text-muted">For all other questions not covered above, including press inquiries or general information.</p>
 							<div class="p-0 d-flex flex-wrap align-items-center justify-content-between">
@@ -330,7 +359,7 @@
 						</div>
 					</div>
 					<div class="col-lg-6">
-						<div class="card border-0 bg-light p-4 h-100 pb-0 mb-0 bg-primary-subtle">
+						<div class="card border-primary-subtle shadow-sm p-4 h-100 pb-0 mb-0 bg-secondary-subtle">
 							<h3 class="h4 mb-3"><i class="bi bi-building me-2 text-primary"></i>Publisher Information</h3>
 							<p class="small text-muted">SOLAV Journal is published by Leothar Company, a registered electronic publishing entity.</p>
 							<ul class="list-unstyled small pb-2 mb-0">

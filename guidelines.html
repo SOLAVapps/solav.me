@@ -35,21 +35,51 @@
 		!function(){const e=localStorage.getItem("theme"),t=window.matchMedia("(prefers-color-scheme: dark)").matches,n=e||(t?"dark":"light");document.documentElement.setAttribute("data-bs-theme",n),"undefined"!=typeof document&&document.addEventListener("DOMContentLoaded",(function(){const e=document.getElementById("theme-mode");e&&(e.checked="dark"===n,e.addEventListener("change",(function(){const e=this.checked?"dark":"light";document.documentElement.setAttribute("data-bs-theme",e),localStorage.setItem("theme",e)})))}))}();
 		</script>
 		<script type="application/ld+json">
-		{
+			{
 			"@context": "https://schema.org",
-			"@type": "Periodical",
-			"name": "SOLAV Journal",
-			"url": "https://solav.me",
-			"publisher": {
+			"@graph": [
+
+				{
 				"@type": "Organization",
-				"name": "Leothar Company"
-			},
-			"sameAs": [
-				"https://zenodo.org/communities/solav",
-				"https://commons.datacite.org/doi.org?query=SOLAV+Journal",
-				"https://explore.openaire.eu/search/find?fv0=solav%20journal&f0=q"
+				"@id": "https://solav.me/",
+				"name": "SOLAV Journal",
+				"url": "https://solav.me/",
+				"logo": "https://solav.me/images/logo.svg",
+				"sameAs": [
+					"https://zenodo.org/communities/solav",
+					"https://isni.org/isni/0000000506340505",
+					"https://bsky.app/profile/solav.me",
+					"https://mastodon.social/@SOLAVjournal"
+				]
+				},{
+				"@type": "Periodical",
+				"@id": "https://solav.me/",
+				"name": "SOLAV Journal",
+				"url": "https://solav.me/",
+				"publisher": {
+					"@id": "https://solav.me/"
+					}
+				},{
+				"@type": "WebSite",
+				"@id": "https://solav.me/",
+				"url": "https://solav.me/",
+				"name": "SOLAV Journal",
+				"publisher": {
+					"@id": "https://solav.me/"
+					}
+				}
 			]
-		}
+			}
+		</script>
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "BreadcrumbList",
+				"itemListElement": [
+					{"@type": "ListItem","position": 1,"name": "Home","item": "https://solav.me/"},
+					{"@type": "ListItem","position": 2,"name": "Author Guidelines","item": "https://solav.me/guidelines"}
+				]
+			}
 		</script>
 	</head>
 	<body>

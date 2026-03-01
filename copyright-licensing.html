@@ -9,18 +9,18 @@
 		<meta name="copyright" content="Creative Commons Attribution License (CC BY 4.0)">
 		<meta name="language" content="en, ar">
 		<meta name="robots" content="index, follow">
-		<title>Copyright and Licensing Policy | SOLAV Journal</title>
+		<title>Copyright and Licensing | SOLAV Journal</title>
 		<meta name="description" content="SOLAV Journal's copyright ownership, licensing terms, open access policy, and author rights. Learn about our CC BY 4.0 licensing and author permissions.">
 		<meta name="keywords" content="copyright, licensing, open access, CC BY 4.0, author rights, creative commons, publishing agreement, SOLAV">
 		<link rel="canonical" href="https://solav.me/copyright-licensing/">
 		<meta property="og:type" content="website">
 		<meta property="og:url" content="https://solav.me/copyright-licensing/">
-		<meta property="og:title" content="Copyright and Licensing Policy | SOLAV Journal">
+		<meta property="og:title" content="Copyright and Licensing | SOLAV Journal">
 		<meta property="og:description" content="Copyright ownership, licensing terms, and open access policies for SOLAV Journal authors and readers.">
 		<meta property="og:image" content="https://solav.me/images/social-preview.jpg">
 		<meta property="twitter:card" content="summary_large_image">
 		<meta property="twitter:url" content="https://solav.me/copyright-licensing/">
-		<meta property="twitter:title" content="Copyright and Licensing Policy | SOLAV Journal">
+		<meta property="twitter:title" content="Copyright and Licensing | SOLAV Journal">
 		<meta property="twitter:description" content="Copyright ownership, licensing terms, and open access policies for SOLAV Journal authors and readers.">
 		<meta property="twitter:image" content="https://solav.me/images/social-preview.jpg">
 		<link rel="icon" type="image/x-icon" href="/images/icon.png">
@@ -34,22 +34,51 @@
 		!function(){const e=localStorage.getItem("theme"),t=window.matchMedia("(prefers-color-scheme: dark)").matches,n=e||(t?"dark":"light");document.documentElement.setAttribute("data-bs-theme",n),"undefined"!=typeof document&&document.addEventListener("DOMContentLoaded",(function(){const e=document.getElementById("theme-mode");e&&(e.checked="dark"===n,e.addEventListener("change",(function(){const e=this.checked?"dark":"light";document.documentElement.setAttribute("data-bs-theme",e),localStorage.setItem("theme",e)})))}))}();
 		</script>
 		<script type="application/ld+json">
-		{
+			{
 			"@context": "https://schema.org",
-			"@type": "Periodical",
-			"name": "SOLAV Journal",
-			"url": "https://solav.me",
-			"publisher": {
+			"@graph": [
+
+				{
 				"@type": "Organization",
-				"name": "Leothar Company"
-			},
-			"license": "https://creativecommons.org/licenses/by/4.0/",
-			"sameAs": [
-				"https://zenodo.org/communities/solav",
-				"https://commons.datacite.org/doi.org?query=SOLAV+Journal",
-				"https://explore.openaire.eu/search/find?fv0=solav%20journal&f0=q"
+				"@id": "https://solav.me/",
+				"name": "SOLAV Journal",
+				"url": "https://solav.me/",
+				"logo": "https://solav.me/images/logo.svg",
+				"sameAs": [
+					"https://zenodo.org/communities/solav",
+					"https://isni.org/isni/0000000506340505",
+					"https://bsky.app/profile/solav.me",
+					"https://mastodon.social/@SOLAVjournal"
+				]
+				},{
+				"@type": "Periodical",
+				"@id": "https://solav.me/",
+				"name": "SOLAV Journal",
+				"url": "https://solav.me/",
+				"publisher": {
+					"@id": "https://solav.me/"
+					}
+				},{
+				"@type": "WebSite",
+				"@id": "https://solav.me/",
+				"url": "https://solav.me/",
+				"name": "SOLAV Journal",
+				"publisher": {
+					"@id": "https://solav.me/"
+					}
+				}
 			]
-		}
+			}
+		</script>
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "BreadcrumbList",
+				"itemListElement": [
+					{"@type": "ListItem","position": 1,"name": "Home","item": "https://solav.me/"},
+					{"@type": "ListItem","position": 2,"name": "Copyright and Licensing","item": "https://solav.me/copyright-licensing"}
+				]
+			}
 		</script>
 	</head>
 	<body>
