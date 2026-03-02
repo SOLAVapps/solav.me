@@ -220,7 +220,7 @@
 				</div>
 			</section>
 
-			<div class="container pt-3">
+			<div class="container pt-3 mb-5">
 				<div class="row mb-4">
 					<div class="col-md-8">
 						<div class="input-group">
@@ -860,7 +860,7 @@
 
 			async function loadArticles() {
 				try {
-					const response = await fetch('/data/a2025.json');
+					const response = await fetch('/data/a2025.json?v=20260302');
 					if (!response.ok) throw new Error('Failed to load articles');
 					
 					const data = await response.json();
