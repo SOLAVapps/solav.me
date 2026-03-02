@@ -694,8 +694,8 @@
         return `
             <div class="col-md-6 col-lg-4">
                 <div class="card h-100 author-card">
-                    <div class="card-body">
-                        <div class="d-flex align-items-start mb-3">
+                    <div class="card-body pb-1">
+                        <div class="d-flex align-items-start mb-0">
                             <div class="author-avatar-small rounded-circle d-flex align-items-center justify-content-center me-3" 
                                 style="min-width: 60px; min-height: 60px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
                                 <i class="bi bi-person-fill" style="font-size: 1.5rem;"></i>
@@ -712,20 +712,21 @@
                                     </span>
                                 </div>
                                 ${author.affiliation ? 
-                                    `<p class="text-muted small mb-2">
-                                        <i class="bi bi-building"></i> ${author.affiliation}
-                                    </p>` : ''
+                                `<p class="text-muted small mb-2">
+                                    <i class="bi bi-building"></i> ${author.affiliation}
+                                </p>` : ''
                                 }
                                 ${author.orcid ? 
-                                    `<a href="https://orcid.org/${author.orcid}" target="_blank" class="d-inline-flex align-items-center gap-1 small text-decoration-none orcid-font">
-                                        <img src="/images/orcid.svg" alt="ORCID" style="height: 16px;">
-                                        <span>${author.orcid}</span>
-                                    </a>` : ''
+                                `<a href="https://orcid.org/${author.orcid}" target="_blank" class="d-inline-flex align-items-center gap-1 small text-decoration-none orcid-font">
+                                    <img src="/images/orcid.svg" alt="ORCID" style="height: 16px;">
+                                    <span>${author.orcid}</span>
+                                </a>` : ''
                                 }
                             </div>
                         </div>
-                        
-                        <div class="author-stats-small d-flex justify-content-between bg-light rounded p-2 mb-3">
+                    </div>
+                    <div class="card-footer pt-0 mt-0">
+                        <div class="author-stats-small d-flex justify-content-between bg-light rounded p-2 mb-0">
                             <div class="text-center">
                                 <div class="fw-bold text-primary">${author.articleCount}</div>
                                 <div class="small text-muted">Articles</div>
@@ -735,10 +736,10 @@
                                 <div class="small text-muted">Citations</div>
                             </div>
                             ${author.isCorresponding ? 
-                                `<div class="text-center">
-                                    <div><i class="bi bi-star-fill text-warning"></i></div>
-                                    <div class="small text-muted">Corresponding</div>
-                                </div>` : ''
+                            `<div class="text-center">
+                                <div><i class="bi bi-star-fill text-warning"></i></div>
+                                <div class="small text-muted">Corresponding</div>
+                            </div>` : ''
                             }
                         </div>
                         
