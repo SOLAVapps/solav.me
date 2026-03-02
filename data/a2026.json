@@ -2,6 +2,86 @@
   "year": "2026",
   "articles": [
 	{
+		"id": "s2026781204",
+		"identifiers": {
+			"archive_doi": "10.5281/zenodo.18836539",
+			"archive_repository": "Zenodo",
+			"publisher_doi": null
+		},
+		"type": "Review Article",
+		"title": "Responsible Artificial Intelligence and Sustainable Technologies: Emerging Research Frontiers",
+		"status": "published",
+		"authors": [
+			{
+			"id": "00010093",
+			"name_first": "Natalya",
+			"name_last": "Ovechkin",
+			"name": "Ovechkin, Natalya",
+			"corresponding": 1,
+			"affiliation": "All-Russian Plant Quarantine Centre, Moscow, Russia",
+			"roles": [
+				"Conceptualization",
+				"Writing – Original Draft",
+				"Writing – Review & Editing"
+			],
+			"email": "natalyaova@protonmail.com",
+			"orcid": ""
+			}
+		],
+		"keywords": [
+			"lifecycle assessment",
+			"energy storage",
+			"GCC",
+			"lithium-ion batteries",
+			"green hydrogen",
+			"pumped hydro storage",
+			"circular economy",
+			"environmental impact",
+			"decarbonization"
+		],
+		"abstract": "The high pace of the Gulf Cooperation Council (GCC) region renewable electricity expansion has increased the strategic significance of energy storage technologies that can stabilize grids that have a high level of solar penetration and severe climatic conditions. Although, the deployment objectives have improved, the eco-friendliness of storage technologies throughout lifecycle is not studied sufficiently on arid, high temperature, and water-limited environments. This paper is a structured lifecycle assessment (LCA) review of some of the emerging and scalable energy storage technologies applicable to the GCC including lithium-ion batteries, solid-state batteries, flow batteries, pumped hydro storage, compressed air energy storage, gravity storage, and green hydrogen-based storage systems. This review is based on the synthesis of peer-reviewed lifecycle data by the application of a cradle-to-grave analytical framework congruent with the ISO 14040/44 principles that present carbon intensity, material criticality, water dependency, land transformation, operational degradation at extreme heat, and end-of-life management pathways. Special attention is given to the role of regional specificity, the reliance on desalination, exposure to dust, and higher ambient temperatures, as well as centralized electricity markets, as the factors altering the environmental performance profiles. The analysis finds considerable trade-offs: electrochemical batteries have high upstream material and manufacturing costs, and have better modular scalability; mechanical storage opportunities have low material sensitivity, but have space and geologic limitations; H 2 -based storage has the potential to be used over the long term, but is still energy- and water-intensive. The research ends with a set of policy implications concerning sustainable deployment plans in accordance with the long-term goal of decarbonization in GCC.",
+		"version": [
+			{
+			"date": "2026-02-08",
+			"number": "1"
+			}
+		],
+		"abstract_url": "https://solav.me/a/s2026781204",
+		"download_url": "https://solav.me/p/s2026781204.pdf",
+		"received_date": "2026-01-17",
+		"evaluated_date": "2026-01-21",
+		"peer_reviewed_date": "2026-02-27",
+		"accepted_date": "2026-02-28",
+		"published_date": "2026-03-02",
+		"volume": "2",
+		"pages": "13-38",
+		"citation_count": 0,
+		"date": "2026-03-02",
+		"language": "en",
+		"license": "CC BY 4.0",
+		"reference": [
+			{"data": "Luo, X., Wang, J., Dooner, M., & Clarke, J. (2015). Overview of current development in electrical energy storage technologies and the application potential in power system operation. Applied Energy, 137, 511–536. https://doi.org/10.1016/j.apenergy.2014.09.081"},
+			{"data": "Schmidt, O., Hawkes, A., Gambhir, A., & Staffell, I. (2017). The future cost of electrical energy storage based on experience rates. Nature Energy, 2, 17110. https://doi.org/10.1038/nenergy.2017.110"},
+			{"data": "Finnveden, G., Hauschild, M. Z., Ekvall, T., et al. (2009). Recent developments in life cycle assessment. Journal of Environmental Management, 91(1), 1–21. https://doi.org/10.1016/j.jenvman.2009.06.018"},
+			{"data": "Ellingsen, L. A., Hung, C. R., & Strømman, A. H. (2017). Identifying key assumptions and differences in life cycle assessment studies of lithium-ion traction batteries with focus on greenhouse gas emissions. Transportation Research Part D Transport and Environment, 55, 82–90. https://doi.org/10.1016/j.trd.2017.06.028"},
+			{"data": "Hunt, J. D., Byers, E., Wada, Y., et al. (2020). Global resource potential of seasonal pumped hydropower storage for energy and water storage. Nature Communications, 11, 947. https://doi.org/10.1038/s41467-020-14555-y"},
+			{"data": "Bhandari, R., Trudewind, C. A., & Zapp, P. (2014). Life cycle assessment of hydrogen production via electrolysis – A review. Journal of Cleaner Production, 85, 151–163. https://doi.org/10.1016/j.jclepro.2013.07.048"},
+			{"data": "Waldmann, T., Wilka, M., Kasper, M., Fleischhammer, M., & Wohlfahrt-Mehrens, M. (2014). Temperature dependent ageing mechanisms in lithium-ion batteries. Journal of Power Sources, 262, 129–135. https://doi.org/10.1016/j.jpowsour.2014.03.112"},
+			{"data": "Peters, J. F., Baumann, M., Zimmermann, B., Braun, J., & Weil, M. (2017). The environmental impact of Li-ion batteries and the role of key parameters – A review. Renewable and Sustainable Energy Reviews, 67, 491–506. https://doi.org/10.1016/j.rser.2016.08.039"},
+			{"data": "ISO. (2006). Environmental management, Life cycle assessment, Principles and framework (ISO 14040:2006). International Organization for Standardization."},
+			{"data": "Arvesen, A., & Hertwich, E. G. (2012). Assessing the life cycle environmental impacts of wind power: A review of present knowledge and research needs. Renewable and Sustainable Energy Reviews, 16(8), 5994–6006. https://doi.org/10.1016/j.rser.2012.06.023"},
+			{"data": "Ishaq, M., & Dincer, I. (2025). Harmonized life cycle sustainability assessment of advanced hydrogen production technologies for decarbonization. Fuel Processing Technology, 273, 108222. https://doi.org/10.1016/j.fuproc.2025.108222"},
+			{"data": "Du, Y., Pei, W., Hao, Y., Zhang, P., Wang, C., Yang, Y., Pang, M., & Zhang, L. (2025). Life cycle assessment of the pumped hydro energy storage system in Liaoning, China. Energy, 331, 137102. https://doi.org/10.1016/j.energy.2025.137102"},
+			{"data": "Zakeri, B., & Syri, S. (2015). Electrical energy storage systems: A comparative life cycle cost analysis. Renewable and Sustainable Energy Reviews, 42, 569–596. https://doi.org/10.1016/j.rser.2014.10.011"},
+			{"data": "Budt, M., Wolf, D., Span, R., & Yan, J. (2016). A review on compressed air energy storage: Basic principles, past milestones and recent developments. Applied Energy, 170, 250–268. https://doi.org/10.1016/j.apenergy.2016.02.108"},
+			{"data": "Rahman, M. M., et al. (2025). Life cycle assessment of offshore low-head pumped hydro storage and comparison with other storage technologies. International Journal of Life Cycle Assessment, 30, 895–911. https://doi.org/10.1007/s11367-025-02538-4"},
+			{"data": "Bareiß, K., de la Rua, C., Möckl, M., & Hamacher, T. (2019). Life cycle assessment of hydrogen from proton exchange membrane water electrolysis in future energy systems. Applied Energy, 237, 862–872. https://doi.org/10.1016/j.apenergy.2019.01.001"},
+			{"data": "Keil, P., Schuster, S. F., Wilhelm, J., et al. (2016). Calendar aging of lithium-ion batteries. Journal of The Electrochemical Society, 163(9), A1872–A1880. https://doi.org/10.1149/2.0411609jes"},
+			{"data": "Buttler, A., & Spliethoff, H. (2017). Current status of water electrolysis for energy storage, grid balancing and sector coupling via power-to-gas and power-to-liquids: A review. Renewable and Sustainable Energy Reviews, 82, 2440–2454. https://doi.org/10.1016/j.rser.2017.09.003"},
+			{"data": "Dunn, J. B., Gaines, L., Sullivan, J., & Wang, M. (2012). Impact of recycling on cradle-to-gate energy consumption and greenhouse gas emissions of automotive lithium-ion batteries. Environmental Science & Technology, 46(22), 12704–12710. https://doi.org/10.1021/es302420z"},
+			{"data": "Weber, A. Z., et al. (2011). Redox flow batteries: A review. Journal of Applied Electrochemistry, 41(10), 1137–1164. https://doi.org/10.1007/s10800-011-0348-2"}
+		]
+		},{
 		"id": "s2026781202",
 		"identifiers": {
 			"archive_doi": "10.5281/zenodo.18540225",
