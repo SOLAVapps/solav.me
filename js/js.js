@@ -283,10 +283,10 @@ function setupFingerprintModal() {
             </div>
             
             <div class="d-flex gap-3">
-              <button id="modalAcceptAnalytics" class="btn btn-primary">
+              <button id="modalAcceptAnalytics" class="btn btn-success px-2">
                 <i class="bi bi-check-circle me-2"></i>Accept Analytics
               </button>
-              <button id="modalRejectAnalytics" class="btn btn-outline-secondary">
+              <button id="modalRejectAnalytics" class="btn btn-outline-danger px-2">
                 <i class="bi bi-x-circle me-2"></i>Reject Analytics
               </button>
             </div>
