@@ -28,12 +28,12 @@
 		<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 		<link href="/css/swiper.css" rel="stylesheet">
-		<link href="/css/style.css?v=20260227" rel="stylesheet">
+		<link href="/css/style.css?v=20260304" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 		<script>
 		!function(){const e=localStorage.getItem("theme"),t=window.matchMedia("(prefers-color-scheme: dark)").matches,n=e||(t?"dark":"light");document.documentElement.setAttribute("data-bs-theme",n),"undefined"!=typeof document&&document.addEventListener("DOMContentLoaded",(function(){const e=document.getElementById("theme-mode");e&&(e.checked="dark"===n,e.addEventListener("change",(function(){const e=this.checked?"dark":"light";document.documentElement.setAttribute("data-bs-theme",e),localStorage.setItem("theme",e)})))}))}();
 		</script>
-        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 		<meta http-equiv="Pragma" content="no-cache">
 		<meta http-equiv="Expires" content="0">
 		<script type="application/ld+json">
@@ -137,7 +137,7 @@
 									<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-current="page">Policies</a>
 									<ul class="dropdown-menu">
 										<li><a href="/ethics" class="dropdown-item">Publication Ethics</a></li>
-                                        <li><a href="/ai" class="dropdown-item">AI in Research</a></li>
+										<li><a href="/ai" class="dropdown-item">AI in Research</a></li>
 										<li><a href="/apc" class="dropdown-item">Article Processing Charges (APC)</a></li>
 										<li><a href="/review" class="dropdown-item">Peer Review Process</a></li>
 										<li><a href="/open-submission" class="dropdown-item">Open Submission</a></li>
@@ -482,624 +482,551 @@
 
 		<script src="/js/jarallax.js"></script>
 		<script src="/js/swiper.js"></script>
-		<script src="/js/js.js?v=20260227"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const authorId = urlParams.get('id');
-        
-        if (!authorId) {
-            showAllAuthors();
-        } else {
-            loadAuthorProfile(authorId);
-        }
+		<script src="/js/js.js?v=20260304"></script>
+		<script>
+			document.addEventListener('DOMContentLoaded', function() {
+				const urlParams = new URLSearchParams(window.location.search);
+				const authorId = urlParams.get('id');
+				
+				if (!authorId) {
+					showAllAuthors();
+				} else {
+					loadAuthorProfile(authorId);
+				}
 
-        initThemeSwitcher();
-    });
+				initThemeSwitcher();
+			});
 
-    async function showAllAuthors() {
-        try {
-            const response = await fetch('/data/all.json');
-            if (!response.ok) throw new Error('Failed to load data');
-            
-            const data = await response.json();
+			async function showAllAuthors() {
+				try {
+					const response = await fetch('/data/authors.json?v=20260304');
+					if (!response.ok) throw new Error('Failed to load authors data');
+					
+					const data = await response.json();
+					const authors = data.authors;
 
-            const authorsMap = new Map();
-            
-            data.articles.forEach(article => {
-                if (article.status === 'published' || !article.status) {
-                    article.authors.forEach(author => {
-                        if (author.id) {
-                            const authorKey = `${author.id}`;
-                            if (!authorsMap.has(authorKey)) {
-                                authorsMap.set(authorKey, {
-                                    id: author.id,
-                                    name_first: author.name_first,
-                                    name_last: author.name_last,
-                                    orcid: author.orcid,
-                                    email: author.email,
-                                    affiliation: author.affiliation,
-                                    articleCount: 0,
-                                    citationCount: 0,
-                                    isCorresponding: false
-                                });
-                            }
-                            
-                            const authorData = authorsMap.get(authorKey);
-                            authorData.articleCount += 1;
-                            authorData.citationCount += (article.citation_count || 0);
-                            
-                            if (author.corresponding) {
-                                authorData.isCorresponding = true;
-                            }
-                        }
-                    });
-                }
-            });
+					document.getElementById('loadingSpinner').style.display = 'none';
+					document.getElementById('authorHeader').style.display = 'none';
+					document.querySelector('#articlesSection h3').textContent = 'All Authors';
+					document.getElementById('articlesSection').style.display = 'block';
 
-            const allAuthors = Array.from(authorsMap.values());
-            
-            displayAllAuthors(allAuthors);
-            
-        } catch (error) {
-            console.error('Error loading authors list:', error);
-            showError('Failed to load authors list. Please try again later.');
-        }
-    }
+					const sortSelect = document.getElementById('sortSelect');
+					sortSelect.innerHTML = `
+						<option value="name_asc">Name A-Z</option>
+						<option value="name_desc">Name Z-A</option>
+						<option value="articles_desc">Most Articles</option>
+						<option value="citations_desc">Most Citations</option>
+					`;
 
-    function displayAllAuthors(authors) {
-        const loadingSpinner = document.getElementById('loadingSpinner');
-        const authorHeader = document.getElementById('authorHeader');
-        const articlesSection = document.getElementById('articlesSection');
+					const articlesSection = document.getElementById('articlesSection');
+					const titleRow = articlesSection.querySelector('.row.mb-4:first-child');
+					const searchRow = document.createElement('div');
+					searchRow.className = 'row mb-2';
+					searchRow.innerHTML = `
+						<div class="col-md-12">
+							<div class="input-group">
+								<span class="input-group-text"><i class="bi bi-search"></i></span>
+								<input type="text" id="authorSearchInput" class="form-control" placeholder="Search authors by name, affiliation, or ID...">
+								<button class="btn btn-outline-secondary" type="button" id="clearAuthorSearch">Clear</button>
+							</div>
+						</div>
+					`;
+					titleRow.parentNode.insertBefore(searchRow, titleRow.nextSibling);
 
-        loadingSpinner.style.display = 'none';
+					let filteredAuthors = [...authors];
+					let currentSort = 'name_asc';
 
-        authorHeader.style.display = 'none';
+					function sortAuthors(sortBy) {
+						currentSort = sortBy;
+						switch (sortBy) {
+							case 'name_asc':
+								filteredAuthors.sort((a, b) => {
+									const nameA = `${a.name_last}, ${a.name_first}`.toLowerCase();
+									const nameB = `${b.name_last}, ${b.name_first}`.toLowerCase();
+									return nameA.localeCompare(nameB);
+								});
+								break;
+							case 'name_desc':
+								filteredAuthors.sort((a, b) => {
+									const nameA = `${a.name_last}, ${a.name_first}`.toLowerCase();
+									const nameB = `${b.name_last}, ${b.name_first}`.toLowerCase();
+									return nameB.localeCompare(nameA);
+								});
+								break;
+							case 'articles_desc':
+								filteredAuthors.sort((a, b) => b.article_count - a.article_count);
+								break;
+							case 'citations_desc':
+								filteredAuthors.sort((a, b) => b.citation_count - a.citation_count);
+								break;
+						}
+						renderAuthors();
+					}
 
-        document.querySelector('#articlesSection h3').textContent = 'All Authors';
+					function filterAuthors() {
+						const searchTerm = document.getElementById('authorSearchInput').value.toLowerCase().trim();
+						if (!searchTerm) {
+							filteredAuthors = [...authors];
+						} else {
+							filteredAuthors = authors.filter(author => {
+								const fullName = `${author.name_last}, ${author.name_first}`.toLowerCase();
+								const firstName = author.name_first.toLowerCase();
+								const lastName = author.name_last.toLowerCase();
+								const affiliation = author.affiliation ? author.affiliation.toLowerCase() : '';
+								const email = author.email ? author.email.toLowerCase() : '';
+								const orcid = author.orcid ? author.orcid.toLowerCase() : '';
+								const id = author.id.toLowerCase();
+								return fullName.includes(searchTerm) ||
+									firstName.includes(searchTerm) ||
+									lastName.includes(searchTerm) ||
+									affiliation.includes(searchTerm) ||
+									email.includes(searchTerm) ||
+									orcid.includes(searchTerm) ||
+									id.includes(searchTerm);
+							});
+						}
+						sortAuthors(currentSort);
+					}
 
-        articlesSection.style.display = 'block';
+					function renderAuthors() {
+						const container = document.getElementById('articlesContainer');
+						const resultsCount = document.getElementById('resultsCount');
 
-        const sortSelect = document.getElementById('sortSelect');
-        sortSelect.innerHTML = `
-            <option value="name_asc">Name A-Z</option>
-            <option value="name_desc">Name Z-A</option>
-            <option value="articles_desc">Most Articles</option>
-            <option value="citations_desc">Most Citations</option>
-        `;
+						if (filteredAuthors.length === 0) {
+							resultsCount.textContent = 'No authors found';
+							container.innerHTML = `
+								<div class="col-12">
+									<div class="card">
+										<div class="card-body text-center py-5">
+											<i class="bi bi-people display-1 text-muted mb-3"></i>
+											<h4>No Authors Found</h4>
+											<p class="text-muted">No authors match your search criteria.</p>
+										</div>
+									</div>
+								</div>
+							`;
+							return;
+						}
 
-        const authorsContainer = document.getElementById('articlesContainer');
-        const resultsCount = document.getElementById('resultsCount');
-        
-        const searchRow = document.createElement('div');
-        searchRow.className = 'row mb-2';
-        searchRow.innerHTML = `
-            <div class="col-md-12">
-                <div class="input-group">
-                    <span class="input-group-text"><i class="bi bi-search"></i></span>
-                    <input type="text" id="authorSearchInput" class="form-control" placeholder="Search authors by name, affiliation, or ID...">
-                    <button class="btn btn-outline-secondary" type="button" id="clearAuthorSearch">Clear</button>
-                </div>
-            </div>
-        `;
+						resultsCount.textContent = `Showing ${filteredAuthors.length} of ${authors.length} author${authors.length !== 1 ? 's' : ''}`;
 
-        const existingSearch = articlesSection.querySelector('.row.mb-2');
-        if (existingSearch) {
-            existingSearch.parentNode.insertBefore(searchRow, existingSearch.nextSibling);
-        } else {
-            const titleRow = articlesSection.querySelector('.row.mb-4:first-child');
-            titleRow.parentNode.insertBefore(searchRow, titleRow.nextSibling);
-        }
+						container.innerHTML = `
+							<div class="col-12">
+								<div class="row g-4">
+									${filteredAuthors.map(author => createAuthorCard(author)).join('')}
+								</div>
+							</div>
+						`;
+					}
 
-        let filteredAuthors = [...authors];
-        let currentSort = 'name_asc';
-        
-        function sortAuthors(sortBy) {
-            currentSort = sortBy;
-            switch (sortBy) {
-                case 'name_asc':
-                    filteredAuthors.sort((a, b) => {
-                        const nameA = `${a.name_last}, ${a.name_first}`.toLowerCase();
-                        const nameB = `${b.name_last}, ${b.name_first}`.toLowerCase();
-                        return nameA.localeCompare(nameB);
-                    });
-                    break;
-                case 'name_desc':
-                    filteredAuthors.sort((a, b) => {
-                        const nameA = `${a.name_last}, ${a.name_first}`.toLowerCase();
-                        const nameB = `${b.name_last}, ${b.name_first}`.toLowerCase();
-                        return nameB.localeCompare(nameA);
-                    });
-                    break;
-                case 'articles_desc':
-                    filteredAuthors.sort((a, b) => b.articleCount - a.articleCount);
-                    break;
-                case 'citations_desc':
-                    filteredAuthors.sort((a, b) => b.citationCount - a.citationCount);
-                    break;
-            }
-            renderAuthors();
-        }
+					document.getElementById('authorSearchInput').addEventListener('input', filterAuthors);
+					document.getElementById('clearAuthorSearch').addEventListener('click', function() {
+						document.getElementById('authorSearchInput').value = '';
+						filterAuthors();
+					});
 
-        function filterAuthors() {
-            const searchTerm = document.getElementById('authorSearchInput').value.toLowerCase().trim();
-            
-            if (!searchTerm) {
-                filteredAuthors = [...authors];
-            } else {
-                filteredAuthors = authors.filter(author => {
-                    const fullName = `${author.name_last}, ${author.name_first}`.toLowerCase();
-                    const firstName = author.name_first.toLowerCase();
-                    const lastName = author.name_last.toLowerCase();
-                    const affiliation = author.affiliation ? author.affiliation.toLowerCase() : '';
-                    const email = author.email ? author.email.toLowerCase() : '';
-                    const orcid = author.orcid ? author.orcid.toLowerCase() : '';
-                    const id = author.id.toLowerCase();
-                    
-                    return fullName.includes(searchTerm) ||
-                           firstName.includes(searchTerm) ||
-                           lastName.includes(searchTerm) ||
-                           affiliation.includes(searchTerm) ||
-                           email.includes(searchTerm) ||
-                           orcid.includes(searchTerm) ||
-                           id.includes(searchTerm);
-                });
-            }
-            
-            sortAuthors(currentSort);
-        }
+					sortSelect.addEventListener('change', function() {
+						sortAuthors(this.value);
+					});
 
-        function renderAuthors() {
-            if (filteredAuthors.length === 0) {
-                resultsCount.textContent = 'No authors found';
-                authorsContainer.innerHTML = `
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-body text-center py-5">
-                                <i class="bi bi-people display-1 text-muted mb-3"></i>
-                                <h4>No Authors Found</h4>
-                                <p class="text-muted">No authors match your search criteria.</p>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                return;
-            }
-            
-            resultsCount.textContent = `Showing ${filteredAuthors.length} of ${authors.length} author${authors.length !== 1 ? 's' : ''}`;
+					sortAuthors('name_asc');
 
-            authorsContainer.innerHTML = `
-                <div class="col-12">
-                    <div class="row g-4">
-                        ${filteredAuthors.map(author => createAuthorCard(author)).join('')}
-                    </div>
-                </div>
-            `;
-        }
+				} catch (error) {
+					console.error('Error loading authors list:', error);
+					showError('Failed to load authors list. Please try again later.');
+				}
+			}
 
-        document.getElementById('authorSearchInput').addEventListener('input', filterAuthors);
-        document.getElementById('clearAuthorSearch').addEventListener('click', function() {
-            document.getElementById('authorSearchInput').value = '';
-            filterAuthors();
-        });
+			function createAuthorCard(author) {
+				const isCorresponding = author.corresponding_count > 0;
+				return `
+					<div class="col-md-6 col-lg-4">
+						<div class="card h-100 author-card">
+							<div class="card-body pb-1">
+								<div class="d-flex align-items-start mb-0">
+									<div class="author-avatar-small rounded-circle d-flex align-items-center justify-content-center me-3" 
+										style="min-width: 60px; min-height: 60px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+										<i class="bi bi-person-fill" style="font-size: 2.2rem;"></i>
+									</div>
+									<div class="flex-grow-1">
+										<h5 class="card-title mb-1">
+											<a href="/authors/?id=${author.id}" class="text-decoration-none text-dark">
+												${author.name_last}, ${author.name_first}
+											</a>
+										</h5>
+										<div class="author-id mb-2">
+											<span class="badge bg-light text-dark border small">
+												<i class="bi bi-person-badge me-1"></i>ID: ${author.id}
+											</span>
+										</div>
+										${author.affiliation ? 
+										`<p class="text-muted small mb-2">
+											<i class="bi bi-building"></i> ${author.affiliation}
+										</p>` : ''
+										}
+										${author.orcid ? 
+										`<a href="https://orcid.org/${author.orcid}" target="_blank" class="d-inline-flex align-items-center gap-1 small text-decoration-none orcid-font">
+											<img src="/images/orcid.svg" alt="ORCID" style="height: 16px;">
+											<span>${author.orcid}</span>
+										</a>` : ''
+										}
+									</div>
+								</div>
+							</div>
+							<div class="card-footer pt-0 mt-0">
+								<div class="author-stats-small d-flex justify-content-between bg-light rounded p-2 mb-0">
+									<div class="text-center">
+										<div class="fw-bold text-primary">${author.article_count}</div>
+										<div class="small text-muted">Articles</div>
+									</div>
+									<div class="text-center">
+										<div class="fw-bold text-success">${author.citation_count}</div>
+										<div class="small text-muted">Citations</div>
+									</div>
+									${isCorresponding ? 
+									`<div class="text-center">
+										<div><i class="bi bi-star-fill text-warning"></i></div>
+										<div class="small text-muted">Corresponding</div>
+									</div>` : ''
+									}
+								</div>
+								
+								<div class="d-grid">
+									<a href="/authors/?id=${author.id}" class="btn btn-sm btn-outline-primary">
+										<i class="bi bi-person-lines-fill me-1"></i> View Profile
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				`;
+			}
 
-        sortSelect.addEventListener('change', function() {
-            sortAuthors(this.value);
-        });
+			async function loadAuthorProfile(authorId) {
+				try {
+					const authorsResponse = await fetch('/data/authors.json?v=20260304');
+					if (!authorsResponse.ok) throw new Error('Failed to load authors data');
+					const authorsData = await authorsResponse.json();
+					const authorInfo = authorsData.authors.find(a => a.id === authorId);
+					if (!authorInfo) {
+						showError('Author not found');
+						return;
+					}
 
-        sortAuthors('name_asc');
-    }
+					const articlesResponse = await fetch('/data/all.json?v=20260304');
+					if (!articlesResponse.ok) throw new Error('Failed to load articles data');
+					const allData = await articlesResponse.json();
 
-    function createAuthorCard(author) {
-        return `
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100 author-card">
-                    <div class="card-body pb-1">
-                        <div class="d-flex align-items-start mb-0">
-                            <div class="author-avatar-small rounded-circle d-flex align-items-center justify-content-center me-3" 
-                                style="min-width: 60px; min-height: 60px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
-                                <i class="bi bi-person-fill" style="font-size: 1.5rem;"></i>
-                            </div>
-                            <div class="flex-grow-1">
-                                <h5 class="card-title mb-1">
-                                    <a href="/authors/?id=${author.id}" class="text-decoration-none text-dark">
-                                        ${author.name_last}, ${author.name_first}
-                                    </a>
-                                </h5>
-                                <div class="author-id mb-2">
-                                    <span class="badge bg-light text-dark border small">
-                                        <i class="bi bi-person-badge me-1"></i>ID: ${author.id}
-                                    </span>
-                                </div>
-                                ${author.affiliation ? 
-                                `<p class="text-muted small mb-2">
-                                    <i class="bi bi-building"></i> ${author.affiliation}
-                                </p>` : ''
-                                }
-                                ${author.orcid ? 
-                                `<a href="https://orcid.org/${author.orcid}" target="_blank" class="d-inline-flex align-items-center gap-1 small text-decoration-none orcid-font">
-                                    <img src="/images/orcid.svg" alt="ORCID" style="height: 16px;">
-                                    <span>${author.orcid}</span>
-                                </a>` : ''
-                                }
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-footer pt-0 mt-0">
-                        <div class="author-stats-small d-flex justify-content-between bg-light rounded p-2 mb-0">
-                            <div class="text-center">
-                                <div class="fw-bold text-primary">${author.articleCount}</div>
-                                <div class="small text-muted">Articles</div>
-                            </div>
-                            <div class="text-center">
-                                <div class="fw-bold text-success">${author.citationCount}</div>
-                                <div class="small text-muted">Citations</div>
-                            </div>
-                            ${author.isCorresponding ? 
-                            `<div class="text-center">
-                                <div><i class="bi bi-star-fill text-warning"></i></div>
-                                <div class="small text-muted">Corresponding</div>
-                            </div>` : ''
-                            }
-                        </div>
-                        
-                        <div class="d-grid">
-                            <a href="/authors/?id=${author.id}" class="btn btn-sm btn-outline-primary">
-                                <i class="bi bi-person-lines-fill me-1"></i> View Profile
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `;
-    }
+					const authorArticles = allData.articles.filter(article => 
+						authorInfo.articles.includes(article.id) && (article.status === 'published' || !article.status)
+					);
 
-    async function loadAuthorProfile(authorId) {
-        try {
-            const response = await fetch('/data/all.json');
-            if (!response.ok) throw new Error('Failed to load data');
-            
-            const data = await response.json();
+					if (authorArticles.length === 0) {
+						// Still show profile but with no articles
+						// (We'll still display author header, articles section will show "no publications")
+					}
 
-            let authorInfo = null;
-            const authorArticles = [];
-            const coauthorsSet = new Set();
+					displayAuthorInfo(authorInfo, authorArticles, allData.articles);
 
-            for (const article of data.articles) {
-                if (article.status === 'published' || !article.status) {
-                    const authorInArticle = article.authors.find(a => a.id === authorId);
-                    
-                    if (authorInArticle) {
-                        authorArticles.push(article);
+				} catch (error) {
+					console.error('Error loading author profile:', error);
+					showError('Failed to load author profile. Please try again later.');
+				}
+			}
 
-                        if (!authorInfo) {
-                            authorInfo = {
-                                id: authorId,
-                                name_first: authorInArticle.name_first,
-                                name_last: authorInArticle.name_last,
-                                orcid: authorInArticle.orcid,
-                                email: authorInArticle.email,
-                                affiliation: authorInArticle.affiliation
-                            };
-                        }
+			function displayAuthorInfo(authorInfo, articles, allArticles) {
+				const loadingSpinner = document.getElementById('loadingSpinner');
+				const authorHeader = document.getElementById('authorHeader');
+				const articlesSection = document.getElementById('articlesSection');
 
-                        article.authors.forEach(a => {
-                            if (a.id !== authorId) {
-                                coauthorsSet.add(JSON.stringify({
-                                    id: a.id,
-                                    name_first: a.name_first,
-                                    name_last: a.name_last,
-                                    affiliation: a.affiliation
-                                }));
-                            }
-                        });
-                    }
-                }
-            }
-            
-            if (!authorInfo || authorArticles.length === 0) {
-                showError('Author not found or has no publications');
-                return;
-            }
+				loadingSpinner.style.display = 'none';
+				authorHeader.style.display = 'block';
+				articlesSection.style.display = 'block';
 
-            displayAuthorInfo(authorInfo, authorArticles, coauthorsSet);
-            
-        } catch (error) {
-            console.error('Error loading author profile:', error);
-            showError('Failed to load author profile. Please try again later.');
-        }
-    }
+				document.getElementById('authorName').textContent = 
+					`${authorInfo.name_last}, ${authorInfo.name_first}`;
 
-    function displayAuthorInfo(authorInfo, articles, coauthorsSet) {
-        const loadingSpinner = document.getElementById('loadingSpinner');
-        const authorHeader = document.getElementById('authorHeader');
-        const articlesSection = document.getElementById('articlesSection');
+				const authorMeta = document.getElementById('authorMeta');
+				let metaHTML = '<div class="d-flex flex-wrap gap-3 align-items-center">';
+				
+				metaHTML += `
+					<span class="badge bg-dark text-white">
+						<i class="bi bi-person-badge me-1"></i>ID: ${authorInfo.id}
+					</span>
+				`;
+				
+				if (authorInfo.orcid) {
+					metaHTML += `
+						<a href="https://orcid.org/${authorInfo.orcid}" target="_blank" class="orcid-badge text-decoration-none">
+							<img src="/images/orcid.svg" alt="ORCID" style="height: 16px;">
+							ORCID: ${authorInfo.orcid}
+						</a>
+					`;
+				}
+				
+				if (authorInfo.affiliation) {
+					metaHTML += `
+						<span class="affiliation-badge">
+							<i class="bi bi-building"></i>
+							${authorInfo.affiliation}
+						</span>
+					`;
+				}
+								
+				if (authorInfo.email) {
+					metaHTML += `
+						<span class="email-badge">
+							<i class="bi bi-envelope"></i>
+							${authorInfo.email}
+						</span>
+					`;
+				}
+				metaHTML += '</div>';
+				authorMeta.innerHTML = metaHTML;
 
-        loadingSpinner.style.display = 'none';
+				document.getElementById('totalArticles').textContent = authorInfo.article_count;
+				document.getElementById('totalCitations').textContent = authorInfo.citation_count;
+				document.getElementById('firstAuthorCount').textContent = authorInfo.first_author_count;
+				document.getElementById('correspondingCount').textContent = authorInfo.corresponding_count;
 
-        authorHeader.style.display = 'block';
-        articlesSection.style.display = 'block';
+                const coauthorsSet = new Set();
+				articles.forEach(article => {
+					article.authors.forEach(a => {
+						if (a.id !== authorInfo.id) {
+							coauthorsSet.add(JSON.stringify({
+								id: a.id,
+								name_first: a.name_first,
+								name_last: a.name_last,
+								affiliation: a.affiliation
+							}));
+						}
+					});
+				});
 
-        document.getElementById('authorName').textContent = 
-            `${authorInfo.name_last}, ${authorInfo.name_first}`;
+				if (coauthorsSet.size > 0) {
+					const coauthorsSection = document.getElementById('coauthorsSection');
+					const coauthorsList = document.getElementById('coauthorsList');
+					
+					coauthorsSection.style.display = 'block';
+					
+					const coauthors = Array.from(coauthorsSet).map(str => JSON.parse(str));
+					
+					coauthorsList.innerHTML = coauthors.map(coauthor => `
+						<div class="coauthor-item">
+							<a href="/authors/?id=${coauthor.id}" class="coauthor-link">
+								${coauthor.name_last}, ${coauthor.name_first.charAt(0)}.
+								${coauthor.affiliation ? `<br><small class="text-muted">${coauthor.affiliation}</small>` : ''}
+							</a>
+						</div>
+					`).join('');
+				}
 
-        const authorMeta = document.getElementById('authorMeta');
-        let metaHTML = '<div class="d-flex flex-wrap gap-3 align-items-center">';
-        
-        metaHTML += `
-            <span class="badge bg-dark text-white">
-                <i class="bi bi-person-badge me-1"></i>ID: ${authorInfo.id}
-            </span>
-        `;
-        
-        if (authorInfo.email) {
-            metaHTML += `
-                <span class="email-badge">
-                    <i class="bi bi-envelope"></i>
-                    ${authorInfo.email}
-                </span>
-            `;
-        }
-        
-        if (authorInfo.orcid) {
-            metaHTML += `
-                <a href="https://orcid.org/${authorInfo.orcid}" target="_blank" class="orcid-badge text-decoration-none">
-                    <img src="/images/orcid.svg" alt="ORCID" style="height: 16px;">
-                    ORCID: ${authorInfo.orcid}
-                </a>
-            `;
-        }
-        
-        if (authorInfo.affiliation) {
-            metaHTML += `
-                <span class="affiliation-badge">
-                    <i class="bi bi-building"></i>
-                    ${authorInfo.affiliation}
-                </span>
-            `;
-        }
-        
-        metaHTML += '</div>';
-        authorMeta.innerHTML = metaHTML;
+				initializeArticlesDisplay(articles, authorInfo);
+			}
 
-        const totalArticles = articles.length;
-        const totalCitations = articles.reduce((sum, article) => sum + (article.citation_count || 0), 0);
-        const firstAuthorCount = articles.filter(article => {
-            return article.authors[0].id === authorInfo.id;
-        }).length;
-        const correspondingCount = articles.filter(article => {
-            return article.authors.some(a => a.id === authorInfo.id && a.corresponding);
-        }).length;
+			function initializeArticlesDisplay(articles, authorInfo) {
+				const articlesContainer = document.getElementById('articlesContainer');
+				const resultsCount = document.getElementById('resultsCount');
+				const noResults = document.getElementById('noResults');
+				const sortSelect = document.getElementById('sortSelect');
+				
+				let filteredArticles = [...articles];
+				
+				function formatDate(dateString) {
+					const options = { year: 'numeric', month: 'long', day: 'numeric' };
+					return new Date(dateString).toLocaleDateString('en-US', options);
+				}
+				
+				function getAuthorsHTML(authors, currentAuthorId) {
+					return authors.map(author => {
+						const star = author.corresponding ? '<sup>*</sup>' : '';
+						const highlight = author.id === currentAuthorId ? 'class="fw-bold text-primary"' : '';
+						
+						const orcidIcon = author.orcid
+							? `<a href="https://orcid.org/${author.orcid}" target="_blank" class="ms-0 align-middle"><img src="/images/orcid.svg" alt="ORCID" class="orcid-icon"></a>`
+							: '';
+						
+						return `<span ${highlight}>${author.name_last}, ${author.name_first}${star}${orcidIcon}</span>`;
+					}).join(', ');
+				}
+				
+				function createArticleCard(article, authorId) {
+					const hasPublishedDate = article.published_date && article.published_date !== '';
+					const publishedDateText = hasPublishedDate ? formatDate(article.published_date) : 'To be announced';
 
-        document.getElementById('totalArticles').textContent = totalArticles;
-        document.getElementById('totalCitations').textContent = totalCitations;
-        document.getElementById('firstAuthorCount').textContent = firstAuthorCount;
-        document.getElementById('correspondingCount').textContent = correspondingCount;
+					const authorIndex = article.authors.findIndex(a => a.id === authorId);
+					const authorPosition = authorIndex + 1;
+					
+					return `
+						<div class="col-12">
+							<div class="card article-card h-100">
+								<div class="card-body">
+									<div class="row">
+										<div class="col-lg-8">
+											<div class="mb-1">
+												<span class="badge bg-secondary me-2">
+													${article.type}
+												</span>
+												<span class="badge bg-success me-2">
+													<i class="bi bi-check-circle me-1"></i> Published
+												</span>
+												${authorPosition === 1 ? 
+													'<span class="badge bg-info"><i class="bi bi-award me-1"></i> First Author</span>' : 
+													`<span class="badge bg-light text-dark border"><i class="bi bi-person me-1"></i> Author ${authorPosition}</span>`
+												}
+											</div>
+											
+											<h3 class="h5 card-title">
+												<a href="/a/${article.id}" class="text-decoration-none text-dark">
+													${article.title}
+												</a>
+											</h3>
+											
+											<div class="author-list mb-2">
+												<i class="bi bi-people me-1 text-primary"></i>
+												${getAuthorsHTML(article.authors, authorId)}
+											</div>
+											
+											<div class="mb-3">
+												${article.keywords.map(keyword => 
+													`<span class="badge keyword-badge bg-light text-dark border">${keyword}</span>`
+												).join('')}
+											</div>
+											
+											<div class="d-flex flex-wrap gap-3 small text-muted mb-3">
+												<span><i class="bi bi-calendar me-1"></i> ${publishedDateText}</span>
+												<span><i class="bi bi-file-text me-1"></i> ${article.pages || 'N/A'}</span>
+												${article.citation_count ? 
+													`<span><i class="bi bi-quote me-1"></i> ${article.citation_count} citations</span>` : 
+													''
+												}
+												<span><i class="bi bi-journal me-1"></i> Vol. ${article.volume}</span>
+											</div>
+										</div>
+										
+										<div class="col-lg-4">
+											<div class="d-flex flex-column h-100">
+												<div class="mt-auto">
+													<div class="d-grid gap-2">
+														<a href="/a/${article.id}" class="btn btn-sm btn-outline-primary">
+															<i class="bi bi-eye me-1"></i> View Article
+														</a>
+														<a href="/p/${article.id}.pdf" target="_blank" class="btn btn-sm btn-primary">
+															<i class="bi bi-download me-1"></i> Download PDF
+														</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					`;
+				}
+				
+				function sortArticles() {
+					const sortBy = sortSelect.value;
+					
+					filteredArticles.sort((a, b) => {
+						switch (sortBy) {
+							case 'newest':
+								return new Date(b.published_date) - new Date(a.published_date);
+							case 'oldest':
+								return new Date(a.published_date) - new Date(b.published_date);
+							case 'title':
+								return a.title.localeCompare(b.title);
+							case 'citations':
+								return (b.citation_count || 0) - (a.citation_count || 0);
+							default:
+								return 0;
+						}
+					});
+					
+					renderArticles();
+				}
+				
+				function renderArticles() {
+					if (filteredArticles.length === 0) {
+						articlesContainer.innerHTML = '';
+						noResults.style.display = 'block';
+						resultsCount.textContent = 'No publications found';
+					} else {
+						articlesContainer.innerHTML = filteredArticles.map(article => 
+							createArticleCard(article, authorInfo.id)
+						).join('');
+						noResults.style.display = 'none';
+						resultsCount.textContent = `Showing ${filteredArticles.length} publication${filteredArticles.length !== 1 ? 's' : ''}`;
+					}
+				}
 
-        if (coauthorsSet.size > 0) {
-            const coauthorsSection = document.getElementById('coauthorsSection');
-            const coauthorsList = document.getElementById('coauthorsList');
-            
-            coauthorsSection.style.display = 'block';
-            
-            const coauthors = Array.from(coauthorsSet).map(str => JSON.parse(str));
-            
-            coauthorsList.innerHTML = coauthors.map(coauthor => `
-                <div class="coauthor-item">
-                    <a href="/authors/?id=${coauthor.id}" class="coauthor-link">
-                        ${coauthor.name_last}, ${coauthor.name_first.charAt(0)}.
-                        ${coauthor.affiliation ? `<br><small class="text-muted">${coauthor.affiliation}</small>` : ''}
-                    </a>
-                </div>
-            `).join('');
-        }
+				sortArticles();
 
-        initializeArticlesDisplay(articles, authorInfo);
-    }
+				sortSelect.addEventListener('change', sortArticles);
+			}
 
-    function initializeArticlesDisplay(articles, authorInfo) {
-        const articlesContainer = document.getElementById('articlesContainer');
-        const resultsCount = document.getElementById('resultsCount');
-        const noResults = document.getElementById('noResults');
-        const sortSelect = document.getElementById('sortSelect');
-        
-        let filteredArticles = [...articles];
-        
-        function formatDate(dateString) {
-            const options = { year: 'numeric', month: 'long', day: 'numeric' };
-            return new Date(dateString).toLocaleDateString('en-US', options);
-        }
-        
-        function getAuthorsHTML(authors, currentAuthorId) {
-            return authors.map(author => {
-                const star = author.corresponding ? '<sup>*</sup>' : '';
-                const highlight = author.id === currentAuthorId ? 'class="fw-bold text-primary"' : '';
-                
-                const orcidIcon = author.orcid
-                    ? `<a href="https://orcid.org/${author.orcid}" target="_blank" class="ms-0 align-middle"><img src="/images/orcid.svg" alt="ORCID" class="orcid-icon"></a>`
-                    : '';
-                
-                return `<span ${highlight}>${author.name_last}, ${author.name_first}${star}${orcidIcon}</span>`;
-            }).join(', ');
-        }
-        
-        function createArticleCard(article, authorId) {
-            const hasPublishedDate = article.published_date && article.published_date !== '';
-            const publishedDateText = hasPublishedDate ? formatDate(article.published_date) : 'To be announced';
+			function showError(message) {
+				const loadingSpinner = document.getElementById('loadingSpinner');
+				const errorMessage = document.getElementById('errorMessage');
+				const authorHeader = document.getElementById('authorHeader');
+				const articlesSection = document.getElementById('articlesSection');
+				
+				loadingSpinner.style.display = 'none';
+				authorHeader.style.display = 'none';
+				articlesSection.style.display = 'none';
+				errorMessage.style.display = 'block';
 
-            const authorIndex = article.authors.findIndex(a => a.id === authorId);
-            const authorPosition = authorIndex + 1;
-            
-            return `
-                <div class="col-12">
-                    <div class="card article-card h-100">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-lg-8">
-                                    <div class="mb-1">
-                                        <span class="badge bg-secondary me-2">
-                                            ${article.type}
-                                        </span>
-                                        <span class="badge bg-success me-2">
-                                            <i class="bi bi-check-circle me-1"></i> Published
-                                        </span>
-                                        ${authorPosition === 1 ? 
-                                            '<span class="badge bg-info"><i class="bi bi-award me-1"></i> First Author</span>' : 
-                                            `<span class="badge bg-light text-dark border"><i class="bi bi-person me-1"></i> Author ${authorPosition}</span>`
-                                        }
-                                    </div>
-                                    
-                                    <h3 class="h5 card-title">
-                                        <a href="/a/${article.id}" class="text-decoration-none text-dark">
-                                            ${article.title}
-                                        </a>
-                                    </h3>
-                                    
-                                    <div class="author-list mb-2">
-                                        <i class="bi bi-people me-1 text-primary"></i>
-                                        ${getAuthorsHTML(article.authors, authorId)}
-                                    </div>
-                                    
-                                    <div class="mb-3">
-                                        ${article.keywords.map(keyword => 
-                                            `<span class="badge keyword-badge bg-light text-dark border">${keyword}</span>`
-                                        ).join('')}
-                                    </div>
-                                    
-                                    <div class="d-flex flex-wrap gap-3 small text-muted mb-3">
-                                        <span><i class="bi bi-calendar me-1"></i> ${publishedDateText}</span>
-                                        <span><i class="bi bi-file-text me-1"></i> ${article.pages || 'N/A'}</span>
-                                        ${article.citation_count ? 
-                                            `<span><i class="bi bi-quote me-1"></i> ${article.citation_count} citations</span>` : 
-                                            ''
-                                        }
-                                        <span><i class="bi bi-journal me-1"></i> Vol. ${article.volume}</span>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-lg-4">
-                                    <div class="d-flex flex-column h-100">
-                                        <div class="mt-auto">
-                                            <div class="d-grid gap-2">
-                                                <a href="/a/${article.id}" class="btn btn-sm btn-outline-primary">
-                                                    <i class="bi bi-eye me-1"></i> View Article
-                                                </a>
-                                                <a href="/p/${article.id}.pdf" target="_blank" class="btn btn-sm btn-primary">
-                                                    <i class="bi bi-download me-1"></i> Download PDF
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-        
-        function sortArticles() {
-            const sortBy = sortSelect.value;
-            
-            filteredArticles.sort((a, b) => {
-                switch (sortBy) {
-                    case 'newest':
-                        return new Date(b.published_date) - new Date(a.published_date);
-                    case 'oldest':
-                        return new Date(a.published_date) - new Date(b.published_date);
-                    case 'title':
-                        return a.title.localeCompare(b.title);
-                    case 'citations':
-                        return (b.citation_count || 0) - (a.citation_count || 0);
-                    default:
-                        return 0;
-                }
-            });
-            
-            renderArticles();
-        }
-        
-        function renderArticles() {
-            if (filteredArticles.length === 0) {
-                articlesContainer.innerHTML = '';
-                noResults.style.display = 'block';
-                resultsCount.textContent = 'No publications found';
-            } else {
-                articlesContainer.innerHTML = filteredArticles.map(article => 
-                    createArticleCard(article, authorInfo.id)
-                ).join('');
-                noResults.style.display = 'none';
-                resultsCount.textContent = `Showing ${filteredArticles.length} publication${filteredArticles.length !== 1 ? 's' : ''}`;
-            }
-        }
+				const errorText = errorMessage.querySelector('p');
+				if (errorText && message) {
+					errorText.textContent = message;
+				}
+			}
 
-        sortArticles();
+			function initThemeSwitcher() {
+				const getStoredTheme = () => localStorage.getItem('theme');
+				const setStoredTheme = theme => localStorage.setItem('theme', theme);
+				
+				const getPreferredTheme = () => {
+					const storedTheme = getStoredTheme();
+					if (storedTheme) {
+						return storedTheme;
+					}
+					return 'light';
+				};
+				
+				const setTheme = theme => {
+					if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+						document.documentElement.setAttribute('data-bs-theme', 'dark');
+					} else {
+						document.documentElement.setAttribute('data-bs-theme', theme);
+					}
+				};
+				
+				const updateLogos = theme => {
+					const logos = document.querySelectorAll('.logo');
+					logos.forEach(logo => {
+						logo.src = theme === 'dark' ? '/images/logo-white.svg' : '/images/logo-black.svg';
+					});
+				};
+				
+				setTheme(getPreferredTheme());
+				
+				window.addEventListener('DOMContentLoaded', () => {
+					updateLogos(getPreferredTheme());
+					
+					document.querySelectorAll('[data-bs-toggle="mode"]').forEach(toggle => {
+						toggle.addEventListener('click', () => {
+							const themeSwitcherCheck = toggle.querySelector('input[type="checkbox"]');
+							const theme = themeSwitcherCheck.checked ? 'dark' : 'light';
+							setStoredTheme(theme);
+							setTheme(theme);
+							updateLogos(theme);
+						});
+					});
+				});
 
-        sortSelect.addEventListener('change', sortArticles);
-    }
-
-    function showError(message) {
-        const loadingSpinner = document.getElementById('loadingSpinner');
-        const errorMessage = document.getElementById('errorMessage');
-        const authorHeader = document.getElementById('authorHeader');
-        const articlesSection = document.getElementById('articlesSection');
-        
-        loadingSpinner.style.display = 'none';
-        authorHeader.style.display = 'none';
-        articlesSection.style.display = 'none';
-        errorMessage.style.display = 'block';
-
-        const errorText = errorMessage.querySelector('p');
-        if (errorText && message) {
-            errorText.textContent = message;
-        }
-    }
-
-    function initThemeSwitcher() {
-        const getStoredTheme = () => localStorage.getItem('theme');
-        const setStoredTheme = theme => localStorage.setItem('theme', theme);
-        
-        const getPreferredTheme = () => {
-            const storedTheme = getStoredTheme();
-            if (storedTheme) {
-                return storedTheme;
-            }
-            return 'light';
-        };
-        
-        const setTheme = theme => {
-            if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                document.documentElement.setAttribute('data-bs-theme', 'dark');
-            } else {
-                document.documentElement.setAttribute('data-bs-theme', theme);
-            }
-        };
-        
-        const updateLogos = theme => {
-            const logos = document.querySelectorAll('.logo');
-            logos.forEach(logo => {
-                logo.src = theme === 'dark' ? '/images/logo-white.svg' : '/images/logo-black.svg';
-            });
-        };
-        
-        setTheme(getPreferredTheme());
-        
-        window.addEventListener('DOMContentLoaded', () => {
-            updateLogos(getPreferredTheme());
-            
-            document.querySelectorAll('[data-bs-toggle="mode"]').forEach(toggle => {
-                toggle.addEventListener('click', () => {
-                    const themeSwitcherCheck = toggle.querySelector('input[type="checkbox"]');
-                    const theme = themeSwitcherCheck.checked ? 'dark' : 'light';
-                    setStoredTheme(theme);
-                    setTheme(theme);
-                    updateLogos(theme);
-                });
-            });
-        });
-
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-    }
-</script>
+				document.getElementById('currentYear').textContent = new Date().getFullYear();
+			}
+		</script>
 	</body>
 </html>
