@@ -121,7 +121,7 @@ function setupFingerprintModal() {
   modal.setAttribute('aria-labelledby', 'privacyModalLabel');
   modal.setAttribute('aria-hidden', 'true');
   modal.innerHTML = `
-<div class="modal-dialog modal-lg modal-dialog-centered">
+<div class="modal-dialog modal-lg modal-dialog-centered shadow-lg">
   <div class="modal-content">
     <div class="modal-header">
       <h5 class="modal-title" id="privacyModalLabel">Privacy & Cookie Settings</h5>
