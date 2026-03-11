@@ -502,7 +502,7 @@
 
 			async function showAllAuthors() {
 				try {
-					const response = await fetch('/data/authors.json?v=20260304');
+					const response = await fetch('/data/authors.json?v=20260311');
 					if (!response.ok) throw new Error('Failed to load authors data');
 					
 					const data = await response.json();
