@@ -5950,14 +5950,14 @@ fieldset:disabled .btn {
 .modal-backdrop {
 	--si-backdrop-zindex: 1050;
 	--si-backdrop-bg: #000;
-	--si-backdrop-opacity: 0.65;
+	--si-backdrop-opacity: 0.9;
 	position: fixed;
 	top: 0;
 	left: 0;
 	z-index: var(--si-backdrop-zindex);
 	width: 100vw;
 	height: 100vh;
-	background-color: var(--si-backdrop-bg)
+	background-color: var(--si-backdrop-bg);
 }
 
 .modal-backdrop.fade {
@@ -5965,7 +5965,10 @@ fieldset:disabled .btn {
 }
 
 .modal-backdrop.show {
-	opacity: var(--si-backdrop-opacity)
+opacity: var(--si-backdrop-opacity);
+    backdrop-filter: blur(14px) saturate(200%);
+    -webkit-backdrop-filter: blur(14px) saturate(200%);
+    background: rgba(0,0,0,0.2);
 }
 
 .modal-header {
@@ -9498,15 +9501,15 @@ fieldset:disabled .btn {
 }
 
 .bg-opacity-10 {
-	--si-bg-opacity: 0.1
+	--si-bg-opacity: 0.1 !important
 }
 
 .bg-opacity-25 {
-	--si-bg-opacity: 0.25
+	--si-bg-opacity: 0.25 !important
 }
 
 .bg-opacity-50 {
-	--si-bg-opacity: 0.5
+	--si-bg-opacity: 0.5 !important
 }
 
 .bg-opacity-75 {
