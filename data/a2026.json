@@ -2,6 +2,90 @@
   "year": "2026",
   "articles": [
 	{
+		"id": "s2026781205",
+		"identifiers": {
+			"archive_doi": "10.5281/zenodo.19023432",
+			"archive_repository": "Zenodo",
+			"publisher_doi": null
+		},
+		"type": "Review Article",
+		"title": "Bridging the Socio-Technical Gap: A 2024–2025 Review of Integrated IoT Solutions for Geriatric Care",
+		"status": "published",
+		"authors": [
+			{
+			"id": "00010094",
+			"name": "Ali, Husma",
+			"name_first": "Husma",
+			"name_last": "Ali",
+			"corresponding": 1,
+			"affiliation": "Faculty of Informatics Engineering, Latakia, Syira",
+			"roles": [
+				"Conceptualization",
+				"Writing – Original Draft",
+				"Writing – Review & Editing"
+			],
+			"email": "hosamali.syr@outlook.com",
+			"orcid": "0009-0000-4190-1604"
+			}
+		],
+		"keywords": [
+			"Internet of Things",
+			"digital health",
+			"geriatric care",
+			"remote health monitoring",
+			"smart homes",
+			"healthcare interoperability",
+			"wearable sensors",
+			"telehealth",
+			"socio-technical systems"
+		],
+		"abstract": "Global demographic transitions toward older population structures are placing unprecedented pressure on healthcare systems, long-term care infrastructures, and community support services. As the prevalence of chronic disease, multimorbidity, and functional decline rises among aging populations, healthcare systems are increasingly exploring digital health technologies capable of enabling continuous monitoring and home-based care. The Internet of Things (IoT) has emerged as a critical technological paradigm for supporting aging in place through interconnected wearable devices, environmental sensors, and cloud-based analytics capable of monitoring physiological status and daily activities in real time. Despite significant advances in sensing technologies, artificial intelligence, and smart home infrastructures, the large-scale adoption of IoT-enabled geriatric care remains limited. A key barrier lies in the persistent socio-technical gap between technological capability and real-world healthcare integration. This review synthesizes peer-reviewed research published between 2024 and 2025 examining integrated IoT solutions for geriatric care, focusing on three interconnected dimensions: clinical applications in health monitoring and chronic disease management, human factors influencing acceptance and adoption among older adults and caregivers, and systemic challenges related to interoperability, privacy, and data governance. The review highlights emerging evidence demonstrating that IoT systems can improve early detection of health deterioration, support medication adherence, reduce hospitalizations, and enhance independence among older adults. However, successful implementation requires addressing ethical considerations, usability barriers, and fragmented digital health infrastructures. By integrating recent findings across healthcare, computer science, and public health research, this paper proposes a socio-technical framework for scalable IoT-enabled geriatric care and identifies future research priorities necessary for achieving sustainable and equitable digital health ecosystems.",
+		"version": [
+			{
+			"date": "2026-03-14",
+			"number": "1"
+			}
+		],
+		"abstract_url": "https://solav.me/a/s2026781205",
+		"download_url": "https://solav.me/p/s2026781205.pdf",
+		"received_date": "2026-02-08",
+		"evaluated_date": "2026-02-10",
+		"peer_reviewed_date": "2026-03-10",
+		"accepted_date": "2026-03-11",
+		"published_date": "2026-03-14",
+		"volume": "2",
+		"pages": "39-64",
+		"citation_count": 0,
+		"date": "2026-03-14",
+		"language": "en",
+		"license": "CC BY 4.0",
+		"reference": [
+			{"data": "Guillemot, J. R., Zhang, X., & Warner, M. E. (2024). Population aging and decline will happen sooner than we think. Social Sciences, 13(4), 190. https://doi.org/10.3390/socsci13040190"},
+			{"data": "Haferkamp, T., Ing, S., Weyer, G., Gleason, L. J., et al. (2025). Home-Based Primary Care (HBPC): Aging in place in 2025. Current Geriatrics Reports, 14. https://doi.org/10.1007/s13670-025-00429-y"},
+			{"data": "Chu, R. Y. K., Cheng, C. H. G., Leung, K. M. C., Ezulike, J. C. D., & Montayre, J. (2025). Technology-enabled interventions promoting healthy ageing: An umbrella review. Discover Public Health, 22, 661. https://doi.org/10.1186/s12982-025-01066-8"},
+			{"data": "Zhi, H., & Zolotova, M. (2025). Wearable devices and elderly health monitoring: A bibliometric analysis of research trends from 2014 to 2024. Healthcare, 13(16), 2066. https://doi.org/10.3390/healthcare13162066"},
+			{"data": "Qiao, Y., Wang, L., Liu, Y., & Chen, W. (2025). Adoption of assistive smart home technology and health-related quality of life among older adults. Frontiers in Public Health, 13. https://doi.org/10.3389/fpubh.2025.1726983"},
+			{"data": "The Lancet Healthy Longevity. (2024). Restoring cancer care for our ageing populations. The Lancet Healthy Longevity, 5(3), e163. https://doi.org/10.1016/S2666-7568(24)00031-X"},
+			{"data": "Andrade, A., Cabral, A. T., Bellini, B., Rodrigues, V. F., Da Rosa Righi, R., Da Costa, C. A., & Barbosa, J. L. V. (2024). IoT-based vital sign monitoring: A literature review. Smart Health, 32, 100462. https://doi.org/10.1016/j.smhl.2024.100462"},
+			{"data": "Smith, L., Simpson, G., Holt, S., & Dambha-Miller, H. (2025). Digital applications to support self-management of multimorbidity: A scoping review. International Journal of Medical Informatics, 202, 105988. https://doi.org/10.1016/j.ijmedinf.2025.105988"},
+			{"data": "Hossain, M., Rahman, M., & Ahmed, S. (2025). IoT-based remote monitoring system: A new era for patient healthcare management. Health Science Reports, 8(2), e70498. https://doi.org/10.1002/hsr2.70498"},
+			{"data": "Torres, M., & Delgado, A. (2024). Internet of Things: A comprehensive overview, architectures and applications. Journal of Ambient Intelligence and Humanized Computing. https://doi.org/10.1007/s43926-024-00084-3"},
+			{"data": "Lee, H., Kim, J., & Park, S. (2025). Interactive interfaces and wearable technologies for enhancing elderly health monitoring. Frontiers in Medicine, 12, 1724828. https://doi.org/10.3389/fmed.2025.1724828"},
+			{"data": "Akram, A., Khan, M. B., Ali, N. a. A., Zhang, Q., Ahmad, A., Iqbal, M. S., & Moqurrab, S. A. (2024). Intelligent non-invasive elderly fall monitoring by designing software defined radio frequency sensing system. Digital Communications and Networks, 11(3), 634–641. https://doi.org/10.1016/j.dcan.2024.07.009"},
+			{"data": "Huang, K., Li, P., & Zhao, Y. (2026). Fall detection among elderly persons using FallCNN and transfer learning. Frontiers in Artificial Intelligence, 9, 1734096. https://doi.org/10.3389/frai.2026.1734096"},
+			{"data": "Momand, Z., Mongkolnam, P., Chan, J. H., Charoenkitkarn, N., & Pal, D. (2025). Building Digital Twins for Elderly Care: An End-to-End Framework From Data acquisition to Modeling. IEEE Access, 13, 169415–169445. https://doi.org/10.1109/access.2025.3607603"},
+			{"data": "Vallabhuni, S., & Debasis, K. (2025). Hybrid deep learning for IoT-based health monitoring with physiological event extraction. Digital Health, 11, 20552076251337848. https://doi.org/10.1177/20552076251337848"},
+			{"data": "Alsabah, M., Naser, M.A., Albahri, A.S. et al. A comprehensive review on key technologies toward smart healthcare systems based IoT: technical aspects, challenges and future directions. Artif Intell Rev 58, 343 (2025). https://doi.org/10.1007/s10462-025-11342-3"},
+			{"data": "Habibzadeh, H., Dinesh, K., Shishvan, O. R., Boggio-Dandry, A., Sharma, G., & Soyata, T. (2019). A survey of Healthcare Internet of Things (HIOT): A Clinical perspective. IEEE Internet of Things Journal, 7(1), 53–71. https://doi.org/10.1109/jiot.2019.2946359"},
+			{"data": "Elhoseny, M., Thilakarathne, N. N., Alghamdi, M. I., Mahendran, R. K., Gardezi, A. A., Weerasinghe, H., & Welhenge, A. (2021). Security and privacy issues in Medical Internet of Things: Overview, countermeasures, challenges and future directions. Sustainability, 13(21), 11645. https://doi.org/10.3390/su132111645"},
+			{"data": "Adegoke, K., Adegoke, A., Dawodu, D., Adekoya, A., Bayowa, A., Kayode, T., & Singh, M. (2025). Interoperability as a Catalyst for digital health and therapeutics: A Scoping Review of Emerging Technologies and Standards (2015–2025). International Journal of Environmental Research and Public Health, 22(10), 1535. https://doi.org/10.3390/ijerph22101535"},
+			{"data": "Wandwi, G. (2025). Privacy-Preserving health data transmission in IoT-Enabled mobile health systems. Journal of Computer Allied Intelligence (JCAI)., 3(4), 1–11. https://doi.org/10.69996/jcai.2025018"},
+			{"data": "Naresh, V. S., Pericherla, S. S., Murty, P. S. R., & Reddi, S. (2020). Internet of Things in healthcare: architecture, applications, challenges, and solutions. Computer Systems Science and Engineering, 35(6), 411–421. https://doi.org/10.32604/csse.2020.35.411"},
+			{"data": "Rubí, J. N. S., & De Lira Gondim, P. R. (2020). Interoperable Internet of Medical Things platform for e-Health applications. International Journal of Distributed Sensor Networks, 16(1), 155014771988959. https://doi.org/10.1177/1550147719889591"},
+			{"data": "Padmaja, T., & Chandar, M. (2025). A comprehensive survey on lightweight cryptography algorithms to enhance quality of service in medical internet of things. International Journal of Safety and Security Engineering, 15(11), 2403–2417. https://doi.org/10.18280/ijsse.151120"},
+			{"data": "Refaee, E., Parveen, S., Begum, K. M. J., Parveen, F., Raja, M. C., Gupta, S. K., & Krishnan, S. (2022). Secure and scalable healthcare data transmission in IoT based on optimized routing protocols for mobile computing applications. Wireless Communications and Mobile Computing, 2022(1). https://doi.org/10.1155/2022/5665408"}
+		]
+		},{
 		"id": "s2026781204",
 		"identifiers": {
 			"archive_doi": "10.5281/zenodo.18836539",

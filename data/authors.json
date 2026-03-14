@@ -2,7 +2,21 @@
 	"version": "1.0",
 	"last_updated": "2026-03-04",
 	"authors": [
-
+		{
+			"id": "00010094",
+			"name": "Ali, Husma",
+			"name_first": "Husma",
+			"name_last": "Ali",
+			"orcid": "0009-0000-4190-1604",
+			"affiliation": "Faculty of Informatics Engineering, Latakia, Syira",
+			"email": "hosamali.syr@outlook.com",
+			"roles": ["Author"],
+			"articles": ["s2026781205"],
+			"article_count": 1,
+			"citation_count": 0,
+			"first_author_count": 1,
+			"corresponding_count": 1
+		},
 		{
 			"id": "00010093",
 			"name": "Ovechkin, Natalya",
@@ -16,8 +30,7 @@
 			"article_count": 1,
 			"citation_count": 0,
 			"first_author_count": 1,
-			"corresponding_count": 1,
-			"orcid_url": ""
+			"corresponding_count": 1
 		},
 		{
 			"id": "00010091",
@@ -32,8 +45,7 @@
 			"article_count": 1,
 			"citation_count": 0,
 			"first_author_count": 1,
-			"corresponding_count": 1,
-			"orcid_url": "0009-0001-4389-3043"
+			"corresponding_count": 1
 		},
 		{
 			"id": "00010090",
@@ -48,8 +60,7 @@
 			"article_count": 1,
 			"citation_count": 0,
 			"first_author_count": 1,
-			"corresponding_count": 1,
-			"orcid_url": "0000-0002-6197-9967"
+			"corresponding_count": 1
 		},
 		{
 			"id": "00010086",
@@ -64,8 +75,7 @@
 			"article_count": 1,
 			"citation_count": 0,
 			"first_author_count": 0,
-			"corresponding_count": 0,
-			"orcid_url": "0000-0003-3380-2176"
+			"corresponding_count": 0
 		},
 		{
 			"id": "00010088",
@@ -80,8 +90,7 @@
 			"article_count": 1,
 			"citation_count": 0,
 			"first_author_count": 1,
-			"corresponding_count": 1,
-			"orcid_url": ""
+			"corresponding_count": 1
 		},
 		{
 			"id": "00010082",
@@ -96,8 +105,7 @@
 			"article_count": 1,
 			"citation_count": 0,
 			"first_author_count": 1,
-			"corresponding_count": 1,
-			"orcid_url": "0000-0001-5145-7789"
+			"corresponding_count": 1
 		},
 		{
 			"id": "00010077",
@@ -112,8 +120,7 @@
 			"article_count": 5,
 			"citation_count": 0,
 			"first_author_count": 5,
-			"corresponding_count": 5,
-			"orcid_url": "0000-0001-8013-6044"
+			"corresponding_count": 5
 		}
 	]
 }
