@@ -3,6 +3,20 @@
 	"last_updated": "2026-03-04",
 	"authors": [
 		{
+			"id": "00010095",
+			"name": "P. Herwig, Edmund",
+			"name_first": "Edmund",
+			"name_last": "P. Herwig",
+			"orcid": "0009-0009-6018-7405",
+			"affiliation": "Independent Researcher",
+			"roles": ["Author"],
+			"articles": ["s2026781207"],
+			"article_count": 1,
+			"citation_count": 0,
+			"first_author_count": 1,
+			"corresponding_count": 1
+		},
+		{
 			"id": "00010094",
 			"name": "Ali, Husma",
 			"name_first": "Husma",

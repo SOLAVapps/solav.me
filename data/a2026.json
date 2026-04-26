@@ -2,6 +2,78 @@
   "year": "2026",
   "articles": [
 	{
+		"id": "s2026781207",
+		"identifiers": {
+			"archive_doi": "10.5281/zenodo.19802574",
+			"archive_repository": "Zenodo",
+			"publisher_doi": null
+		},
+		"type": "Research Article",
+		"title": "Social and Behavioral Modeling of Community Adoption of Hybrid Renewable Energy Systems",
+		"status": "published",
+		"authors": [
+			{
+			"id": "00010095",
+			"name": "P. Herwig, Edmund",
+			"name_first": "Edmund",
+			"name_last": "P. Herwig",
+			"corresponding": 1,
+			"affiliation": "Independent Researcher",
+			"roles": [
+				"Conceptualization",
+				"Writing – Original Draft",
+				"Writing – Review & Editing"
+			],
+			"email": "edmundpherwig@atomicmail.io",
+			"orcid": "0009-0009-6018-7405"
+			}
+		],
+		"keywords": [
+			"hybrid renewable energy systems",
+			"community adoption",
+			"social acceptance",
+			"agent-based modeling",
+			"behavioral economics",
+			"energy governance",
+			"socio-technical systems"
+		],
+		"abstract": "Hybrid renewable energy systems support decarbonization at the community scale, yet adoption remains uneven and slower than projected by techno-economic models. This paper develops an integrative socio-technical synthesis of the social, behavioral, and institutional drivers of community adoption and links them to formal modeling approaches. A systematic review of peer-reviewed studies published between 2010 and 2025 is conducted using a PRISMA-guided protocol. The analysis identifies subjective norms, perceived behavioral control, trust, and governance equity as primary determinants of adoption, while financial incentives act as necessary but insufficient conditions for sustained uptake. The study shows that models grounded only in cost optimization fail to reproduce observed diffusion patterns, whereas approaches that embed behavioral theory capture heterogeneous decision processes and social influence effects. Agent-based modeling emerges as the most suitable framework for representing these dynamics, especially when integrated with constructs from the Theory of Planned Behavior, Technology Acceptance Model, and Unified Theory of Acceptance and Use of Technology. Evidence also indicates growing relevance of behavioral economics and digital infrastructures, including peer-to-peer energy trading, in shaping prosumer participation. Geographic imbalance in the literature and limited use of adaptive, data-driven modeling remain key gaps. The paper advances a unified framework that connects behavioral theory, governance design, and computational modeling to improve explanatory power and policy relevance. This framework supports the design of interventions that align incentives, strengthen social acceptance, and enable equitable energy transitions.",
+		"version": [
+			{
+			"date": "2026-04-27",
+			"number": "1"
+			}
+		],
+		"abstract_url": "https://solav.me/a/s2026781207",
+		"download_url": "https://solav.me/p/s2026781207.pdf",
+		"received_date": "2026-03-23",
+		"evaluated_date": "2026-03-24",
+		"peer_reviewed_date": "2026-04-19",
+		"accepted_date": "2026-04-26",
+		"published_date": "2026-04-27",
+		"volume": "2",
+		"pages": "65-80",
+		"citation_count": 0,
+		"date": "2026-04-27",
+		"language": "en",
+		"license": "CC BY 4.0",
+		"reference": [
+			{"data": "Menegatto, M., Bobbio, A., Freschi, G., & Zamperini, A. (2025). The social acceptance of renewable energy communities: The role of Socio-Political Control and Impure Altruism. Climate, 13(3), 55. https://doi.org/10.3390/cli13030055"},
+			{"data": "Fouladvand, J. (2024). Why and how can agent-based modelling be applied to community energy systems? A systematic and critical review. Energy Research & Social Science, 114, 103572. https://doi.org/10.1016/j.erss.2024.103572"},
+			{"data": "Rana, M., Mamun, M. a. A., Hossain, M. K., Rekha, R. S., & Alam, S. M. S. (2025). Understanding the adoption of renewable energy technologies by households in South Asia: a theory of planned behavior perspective. Discover Sustainability, 6(1). https://doi.org/10.1007/s43621-025-01051-w"},
+			{"data": "Atam, E., Abdelmaguid, T. F., Keskin, M. E., & Kerrigan, E. C. (2021). A hybrid green energy-based system with a multi-objective optimization approach for optimal frost prevention in horticulture. Journal of Cleaner Production, 329, 129563. https://doi.org/10.1016/j.jclepro.2021.129563"},
+			{"data": "Tran, T. H. H., & Vu, T. D. (2025). Enhancing renewable energy product consumption of young customers through sustainable development goals Knowledge: an application of the theory of planned behavior. Sustainability, 17(9), 3784. https://doi.org/10.3390/su17093784"},
+			{"data": "Boumaiza, S. Abbar, N. Mohandes and A. Sanfilippo, \"Innovation diffusion for renewable energy technologies,\" 2018 IEEE 12th International Conference on Compatibility, Power Electronics and Power Engineering (CPE-POWERENG 2018), Doha, Qatar, 2018, pp. 1-6. https://doi.org/10.1109/CPE.2018.8372592"},
+			{"data": "Magni, G. U., Bricca, D., & Familiari, S. (2025). Economic incentives for Renewable Energy Communities: a scenario analysis in the transition process between the experimental and definitive Italian policy framework. Journal of Sustainable Development of Energy Water and Environment Systems, 13(2), 1–23. https://doi.org/10.13044/j.sdewes.d13.0589"},
+			{"data": "Nahimana, E. C. (2025). Behavioral heuristics in renewable energy adoption and poverty alleviation in Rwanda. SSRN Electronic Journal. https://doi.org/10.2139/ssrn.5366070", "note": "Preprint, suitable for SSRN/SocArXiv"},
+			{"data": "Frederiks, E. R., Stenner, K., & Hobman, E. V. (2014). Household energy use: Applying behavioural economics to understand consumer decision-making and behaviour. Renewable and Sustainable Energy Reviews, 41, 1385–1394. https://doi.org/10.1016/j.rser.2014.09.026"},
+			{"data": "Klein, M., Frey, U. J., & Reeg, M. (2019). Models within models – Agent-Based modelling and simulation in energy systems analysis. Journal of Artificial Societies and Social Simulation, 22(4). https://doi.org/10.18564/jasss.4129"},
+			{"data": "Lu, J., & Zhang, W. (2025). Editorial: Behavioral economics in household decisions related to sustainability and innovation. Frontiers in Behavioral Economics, 4. https://doi.org/10.3389/frbhe.2025.1710651"},
+			{"data": "Bâra, A., & Oprea, S. (2026). Trading strategies on local electricity markets using Agent‐Based modelling and Reinforcement learning: Vectors to expand energy Communities. Systems Research and Behavioral Science. https://doi.org/10.1002/sres.70017"},
+			{"data": "Cosic, A., Stadler, M., Mansoor, M., & Zellinger, M. (2021). Mixed-integer linear programming based optimization strategies for renewable energy communities. Energy, 237, 121559. https://doi.org/10.1016/j.energy.2021.121559"},
+			{"data": "Zhang, W., Valencia, A., & Chang, N. (2021). Synergistic Integration between Machine Learning and Agent-Based Modeling: A Multidisciplinary review. IEEE Transactions on Neural Networks and Learning Systems, 34(5), 2170–2190. https://doi.org/10.1109/tnnls.2021.3106777"}
+		]
+		},{
 		"id": "s2026781205",
 		"identifiers": {
 			"archive_doi": "10.5281/zenodo.19023432",
