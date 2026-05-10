@@ -1,0 +1,102 @@
+{
+  "year": "2026",
+  "articles": [
+		{
+		"id": "s2026781208",
+		"identifiers": {
+			"archive_doi": "10.5281/zenodo.20114666",
+			"archive_repository": "Zenodo",
+			"publisher_doi": null
+		},
+		"type": "Review Article",
+		"title": "Data-Driven Discovery of Sustainable Materials",
+		"status": "published",
+		"authors": [
+			{
+			"id": "00010096",
+			"name": "Ozaki, Moeko",
+			"name_first": "Moeko",
+			"name_last": "Ozaki",
+			"corresponding": 1,
+			"affiliation": "Chiba University",
+			"roles": [
+				"Conceptualization",
+				"Writing – Original Draft",
+				"Writing – Review & Editing"
+			],
+			"email": "moekoozaki@proton.me",
+			"orcid": "0009-0009-6018-7405"
+			}
+		],
+		"keywords": [
+			"Sustainable Materials",
+			"Materials Informatics",
+			"Machine Learning",
+			"Green Chemistry",
+			"Life Cycle Assessment",
+			"Artificial Intelligence",
+			"Circular Economy"
+		],
+		"abstract": "The increasing environmental challenges associated with climate change, resource depletion, and industrial pollution have intensified the demand for sustainable materials that support a circular economy sustainable material. Traditional materials discovery methods are often labor-intensive, time-consuming, and dependent on costly experimental trial-and-error approaches, limiting the rapid development of environmentally friendly materials. In recent years, materials informatics (MI), combined with advances in artificial intelligence (AI) and machine learning (ML), has emerged as a transformative paradigm capable of accelerating the discovery and optimization of sustainable materials. This article presents a comprehensive data-driven framework for sustainable material discovery that integrates large-scale materials databases, sustainability indicators, and predictive machine learning models. Open scientific repositories such as Materials Project, NOMAD, and PubChem are discussed as essential data infrastructures supporting computational materials science. The proposed framework incorporates sustainability metrics including life cycle assessment (LCA), carbon footprint analysis, recyclability, biodegradability, and energy-efficient synthesis pathways. Furthermore, the study examines the application of supervised learning techniques for property prediction, unsupervised learning for material classification, and generative deep learning models for designing novel eco-friendly compounds. The article also addresses major challenges including data quality, model interpretability, and experimental validation. Finally, the work highlights the alignment of sustainable materials informatics with the United Nations Sustainable Development Goals (SDGs), emphasizing the importance of interdisciplinary collaboration among materials scientists, chemists, data scientists, and policymakers.",
+		"version": [
+			{
+			"date": "2026-05-11",
+			"number": "1"
+			}
+		],
+		"abstract_url": "https://solav.me/a/s2026781208",
+		"download_url": "https://solav.me/p/s2026781208.pdf",
+		"received_date": "2026-04-01",
+		"evaluated_date": "2026-04-04",
+		"peer_reviewed_date": "2026-05-06",
+		"accepted_date": "2026-05-10",
+		"published_date": "2026-05-11",
+		"volume": "2",
+		"pages": "81-139",
+		"citation_count": 0,
+		"date": "2026-05-11",
+		"language": "en",
+		"license": "CC BY 4.0",
+		"reference": [
+			{"data": "Yahia, A. K. M., Rahman, M. M., Shahjalal, M., & Morshed, A. (2024). SUSTAINABLE MATERIALS SELECTION IN BUILDING DESIGN AND CONSTRUCTION. International Journal of Science and Engineering, 1(4), 106–119. https://doi.org/10.62304/ijse.v1i04.199"},
+			{"data": "Geng, D., Sarkis, J., & Zhu, Q. (2024). Corporate sustainable operations management for carbon emissions reduction: An evolutionary perspective. Fundamental Research, 5(4), 1750–1758. https://doi.org/10.1016/j.fmre.2024.07.007"},
+			{"data": "Maung, P. T., Prusty, B., Shamsuddoha, M., Phillips, A. W., & St John, N. A. (2021). Static and dynamic response of a carbon composite full-scale hydrofoil manufactured using automated fibre placement. Composites Part C Open Access, 6, 100218. https://doi.org/10.1016/j.jcomc.2021.100218"},
+			{"data": "Kamran, F., Afshar, H., & Shahi, F. (2025). Recent advances and applications of sustainable and recyclable polymers. Polymer Engineering and Science, 65(8), 3845–3879. https://doi.org/10.1002/pen.27257"},
+			{"data": "Bontempi, E., Sorrentino, G. P., Zanoletti, A., Alessandri, I., Depero, L. E., & Caneschi, A. (2021). Sustainable Materials and their Contribution to the Sustainable Development Goals (SDGs): A Critical Review Based on an Italian Example. Molecules, 26(5), 1407. https://doi.org/10.3390/molecules26051407"},
+			{"data": "Barathi, A., Kundu, D., Pooja, K., Surya, M., Jacob, S., Samanta, P., Kumar, V., & Kuila, A. (2026). Toward sustainable industry: integrating industrial symbiosis, biorefineries, and circular economy for SDG alignment. Sustainable Energy & Fuels, 10(8), 1816–1844. https://doi.org/10.1039/d6se00037a"},
+			{"data": "Schmidt, J., Marques, M. R. G., Botti, S., & Marques, M. a. L. (2019). Recent advances and applications of machine learning in solid-state materials science. Npj Computational Materials, 5(1). https://doi.org/10.1038/s41524-019-0221-0"},
+			{"data": "Agrawal, A., & Choudhary, A. (2016). Perspective: Materials informatics and big data: Realization of the “fourth paradigm” of science in materials science. APL Materials, 4(5). https://doi.org/10.1063/1.4946894"},
+			{"data": "Ramprasad, R., Batra, R., Pilania, G., Mannodi-Kanakkithodi, A., & Kim, C. (2017). Machine learning in materials informatics: recent applications and prospects. Npj Computational Materials, 3(1). https://doi.org/10.1038/s41524-017-0056-5"},
+			{"data": "Ward, L., Agrawal, A., Choudhary, A., & Wolverton, C. (2016). A general-purpose machine learning framework for predicting properties of inorganic materials. Npj Computational Materials, 2(1). https://doi.org/10.1038/npjcompumats.2016.28"},
+			{"data": "Sanchez-Lengeling, B., & Aspuru-Guzik, A. (2018). Inverse molecular design using machine learning: Generative models for matter engineering. Science, 361(6400), 360–365. https://doi.org/10.1126/science.aat2663"},
+			{"data": "Draxl, C., & Scheffler, M. (2018). NOMAD: The FAIR concept for big data-driven materials science. MRS Bulletin, 43(9), 676–682. https://doi.org/10.1557/mrs.2018.208"},
+			{"data": "Olson, G. B. (1997). Computational design of hierarchically structured materials. Science, 277(5330), 1237–1242. https://doi.org/10.1126/science.277.5330.1237"},
+			{"data": "Meyer, L., Eser, B. E., & Kara, S. (2021). Coupling light with biocatalysis for sustainable synthesis—very recent developments and future perspectives. Current Opinion in Green and Sustainable Chemistry, 31, 100496. https://doi.org/10.1016/j.cogsc.2021.100496"},
+			{"data": "Butler, K. T., Davies, D. W., Cartwright, H., Isayev, O., & Walsh, A. (2018). Machine learning for molecular and materials science. Nature, 559(7715), 547–555. https://doi.org/10.1038/s41586-018-0337-2"},
+			{"data": "Geyer, R., Jambeck, J. R., & Law, K. L. (2017). Production, use, and fate of all plastics ever made. Science Advances, 3(7), e1700782. https://doi.org/10.1126/sciadv.1700782"},
+			{"data": "Kohn, W. (1999). Nobel Lecture: Electronic structure of matter—wave functions and density functionals. Reviews of Modern Physics, 71(5), 1253–1266. https://doi.org/10.1103/revmodphys.71.1253"},
+			{"data": "Jain, A., Ong, S. P., Hautier, G., Chen, W., Richards, W. D., Dacek, S., Cholia, S., Gunter, D., Skinner, D., Ceder, G., & Persson, K. A. (2013). Commentary: The Materials Project: A materials genome approach to accelerating materials innovation. APL Materials, 1(1). https://doi.org/10.1063/1.4812323"},
+			{"data": "Biggs, J. D., & Cina, J. A. (2010). Erratum: “Calculations of nonlinear wave-packet interferometry signals in the pump-probe limit as tests for vibrational control over electronic excitation transfer” [J. D. Biggs and J. A. Cina, J. Chem. Phys. 131, 224302 (2009)]. The Journal of Chemical Physics, 133(7). https://doi.org/10.1063/1.3474530"},
+			{"data": "Dunbar, M., DeBenedictis, E., & Keten, S. (2019). Dimerization energetics of curli fiber subunits CsgA and CsgB. Npj Computational Materials, 5(1). https://doi.org/10.1038/s41524-019-0164-5"},
+			{"data": "Curtarolo, S., Setyawan, W., Wang, S., Xue, J., Yang, K., Taylor, R. H., Nelson, L. J., Hart, G. L., Sanvito, S., Buongiorno-Nardelli, M., Mingo, N., & Levy, O. (2012). AFLOWLIB.ORG: A distributed materials properties repository from high-throughput ab initio calculations. Computational Materials Science, 58, 227–235. https://doi.org/10.1016/j.commatsci.2012.02.002"},
+			{"data": "Zhou, Y., Yang, W., Hu, M., & Yang, Z. (2015). The typical manners of dynamic crack propagation along the metal/ceramics interfaces: A molecular dynamics study. Computational Materials Science, 112, 27–33. https://doi.org/10.1016/j.commatsci.2015.10.012"},
+			{"data": "Kim, S., Thiessen, P. A., Bolton, E. E., Chen, J., Fu, G., Gindulyte, A., Han, L., He, J., He, S., Shoemaker, B. A., Wang, J., Yu, B., Zhang, J., & Bryant, S. H. (2015). PubChem Substance and Compound databases. Nucleic Acids Research, 44(D1), D1202–D1213. https://doi.org/10.1093/nar/gkv951"},
+			{"data": "Pilania, G., Wang, C., Jiang, X., Rajasekaran, S., & Ramprasad, R. (2013). Accelerating materials property predictions using machine learning. Scientific Reports, 3(1), 2810. https://doi.org/10.1038/srep02810"},
+			{"data": "Pilania, G., Mannodi-Kanakkithodi, A., Uberuaga, B. P., Ramprasad, R., Gubernatis, J. E., & Lookman, T. (2016). Machine learning bandgaps of double perovskites. Scientific Reports, 6(1), 19375. https://doi.org/10.1038/srep19375"},
+			{"data": "Zhou, H., Yu, S., Liu, H., & Liu, P. (2019). Protective coatings for lithium metal anodes: Recent progress and future perspectives. Journal of Power Sources, 450, 227632. https://doi.org/10.1016/j.jpowsour.2019.227632"},
+			{"data": "Mannodi-Kanakkithodi, A., Pilania, G., Huan, T. D., Lookman, T., & Ramprasad, R. (2016). Machine Learning Strategy for Accelerated Design of Polymer dielectrics. Scientific Reports, 6(1), 20952. https://doi.org/10.1038/srep20952"},
+			{"data": "Wang, H., Kumar, R., Pattanaik, A., Kumar, R., Aljaberi, A. S. O. K., & Abass, M. A. (2025). Computational methods and artificial intelligence-based modeling of magnesium alloys: a systematic review of machine learning, deep learning, and data-driven design and optimization approaches. Frontiers in Materials, 12. https://doi.org/10.3389/fmats.2025.1645227"},
+			{"data": "Kulichenko, M., Smith, J. S., Nebgen, B., Li, Y. W., Fedik, N., Boldyrev, A. I., Lubbers, N., Barros, K., & Tretiak, S. (2021). The rise of neural networks for materials and chemical dynamics. The Journal of Physical Chemistry Letters, 12(26), 6227–6243. https://doi.org/10.1021/acs.jpclett.1c01357"},
+			{"data": "Finnveden, G., Hauschild, M. Z., Ekvall, T., Guinée, J., Heijungs, R., Hellweg, S., Koehler, A., Pennington, D., & Suh, S. (2009). Recent developments in Life Cycle Assessment. Journal of Environmental Management, 91(1), 1–21. https://doi.org/10.1016/j.jenvman.2009.06.018"},
+			{"data": "Change, I. P. O. C. (2015). Climate Change 2014: Mitigation of Climate change. In Cambridge University Press eBooks. https://doi.org/10.1017/cbo9781107415416"},
+			{"data": "Griffin, A., Robertson, M., Gunter, Z., Coronado, A., Xiang, Y., & Qiang, Z. (2024). Design and application of joule heating processes for decarbonized chemical and advanced material synthesis. Industrial & Engineering Chemistry Research, 63(45), 19398–19417. https://doi.org/10.1021/acs.iecr.4c02460"},
+			{"data": "Caldeira, C., Abbate, E., Moretti, C., Mancini, L., & Sala, S. (2024). Safe and sustainable chemicals and materials: a review of sustainability assessment frameworks. Green Chemistry, 26(13), 7456–7477. https://doi.org/10.1039/d3gc04598f"},
+			{"data": "Hoekstra, A. Y., & Chapagain, A. K. (2006). Water footprints of nations: Water use by people as a function of their consumption pattern. Water Resources Management, 21(1), 35–48. https://doi.org/10.1007/s11269-006-9039-x"},
+			{"data": "Xu, T., Wei, T., Ge, Y., Peng, B., Li, Y., Wang, M., Wen, P., Yang, C., & Wei, Y. (2026). Sustainable materials design with Multi‐Modal Artificial Intelligence. Advanced Science, e24273. https://doi.org/10.1002/advs.202524273"},
+			{"data": "Kilavuz, E. (2025). Sustainable Lithium-Ion battery recycling: Challenges, innovations, and pathways to a circular economy. ACS Sustainable Resource Management, 2(10), 1838–1858. https://doi.org/10.1021/acssusresmgt.5c00408"},
+			{"data": "Polman, A., Knight, M., Garnett, E. C., Ehrler, B., & Sinke, W. C. (2016). Photovoltaic materials: Present efficiencies and future challenges. Science, 352(6283), aad4424. https://doi.org/10.1126/science.aad4424"},
+			{"data": "Molahalli, V., C, S., Shetty, S. L., Sharma, A., H, G., H, V., & Chattham, N. (2025). Advanced materials for hydrogen production, storage, and conversion: Mechanistic insights, comparative benchmarks, and sustainability roadmaps. International Journal of Hydrogen Energy, 202, 152904. https://doi.org/10.1016/j.ijhydene.2025.152904"}
+		]
+		}
+	]
+}
