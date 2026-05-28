@@ -454,7 +454,7 @@
 		{
 			"id": "IND-002",
 			"question": "Is SOLAV listed in international databases?",
-			"answer": "SOLAV is a CORE Approved Provider (ID 25920) and is indexed in WorldCat, Google Scholar, and OpenAlex. Applications for additional services are maintained by the editorial office.",
+			"answer": "SOLAV is a CORE Approved Provider (ID 25920) and is indexed in BASE, WorldCat, Google Scholar, and OpenAlex. Applications for additional services are maintained by the editorial office.",
 			"links": ["https://solav.me/about", "https://solav.me/archiving"]
 		},
 		{
