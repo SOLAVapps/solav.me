@@ -280,7 +280,7 @@
 	--si-link-hover-color: #3e41ee;
 	--si-link-color-rgb: 99, 102, 241;
 	--si-link-hover-color-rgb: 62, 65, 238;
-	--si-code-color: #ee70a7;
+	--si-code-color: #fff;
 	--si-highlight-color: rgba(255, 255, 255, 0.7);
 	--si-highlight-bg: #664d03;
 	--si-border-color: rgba(255, 255, 255, 0.14);
@@ -20384,6 +20384,10 @@ html {
 				border-radius: 3px;
 				font-size: 0.875em;
 			}
+			[data-bs-theme="dark"] code {
+				color: #f7b0d3;
+				background-color: #161719;
+}
 			.gcard{background-color: #fcfcfc;}
 			.section-nav {
 			position: sticky;
