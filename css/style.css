@@ -20939,3 +20939,57 @@ html {
   }
 
 }
+        .news-card {
+            transition: transform 0.2s, box-shadow 0.2s;
+            height: 100%;
+            border: none;
+            box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.075);
+        }
+        .news-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
+        }
+        .news-img {
+            height: 200px;
+            object-fit: cover;
+            background-color: #e9ecef;
+            border-bottom: 1px solid rgba(0,0,0,0.125);
+        }
+        .news-category-badge {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+        .news-excerpt {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            color: #6c757d;
+        }
+        .filter-btn-group .filter-btn.active {
+            background-color: var(--bs-primary);
+            color: white;
+            border-color: var(--bs-primary);
+        }
+        .news-tag {
+            font-size: 0.75rem;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+			color: #000;
+            border-radius: 20px;
+            padding: 0.25rem 0.75rem;
+            display: inline-block;
+        }
+		[data-bs-theme="dark"] .news-tag {
+			background: #1c2044;
+            border: 1px solid #585bd6;
+			color:#fff!important;
+		}
+        .modal-news-image {
+            max-height: 300px;
+            object-fit: cover;
+            width: 100%;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
