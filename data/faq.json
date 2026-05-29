@@ -142,7 +142,7 @@
 		{
 			"id": "GUIDE-005",
 			"question": "What reference style does SOLAV use?",
-			"answer": "Authors must follow APA 7th Edition style as specified in the Author Guidelines.",
+			"answer": "Authors must follow IEEE-style numbered citations as specified in the Author Guidelines. References are listed in order of appearance and numbered consecutively.",
 			"links": ["https://solav.me/guidelines"]
 		}
 		]

@@ -100,12 +100,12 @@
       "section": "guidelines",
       "text": "Which reference format does SOLAV require?",
       "options": [
-        "Vancouver (numbered) style",
-        "APA 7th edition",
+        "IEEE-style numbered citations",
+        "APA 7th edition (author-date)",
         "Chicago author-date style"
       ],
-      "correct": 1,
-      "feedback": "✅ Correct. SOLAV uses APA 7th edition for all references. Use reference managers (Zotero, Mendeley) with APA 7th style. Verify all DOIs are active and include DOIs/URLs for all accessible sources including datasets and software.",
+      "correct": 0,
+      "feedback": "✅ Correct. SOLAV uses IEEE-style numbered citations. References are listed numerically in order of first appearance and numbered consecutively [1], [2], [3]. Use reference managers (Zotero, Mendeley) with IEEE style. Include DOIs/URLs for all accessible sources including datasets and software.",
       "reference": "/guidelines#references"
     },
     {
