@@ -1,0 +1,140 @@
+{
+  "title": "SOLAV Journal — News Center",
+  "source": "https://solav.me",
+  "version": "1.0",
+  "last_updated": "2026-03-12",
+  "news": [
+    {
+      "id": "news-2026-003",
+      "title": "SOLAV Journal Now Indexed in BASE (Bielefeld Academic Search Engine)",
+      "date": "2026-05-27",
+      "category": "Indexing Updates",
+      "excerpt": "SOLAV Journal content is now discoverable through BASE, one of the world's largest volumes of open access scholarly resources.",
+      "content": "We are pleased to announce that SOLAV Journal is now indexed in BASE (Bielefeld Academic Search Engine), operated by Bielefeld University Library. BASE is one of the world's most voluminous search engines especially for academic open access web resources, indexing over 300 million documents from more than 10,000 content providers. This indexing enhances the discoverability of SOLAV articles for researchers worldwide. All SOLAV articles are now searchable at base-search.net with full metadata and links to full-text PDFs.",
+      "link": "/news/2026-003",
+      "image": "/images/news/base-indexing.jpg",
+      "author": "Editorial Office",
+      "tags": ["Indexing", "BASE", "Discovery", "Open Access"]
+    },
+    {
+      "id": "news-2026-002",
+      "title": "Volume 2 (2026) Now Open for Submissions",
+      "date": "2026-02-08",
+      "category": "Call for Papers",
+      "excerpt": "SOLAV Journal invites original research submissions for Volume 2 (2026). We welcome interdisciplinary applied research from all geographic regions.",
+      "content": "Following the successful publication of Volume 1 (2025), SOLAV Journal is now accepting submissions for Volume 2 (2026). We welcome original research articles, review articles, short communications, case studies, and perspective pieces that bridge disciplinary boundaries and demonstrate real-world applicability. Our continuous publication model ensures rapid dissemination upon acceptance. APC waivers are available for authors from low-income economies and independent researchers. Submit your manuscript through our Online Submission Form.",
+      "link": "/news/2026-002",
+      "image": "/images/news/volume2-call.jpg",
+      "author": "Editorial Office",
+      "tags": ["Call for Papers", "Volume 2", "Submissions", "Open Access"]
+    },
+    {
+      "id": "news-2026-001",
+      "title": "SOLAV Journal Registered with FAIRsharing (ID: 7613)",
+      "date": "2026-02-01",
+      "category": "Announcements",
+      "excerpt": "SOLAV Journal is now registered with FAIRsharing, demonstrating our commitment to FAIR data principles and open science standards.",
+      "content": "SOLAV Journal has been registered with FAIRsharing (ID: 7613), a community-curated registry of databases, data standards, and data policies. This registration demonstrates our commitment to FAIR (Findable, Accessible, Interoperable, Reusable) data principles and open science standards. FAIRsharing is widely used by funders, publishers, and researchers to identify resources that support data stewardship. Our registration includes detailed information about our data sharing policies, metadata standards, and archiving practices. View our FAIRsharing record at fairsharing.org/7613.",
+      "link": "/news/2026-001",
+      "image": "/images/news/fairsharing-registration.jpg",
+      "author": "Editorial Office",
+      "tags": ["FAIRsharing", "FAIR Data", "Open Science", "Standards"]
+    },
+    {
+      "id": "news-2025-008",
+      "title": "Updated AI in Research Policy Published",
+      "date": "2025-12-15",
+      "category": "Policy Updates",
+      "excerpt": "SOLAV Journal has published an updated AI in Research Policy clarifying acceptable uses of AI tools in manuscript preparation.",
+      "content": "SOLAV Journal has published a comprehensive AI in Research Policy that clarifies acceptable and unacceptable uses of artificial intelligence tools in research and manuscript preparation. Key points include: AI tools may be used for literature review, data analysis, code development, and language support with full disclosure; AI cannot be listed as an author; all AI-generated content must be verified by human authors; failure to disclose AI use constitutes research misconduct. The full policy is available at solav.me/ai.",
+      "link": "/news/2025-008",
+      "image": "/images/news/ai-policy.jpg",
+      "author": "Ethics Committee",
+      "tags": ["AI Policy", "Research Ethics", "Disclosure", "Guidelines"]
+    },
+    {
+      "id": "news-2025-007",
+      "title": "CORE Approved Provider Status Confirmed (ID: 25920)",
+      "date": "2025-11-20",
+      "category": "Indexing Updates",
+      "excerpt": "SOLAV Journal is confirmed as a CORE Approved Provider, enhancing metadata harvesting and global discoverability.",
+      "content": "SOLAV Journal has been confirmed as a CORE Approved Provider (ID: 25920). CORE is the world's largest aggregator of open access research papers, providing unified access to millions of articles from thousands of institutions. As a CORE Approved Provider, SOLAV metadata is harvested regularly and made available through CORE's APIs and search interface. This enhances the visibility and discoverability of SOLAV articles for researchers worldwide. Our OAI-PMH endpoint ensures seamless metadata exchange with CORE and other harvesting services.",
+      "link": "/news/2025-007",
+      "image": "/images/news/core-approved.jpg",
+      "author": "Editorial Office",
+      "tags": ["CORE", "Indexing", "Metadata", "OAI-PMH"]
+    },
+    {
+      "id": "news-2025-006",
+      "title": "Volume 1 (2025) Complete — 9 Articles Published",
+      "date": "2025-11-06",
+      "category": "Announcements",
+      "excerpt": "SOLAV Journal Volume 1 (2025) is now complete with 9 published articles across research articles and editorials.",
+      "content": "SOLAV Journal Volume 1 (2025) is now complete with 9 published articles, including 5 research articles and 4 editorials. Articles span diverse topics including renewable energy systems, explainable AI, language model reliability, scholarly communication, and continuous publication models. All articles are openly accessible under CC BY 4.0 license with permanent DOIs via Zenodo. Volume 1 articles are available in the journal archive. We thank all authors, reviewers, and editorial board members who contributed to the success of our inaugural volume.",
+      "link": "/news/2025-006",
+      "image": "/images/news/volume1-complete.jpg",
+      "author": "Editorial Office",
+      "tags": ["Volume 1", "Publications", "Annual Report", "Milestone"]
+    },
+    {
+      "id": "news-2025-005",
+      "title": "New Data Sharing Policy Implemented",
+      "date": "2025-09-01",
+      "category": "Policy Updates",
+      "excerpt": "SOLAV Journal now requires mandatory Data Availability Statements for all empirical articles.",
+      "content": "SOLAV Journal has implemented a new Data Sharing Policy requiring mandatory Data Availability Statements for all empirical articles. Authors must deposit data in a trusted public repository (e.g., Zenodo, OSF) with a persistent identifier (DOI/URL). Exemptions are granted for privacy, legal, or ethical constraints with explicit justification. Data should be licensed under CC0 or CC BY 4.0 where possible. This policy aligns with FAIR data principles and enhances research reproducibility. Full policy details are available in the Author Guidelines.",
+      "link": "/news/2025-005",
+      "image": "/images/news/data-policy.jpg",
+      "author": "Editorial Board",
+      "tags": ["Data Sharing", "FAIR Data", "Reproducibility", "Policy"]
+    },
+    {
+      "id": "news-2025-004",
+      "title": "OpenAIRE Integration Complete",
+      "date": "2025-08-15",
+      "category": "Indexing Updates",
+      "excerpt": "SOLAV Journal metadata is now harvested by OpenAIRE, supporting European open science infrastructure.",
+      "content": "SOLAV Journal metadata is now harvested by OpenAIRE, the European open science infrastructure supporting FAIR research discovery. OpenAIRE aggregates research outputs from thousands of repositories and journals worldwide, providing unified access for European researchers and funders. This integration supports compliance with EU funder requirements (ERC, Horizon Europe) and enhances the visibility of SOLAV articles in European academic networks. SOLAV articles are discoverable at explore.openaire.eu.",
+      "link": "/news/2025-004",
+      "image": "/images/news/openaire-integration.jpg",
+      "author": "Technical Team",
+      "tags": ["OpenAIRE", "Europe", "Funder Compliance", "Indexing"]
+    },
+    {
+      "id": "news-2025-003",
+      "title": "Editorial Board Expansion Announced",
+      "date": "2025-07-01",
+      "category": "Editorial Changes",
+      "excerpt": "SOLAV Journal welcomes new editorial board members from diverse disciplines and geographic regions.",
+      "content": "SOLAV Journal has expanded its Editorial Board with new members from diverse disciplines and geographic regions. New board members bring expertise in engineering, environmental science, data analytics, social applications, and interdisciplinary research. This expansion strengthens our capacity for rigorous peer review and ensures broad disciplinary coverage. All editorial board members are committed to open scholarship and ethical publishing. The complete editorial board list is available on the About page.",
+      "link": "/news/2025-003",
+      "image": "/images/news/board-expansion.jpg",
+      "author": "Editor-in-Chief",
+      "tags": ["Editorial Board", "Expansion", "Governance", "Team"]
+    },
+    {
+      "id": "news-2025-002",
+      "title": "APC Waiver Program Launched",
+      "date": "2025-05-01",
+      "category": "Announcements",
+      "excerpt": "SOLAV Journal launches comprehensive APC waiver program for authors from low-income economies and independent researchers.",
+      "content": "SOLAV Journal has launched a comprehensive APC waiver program to ensure financial constraints do not hinder quality research dissemination. Automatic 100% waivers are available for corresponding authors from low-income economies (World Bank classification). Discretionary waivers are considered for independent researchers, graduate students, early-career researchers, and authors experiencing financial hardship. Waiver requests are evaluated within 5-7 business days and do not affect editorial decisions. Full details are available on the APC page.",
+      "link": "/news/2025-002",
+      "image": "/images/news/waiver-program.jpg",
+      "author": "APC Team",
+      "tags": ["APC", "Waivers", "Equity", "Access"]
+    },
+    {
+      "id": "news-2025-001",
+      "title": "SOLAV Journal Officially Launches",
+      "date": "2025-02-02",
+      "category": "Announcements",
+      "excerpt": "SOLAV Journal officially launches as an open-access, peer-reviewed platform for interdisciplinary applied research.",
+      "content": "SOLAV Journal officially launches today as an open-access, peer-reviewed scholarly publication operating under a continuous publication model. Our mission is to reduce barriers to knowledge by establishing a rigorous, inclusive, and ethically grounded platform for the dissemination of high-quality interdisciplinary applied research. We welcome submissions from researchers worldwide, including independent scholars without institutional affiliation. All articles are published under CC BY 4.0 license with permanent DOIs via Zenodo. Submit your first manuscript today.",
+      "link": "/news/2025-001",
+      "image": "/images/news/journal-launch.jpg",
+      "author": "Editor-in-Chief",
+      "tags": ["Launch", "Open Access", "Mission", "Announcement"]
+    }
+  ]
+}
