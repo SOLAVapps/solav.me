@@ -220,7 +220,7 @@
 
 				<div class="row mb-3">
 					<div class="col-12">
-						<p id="newsResultsCount" class="text-muted mb-0">Loading news articles...</p>
+						<p id="newsResultsCount" class="text-muted mb-0">Loading news posts...</p>
 					</div>
 				</div>
 
@@ -230,7 +230,7 @@
 
 				<div id="newsNoResults" class="text-center py-5" style="display: none;">
 					<i class="bi bi-newspaper display-1 text-muted mb-3"></i>
-					<h3>No news articles found</h3>
+					<h3>No news posts found</h3>
 					<p class="text-muted">Try adjusting your search or category filter.</p>
 					<button id="resetNewsFilters" class="btn btn-primary">Reset Filters</button>
 				</div>
@@ -581,7 +581,7 @@
 				}
 				noResultsDiv.style.display = 'none';
 				newsGrid.style.display = 'flex';
-				resultsCountSpan.textContent = `Showing ${filteredNewsItems.length} news articles`;
+				resultsCountSpan.textContent = `Showing ${filteredNewsItems.length} news posts`;
 				
 				const start = (currentNewsPage - 1) * newsPerPage;
 				const end = start + newsPerPage;
