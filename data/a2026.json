@@ -2,6 +2,80 @@
   "year": "2026",
   "articles": [
 	{
+		"id": "s2026781209",
+		"identifiers": {
+			"archive_doi": "10.5281/zenodo.20453095",
+			"archive_repository": "Zenodo",
+			"publisher_doi": null
+		},
+		"type": "Case Study",
+		"title": "Life Cycle Assessment of the Minety Battery Energy Storage System: Environmental Performance, Operational Trade-offs, and Implications for Utility-Scale Energy Storage",
+		"status": "published",
+		"authors": [
+			{
+			"id": "00010097",
+			"name": "Junaid, Yasir Naeem",
+			"name_first": "Yasir Naeem",
+			"name_last": "Junaid",
+			"corresponding": 1,
+			"affiliation": "Independent Researcher",
+			"roles": [
+				"Conceptualization",
+				"Writing – Original Draft",
+				"Writing – Review & Editing"
+			],
+			"email": "jnyasir82@hotmail.com",
+			"orcid": "0009-0006-6400-3739"
+			}
+		],
+		"keywords": [
+			"battery energy storage systems",
+			"life cycle assessment",
+			"lithium-ion batteries",
+			"Minety BESS",
+			"grid decarbonization",
+			"sustainability",
+			"energy storage",
+			"circular economy"
+		],
+		"abstract": "Battery energy storage system (BESS) could be a major enabling technology for the successful integration of renewable energy, providing improved grid flexibility, but they are vulnerable from an environmental perspective because of their production, mining and end-of-life processes. The 100 MW / 129 MWh Interface Minety BESS in Wiltshire, UK is one of the largest lithium-ion BESS projects in Europe and this case study applies Life Cycle Assessment (LCA) methodologies (ISO 14040/14044) to look across its cradle-to-grave impacts based on data provided by Carvalho et al. (2021). The study shows that the initial life cycle climate impact of charging electric vehicles with this electricity is 24.2 g CO₂-eq per kWh delivered, where most of the climate impact comes from manufacturing and operational charging losses. Most importantly, the operational electricity mix affects the environmental impact: emissions decrease by more than 50% if the charging is done entirely with renewables. Longevity of batteries, as well as recycling and usage, are also significant factors in the sustainability outcomes. The main thing we learned from the Minety project is the importance of clear environmental reporting. It is suggested in this analysis that existing procurement approaches need to move beyond just operational efficiency to whole-life driven approaches, both for grid-scale storage solutions and for procurement by both policymakers and developers more broadly. Sustainability of BESS is not only dependent on battery chemistry, but also on charging patterns, decarbonization pathways of the grid, material recovery and BESS asset management.",
+		"version": [
+			{
+			"date": "2026-05-30",
+			"number": "1"
+			}
+		],
+		"abstract_url": "https://solav.me/a/s2026781209",
+		"download_url": "https://solav.me/p/s2026781209.pdf",
+		"received_date": "2026-04-27",
+		"evaluated_date": "2026-04-30",
+		"peer_reviewed_date": "2026-05-22",
+		"accepted_date": "2026-05-29",
+		"published_date": "2026-05-30",
+		"volume": "2",
+		"pages": "140-153",
+		"citation_count": 0,
+		"date": "2026-05-30",
+		"language": "en",
+		"license": "CC BY 4.0",
+		"reference": [
+			{"data": "Few, S., Djapić, P., Štrbac, G., Nelson, J., & Candelise, C. (2024). A geographically disaggregated approach to integrate low-carbon technologies across local electricity networks. Nature Energy, 9(7), 871–882. https://doi.org/10.1038/s41560-024-01542-6"},
+			{"data": "Scrocca, A., Delfanti, M., & Bovera, F. (2025). Optimal Sizing of Battery Energy Storage System for Implicit Flexibility in Multi-Energy Microgrids. Applied Sciences, 15(15), 8529. https://doi.org/10.3390/app15158529"},
+			{"data": "Wang, K., Wang, Y., Gao, J., Liang, Y., Ma, Z., Liu, H., & Li, Z. (2025). Multi-Objective Optimization of Energy Storage Station Configuration in Power Grids Considering the Flexibility of Thermal Load Control. Energies, 18(10), 2527. https://doi.org/10.3390/en18102527"},
+			{"data": "Hasan, M. M., Berseneff, B., Meulenbroeks, T., Cantero, I., Chakraborty, S., Geury, T., & Hegazy, O. (2022). A Multi-Objective Co-Design Optimization Framework for Grid-Connected Hybrid Battery Energy Storage Systems: Optimal Sizing and Selection of Technology. Energies, 15(15), 5355. https://doi.org/10.3390/en15155355"},
+			{"data": "Patil, V. D., Sarma, U., Verma, B., & Madabattula, G. (2026). Life cycle assessment of Lithium-ion battery manufacturing in India: Impact of electricity mix, location and source of raw materials. Journal of Energy Storage, 170, 122811. https://doi.org/10.1016/j.est.2026.122811"},
+			{"data": "Scrucca, F., Presciutti, A., Baldinelli, G., Barberio, G., Postrioti, L., & Karaca, C. (2025). Life cycle assessment of Li-ion batteries for electric vehicles: A review focused on the production phase impact. Journal of Power Sources, 639, 236703. https://doi.org/10.1016/j.jpowsour.2025.236703"},
+			{"data": "Da Silva Lima, L., Quartier, M., Buchmayr, A., Sanjuan-Delmás, D., Laget, H., Corbisier, D., Mertens, J., & Dewulf, J. (2021). Life cycle assessment of lithium-ion batteries and vanadium redox flow batteries-based renewable energy storage systems. Sustainable Energy Technologies and Assessments, 46, 101286. https://doi.org/10.1016/j.seta.2021.101286"},
+			{"data": "Carvalho, M. L., Temporelli, A., & Girardi, P. (2021). Life Cycle Assessment of Stationary Storage Systems within the Italian Electric Network. Energies, 14(8), 2047. https://doi.org/10.3390/en14082047"},
+			{"data": "Deguenon, L., Yamegueu, D., Kadri, S. M., & Gomna, A. (2023). Overcoming the challenges of integrating variable renewable energy to the grid: A comprehensive review of electrochemical battery storage systems. Journal of Power Sources, 580, 233343. https://doi.org/10.1016/j.jpowsour.2023.233343"},
+			{"data": "Chordia, M., Nordelöf, A., & Ellingsen, L. A. (2021). Environmental life cycle implications of upscaling lithium-ion battery production. The International Journal of Life Cycle Assessment, 26(10), 2024–2039. https://doi.org/10.1007/s11367-021-01976-0"},
+			{"data": "Popien, J., Thies, C., Barke, A., & Spengler, T. S. (2023). Comparative sustainability assessment of lithium-ion, lithium-sulfur, and all-solid-state traction batteries. The International Journal of Life Cycle Assessment, 28(4), 462–477. https://doi.org/10.1007/s11367-023-02134-4"},
+			{"data": "Gutsch, M., & Leker, J. (2023). Costs, carbon footprint, and environmental impacts of lithium-ion batteries – From cathode active material synthesis to cell manufacturing and recycling. Applied Energy, 353, 122132. https://doi.org/10.1016/j.apenergy.2023.122132"},
+			{"data": "Reap, J., Roman, F., Duncan, S., & Bras, B. (2008). A survey of unresolved problems in life cycle assessment. The International Journal of Life Cycle Assessment, 13(4), 290–300. https://doi.org/10.1007/s11367-008-0008-x"},
+			{"data": "Lizarzaburu-Aguinaga, D. A., & Alfaro, E. G. B. (2026). Life cycle assessment as a Catalyst for environmental transformation: A Systematic Review (2018–2024). Sustainability, 18(5), 2284. https://doi.org/10.3390/su18052284"},
+			{"data": "Energy, L. (n.d.). Luminous energy. Retrieved May 30, 2026, from https://luminous.energy/minety"}
+		]
+		},{
 		"id": "s2026781208",
 		"identifiers": {
 			"archive_doi": "10.5281/zenodo.20114666",

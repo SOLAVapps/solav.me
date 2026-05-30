@@ -3,6 +3,19 @@
 	"last_updated": "2026-05-11",
 	"authors": [
 		{
+			"id": "00010097",
+			"name": "Junaid, Yasir Naeem",
+			"name_first": "Yasir Naeem",
+			"name_last": "Junaid",
+			"orcid": "0009-0006-6400-3739",
+			"affiliation": "Independent Researcher",
+			"roles": ["Author"],
+			"articles": ["s2026781209"],
+			"article_count": 1,
+			"citation_count": 0,
+			"first_author_count": 1,
+			"corresponding_count": 1
+		},{
 			"id": "00010096",
 			"name": "Ozaki, Moeko",
 			"name_first": "Moeko",
