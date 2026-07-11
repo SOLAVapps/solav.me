@@ -3,6 +3,19 @@
 	"last_updated": "2026-05-11",
 	"authors": [
 		{
+			"id": "00010099",
+			"name": "Hadad, Kenan Hanna",
+			"name_first": "Kenan Hanna",
+			"name_last": "Hadad",
+			"orcid": "0009-0009-9753-102X",
+			"affiliation": "Independent Researcher",
+			"roles": ["Author"],
+			"articles": ["s2026781211"],
+			"article_count": 1,
+			"citation_count": 0,
+			"first_author_count": 1,
+			"corresponding_count": 1
+		},{
 			"id": "00010097",
 			"name": "Junaid, Yasir Naeem",
 			"name_first": "Yasir Naeem",

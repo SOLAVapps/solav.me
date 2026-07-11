@@ -2,6 +2,77 @@
   "year": "2026",
   "articles": [
 	{
+		"id": "s2026781211",
+		"identifiers": {
+			"archive_doi": "10.5281/zenodo.21315780",
+			"archive_repository": "Zenodo",
+			"publisher_doi": null
+		},
+		"type": "Review Article",
+		"title": "Cultivating Circularity: A Review of Industrial Symbiosis and Resource Flow Optimization in Agricultural Sectors",
+		"status": "published",
+		"authors": [
+			{
+			"id": "00010099",
+			"name": "Hadad, Kenan Hanna",
+			"name_first": "Kenan Hanna",
+			"name_last": "Hadad",
+			"corresponding": 1,
+			"affiliation": "Independent Researcher",
+			"roles": [
+				"Conceptualization",
+				"Writing – Original Draft",
+				"Writing – Review & Editing"
+			],
+			"email": "hadadkenan@outlook.com",
+			"orcid": "0009-0009-9753-102X"
+			}
+		],
+		"keywords": [
+			"Industrial Symbiosis",
+			"Resource Flow Optimization",
+			"Agro",
+			"Industrial Symbiosis",
+			"Circular Economy",
+			"Supply Chain Optimization"
+		],
+		"abstract": "The global agricultural sector is confronting the dual challenge of ensuring food security for nearly 10 billion people by 2050 while drastically reducing its environmental footprint. The dominant linear “take, make, dispose” model, characterized by excessive freshwater use, intensive agrochemical inputs, and massive generation of organic residues, is no longer tenable. Industrial Symbiosis (IS) – the collaborative exchange of materials, energy, water, and by, products among co, located or networked firms – has emerged as a key paradigm to operationalize the circular bioeconomy. In agricultural contexts, often termed Agro, Industrial Symbiosis (Agro, IS), the biological nature of material flows, spatial dispersion of actors, and strong seasonal variability introduce complexities not encountered in classic industrial ecosystems. This review systematically examines the intersection of IS and Resource Flow Optimization (RFO) within agricultural sectors. It synthesizes the typologies of Agro, IS, evaluates core analytical methodologies including Material Flow Analysis (MFA), Life Cycle Assessment (LCA), and advanced mathematical optimization models, and surveys their application across nutrient recovery, bioenergy production, and biomass cascading. The review further identifies enduring barriers – spatial, temporal mismatches, biological variability, information asymmetry, and regulatory fragmentation – and discusses how digitalization, multi, scale optimization, and institutional innovation can overcome these hurdles. We argue that the transition from isolated pilot projects to systemic circularity demands not only technical and methodological sophistication but also transformative policy frameworks and collaborative governance structures.",
+		"version": [
+			{
+			"date": "2026-07-12",
+			"number": "1"
+			}
+		],
+		"abstract_url": "https://solav.me/a/s2026781211",
+		"download_url": "https://solav.me/p/s2026781211.pdf",
+		"received_date": "2026-06-02",
+		"evaluated_date": "2026-06-03",
+		"peer_reviewed_date": "2026-06-16",
+		"accepted_date": "2026-07-07",
+		"published_date": "2026-07-12",
+		"volume": "2",
+		"pages": "154-169",
+		"citation_count": 0,
+		"date": "2026-07-12",
+		"language": "en",
+		"license": "CC BY 4.0",
+		"reference": [
+			{"data": "M. Crippa, E. Solazzo, D. Guizzardi, et al., \"Food systems are responsible for a third of global anthropogenic GHG emissions,\" Nature Food, vol. 2, pp. 198–209, Mar. 2021. https://doi.org/10.1038/s43016-021-00225-9"},
+			{"data": "R. Ishangulyyev, S. Kim, and S. Lee, \"Understanding Food Loss and Waste—Why Are We Losing and Wasting Food?,\" Foods, vol. 8, no. 8, p. 297, Aug. 2019. https://doi.org/10.3390/foods8080297"},
+			{"data": "S. V. Valentine, \"Kalundborg Symbiosis: fostering progressive innovation in environmental networks,\" Journal of Cleaner Production, vol. 118, pp. 65–77, Apr. 2016. https://doi.org/10.1016/j.jclepro.2016.01.061"},
+			{"data": "M. Hamam, D. Spina, M. Raimondo, et al., \"Industrial symbiosis and agri-food system: Themes, links, and relationships,\" Frontiers in Sustainable Food Systems, vol. 6, Jan. 2023. https://doi.org/10.3389/fsufs.2022.1012436"},
+			{"data": "M. P. Marttila, V. Uusitalo, L. Linnanen, and M. H. Mikkilä, \"Agro-Industrial Symbiosis and Alternative Heating Systems for Decreasing the Global Warming Potential of Greenhouse Production,\" Sustainability, vol. 13, no. 16, p. 9040, Aug. 2021. https://doi.org/10.3390/su13169040"},
+			{"data": "M. R. Chertow, \"Industrial symbiosis: literature and taxonomy,\" Annual Review of Energy and the Environment, vol. 25, pp. 313–337, Nov. 2000. https://doi.org/10.1146/annurev.energy.25.1.313"},
+			{"data": "P. Ghisellini, C. Cialani, and S. Ulgiati, \"A review on circular economy: the expected transition to a balanced interplay of environmental and economic systems,\" Journal of Cleaner Production, vol. 114, pp. 11–32, Feb. 2016. https://doi.org/10.1016/j.jclepro.2015.09.007"},
+			{"data": "G. Lemaire, A. Franzluebbers, P. C. de Faccio Carvalho, and B. Dedieu, \"Integrated crop–livestock systems: Strategies to achieve synergy between agricultural production and environmental quality,\" Agriculture, Ecosystems & Environment, vol. 190, pp. 4–8, May 2014. https://doi.org/10.1016/j.agee.2013.08.009"},
+			{"data": "M. K. Awasthi et al., \"A critical review of organic manure biorefinery models toward sustainable circular bioeconomy: Technological challenges, advancements, innovations, and future perspectives,\" Renewable and Sustainable Energy Reviews, vol. 111, pp. 115–131, Sep. 2019. https://doi.org/10.1016/j.rser.2019.05.017"},
+			{"data": "J. Mata-Alvarez, S. Macé, and P. Llabrés, \"Anaerobic digestion of organic solid wastes. An overview of research achievements and perspectives,\" Bioresource Technology, vol. 74, no. 1, pp. 3–16, Aug. 2000. https://doi.org/10.1016/S0960-8524(00)00023-7"},
+			{"data": "Vaneeckhaute, V. Meers, E. Michels, J. Buysse, and F. M. G. Tack, \"Ecological and economic benefits of the application of bio-based fertilizers in agriculture,\" Biomass and Bioenergy, vol. 49, pp. 239–248, Feb. 2013. https://doi.org/10.1016/j.biombioe.2012.12.036"},
+			{"data": "M. A. Dolman, J. C. M. Sonneveld, H. Mollenhorst, and I. J. M. de Boer, \"Benchmarking the economic, environmental and societal performance of Dutch dairy farms aiming at internal recycling of nutrients,\" Journal of Cleaner Production, vol. 73, pp. 245–252, Jun. 2014. https://doi.org/10.1016/j.jclepro.2014.02.043"},
+			{"data": "K. S. Le Corre, E. Valsami-Jones, P. Hobbs, and S. A. Parsons, \"Phosphorus recovery from wastewater by struvite crystallization: A review,\" Critical Reviews in Environmental Science and Technology, vol. 39, no. 6, pp. 433–477, May 2009. https://doi.org/10.1080/10643380701640573"},
+			{"data": "Shoushtarian and M. Negahban-Azar, \"Worldwide Regulations and Guidelines for Agricultural Water Reuse: A Critical Review,\" Water, vol. 12, no. 4, p. 971, Mar. 2020. https://doi.org/10.3390/w12040971"}
+		]
+		},{
 		"id": "s2026781209",
 		"identifiers": {
 			"archive_doi": "10.5281/zenodo.20453095",
