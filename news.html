@@ -481,7 +481,7 @@
 
 		<script src="/js/jarallax.js"></script>
 		<script src="/js/swiper.js"></script>
-		<script src="/js/js.js?v=20260311"></script>
+		<script src="/js/js.js?v=20261107"></script>
 		<script>
 			let allNewsItems = [];
 			let filteredNewsItems = [];
@@ -521,7 +521,7 @@
 				newsGrid.style.display = 'none';
 				noResultsDiv.style.display = 'none';
 				try {
-					const response = await fetch('/data/news.json?v=20260529');
+					const response = await fetch('/data/news.json?v=20261107');
 					const data = await response.json();
 					allNewsItems = data.news.sort((a,b) => new Date(b.date) - new Date(a.date));
 					extractAndRenderCategories();

@@ -906,7 +906,7 @@
 			document.getElementById('currentYear').textContent = new Date().getFullYear();
 			async function loadIndexNews() {
 				try {
-					const response = await fetch('/data/news.json');
+					const response = await fetch('/data/news.json?v=20261107');
 					const data = await response.json();
 					const latestNews = data.news.sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 3);
 					
