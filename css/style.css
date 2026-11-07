@@ -20993,3 +20993,135 @@ html {
             border-radius: 0.5rem;
             margin-bottom: 1rem;
         }
+@media (max-width:992px) {
+.tree-dropdown {
+    position: relative !important;
+}
+}
+.tree-dropdown {
+    --tree-color: #999;
+    --tree-dot-color: #888;
+    padding: 8px 0 !important;
+    overflow: visible !important;
+}
+.tree-dropdown > li > .tree-parent {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding: 0 12px 0 28px !important;
+    white-space: nowrap;
+}
+.tree-dropdown > li > .tree-child {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding: 0 12px 0 46px !important;
+    white-space: nowrap;
+}
+.tree-dropdown::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8px;
+
+    width: 36px;
+    height: 120px;
+
+    pointer-events: none;
+    z-index: 1;
+
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: 36px 120px;
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 120'%3E%3Cpath d='M12 20 V48 Q12 60 24 60 H32 M12 48 V88 Q12 100 24 100 H32' fill='none' stroke='%23999' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='12' cy='20' r='4' fill='%23888'/%3E%3Ccircle cx='32' cy='60' r='4' fill='%23888'/%3E%3Ccircle cx='32' cy='100' r='4' fill='%23888'/%3E%3C/svg%3E");
+}
+.tree-dropdown .tree-child i {
+    display: none;
+}
+.tree-dropdown > li > .dropdown-divider {
+    position: relative;
+}
+
+
+
+/* ==========================================
+   VOLUMES MEGA MENU TREE
+========================================== */
+
+.volume-tree-group {
+    --volume-tree-color: #999;
+    --volume-tree-dot: #888;
+
+    position: relative;
+}
+
+/* Vertical connector: automatically adapts to child count */
+.volume-tree-group::before {
+    content: "";
+    position: absolute;
+    left: 11px;       /* Correct horizontal alignment */
+    top: 15px;
+    bottom: 30px;       /* Stop at the beginning of the last curve */
+    width: 1.7px;
+    background: var(--volume-tree-color);
+    pointer-events: none;
+}
+
+/* Parent heading */
+.volume-tree-title {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 30px;
+    padding: 0 12px 0 28px !important;
+    margin: 0 !important;
+    white-space: nowrap;
+}
+
+/* Parent dot */
+.volume-tree-title::before {
+    content: "";
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--volume-tree-dot);
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+/* Children list */
+.volume-tree-list {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Child link */
+.volume-tree-child {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding: 0 12px 0 46px !important;
+    white-space: nowrap;
+}
+
+/* Smooth curved branch + child dot */
+.volume-tree-child::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 36px;
+    height: 40px;
+    pointer-events: none;
+
+    background: no-repeat left top / 36px 40px;
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 40'%3E%3Cpath d='M12 10 Q12 20 22 20 H32' fill='none' stroke='%23999' stroke-width='1.2' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='20' r='4' fill='%23888'/%3E%3C/svg%3E");
+}
