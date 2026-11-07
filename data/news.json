@@ -2,8 +2,20 @@
   "title": "SOLAV Journal — News Center",
   "source": "https://solav.me",
   "version": "1.0",
-  "last_updated": "2026-03-12",
+  "last_updated": "2026-11-07",
   "news": [
+    {
+      "id": "news-2026-004",
+      "title": "Enhancing Long-Term Data Preservation: Transitioning Supplemental Materials to Zenodo",
+      "date": "2026-11-07",
+      "category": "Policy Updates",
+      "excerpt": "In alignment with global open science infrastructure shifts, SOLAV Journal now recommends Zenodo as the primary repository for all supplemental materials and metadata, ensuring perpetual access and seamless integration with article DOIs.",
+      "content": "The Center for Open Science (COS) recently announced substantial changes to the Open Science Framework (OSF), phasing out 'OSF Projects' as an active workspace and file storage solution to focus on long-term discovery. COS explicitly recommends transitioning to complementary services like Zenodo (hosted by CERN) for sharing data, materials, and code.\n\nIn response, and to ensure the highest standard of long-term preservation for our authors, SOLAV Journal is updating its data sharing recommendations:\n\n• For Existing Articles: All existing OSF links in published SOLAV articles remain fully valid, persistent, and accessible. No action is required from authors of previously published work.\n• For New Submissions: Effective immediately, authors are strongly encouraged to deposit supplemental materials, code, and extended metadata directly into Zenodo (or other trusted repositories like Figshare or Dryad). \n\nThis consolidation aligns with SOLAV's existing infrastructure, as all SOLAV articles already receive permanent DOIs via Zenodo. Housing supplemental materials in the same trusted, CoreTrustSeal-certified ecosystem ensures a single, robust source of truth for your research, simplifying discovery and guaranteeing perpetual access.",
+      "link": "/news/2026-004",
+      "image": "/images/news/zenodo-transition.jpg",
+      "author": "Editorial Office",
+      "tags": ["Data Preservation", "Zenodo", "Open Science", "Policy Update"]
+    },
     {
       "id": "news-2026-003",
       "title": "SOLAV Journal Now Indexed in BASE (Bielefeld Academic Search Engine)",
