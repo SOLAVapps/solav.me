@@ -12,7 +12,7 @@
 			"roles": ["Author"],
 			"articles": ["s2026781211"],
 			"article_count": 1,
-			"citation_count": 0,
+			"citation_count": 1,
 			"first_author_count": 1,
 			"corresponding_count": 1
 		},{
@@ -96,7 +96,7 @@
 			"roles": ["Author"],
 			"articles": ["s2025781117"],
 			"article_count": 1,
-			"citation_count": 0,
+			"citation_count": 1,
 			"first_author_count": 1,
 			"corresponding_count": 1
 		},
