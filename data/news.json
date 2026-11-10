@@ -2,8 +2,20 @@
   "title": "SOLAV Journal — News Center",
   "source": "https://solav.me",
   "version": "1.0",
-  "last_updated": "2026-11-07",
+  "last_updated": "2026-11-10",
   "news": [
+    {
+      "id": "news-2026-005",
+      "title": "Q4 2026 Infrastructure and Discoverability Updates",
+      "date": "2026-11-10",
+      "category": "Journal Announcements",
+      "excerpt": "SOLAV Journal continues to enhance its infrastructure, including new media discoverability features and ongoing technical optimizations.",
+      "content": "As part of our ongoing commitment to accessibility and discoverability, SOLAV Journal has implemented several infrastructure updates in Q4 2026. \n\n• Media Discoverability: We are now registered as a media outlet on Muck Rack, making it easier for journalists and PR professionals to connect with our editorial team for expert commentary and press inquiries.\n• Continuous Optimization: Our technical team continues to refine our static publishing architecture, ensuring fast, secure, and accessible delivery of all scholarly content.\n\nThese updates reflect our commitment to maintaining a robust, transparent, and accessible platform for the global research community.",
+      "link": "/news/2026-005",
+      "image": "/images/news/infrastructure-update.jpg",
+      "author": "Editorial Office",
+      "tags": ["Infrastructure", "Media Relations", "Discoverability", "Updates"]
+    },
     {
       "id": "news-2026-004",
       "title": "Enhancing Long-Term Data Preservation: Transitioning Supplemental Materials to Zenodo",
