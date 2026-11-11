@@ -520,7 +520,7 @@
 
 			async function showAllAuthors() {
 				try {
-					const response = await fetch('/data/authors.json?v=20260712');
+					const response = await fetch('/data/authors.json?v=20261112');
 					if (!response.ok) throw new Error('Failed to load authors data');
 					
 					const data = await response.json();
@@ -725,7 +725,7 @@
 
 			async function loadAuthorProfile(authorId) {
 				try {
-					const authorsResponse = await fetch('/data/authors.json?v=20260712');
+					const authorsResponse = await fetch('/data/authors.json?v=20261112');
 					if (!authorsResponse.ok) throw new Error('Failed to load authors data');
 					const authorsData = await authorsResponse.json();
 					const authorInfo = authorsData.authors.find(a => a.id === authorId);
@@ -734,7 +734,7 @@
 						return;
 					}
 
-					const articlesResponse = await fetch('/data/all.json?v=20260712');
+					const articlesResponse = await fetch('/data/all.json?v=20261112');
 					if (!articlesResponse.ok) throw new Error('Failed to load articles data');
 					const allData = await articlesResponse.json();
 
