@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Fluent but Unfounded: A Review of Hallucination in Small Language Models | SOLAV Journal</title>
+		<meta name="description" content="Small language models (SLMs), compact generative models ranging from a few hundred million to roughly ten billion parameters, are increasingly chosen for on-device, private and cost-sensitive deployments. Their tendency to produce fluent but unsupported statements is nevertheless rarely treated as a distinct engineering problem. This review synthesises research published up to November 2026 on why SLMs hallucinate, how the problem is measured, and which countermeasures exist at the model, inference and operational levels. Three arguments are made. First, the evidence points to several interacting causes, namely limited capacity for rare facts, training and evaluation incentives that reward guessing, unstable retrieval of knowledge the model does hold, and weak calibration, rather than to a single deficit. Second, reported hallucination rates depend strongly on model variant, decoding settings and task, so figures cannot be compared across studies without care. Third, no single safeguard suffices: reliability is better pursued as a layered stack that combines targeted fine-tuning, retrieval grounding, sampling-based consistency checks, abstention, and risk-proportionate human oversight. The review then maps these layers onto accountability and regulatory expectations and lists open problems, including size-controlled benchmarks and independent replication of promising small-scale methods.">
+		<link rel="canonical" href="https://solav.me/a/s2026781212">
+		<meta name="gs_meta_revision" content=""/>
+		<meta name="author" content="Youssef Ghalib Salih">
+		<meta property="article:author" content="Youssef Ghalib Salih">
+		<meta name="citation_title" content="Fluent but Unfounded: A Review of Hallucination in Small Language Models">
+		<meta name="citation_journal_title" content="SOLAV Journal"/>
+		<meta name="citation_journal_abbrev" content="SOLAV J."/>
+		<meta name="citation_author" content="Salih, Youssef Ghalib"/>
+		<meta name="citation_author_institution" content="Independent Researcher"/>
+		<meta name="citation_author_orcid" content="https://orcid.org/0009-0005-3107-973X"/>
+		<meta name="citation_language" content="en"/>
+		<meta name="citation_publication_date" content="2026/11/12"/>
+		<meta name="citation_volume" content="2"/>
+		<meta name="citation_firstpage" content="170"/>
+		<meta name="citation_lastpage" content="185"/>
+		<meta name="citation_doi" content="10.5281/zenodo.24147200"/>
+		<meta name="citation_abstract_html_url" content="https://solav.me/a/s2026781212"/>
+		<meta name="citation_pdf_url" content="https://solav.me/p/s2026781212.pdf"/>
+		<meta name="citation_abstract" content="Small language models (SLMs), compact generative models ranging from a few hundred million to roughly ten billion parameters, are increasingly chosen for on-device, private and cost-sensitive deployments. Their tendency to produce fluent but unsupported statements is nevertheless rarely treated as a distinct engineering problem. This review synthesises research published up to November 2026 on why SLMs hallucinate, how the problem is measured, and which countermeasures exist at the model, inference and operational levels. Three arguments are made. First, the evidence points to several interacting causes, namely limited capacity for rare facts, training and evaluation incentives that reward guessing, unstable retrieval of knowledge the model does hold, and weak calibration, rather than to a single deficit. Second, reported hallucination rates depend strongly on model variant, decoding settings and task, so figures cannot be compared across studies without care. Third, no single safeguard suffices: reliability is better pursued as a layered stack that combines targeted fine-tuning, retrieval grounding, sampling-based consistency checks, abstention, and risk-proportionate human oversight. The review then maps these layers onto accountability and regulatory expectations and lists open problems, including size-controlled benchmarks and independent replication of promising small-scale methods.">
+		<meta name="citation_keywords" content="Small language models; Hallucination; Factuality; Retrieval-augmented generation; Uncertainty estimation; Abstention; AI governance; Misinformation">
+		<meta name="citation_keywords" content="Small language models"/>
+		<meta name="citation_keywords" content="Hallucination"/>
+		<meta name="citation_keywords" content="Factuality"/>
+		<meta name="citation_keywords" content="Retrieval-augmented generation"/>
+		<meta name="citation_keywords" content="Uncertainty estimation"/>
+		<meta name="citation_keywords" content="Abstention"/>
+		<meta name="citation_keywords" content="AI governance"/>
+		<meta name="citation_keywords" content="Misinformation"/>
+		<meta name="citation_reference" content="Z. Lu et al., &quot;Small language models: Survey, measurements, and insights,&quot; arXiv:2409.15790, 2024. https://doi.org/10.48550/arXiv.2409.15790"/>
+		<meta name="citation_reference" content="F. Wang et al., &quot;A comprehensive survey of small language models in the era of large language models: Techniques, enhancements, applications, collaboration with LLMs, and trustworthiness,&quot; ACM Trans. Intell. Syst. Technol., vol. 16, no. 6, pp. 1–87, 2025."/>
+		<meta name="citation_reference" content="P. Belcak et al., &quot;Small language models are the future of agentic AI,&quot; arXiv:2506.02153, 2025. https://doi.org/10.48550/arXiv.2506.02153"/>
+		<meta name="citation_reference" content="M. Abdin et al., &quot;Phi-3 technical report: A highly capable language model locally on your phone,&quot; arXiv:2404.14219, 2024. https://doi.org/10.48550/arXiv.2404.14219"/>
+		<meta name="citation_reference" content="Gemma Team, &quot;Gemma 2: Improving open language models at a practical size,&quot; arXiv:2408.00118, 2024. https://doi.org/10.48550/arXiv.2408.00118"/>
+		<meta name="citation_reference" content="A. Yang et al., &quot;Qwen3 technical report,&quot; arXiv:2505.09388, 2025. https://doi.org/10.48550/arXiv.2505.09388"/>
+		<meta name="citation_reference" content="A. Q. Jiang et al., &quot;Mistral 7B,&quot; arXiv:2310.06825, 2023. https://doi.org/10.48550/arXiv.2310.06825"/>
+		<meta name="citation_reference" content="P. Zhang, G. Zeng, T. Wang, and W. Lu, &quot;TinyLlama: An open-source small language model,&quot; arXiv:2401.02385, 2024. https://doi.org/10.48550/arXiv.2401.02385"/>
+		<meta name="citation_reference" content="Z. Ji et al., &quot;Survey of hallucination in natural language generation,&quot; ACM Comput. Surv., vol. 55, no. 12, Art. no. 248, pp. 1–38, 2023. https://doi.org/10.1145/3571730"/>
+		<meta name="citation_reference" content="L. Huang et al., &quot;A survey on hallucination in large language models: Principles, taxonomy, challenges, and open questions,&quot; ACM Trans. Inf. Syst., vol. 43, no. 2, Art. no. 42, 2025. https://doi.org/10.1145/3703155"/>
+		<meta name="citation_reference" content="Y. Zhang et al., &quot;Siren&#039;s song in the AI ocean: A survey on hallucination in large language models,&quot; arXiv:2309.01219, 2023. https://doi.org/10.48550/arXiv.2309.01219"/>
+		<meta name="citation_reference" content="E. Ricco, E. Onofri, L. Cima, S. Cresci, and R. Di Pietro, &quot;A geometric analysis of small-sized language model hallucinations,&quot; arXiv:2602.14778, 2026; presented at Int. Conf. Mach. Learn. (ICML), 2026. https://doi.org/10.48550/arXiv.2602.14778"/>
+		<meta name="citation_reference" content="A. V. Aravindan and M. Kejriwal, &quot;Second Guess: Detecting uncertainty through abstention and answer stability in small language models,&quot; arXiv:2605.25394, 2026. https://doi.org/10.48550/arXiv.2605.25394"/>
+		<meta name="citation_reference" content="M. A. Baker and F. Al-Qrize, &quot;Mitigating hallucination in small language models via contrastive chain-of-thought fine-tuning,&quot; SOLAV J., vol. 1, pp. 33–53, Jul. 2025. https://doi.org/10.5281/zenodo.18538736"/>
+		<meta name="citation_reference" content="M. A. Baker, &quot;The spread of AI-generated misinformation,&quot; Authorea, preprint, Apr. 7, 2025. https://doi.org/10.22541/au.174405164.43017701/v1"/>
+		<meta name="citation_reference" content="C. Drolsbach and N. Pröllochs, &quot;Characterizing AI-generated misinformation on social media,&quot; arXiv:2505.10266, 2025. https://doi.org/10.48550/arXiv.2505.10266"/>
+		<meta name="citation_reference" content="Moffatt v. Air Canada, 2024 BCCRT 149 (Civil Resolution Tribunal of British Columbia, Feb. 14, 2024). https://canlii.ca/t/k2b02"/>
+		<meta name="citation_reference" content="W. H. Walters and E. I. Wilder, &quot;Fabrication and errors in the bibliographic citations generated by ChatGPT,&quot; Sci. Rep., vol. 13, Art. no. 14045, 2023. https://doi.org/10.1038/s41598-023-41032-5"/>
+		<meta name="citation_reference" content="M. Dahl, V. Magesh, M. Suzgun, and D. E. Ho, &quot;Large legal fictions: Profiling legal hallucinations in large language models,&quot; J. Legal Anal., vol. 16, no. 1, pp. 64–93, 2024."/>
+		<meta name="citation_reference" content="V. Magesh, F. Surani, M. Dahl, M. Suzgun, C. D. Manning, and D. E. Ho, &quot;Hallucination-free? Assessing the reliability of leading AI legal research tools,&quot; J. Empir. Leg. Stud., vol. 22, no. 2, pp. 216–242, 2025."/>
+		<meta name="citation_reference" content="M. A. Baker, &quot;AI ethics in historical research: A framework for bias mitigation, transparency, and accountability,&quot; SSRN, Oct. 5, 2025. https://doi.org/10.2139/ssrn.5565499"/>
+		<meta name="citation_reference" content="S. Farquhar, J. Kossen, L. Kuhn, and Y. Gal, &quot;Detecting hallucinations in large language models using semantic entropy,&quot; Nature, vol. 630, no. 8017, pp. 625–630, 2024. https://doi.org/10.1038/s41586-024-07421-0"/>
+		<meta name="citation_reference" content="S. Lin, J. Hilton, and O. Evans, &quot;TruthfulQA: Measuring how models mimic human falsehoods,&quot; in Proc. 60th Annu. Meeting Assoc. Comput. Linguistics (ACL), 2022, pp. 3214–3252. https://doi.org/10.18653/v1/2022.acl-long.229"/>
+		<meta name="citation_reference" content="J. Li, X. Cheng, W. X. Zhao, J.-Y. Nie, and J.-R. Wen, &quot;HaluEval: A large-scale hallucination evaluation benchmark for large language models,&quot; in Proc. Conf. Empir. Methods Natural Lang. Process. (EMNLP), 2023, pp. 6449–6464. https://doi.org/10.18653/v1/2023.emnlp-main.397"/>
+		<meta name="citation_reference" content="S. Min et al., &quot;FActScore: Fine-grained atomic evaluation of factual precision in long form text generation,&quot; in Proc. EMNLP, 2023, pp. 12076–12100. https://doi.org/10.18653/v1/2023.emnlp-main.741"/>
+		<meta name="citation_reference" content="P. Manakul, A. Liusie, and M. Gales, &quot;SelfCheckGPT: Zero-resource black-box hallucination detection for generative large language models,&quot; in Proc. EMNLP, 2023, pp. 9004–9017. https://doi.org/10.18653/v1/2023.emnlp-main.557"/>
+		<meta name="citation_reference" content="Y. Bang et al., &quot;HalluLens: LLM hallucination benchmark,&quot; in Proc. 63rd Annu. Meeting ACL, 2025, pp. 24128–24156."/>
+		<meta name="citation_reference" content="Z. Allen-Zhu and Y. Li, &quot;Physics of language models: Part 3.3, knowledge capacity scaling laws,&quot; arXiv:2404.05405, 2024. https://doi.org/10.48550/arXiv.2404.05405"/>
+		<meta name="citation_reference" content="N. Kandpal, H. Deng, A. Roberts, E. Wallace, and C. Raffel, &quot;Large language models struggle to learn long-tail knowledge,&quot; in Proc. 40th Int. Conf. Mach. Learn. (ICML), 2023, pp. 15696–15707. https://proceedings.mlr.press/v202/kandpal23a.html"/>
+		<meta name="citation_reference" content="A. Mallen et al., &quot;When not to trust language models: Investigating effectiveness of parametric and non-parametric memories,&quot; in Proc. 61st Annu. Meeting ACL, 2023, pp. 9802–9822. https://doi.org/10.18653/v1/2023.acl-long.546"/>
+		<meta name="citation_reference" content="A. T. Kalai, O. Nachum, S. S. Vempala, and E. Zhang, &quot;Why language models hallucinate,&quot; arXiv:2509.04664, 2025. https://doi.org/10.48550/arXiv.2509.04664"/>
+		<meta name="citation_reference" content="A. T. Kalai and S. S. Vempala, &quot;Calibrated language models must hallucinate,&quot; in Proc. 56th Annu. ACM Symp. Theory Comput. (STOC), 2024, pp. 160–171."/>
+		<meta name="citation_reference" content="Z. Xu, S. Jain, and M. Kankanhalli, &quot;Hallucination is inevitable: An innate limitation of large language models,&quot; arXiv:2401.11817, 2024. https://doi.org/10.48550/arXiv.2401.11817"/>
+		<meta name="citation_reference" content="S. Kadavath et al., &quot;Language models (mostly) know what they know,&quot; arXiv:2207.05221, 2022. https://doi.org/10.48550/arXiv.2207.05221"/>
+		<meta name="citation_reference" content="S. Lin, J. Hilton, and O. Evans, &quot;Teaching models to express their uncertainty in words,&quot; Trans. Mach. Learn. Res., 2022. https://openreview.net/forum?id=8s8K2UZGTZ"/>
+		<meta name="citation_reference" content="M. Xiong et al., &quot;Can LLMs express their uncertainty? An empirical evaluation of confidence elicitation in LLMs,&quot; in Proc. Int. Conf. Learn. Represent. (ICLR), 2024. https://openreview.net/forum?id=gjeQKFxFpZ"/>
+		<meta name="citation_reference" content="Y. Elazar et al., &quot;Measuring and improving consistency in pretrained language models,&quot; Trans. Assoc. Comput. Linguistics, vol. 9, pp. 1012–1031, 2021. https://doi.org/10.1162/tacl_a_00410"/>
+		<meta name="citation_reference" content="M. Sclar, Y. Choi, Y. Tsvetkov, and A. Suhr, &quot;Quantifying language models&#039; sensitivity to spurious features in prompt design or: How I learned to start worrying about prompt formatting,&quot; in Proc. ICLR, 2024. https://openreview.net/forum?id=RIu5lyNXjT"/>
+		<meta name="citation_reference" content="N. F. Liu et al., &quot;Lost in the middle: How language models use long contexts,&quot; Trans. Assoc. Comput. Linguistics, vol. 12, pp. 157–173, 2024. https://doi.org/10.1162/tacl_a_00638"/>
+		<meta name="citation_reference" content="Z. Gekhman et al., &quot;Does fine-tuning LLMs on new knowledge encourage hallucinations?&quot; in Proc. EMNLP, 2024. https://doi.org/10.48550/arXiv.2405.05904"/>
+		<meta name="citation_reference" content="L. Ouyang et al., &quot;Training language models to follow instructions with human feedback,&quot; in Proc. Adv. Neural Inf. Process. Syst. (NeurIPS), vol. 35, 2022, pp. 27730–27744. https://doi.org/10.48550/arXiv.2203.02155"/>
+		<meta name="citation_reference" content="J. Wei et al., &quot;Chain-of-thought prompting elicits reasoning in large language models,&quot; in Proc. NeurIPS, vol. 35, 2022, pp. 24824–24837. https://doi.org/10.48550/arXiv.2201.11903"/>
+		<meta name="citation_reference" content="S. Gunasekar et al., &quot;Textbooks are all you need,&quot; arXiv:2306.11644, 2023. https://doi.org/10.48550/arXiv.2306.11644"/>
+		<meta name="citation_reference" content="E. J. Hu et al., &quot;LoRA: Low-rank adaptation of large language models,&quot; in Proc. ICLR, 2022. https://openreview.net/forum?id=nZeVKeeFYf9"/>
+		<meta name="citation_reference" content="T. Dettmers, A. Pagnoni, A. Holtzman, and L. Zettlemoyer, &quot;QLoRA: Efficient finetuning of quantized LLMs,&quot; in Proc. NeurIPS, vol. 36, 2023. https://doi.org/10.48550/arXiv.2305.14314"/>
+		<meta name="citation_reference" content="R. Rafailov et al., &quot;Direct preference optimization: Your language model is secretly a reward model,&quot; in Proc. NeurIPS, vol. 36, 2023. https://doi.org/10.48550/arXiv.2305.18290"/>
+		<meta name="citation_reference" content="C. Tomani, K. Chaudhuri, I. Evtimov, D. Cremers, and M. Ibrahim, &quot;Uncertainty-based abstention in LLMs improves safety and reduces hallucinations,&quot; arXiv:2404.10960, 2024. https://doi.org/10.48550/arXiv.2404.10960"/>
+		<meta name="citation_reference" content="B. Wen et al., &quot;Know your limits: A survey of abstention in large language models,&quot; Trans. Assoc. Comput. Linguistics, vol. 13, pp. 529–556, 2025."/>
+		<meta name="citation_reference" content="S. M. T. I. Tonmoy et al., &quot;A comprehensive survey of hallucination mitigation techniques in large language models,&quot; arXiv:2401.01313, 2024. https://doi.org/10.48550/arXiv.2401.01313"/>
+		<meta name="citation_reference" content="P. Lewis et al., &quot;Retrieval-augmented generation for knowledge-intensive NLP tasks,&quot; in Proc. NeurIPS, vol. 33, 2020, pp. 9459–9474. https://doi.org/10.48550/arXiv.2005.11401"/>
+		<meta name="citation_reference" content="Y. Gao et al., &quot;Retrieval-augmented generation for large language models: A survey,&quot; arXiv:2312.10997, 2023. https://doi.org/10.48550/arXiv.2312.10997"/>
+		<meta name="citation_reference" content="X. Wang et al., &quot;Self-consistency improves chain of thought reasoning in language models,&quot; in Proc. ICLR, 2023. https://doi.org/10.48550/arXiv.2203.11171"/>
+		<meta name="citation_reference" content="L. Kuhn, Y. Gal, and S. Farquhar, &quot;Semantic uncertainty: Linguistic invariances for uncertainty estimation in natural language generation,&quot; in Proc. ICLR, 2023. https://openreview.net/forum?id=VD-AYtP0dve"/>
+		<meta name="citation_reference" content="S. Dhuliawala et al., &quot;Chain-of-verification reduces hallucination in large language models,&quot; arXiv:2309.11495, 2023. https://doi.org/10.48550/arXiv.2309.11495"/>
+		<meta name="citation_reference" content="National Institute of Standards and Technology, &quot;Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile,&quot; NIST AI 600-1, Jul. 2024. https://doi.org/10.6028/NIST.AI.600-1"/>
+		<meta name="citation_reference" content="Regulation (EU) 2024/1689 of the European Parliament and of the Council laying down harmonised rules on artificial intelligence (Artificial Intelligence Act), Off. J. Eur. Union, Jul. 12, 2024. https://eur-lex.europa.eu/eli/reg/2024/1689/oj"/>
+		<meta name="citation_reference" content="E. M. Bender, T. Gebru, A. McMillan-Major, and S. Shmitchell, &quot;On the dangers of stochastic parrots: Can language models be too big?,&quot; in Proc. ACM Conf. Fairness, Accountability, Transparency (FAccT), 2021, pp. 610–623. https://doi.org/10.1145/3442188.3445922"/>
+		<link rel="schema.DC" href="https://purl.org/dc/elements/1.1/" />
+		<meta name="DC.Creator.PersonalName" content="Salih, Youssef Ghalib"/>
+		<meta name="DC.creator" content="Salih, Youssef Ghalib">
+		<meta name="DC.Date.dateSubmitted" scheme="ISO8601" content="2026-10-07"/>
+		<meta name="DC.Date.issued" scheme="ISO8601" content="2026-11-12"/>
+		<meta name="DC.Date.modified" scheme="ISO8601" content="2026-11-12"/>
+		<meta name="DC.Description" xml:lang="en" content="Small language models (SLMs), compact generative models ranging from a few hundred million to roughly ten billion parameters, are increasingly chosen for on-device, private and cost-sensitive deployments. Their tendency to produce fluent but unsupported statements is nevertheless rarely treated as a distinct engineering problem. This review synthesises research published up to November 2026 on why SLMs hallucinate, how the problem is measured, and which countermeasures exist at the model, inference and operational levels. Three arguments are made. First, the evidence points to several interacting causes, namely limited capacity for rare facts, training and evaluation incentives that reward guessing, unstable retrieval of knowledge the model does hold, and weak calibration, rather than to a single deficit. Second, reported hallucination rates depend strongly on model variant, decoding settings and task, so figures cannot be compared across studies without care. Third, no single safeguard suffices: reliability is better pursued as a layered stack that combines targeted fine-tuning, retrieval grounding, sampling-based consistency checks, abstention, and risk-proportionate human oversight. The review then maps these layers onto accountability and regulatory expectations and lists open problems, including size-controlled benchmarks and independent replication of promising small-scale methods."/>
+		<meta name="DC.Format" scheme="IMT" content="text/html"/>
+		<meta name="DC.Format" scheme="IMT" content="application/pdf"/>
+		<meta name="DC.Identifier" content="s2026781212"/>
+		<meta name="DC.Identifier.pageNumber" content="170-185"/>
+		<meta name="DC.Identifier.DOI" content="10.5281/zenodo.24147200"/>
+		<meta name="DC.Identifier.URI" content="https://solav.me/a/s2026781212"/>
+		<meta name="DC.Source.URI" content="https://solav.me"/>
+		<meta name="DC.Language" scheme="ISO639-1" content="en"/>
+		<meta name="DC.Rights" content="CC BY 4.0"/>
+		<meta name="DC.Rights" content="Open Access"/>
+		<meta name="DC.Source" content="SOLAV Journal"/>
+		<meta name="DC.Source.Volume" content="2"/>
+		<meta name="DC.Subject" xml:lang="en" content="Small language models"/>
+		<meta name="DC.Subject" xml:lang="en" content="Hallucination"/>
+		<meta name="DC.Subject" xml:lang="en" content="Factuality"/>
+		<meta name="DC.Subject" xml:lang="en" content="Retrieval-augmented generation"/>
+		<meta name="DC.Subject" xml:lang="en" content="Uncertainty estimation"/>
+		<meta name="DC.Subject" xml:lang="en" content="Abstention"/>
+		<meta name="DC.Subject" xml:lang="en" content="AI governance"/>
+		<meta name="DC.Subject" xml:lang="en" content="Misinformation"/>
+		<meta name="DC.Title" content="Fluent but Unfounded: A Review of Hallucination in Small Language Models"/>
+		<meta name="DC.Type" content="Text.Serial.Journal"/>
+		<meta name="DC.Date.created" scheme="ISO8601" content="2026-10-07"/>
+		<meta name="DC.Type.articleType" content="Review Article"/>
+		<meta name="DC.subject" content="Small language models; Hallucination; Factuality; Retrieval-augmented generation; Uncertainty estimation; Abstention; AI governance; Misinformation">
+		<meta name="DC.identifier" content="s2026781212">
+		<meta name="DC.type" content="Text.Serial.Journal">
+		<meta name="DC.relation" content="IsArchivedAt https://doi.org/10.5281/zenodo.24147200">
+		<meta property="og:type" content="article">
+		<meta property="og:site_name" content="SOLAV Journal">
+		<meta property="og:locale" content="en_US">
+		<meta property="og:title" content="Fluent but Unfounded: A Review of Hallucination in Small Language Models">
+		<meta property="og:description" content="Small language models (SLMs), compact generative models ranging from a few hundred million to roughly ten billion parameters, are increasingly chosen for on-device, private and cost-sensitive deployments. Their tendency to produce fluent but unsupported statements is nevertheless rarely treated as a distinct engineering problem. This review synthesises research published up to November 2026 on why SLMs hallucinate, how the problem is measured, and which countermeasures exist at the model, inference and operational levels. Three arguments are made. First, the evidence points to several interacting causes, namely limited capacity for rare facts, training and evaluation incentives that reward guessing, unstable retrieval of knowledge the model does hold, and weak calibration, rather than to a single deficit. Second, reported hallucination rates depend strongly on model variant, decoding settings and task, so figures cannot be compared across studies without care. Third, no single safeguard suffices: reliability is better pursued as a layered stack that combines targeted fine-tuning, retrieval grounding, sampling-based consistency checks, abstention, and risk-proportionate human oversight. The review then maps these layers onto accountability and regulatory expectations and lists open problems, including size-controlled benchmarks and independent replication of promising small-scale methods.">
+		<meta property="og:url" content="https://solav.me/a/s2026781212">
+		<meta property="og:image" content="https://solav.me/images/social-preview.png">
+		<meta property="article:published_time" content="2026-11-12">
+		<meta property="article:modified_time" content="2026-11-12">
+		<meta property="article:section" content="Review Article">
+		<meta property="article:tag" content="Small language models">
+		<meta property="article:tag" content="Hallucination">
+		<meta property="article:tag" content="Factuality">
+		<meta property="article:tag" content="Retrieval-augmented generation">
+		<meta property="article:tag" content="Uncertainty estimation">
+		<meta property="article:tag" content="Abstention">
+		<meta property="article:tag" content="AI governance">
+		<meta property="article:tag" content="Misinformation">
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:title" content="Fluent but Unfounded: A Review of Hallucination in Small Language Models">
+		<meta name="twitter:description" content="Small language models (SLMs), compact generative models ranging from a few hundred million to roughly ten billion parameters, are increasingly chosen for on-device, private and cost-sensitive deployments. Their tendency to produce fluent but unsupported statements is nevertheless rarely treated as a distinct engineering problem. This review synthesises research published up to November 2026 on why SLMs hallucinate, how the problem is measured, and which countermeasures exist at the model, inference and operational levels. Three arguments are made. First, the evidence points to several interacting causes, namely limited capacity for rare facts, training and evaluation incentives that reward guessing, unstable retrieval of knowledge the model does hold, and weak calibration, rather than to a single deficit. Second, reported hallucination rates depend strongly on model variant, decoding settings and task, so figures cannot be compared across studies without care. Third, no single safeguard suffices: reliability is better pursued as a layered stack that combines targeted fine-tuning, retrieval grounding, sampling-based consistency checks, abstention, and risk-proportionate human oversight. The review then maps these layers onto accountability and regulatory expectations and lists open problems, including size-controlled benchmarks and independent replication of promising small-scale methods.">
+		<meta name="twitter:image" content="https://solav.me/images/social-preview.png">
+		<link rel="icon" type="image/x-icon" href="/images/icon.png">
+		<meta name="fediverse:creator" content="@SOLAVjournal@mastodon.social">
+		<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+		<link href="/css/swiper.css" rel="stylesheet">
+		<link href="/css/style.css?v=20261102" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+		<script>
+		!function(){const e=localStorage.getItem("theme"),t=window.matchMedia("(prefers-color-scheme: dark)").matches,n=e||(t?"dark":"light");document.documentElement.setAttribute("data-bs-theme",n),"undefined"!=typeof document&&document.addEventListener("DOMContentLoaded",(function(){const e=document.getElementById("theme-mode");e&&(e.checked="dark"===n,e.addEventListener("change",(function(){const e=this.checked?"dark":"light";document.documentElement.setAttribute("data-bs-theme",e),localStorage.setItem("theme",e)})))}))}();
+		</script>
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Expires" content="0">
+		<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "@id": "https://solav.me/a/s2026781212",
+    "headline": "Fluent but Unfounded: A Review of Hallucination in Small Language Models",
+    "name": "Fluent but Unfounded: A Review of Hallucination in Small Language Models",
+    "url": "https://solav.me/a/s2026781212",
+    "identifier": [
+        {
+            "@type": "PropertyValue",
+            "propertyID": "InternalID",
+            "value": "s2026781212"
+        },
+        {
+            "@type": "PropertyValue",
+            "propertyID": "DOI",
+            "value": "10.5281/zenodo.24147200"
+        }
+    ],
+    "author": [
+        {
+            "@type": "Person",
+            "name": "Youssef Ghalib Salih",
+            "givenName": "Youssef Ghalib",
+            "familyName": "Salih",
+            "url": "https://solav.me/authors?id=00010100",
+            "affiliation": {
+                "@type": "Organization",
+                "name": "Independent Researcher"
+            },
+            "sameAs": "https://orcid.org/0009-0005-3107-973X"
+        }
+    ],
+    "publisher": {
+        "@type": "Organization",
+        "name": "SOLAV Journal",
+        "url": "https://solav.me"
+    },
+    "isPartOf": {
+        "@type": "Periodical",
+        "name": "SOLAV Journal",
+        "url": "https://solav.me"
+    },
+    "dateReceived": "2026-10-07",
+    "dateAccepted": "2026-11-09",
+    "datePublished": "2026-11-12",
+    "dateModified": "2026-11-12",
+    "volumeNumber": "2",
+    "isAccessibleForFree": true,
+    "pagination": "170-185",
+    "inLanguage": "en",
+    "articleSection": "Review Article",
+    "abstract": "Small language models (SLMs), compact generative models ranging from a few hundred million to roughly ten billion parameters, are increasingly chosen for on-device, private and cost-sensitive deployments. Their tendency to produce fluent but unsupported statements is nevertheless rarely treated as a distinct engineering problem. This review synthesises research published up to November 2026 on why SLMs hallucinate, how the problem is measured, and which countermeasures exist at the model, inference and operational levels. Three arguments are made. First, the evidence points to several interacting causes, namely limited capacity for rare facts, training and evaluation incentives that reward guessing, unstable retrieval of knowledge the model does hold, and weak calibration, rather than to a single deficit. Second, reported hallucination rates depend strongly on model variant, decoding settings and task, so figures cannot be compared across studies without care. Third, no single safeguard suffices: reliability is better pursued as a layered stack that combines targeted fine-tuning, retrieval grounding, sampling-based consistency checks, abstention, and risk-proportionate human oversight. The review then maps these layers onto accountability and regulatory expectations and lists open problems, including size-controlled benchmarks and independent replication of promising small-scale methods.",
+    "keywords": [
+        "Small language models",
+        "Hallucination",
+        "Factuality",
+        "Retrieval-augmented generation",
+        "Uncertainty estimation",
+        "Abstention",
+        "AI governance",
+        "Misinformation"
+    ],
+    "license": "CC BY 4.0",
+    "sameAs": [
+        "https://doi.org/10.5281/zenodo.24147200"
+    ]
+}		</script>
+	</head>
+	<body>
+		<main class="page-wrapper">
+			<header class="header navbar navbar-expand-lg bg-light navbar-sticky py-0">
+				<div class="container px-3">
+					<a href="/" class="navbar-brand pe-0">
+						<img src="/images/logo-black.svg" class="logo" alt="SOLAV Journal">
+					</a>
+					<div id="navbarNav" class="offcanvas offcanvas-end">
+						<div class="offcanvas-header border-bottom">
+							<h5 class="offcanvas-title">Menu</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+						</div>
+						<div class="offcanvas-body">
+							<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+								<li class="nav-item">
+									<a href="/aims-scope" class="nav-link">Aims & Scope</a>
+								</li>
+								<li class="nav-item">
+									<a href="/guidelines" class="nav-link">Guidelines</a>
+								</li>
+								<li class="nav-item dropdown">
+									<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-current="page">Submit</a>
+									<ul class="dropdown-menu">
+										<li><a href="/submit" class="dropdown-item">Submit</a></li>
+										<li><a href="/track" class="dropdown-item">Track Paper</a></li>
+									</ul>
+								</li>
+								<li class="nav-item dropdown">
+									<a href="#" class="nav-link dropdown-toggle active pe-auto" data-bs-toggle="dropdown" aria-expanded="true">Volumes</a>
+									<div class="dropdown-menu" data-bs-popper="static">
+										<div class="d-lg-flex pt-lg-1">
+											<div class="mega-dropdown-column px-0">
+												<div class="volume-tree-group">
+													<h6 class="volume-tree-title">Current</h6>
+													<ul class="list-unstyled volume-tree-list">
+														<li><a href="/archive" class="dropdown-item volume-tree-child active pe-auto">Volume 2 (2026)</a></li>
+													</ul>
+												</div>
+												<ul class="list-unstyled mb-3">
+													<li><hr class="dropdown-divider"></li>
+													<li><a href="/authors" class="dropdown-item">Authors</a></li>
+												</ul>
+											</div>
+											<div class="mega-dropdown-column">
+												<div class="card ms-2 h-100 dropdown-menuAnimated">
+													<div class="volume-tree-group">
+														<h6 class="volume-tree-title">Older Archives</h6>
+														<ul class="list-unstyled mb-3 volume-tree-list">
+															<li><a href="/archive2025" class="dropdown-item volume-tree-child">Volume 1 (2025)</a></li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li class="nav-item dropdown">
+									<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-current="page">Policies</a>
+									<ul class="dropdown-menu">
+										<li><a href="/ethics" class="dropdown-item">Publication Ethics</a></li>
+										<li><a href="/ai" class="dropdown-item">AI in Research</a></li>
+										<li><a href="/apc" class="dropdown-item">Article Processing Charges (APC)</a></li>
+										<li><a href="/review" class="dropdown-item">Peer Review Process</a></li>
+										<li><a href="/open-submission" class="dropdown-item">Open Submission</a></li>
+										<li><a href="/access" class="dropdown-item">Open Access & Licensing</a></li>
+										<li><a href="/archiving" class="dropdown-item">Archiving & Management</a></li>
+										<li><a href="/corrections-retractions" class="dropdown-item">Corrections, Retractions & Withdrawal</a></li>
+										<li><a href="/appeals-complaints" class="dropdown-item">Appeals & Complaints</a></li>
+										<li><a href="/conflict-of-interest" class="dropdown-item">Conflict of Interest</a></li>
+										<li><a href="/plagiarism" class="dropdown-item">Plagiarism</a></li>
+										<li><a href="/editorial" class="dropdown-item">Editorial</a></li>
+										<li><a href="/research-integrity" class="dropdown-item">Research Integrity</a></li>
+										<li><a href="/copyright-licensing" class="dropdown-item">Copyright and Licensing</a></li>
+									</ul>
+								</li>
+								<li class="nav-item dropdown">
+									<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-current="page">About</a>
+									<ul class="dropdown-menu tree-dropdown">
+										<li><a href="/about" class="dropdown-item tree-parent">About the journal</a></li>
+										<li><a href="/about#indexing" class="dropdown-item tree-child">Indexing &amp; Global Discovery</a></li>
+										<li><a href="/about#editorialBoard" class="dropdown-item tree-child">Editorial Board</a></li>
+										<li><hr class="dropdown-divider"></li>
+										<li><a href="/oai-pmh" class="dropdown-item">OAI-PMH Repository</a></li>
+										<li><a href="/faq" class="dropdown-item">Frequently Asked Questions</a></li>
+										<li><hr class="dropdown-divider"></li>
+										<li><a href="/news" class="dropdown-item">News Center</a></li>
+									</ul>
+								</li>
+								<li class="nav-item">
+									<a href="/contact" class="nav-link">Contact</a>
+								</li>
+								<li class="nav-item dropdown ms-lg-2">
+									<a href="#" class="nav-link py-2 search-toggle" data-bs-toggle="modal" data-bs-target="#gsearchModal" aria-label="Search">
+										<i class="bi bi-search fs-5"></i><span class="d-block d-lg-none mx-2">Search</span>
+									</a>
+								</li>
+							</ul>
+						</div>  
+					</div>
+					<div class="form-check form-switch mode-switch pe-lg-1 ms-auto me-4" data-bs-toggle="mode">
+						<input type="checkbox" class="form-check-input" id="theme-mode">
+						<label class="form-check-label" for="theme-mode"><i class="bi bi-sun"></i></label>
+						<label class="form-check-label" for="theme-mode"><i class="bi bi-moon-stars"></i></label>
+					</div>
+					<button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+				</div>
+			</header>
+			<div class="jarallax mb-lg-5 mb-4 pt-0 card border-0 bg-gradient-primary rounded-0" data-jarallax="" data-speed="0.35" style="height: 1vw; min-height: 10px; background-image: url(/images/main-bg.png);">
+				<div id="jarallax-container-0" class="jarallax-container">
+					<div class="jarallax-img w-100" style="background-image: url(/images/main-bg.png);">
+					</div>
+				</div>
+			</div>
+			<div class="container pb-2 pb-lg-3 pt-0" id="articleContainer">
+				<a href="/archive2026" class="btn btn-sm btn-secondary mb-1">
+					<i class="bi bi-arrow-left me-1"></i> Browse All Articles
+				</a><hr class="m-0 mb-3 p-0">
+				<div class="row">
+					<div class="col-lg-8">
+						<div id="articleContent">
+							<div class="mb-4">
+								<span class="badge bg-primary metadata-badge">
+									<i class="bi bi-file-earmark-text me-1"></i> Review Article</span>
+								<div class="d-md-none btn-group btn-group-sm" role="group" aria-label="Small button group">
+									<a href="#dcds" class="btn-sm py-1 btn btn-outline-primary fs-sm text-decoration-none"><i class="bi bi-download"></i></a>
+									<a href="#dcds" class="btn-sm py-1 btn btn-outline-primary fs-sm text-decoration-none"><i class="bi bi-quote"></i></a>
+									<a href="#dcds" class="btn-sm py-1 btn btn-outline-primary fs-sm text-decoration-none"><i class="bi bi-info-circle"></i></a>
+								</div>
+							</div>
+						</div>
+						
+						<h1 class="mb-4 h3">Fluent but Unfounded: A Review of Hallucination in Small Language Models</h1>
+						<div class="mb-4">
+							<div class="author-list mb-2">
+								<i class="bi bi-people text-primary me-2"></i>
+								<span class="author-item"><a href="/authors?id=00010100" rel="author" title="Youssef Ghalib Salih">Salih, Youssef Ghalib</a><sup>*</sup><sup>1</sup><a href="https://orcid.org/0009-0005-3107-973X" target="_blank" class="ms-0 align-middle"><img src="/images/orcid.svg" alt="ORCID" class="orcid-icon"></a></span>
+								
+							</div>
+															
+							<p class="text-muted font-sm mb-0"><sup>*</sup> Corresponding author</p>
+														
+							<div class="author-affiliation mb-3">
+															
+								<span class="mb-0 small">*1</span>
+								<span class="mb-0 mx-2"><i class="bi bi-building me-1"></i> Independent Researcher</span>
+								
+								<span class="mb-0 mx-2 font-sm">
+									<i class="bi bi-envelope me-1"></i> <a href="mailto:youssef@secria.me">youssef@secria.me</a>
+								</span>
+															
+							</div>
+						</div>
+
+						<div class="mb-4">
+							<span class="badge bg-light text-dark border me-2 mb-2">Small language models</span>
+							<span class="badge bg-light text-dark border me-2 mb-2">Hallucination</span>
+							<span class="badge bg-light text-dark border me-2 mb-2">Factuality</span>
+							<span class="badge bg-light text-dark border me-2 mb-2">Retrieval-augmented generation</span>
+							<span class="badge bg-light text-dark border me-2 mb-2">Uncertainty estimation</span>
+							<span class="badge bg-light text-dark border me-2 mb-2">Abstention</span>
+							<span class="badge bg-light text-dark border me-2 mb-2">AI governance</span>
+							<span class="badge bg-light text-dark border me-2 mb-2">Misinformation</span>
+							
+						</div>
+
+						<div class="abstract-box">
+
+							<h3 class="h5 mb-3"><i class="bi bi-file-text me-2"></i>Abstract</h3>
+							<p>Small language models (SLMs), compact generative models ranging from a few hundred million to roughly ten billion parameters, are increasingly chosen for on-device, private and cost-sensitive deployments. Their tendency to produce fluent but unsupported statements is nevertheless rarely treated as a distinct engineering problem. This review synthesises research published up to November 2026 on why SLMs hallucinate, how the problem is measured, and which countermeasures exist at the model, inference and operational levels. Three arguments are made. First, the evidence points to several interacting causes, namely limited capacity for rare facts, training and evaluation incentives that reward guessing, unstable retrieval of knowledge the model does hold, and weak calibration, rather than to a single deficit. Second, reported hallucination rates depend strongly on model variant, decoding settings and task, so figures cannot be compared across studies without care. Third, no single safeguard suffices: reliability is better pursued as a layered stack that combines targeted fine-tuning, retrieval grounding, sampling-based consistency checks, abstention, and risk-proportionate human oversight. The review then maps these layers onto accountability and regulatory expectations and lists open problems, including size-controlled benchmarks and independent replication of promising small-scale methods.</p>
+						</div>
+
+						<div class="references-box mt-4 mb-4"><h3 class="h5 mb-3"><i class="bi bi-bookmarks me-2"></i>References</h3><ol class="references-list"><li class="mb-2">Z. Lu et al., &quot;Small language models: Survey, measurements, and insights,&quot; arXiv:2409.15790, 2024. https://doi.org/10.48550/arXiv.2409.15790</li><li class="mb-2">F. Wang et al., &quot;A comprehensive survey of small language models in the era of large language models: Techniques, enhancements, applications, collaboration with LLMs, and trustworthiness,&quot; ACM Trans. Intell. Syst. Technol., vol. 16, no. 6, pp. 1–87, 2025.</li><li class="mb-2">P. Belcak et al., &quot;Small language models are the future of agentic AI,&quot; arXiv:2506.02153, 2025. https://doi.org/10.48550/arXiv.2506.02153</li><li class="mb-2">M. Abdin et al., &quot;Phi-3 technical report: A highly capable language model locally on your phone,&quot; arXiv:2404.14219, 2024. https://doi.org/10.48550/arXiv.2404.14219</li><li class="mb-2">Gemma Team, &quot;Gemma 2: Improving open language models at a practical size,&quot; arXiv:2408.00118, 2024. https://doi.org/10.48550/arXiv.2408.00118</li><li class="mb-2">A. Yang et al., &quot;Qwen3 technical report,&quot; arXiv:2505.09388, 2025. https://doi.org/10.48550/arXiv.2505.09388</li><li class="mb-2">A. Q. Jiang et al., &quot;Mistral 7B,&quot; arXiv:2310.06825, 2023. https://doi.org/10.48550/arXiv.2310.06825</li><li class="mb-2">P. Zhang, G. Zeng, T. Wang, and W. Lu, &quot;TinyLlama: An open-source small language model,&quot; arXiv:2401.02385, 2024. https://doi.org/10.48550/arXiv.2401.02385</li><li class="mb-2">Z. Ji et al., &quot;Survey of hallucination in natural language generation,&quot; ACM Comput. Surv., vol. 55, no. 12, Art. no. 248, pp. 1–38, 2023. https://doi.org/10.1145/3571730</li><li class="mb-2">L. Huang et al., &quot;A survey on hallucination in large language models: Principles, taxonomy, challenges, and open questions,&quot; ACM Trans. Inf. Syst., vol. 43, no. 2, Art. no. 42, 2025. https://doi.org/10.1145/3703155</li><li class="mb-2">Y. Zhang et al., &quot;Siren&#039;s song in the AI ocean: A survey on hallucination in large language models,&quot; arXiv:2309.01219, 2023. https://doi.org/10.48550/arXiv.2309.01219</li><li class="mb-2">E. Ricco, E. Onofri, L. Cima, S. Cresci, and R. Di Pietro, &quot;A geometric analysis of small-sized language model hallucinations,&quot; arXiv:2602.14778, 2026; presented at Int. Conf. Mach. Learn. (ICML), 2026. https://doi.org/10.48550/arXiv.2602.14778</li><li class="mb-2">A. V. Aravindan and M. Kejriwal, &quot;Second Guess: Detecting uncertainty through abstention and answer stability in small language models,&quot; arXiv:2605.25394, 2026. https://doi.org/10.48550/arXiv.2605.25394</li><li class="mb-2">M. A. Baker and F. Al-Qrize, &quot;Mitigating hallucination in small language models via contrastive chain-of-thought fine-tuning,&quot; SOLAV J., vol. 1, pp. 33–53, Jul. 2025. https://doi.org/10.5281/zenodo.18538736</li><li class="mb-2">M. A. Baker, &quot;The spread of AI-generated misinformation,&quot; Authorea, preprint, Apr. 7, 2025. https://doi.org/10.22541/au.174405164.43017701/v1</li><li class="mb-2">C. Drolsbach and N. Pröllochs, &quot;Characterizing AI-generated misinformation on social media,&quot; arXiv:2505.10266, 2025. https://doi.org/10.48550/arXiv.2505.10266</li><li class="mb-2">Moffatt v. Air Canada, 2024 BCCRT 149 (Civil Resolution Tribunal of British Columbia, Feb. 14, 2024). https://canlii.ca/t/k2b02</li><li class="mb-2">W. H. Walters and E. I. Wilder, &quot;Fabrication and errors in the bibliographic citations generated by ChatGPT,&quot; Sci. Rep., vol. 13, Art. no. 14045, 2023. https://doi.org/10.1038/s41598-023-41032-5</li><li class="mb-2">M. Dahl, V. Magesh, M. Suzgun, and D. E. Ho, &quot;Large legal fictions: Profiling legal hallucinations in large language models,&quot; J. Legal Anal., vol. 16, no. 1, pp. 64–93, 2024.</li><li class="mb-2">V. Magesh, F. Surani, M. Dahl, M. Suzgun, C. D. Manning, and D. E. Ho, &quot;Hallucination-free? Assessing the reliability of leading AI legal research tools,&quot; J. Empir. Leg. Stud., vol. 22, no. 2, pp. 216–242, 2025.</li><li class="mb-2">M. A. Baker, &quot;AI ethics in historical research: A framework for bias mitigation, transparency, and accountability,&quot; SSRN, Oct. 5, 2025. https://doi.org/10.2139/ssrn.5565499</li><li class="mb-2">S. Farquhar, J. Kossen, L. Kuhn, and Y. Gal, &quot;Detecting hallucinations in large language models using semantic entropy,&quot; Nature, vol. 630, no. 8017, pp. 625–630, 2024. https://doi.org/10.1038/s41586-024-07421-0</li><li class="mb-2">S. Lin, J. Hilton, and O. Evans, &quot;TruthfulQA: Measuring how models mimic human falsehoods,&quot; in Proc. 60th Annu. Meeting Assoc. Comput. Linguistics (ACL), 2022, pp. 3214–3252. https://doi.org/10.18653/v1/2022.acl-long.229</li><li class="mb-2">J. Li, X. Cheng, W. X. Zhao, J.-Y. Nie, and J.-R. Wen, &quot;HaluEval: A large-scale hallucination evaluation benchmark for large language models,&quot; in Proc. Conf. Empir. Methods Natural Lang. Process. (EMNLP), 2023, pp. 6449–6464. https://doi.org/10.18653/v1/2023.emnlp-main.397</li><li class="mb-2">S. Min et al., &quot;FActScore: Fine-grained atomic evaluation of factual precision in long form text generation,&quot; in Proc. EMNLP, 2023, pp. 12076–12100. https://doi.org/10.18653/v1/2023.emnlp-main.741</li><li class="mb-2">P. Manakul, A. Liusie, and M. Gales, &quot;SelfCheckGPT: Zero-resource black-box hallucination detection for generative large language models,&quot; in Proc. EMNLP, 2023, pp. 9004–9017. https://doi.org/10.18653/v1/2023.emnlp-main.557</li><li class="mb-2">Y. Bang et al., &quot;HalluLens: LLM hallucination benchmark,&quot; in Proc. 63rd Annu. Meeting ACL, 2025, pp. 24128–24156.</li><li class="mb-2">Z. Allen-Zhu and Y. Li, &quot;Physics of language models: Part 3.3, knowledge capacity scaling laws,&quot; arXiv:2404.05405, 2024. https://doi.org/10.48550/arXiv.2404.05405</li><li class="mb-2">N. Kandpal, H. Deng, A. Roberts, E. Wallace, and C. Raffel, &quot;Large language models struggle to learn long-tail knowledge,&quot; in Proc. 40th Int. Conf. Mach. Learn. (ICML), 2023, pp. 15696–15707. https://proceedings.mlr.press/v202/kandpal23a.html</li><li class="mb-2">A. Mallen et al., &quot;When not to trust language models: Investigating effectiveness of parametric and non-parametric memories,&quot; in Proc. 61st Annu. Meeting ACL, 2023, pp. 9802–9822. https://doi.org/10.18653/v1/2023.acl-long.546</li><li class="mb-2">A. T. Kalai, O. Nachum, S. S. Vempala, and E. Zhang, &quot;Why language models hallucinate,&quot; arXiv:2509.04664, 2025. https://doi.org/10.48550/arXiv.2509.04664</li><li class="mb-2">A. T. Kalai and S. S. Vempala, &quot;Calibrated language models must hallucinate,&quot; in Proc. 56th Annu. ACM Symp. Theory Comput. (STOC), 2024, pp. 160–171.</li><li class="mb-2">Z. Xu, S. Jain, and M. Kankanhalli, &quot;Hallucination is inevitable: An innate limitation of large language models,&quot; arXiv:2401.11817, 2024. https://doi.org/10.48550/arXiv.2401.11817</li><li class="mb-2">S. Kadavath et al., &quot;Language models (mostly) know what they know,&quot; arXiv:2207.05221, 2022. https://doi.org/10.48550/arXiv.2207.05221</li><li class="mb-2">S. Lin, J. Hilton, and O. Evans, &quot;Teaching models to express their uncertainty in words,&quot; Trans. Mach. Learn. Res., 2022. https://openreview.net/forum?id=8s8K2UZGTZ</li><li class="mb-2">M. Xiong et al., &quot;Can LLMs express their uncertainty? An empirical evaluation of confidence elicitation in LLMs,&quot; in Proc. Int. Conf. Learn. Represent. (ICLR), 2024. https://openreview.net/forum?id=gjeQKFxFpZ</li><li class="mb-2">Y. Elazar et al., &quot;Measuring and improving consistency in pretrained language models,&quot; Trans. Assoc. Comput. Linguistics, vol. 9, pp. 1012–1031, 2021. https://doi.org/10.1162/tacl_a_00410</li><li class="mb-2">M. Sclar, Y. Choi, Y. Tsvetkov, and A. Suhr, &quot;Quantifying language models&#039; sensitivity to spurious features in prompt design or: How I learned to start worrying about prompt formatting,&quot; in Proc. ICLR, 2024. https://openreview.net/forum?id=RIu5lyNXjT</li><li class="mb-2">N. F. Liu et al., &quot;Lost in the middle: How language models use long contexts,&quot; Trans. Assoc. Comput. Linguistics, vol. 12, pp. 157–173, 2024. https://doi.org/10.1162/tacl_a_00638</li><li class="mb-2">Z. Gekhman et al., &quot;Does fine-tuning LLMs on new knowledge encourage hallucinations?&quot; in Proc. EMNLP, 2024. https://doi.org/10.48550/arXiv.2405.05904</li><li class="mb-2">L. Ouyang et al., &quot;Training language models to follow instructions with human feedback,&quot; in Proc. Adv. Neural Inf. Process. Syst. (NeurIPS), vol. 35, 2022, pp. 27730–27744. https://doi.org/10.48550/arXiv.2203.02155</li><li class="mb-2">J. Wei et al., &quot;Chain-of-thought prompting elicits reasoning in large language models,&quot; in Proc. NeurIPS, vol. 35, 2022, pp. 24824–24837. https://doi.org/10.48550/arXiv.2201.11903</li><li class="mb-2">S. Gunasekar et al., &quot;Textbooks are all you need,&quot; arXiv:2306.11644, 2023. https://doi.org/10.48550/arXiv.2306.11644</li><li class="mb-2">E. J. Hu et al., &quot;LoRA: Low-rank adaptation of large language models,&quot; in Proc. ICLR, 2022. https://openreview.net/forum?id=nZeVKeeFYf9</li><li class="mb-2">T. Dettmers, A. Pagnoni, A. Holtzman, and L. Zettlemoyer, &quot;QLoRA: Efficient finetuning of quantized LLMs,&quot; in Proc. NeurIPS, vol. 36, 2023. https://doi.org/10.48550/arXiv.2305.14314</li><li class="mb-2">R. Rafailov et al., &quot;Direct preference optimization: Your language model is secretly a reward model,&quot; in Proc. NeurIPS, vol. 36, 2023. https://doi.org/10.48550/arXiv.2305.18290</li><li class="mb-2">C. Tomani, K. Chaudhuri, I. Evtimov, D. Cremers, and M. Ibrahim, &quot;Uncertainty-based abstention in LLMs improves safety and reduces hallucinations,&quot; arXiv:2404.10960, 2024. https://doi.org/10.48550/arXiv.2404.10960</li><li class="mb-2">B. Wen et al., &quot;Know your limits: A survey of abstention in large language models,&quot; Trans. Assoc. Comput. Linguistics, vol. 13, pp. 529–556, 2025.</li><li class="mb-2">S. M. T. I. Tonmoy et al., &quot;A comprehensive survey of hallucination mitigation techniques in large language models,&quot; arXiv:2401.01313, 2024. https://doi.org/10.48550/arXiv.2401.01313</li><li class="mb-2">P. Lewis et al., &quot;Retrieval-augmented generation for knowledge-intensive NLP tasks,&quot; in Proc. NeurIPS, vol. 33, 2020, pp. 9459–9474. https://doi.org/10.48550/arXiv.2005.11401</li><li class="mb-2">Y. Gao et al., &quot;Retrieval-augmented generation for large language models: A survey,&quot; arXiv:2312.10997, 2023. https://doi.org/10.48550/arXiv.2312.10997</li><li class="mb-2">X. Wang et al., &quot;Self-consistency improves chain of thought reasoning in language models,&quot; in Proc. ICLR, 2023. https://doi.org/10.48550/arXiv.2203.11171</li><li class="mb-2">L. Kuhn, Y. Gal, and S. Farquhar, &quot;Semantic uncertainty: Linguistic invariances for uncertainty estimation in natural language generation,&quot; in Proc. ICLR, 2023. https://openreview.net/forum?id=VD-AYtP0dve</li><li class="mb-2">S. Dhuliawala et al., &quot;Chain-of-verification reduces hallucination in large language models,&quot; arXiv:2309.11495, 2023. https://doi.org/10.48550/arXiv.2309.11495</li><li class="mb-2">National Institute of Standards and Technology, &quot;Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile,&quot; NIST AI 600-1, Jul. 2024. https://doi.org/10.6028/NIST.AI.600-1</li><li class="mb-2">Regulation (EU) 2024/1689 of the European Parliament and of the Council laying down harmonised rules on artificial intelligence (Artificial Intelligence Act), Off. J. Eur. Union, Jul. 12, 2024. https://eur-lex.europa.eu/eli/reg/2024/1689/oj</li><li class="mb-2">E. M. Bender, T. Gebru, A. McMillan-Major, and S. Shmitchell, &quot;On the dangers of stochastic parrots: Can language models be too big?,&quot; in Proc. ACM Conf. Fairness, Accountability, Transparency (FAccT), 2021, pp. 610–623. https://doi.org/10.1145/3442188.3445922</li></ol></div>
+					</div>
+
+					<div class="col-lg-4" id="dcds">
+						<div class="article-actions">
+							<div class="card mb-4">
+								<div class="card-body">
+									<div class="d-grid gap-2">
+										<a href="https://solav.me/p/s2026781212.pdf" target="_blank" class="btn btn-sm btn-primary">
+											<i class="bi bi-file-earmark-pdf me-1"></i> Download PDF
+										</a>
+										<button id="citeBtn" class="btn btn-sm btn-outline-primary">
+											<i class="bi bi-quote me-1"></i> Cite This Article
+										</button>
+										<small class="text-muted text-xs mt-2"><i class="bi bi-info-circle"></i> This DOI is provided for long-term preservation and open archiving.</small>
+										<a href="https://doi.org/10.5281/zenodo.24147200" target="_blank" class="btn btn-sm btn-outline-primary"  style="white-space: normal;">
+											<img src="/images/doi_logo.svg" class="doiIcon mx-2" alt="(Zenodo)"> Archival DOI (Zenodo)
+										</a>
+									</div>
+								</div>
+							</div>
+
+							<div class="card mb-4">
+								<div class="card-header bg-secondary text-center p-0 m-0 w-100">
+									<h5 class="mb-0 p-3 py-1"><i class="bi bi-share me-2"></i>Share This Article</h5>
+								</div>
+								<div class="card-body">
+									<div class="d-flex flex-wrap gap-2 justify-content-center">
+										<button class="btn btn-outline-primary btn-sm px-1 py-0 m-1" onclick="copyLink('https://solav.me/a/s2026781212')" title="Copy link to clipboard">
+											<i class="bi bi-link-45deg m-0 fs-4"></i>
+										</button>
+										<a href="https://x.com/intent/post?text=Fluent+but+Unfounded%3A+A+Review+of+Hallucination+in+Small+Language+Models&url=https%3A%2F%2Fsolav.me%2Fa%2Fs2026781212" class="btn btn-outline-primary btn-sm px-1 py-0 m-1" target="_blank" title="Share on X">
+											<i class="bi bi-twitter-x m-0 fs-4"></i>
+										</a>
+										<a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fsolav.me%2Fa%2Fs2026781212" class="btn btn-outline-primary btn-sm px-1 py-0 m-1" target="_blank" title="Share on LinkedIn">
+											<i class="bi bi-linkedin m-0 fs-4"></i>
+										</a>
+										<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsolav.me%2Fa%2Fs2026781212" class="btn btn-outline-primary btn-sm px-1 py-0 m-1" target="_blank" title="Share on Facebook">
+											<i class="bi bi-facebook m-0 fs-4"></i>
+										</a>
+										<a href="https://bsky.app/intent/compose?text=Fluent+but+Unfounded%3A+A+Review+of+Hallucination+in+Small+Language+Models+-+https%3A%2F%2Fsolav.me%2Fa%2Fs2026781212" class="btn btn-outline-primary btn-sm px-1 py-0 m-1" target="_blank" title="Share on Bluesky">
+											<i class="bi bi-bluesky m-0 fs-4"></i>
+										</a>
+										<a href="mailto:?subject=Research+Article%3A+Fluent+but+Unfounded%3A+A+Review+of+Hallucination+in+Small+Language+Models&body=I+thought+you+might+find+this+article+interesting%3A+https%3A%2F%2Fsolav.me%2Fa%2Fs2026781212" class="btn btn-outline-primary btn-sm px-1 py-0 m-1" title="Share via Email">
+											<i class="bi bi-envelope m-0 fs-4"></i>
+										</a>
+									</div>
+								</div>
+							</div>
+
+							<div class="card">
+								<div class="card-header bg-secondary text-center p-0 m-0 w-100">
+									<h5 class="mb-0 p-3 py-1"><i class="bi bi-info-circle me-2"></i>Article Info</h5>
+								</div>
+								<div class="card-body">
+									<ul class="list-unstyled mb-0">
+										<li class="mb-2">
+											<i class="bi bi-calendar-check text-primary me-2"></i><strong>Received:</strong> 2026-10-07
+										</li>
+										<li class="mb-2">
+											<i class="bi bi-check-circle text-primary me-2"></i><strong>Accepted:</strong> 2026-11-09
+										</li>
+										<li class="mb-2">
+											<i class="bi bi-calendar-event text-primary me-2"></i><strong>Published:</strong> 2026-11-12
+										</li>
+										<li class="mb-2">
+											<i class="bi bi-file-text text-primary me-2"></i><strong>Pages:</strong> 170-185
+										</li>
+										<li class="mb-2">
+											<i class="bi bi-quote text-primary me-2"></i><strong>Citations:</strong> 1
+										</li>
+										<li class="mb-2">
+											<i class="bi bi-journal-check text-primary me-2"></i><strong>Type:</strong> Review Article
+										</li>
+										<li class="mb-2">
+											<i class="bi bi-journal text-primary me-2"></i><strong>Volume:</strong> 2
+										</li>
+										<li class="mb-2">
+											<i class="bi bi-clock-history text-primary me-2"></i><strong>Version:</strong> 2026-11-12 (1)
+										</li>
+										<li>
+											<i class="bi bi-c-circle text-primary me-2"></i><strong>License:</strong> <a href="https://creativecommons.org/licenses/by/4.0/" rel="license" target="_blank">CC BY 4.0</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="card mb-3 mt-1 border-0 text-center">
+								<div class="card-body">
+									<img id="qr">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+
+		</main>
+		<div class="modal fade" id="gsearchModal" tabindex="-1" aria-hidden="true">
+			<div class="modal-dialog modal-lg modal-dialog-centered">
+				<div class="modal-content border-0 shadow-lg">
+					<div class="modal-header border-0 pb-0 border-bottom pb-3">
+						<h5 class="modal-title text-primary fw-bold">
+							<i class="bi bi-search me-2"></i>Search SOLAV Journal
+						</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<form action="https://www.google.com/search" method="get" target="_blank" class="mb-4">
+							<div class="input-group input-group-lg shadow-sm">
+								<input type="hidden" name="as_sitesearch" value="solav.me">
+								<input type="text" 
+									name="q" 
+									class="form-control border-primary-subtle bg-body-tertiary" 
+									placeholder="Search articles, authors, or technology..."
+									id="gsearchQueryInput"
+									autocomplete="off"
+									required>
+								<button class="btn btn-primary px-4" type="submit">
+									<i class="bi bi-search me-2"></i>Search
+								</button>
+							</div>
+							<div class="form-text mt-2 ps-1">
+								<small class="opacity-75">Search provided by Google</small>
+							</div>
+						</form>
+
+						<div class="pt-2">
+							<h6 class="text-muted small text-uppercase fw-bold mb-3 ls-1">Quick Access</h6>
+							<div class="row g-2">
+								<div class="col-6 col-md-3">
+									<a href="/archive" class="btn btn-outline-secondary w-100 py-3 border-dashed">
+										<i class="bi bi-journal-richtext d-block mb-1 fs-4"></i>
+										<span class="small ms-2">Latest</span>
+									</a>
+								</div>
+								<div class="col-6 col-md-3">
+									<a href="/authors" class="btn btn-outline-secondary w-100 py-3 border-dashed">
+										<i class="bi bi-people d-block mb-1 fs-4"></i>
+										<span class="small ms-2">Authors</span>
+									</a>
+								</div>
+								<div class="col-6 col-md-3">
+									<a href="/guidelines" class="btn btn-outline-secondary w-100 py-3 border-dashed">
+										<i class="bi bi-file-earmark-text d-block mb-1 fs-4"></i>
+										<span class="small ms-2">Guidelines</span>
+									</a>
+								</div>
+								<div class="col-6 col-md-3">
+									<a href="/faq" class="btn btn-outline-secondary w-100 py-3 border-dashed">
+										<i class="bi bi-question-circle d-block mb-1 fs-4"></i>
+										<span class="small ms-2">FAQ</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer border-0 justify-content-center pb-4">
+						<span class="badge bg-primary-subtle text-primary rounded-pill px-3">Open Access Journal for Interdisciplinary Applied Research</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<a href="#top" class="btn-scroll-top" data-scroll="">
+			<i class="btn-scroll-top-icon bi bi-chevron-up"></i>
+		</a>
+		<footer class="footer border-top border-primary-subtle bg-secondary-subtle shadow-lg py-4">
+			<div class="bg-light bg-opacity-50 p-0">
+				<div class="container">
+					<div class="row g-4">
+						<div class="col-lg-4">
+							<p class="mb-1">
+								SOLAV Journal is an open access, peer-reviewed journal publishing interdisciplinary applied research with real-world impact.
+								<br><span class="font-sm"><strong>Publication Frequency:</strong> Continuous publication.</span>
+								<br><span class="font-sm"><strong>Editor-In-Chief:</strong> Maher Asaad Baker</span>
+								<br><span class="font-sm"><strong>Publisher:</strong> Leothar Company, Riyadh, Saudi Arabia</span>
+							</p>
+							<div class="issn-container mt-0">
+								<img src="/images/issn_logo.svg" alt="ISSN" class="issn-logo">
+								<span class="issn-text">ISSN request pending</span>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-4">
+							<h5 class="mb-3 fw-bold">Quick Links</h5>
+							<ul class="list-unstyled">
+								<li class="mb-2"><a href="/aims-scope" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Aims & Scope</a></li>
+								<li class="mb-2"><a href="/guidelines" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Author Guidelines</a></li>
+								<li class="mb-2"><a href="/submit" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Submit Manuscript</a></li>
+								<li class="mb-2"><a href="/archive" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Article Archive</a></li>
+								<li class="mb-2"><a href="/about" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">About the Journal</a></li>
+							</ul>
+						</div>
+						<div class="col-lg-3 col-md-4">
+							<h5 class="mb-3 fw-bold">Policies</h5>
+							<ul class="list-unstyled">
+								<li class="mb-2"><a href="/ethics" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Publication Ethics</a></li>
+								<li class="mb-2"><a href="/apc" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Article Processing Charges</a></li>
+								<li class="mb-2"><a href="/review" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Peer Review Process</a></li>
+								<li class="mb-2"><a href="/access" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Open Access & Licensing</a></li>
+								<li class="mb-2"><a href="/archiving" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Archiving & Management</a></li>
+							</ul>
+						</div>
+						<div class="col-lg-3 col-md-4">
+							<h5 class="mb-3 fw-bold">Contact & Support</h5>
+							<ul class="list-unstyled">
+								<li class="mb-2">
+									<i class="bi bi-envelope me-2 text-primary"></i>
+									<a href="mailto:contact@solav.me" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">General Inquiries</a>
+								</li>
+								<li class="mb-2">
+									<i class="bi bi-question-circle me-2 text-primary"></i>
+									<a href="mailto:support@solav.me" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Technical Support</a>
+								</li>
+								<li class="mb-2">
+									<i class="bi bi-shield-check me-2 text-primary"></i>
+									<a href="mailto:ethics@solav.me" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Ethics Concerns</a>
+								</li>
+								<li class="mb-2">
+									<i class="bi bi-currency-exchange me-2 text-primary"></i>
+									<a href="mailto:apc@solav.me" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">APC & Payments</a>
+								</li>
+								<li class="mb-2">
+									<i class="bi bi-people me-2 text-primary"></i>
+									<a href="mailto:editorial@solav.me" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Editorial Board</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="p-0">
+				<div class="container">	
+					<div class="row pt-2 border-top">
+						<div class="col-md-6 text-md-end order-md-2 px-2">
+							<div class="row mb-0 h-100 d-flex align-items-end justify-content-lg-end px-3">
+								<div class="col-12 p-0 m-0">
+									<div class="pb-1">
+										<a href="https://core.ac.uk/data-providers/25920" 
+										title="Indexed by CORE (COnnecting REpositories)" 
+										target="_blank"><img src="https://core.ac.uk/images/resources/core_starting_member_square.svg" class="d-Icons" alt="CORE indexed journal"></a>
+										<a href="https://search.worldcat.org/search?q=pb%3A%22SOLAV+Journal%22" 
+										title="Discoverable in WorldCat global library catalog" 
+										target="_blank"><img src="/images/worldcat_icon.svg" class="d-Icons" alt="WorldCat global library catalog"></a>
+										<a href="https://scholar.google.com/scholar?q=%22SOLAV+Journal%22" 
+										title="Search SOLAV Journal articles in Google Scholar" 
+										target="_blank"><img src="/images/google_scholar_icon.svg" class="d-Icons" alt="Google Scholar"></a>
+										<a href="https://openalex.org/works?page=1&filter=title_and_abstract.search:solav+journal" 
+										title="Scholarly metadata harvested and discoverable in OpenAlex database" 
+										target="_blank"><img src="/images/openalex_icon.svg" class="d-Icons m-0" alt="OpenAlex scholarly database"></a>
+										<a href="https://explore.openaire.eu/search/dataprovider?datasourceId=opendoar____::ca5fbbbddd0c0ff6c01f782c60c9d1b5" 
+										title="OpenAIRE Research Outcome Discovery" 
+										target="_blank"><img src="/images/openaire_icon.svg" class="d-Icons" alt="OpenAIRE Discoverable"></a>
+										<a href="https://www.base-search.net/Search/Results?q=coll:ftid14736" 
+										title="BASE Indexed" 
+										target="_blank"><img src="/images/base_search_icon.svg" class="d-Icons" alt="Bielefeld Academic Search Engine"></a>
+										<a href="https://zenodo.org/communities/solav" 
+										title="Permanent archival of all articles in Zenodo (CERN), a CoreTrustSeal-certified repository" 
+										target="_blank"><img src="/images/zenodo-icon-blue.svg" class="d-Icons" alt="Zenodo repository archive"></a>
+										<a href="https://commons.datacite.org/doi.org?query=SOLAV+Journal" 
+										title="Persistent Digital Object Identifiers (DOIs) and metadata registered via DataCite" 
+										target="_blank"><img src="/images/datacite-logo.svg" class="d-sIcons" alt="DataCite DOI registration"></a>
+										<a href="https://osf.io/2yskf/" 
+										title="Supplementary metadata preservation via OSF" 
+										target="_blank" rel="noopener"><img src="/images/osf-logo.svg" class="d-sIcons" alt="OSF metadata preservation repository"></a>
+										<a href="https://fairsharing.org/7613" 
+										title="FAIRsharing Registry" 
+										target="_blank" rel="noopener"><img src="/images/fairsharing-icon.svg" class="d-sIcons" alt="FAIRsharing"></a>
+										<a href="https://isni.org/isni/0000000506340505" 
+										title="International Standard Name Identifier (ISNI)" 
+										target="_blank" rel="noopener"><img src="/images/isni-logo.svg" class="d-sIconsL" alt="ISNI identifier for SOLAV Journal"></a>
+										<a href="https://viaf.org/en/viaf/15165808554058970648" 
+										title="VIAF cluster ID" 
+										target="_blank" rel="noopener"><img src="/images/viaf-logo.svg" class="d-sIconsL" alt="VIAF cluster ID"></a>
+									</div>
+									<div>
+										<a href="https://bsky.app/profile/solav.me" 
+										title="Official journal communications channel on Bluesky social network" 
+										target="_blank"><img src="/images/bluesky-icon.svg" class="d-sIcons" alt="Bluesky communications channel"></a>
+										<a rel="me" href="https://mastodon.social/@SOLAVjournal" 
+										title="Official journal presence on Mastodon federated social network" 
+										target="_blank"><img src="/images/mastodon-icon.svg" class="d-sIconsL m-0" alt="Mastodon scholarly presence"></a>
+									</div>
+								</div>
+								<ul class="list-inline col-12 p-0 m-0">
+									<li class="list-inline-item p-0 m-0"><a href="/privacy" class="link-primary link-underline-opacity-25 link-underline-opacity-100-hover link-offset-2">Privacy Policy</a><span class="text-primary p-0 m-0 px-2">●</span></li>
+									<li class="list-inline-item p-0 m-0"><a href="/tou" class="link-primary link-underline-opacity-25 link-underline-opacity-100-hover link-offset-2">Terms of Use</a><span class="text-primary p-0 m-0 px-2">●</span></li>
+									<li class="list-inline-item p-0 m-0"><a href="/accessibility" class="link-primary link-underline-opacity-25 link-underline-opacity-100-hover link-offset-2">Accessibility</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-6 order-md-1">
+							<p class="mb-0 h-100">
+								<strong>Your privacy matters</strong>. Essential cookies enable core functionality. Analytics cookies are disabled until explicit consent is given via <a href="#" class="link-primary link-underline-opacity-25 link-underline-opacity-100-hover" data-bs-toggle="modal" data-bs-target="#privacyModal" data-activate-tab="cookiesTab">Cookie Preferences</a>.
+								<br><strong>Platform Infrastructure:</strong> Proprietary Static Publishing Architecture developed by Leothar Company.
+								<br>&copy; <span id="currentYear"></span> SOLAV Journal. This is an open access journal distributed under the 
+								<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" class="link-primary link-underline-opacity-25 link-underline-opacity-100-hover">CC BY 4.0</a>.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<div class="modal fade" id="citationModal" tabindex="-1" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title"><i class="bi bi-quote me-2"></i>Cite this article</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+					</div>
+					<div class="modal-body">
+						<div class="mb-3">
+							<label for="citationStyleSelect" class="form-label fw-bold">Citation style</label>
+							<select id="citationStyleSelect" class="form-select">
+								<option value="apa" selected>APA 7th</option>
+								<option value="mla">MLA 9th</option>
+								<option value="chicago">Chicago 17th (author-date)</option>
+								<option value="ieee">IEEE</option>
+								<option value="bibtex">BibTeX</option>
+								<option value="ris">RIS (EndNote/Zotero)</option>
+							</select>
+						</div>
+						<div id="citationContent" class="border rounded p-3 bg-light" style="font-size: 0.9rem; white-space: pre-wrap;"></div>
+					</div>
+					<div class="modal-footer d-flex justify-content-between">
+						<div>
+							<button id="downloadCitationBtn" class="btn btn-outline-primary">
+								<i class="bi bi-download me-1"></i> Download
+							</button>
+							</div>
+							<div>
+							<button id="copyCitationBtn" class="btn btn-primary">
+								<i class="bi bi-clipboard me-1"></i> Copy
+							</button>
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+								Close
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="/js/jarallax.js"></script>
+		<script src="/js/swiper.js"></script>
+		<script src="/js/js.js?v=20260311"></script>
+		<script>
+			let currentArticle = null;
+			let currentStyle = 'apa';
+
+			function copyLink(url) {
+				navigator.clipboard.writeText(url).then(() => {
+					alert('Link copied to clipboard!');
+				}).catch(err => {
+					console.error('Could not copy link: ', err);
+				});
+			}
+
+			function getInitials(firstName) {
+				return firstName.split(' ').map(part => part.charAt(0).toUpperCase() + '.').join(' ');
+			}
+
+			function generateAPA(article) {
+				const authors = article.authors;
+				const year = article.published_date ? new Date(article.published_date).getFullYear() : 'n.d.';
+				const title = article.title;
+				const journal = '<em>SOLAV Journal</em>';
+				const volume = article.volume;
+				const pages = article.pages || 'n. pag.';
+				const url = `https://solav.me/a/${article.id}`;
+
+				let authorStr = '';
+				if (authors.length === 1) {
+					const a = authors[0];
+					authorStr = `${a.name_last}, ${getInitials(a.name_first)}`;
+				} else if (authors.length === 2) {
+					const a1 = authors[0];
+					const a2 = authors[1];
+					authorStr = `${a1.name_last}, ${getInitials(a1.name_first)} & ${a2.name_last}, ${getInitials(a2.name_first)}`;
+				} else if (authors.length > 2) {
+					const a1 = authors[0];
+					authorStr = `${a1.name_last}, ${getInitials(a1.name_first)} et al.`;
+				}
+
+				const html = `${authorStr} (${year}). ${title}. ${journal}, ${volume}, ${pages}. ${url}`;
+				const text = html.replace(/<em>|<\/em>/g, '');
+				return { html, text };
+			}
+
+			function generateMLA(article) {
+				const authors = article.authors;
+				const year = article.published_date ? new Date(article.published_date).getFullYear() : 'n.d.';
+				const title = article.title;
+				const journal = 'SOLAV Journal';
+				const volume = article.volume;
+				const pages = article.pages || 'n. pag.';
+				const url = `https://solav.me/a/${article.id}`;
+
+				let authorStr = '';
+				if (authors.length === 1) {
+					const a = authors[0];
+					authorStr = `${a.name_last}, ${a.name_first}`;
+				} else if (authors.length === 2) {
+					const a1 = authors[0];
+					const a2 = authors[1];
+					authorStr = `${a1.name_last}, ${a1.name_first} and ${a2.name_first} ${a2.name_last}`;
+				} else if (authors.length > 2) {
+					const a1 = authors[0];
+					authorStr = `${a1.name_last}, ${a1.name_first} et al.`;
+				}
+
+				const html = `${authorStr} "${title}" <em>${journal}</em>, vol. ${volume}, ${year}, pp. ${pages}. ${url}.`;
+				const text = html.replace(/<em>|<\/em>/g, '');
+				return { html, text };
+			}
+
+			function generateChicago(article) {
+				const authors = article.authors;
+				const year = article.published_date ? new Date(article.published_date).getFullYear() : 'n.d.';
+				const title = article.title;
+				const journal = 'SOLAV Journal';
+				const volume = article.volume;
+				const pages = article.pages || 'n. pag.';
+				const url = `https://solav.me/a/${article.id}`;
+
+				let authorStr = '';
+				if (authors.length === 1) {
+					const a = authors[0];
+					authorStr = `${a.name_last}, ${a.name_first}`;
+				} else if (authors.length === 2) {
+					const a1 = authors[0];
+					const a2 = authors[1];
+					authorStr = `${a1.name_last}, ${a1.name_first} and ${a2.name_first} ${a2.name_last}`;
+				} else if (authors.length > 2) {
+					const a1 = authors[0];
+					authorStr = `${a1.name_last}, ${a1.name_first} et al.`;
+				}
+
+				const html = `${authorStr} ${year}. "${title}" <em>${journal}</em> ${volume}: ${pages}. ${url}.`;
+				const text = html.replace(/<em>|<\/em>/g, '');
+				return { html, text };
+			}
+
+			function generateIEEE(article) {
+				const authors = article.authors;
+				const year = article.published_date ? new Date(article.published_date).getFullYear() : 'n.d.';
+				const month = article.published_date ? new Date(article.published_date).toLocaleString('default', { month: 'short' }) : 'n.d.';
+				const title = article.title;
+				const journal = 'SOLAV Journal';
+				const volume = article.volume;
+				const pages = article.pages || 'n. pag.';
+				const url = `https://solav.me/a/${article.id}`;
+
+				let authorStr = '';
+				if (authors.length === 1) {
+					const a = authors[0];
+					authorStr = `${getInitials(a.name_first)} ${a.name_last}`;
+				} else if (authors.length === 2) {
+					const a1 = authors[0];
+					const a2 = authors[1];
+					authorStr = `${getInitials(a1.name_first)} ${a1.name_last} and ${getInitials(a2.name_first)} ${a2.name_last}`;
+				} else if (authors.length > 2) {
+					const a1 = authors[0];
+					authorStr = `${getInitials(a1.name_first)} ${a1.name_last} et al.`;
+				}
+
+				const html = `${authorStr}, "${title}" <em>${journal}</em>, vol. ${volume}, no. ?, pp. ${pages}, ${month} ${year}. ${url}`;
+				const text = html.replace(/<em>|<\/em>/g, '');
+				return { html, text };
+			}
+
+			function generateBibTeX(article) {
+				const authors = article.authors;
+				const year = article.published_date ? new Date(article.published_date).getFullYear() : 'n.d.';
+				const title = article.title;
+				const journal = 'SOLAV Journal';
+				const volume = article.volume;
+				const pages = article.pages || '';
+				const doi = article.identifiers?.archive_doi;
+				const url = `https://solav.me/a/${article.id}`;
+				const key = authors[0]?.name_last.toLowerCase() + year + article.id.slice(-4);
+
+				let authorBib = authors.map(a => `${a.name_last}, ${a.name_first}`).join(' and ');
+
+				let bib = `@article{${key},\n  title = {${title}},\n  author = {${authorBib}},\n  journal = {${journal}},\n  volume = {${volume}},\n  year = {${year}},\n  pages = {${pages}},\n  url = {${url}},\n`;
+				if (doi) bib += `  doi = {${doi}},\n`;
+				bib += `}`;
+
+				return { html: `<pre>${bib}</pre>`, text: bib };
+			}
+
+			function generateRIS(article) {
+				const authors = article.authors;
+				const year = article.published_date ? new Date(article.published_date).getFullYear() : 'n.d.';
+				const title = article.title;
+				const journal = 'SOLAV Journal';
+				const volume = article.volume;
+				const pages = article.pages || '';
+				const doi = article.identifiers?.archive_doi;
+				const url = `https://solav.me/a/${article.id}`;
+
+				let ris = `TY  - JOUR\n`;
+				authors.forEach(a => {
+					ris += `AU  - ${a.name_last}, ${a.name_first}\n`;
+				});
+				ris += `PY  - ${year}\n`;
+				ris += `TI  - ${title}\n`;
+				ris += `T2  - ${journal}\n`;
+				ris += `VL  - ${volume}\n`;
+				if (pages) ris += `SP  - ${pages.split('-')[0]}\n`;
+				if (pages && pages.includes('-')) ris += `EP  - ${pages.split('-')[1]}\n`;
+				if (doi) ris += `DO  - ${doi}\n`;
+				ris += `UR  - ${url}\n`;
+				ris += `ER  - \n`;
+
+				return { html: `<pre>${ris}</pre>`, text: ris };
+			}
+
+			function updateCitationDisplay() {
+				if (!currentArticle) return;
+
+				let result;
+				switch (currentStyle) {
+					case 'apa': result = generateAPA(currentArticle); break;
+					case 'mla': result = generateMLA(currentArticle); break;
+					case 'chicago': result = generateChicago(currentArticle); break;
+					case 'ieee': result = generateIEEE(currentArticle); break;
+					case 'bibtex': result = generateBibTeX(currentArticle); break;
+					case 'ris': result = generateRIS(currentArticle); break;
+					default: result = generateAPA(currentArticle);
+				}
+
+				document.getElementById('citationContent').innerHTML = result.html;
+				window.currentCitationText = result.text;
+			}
+
+			function showCitationModal() {
+				if (!currentArticle) {
+					console.error('Article data not loaded yet.');
+					return;
+				}
+				currentStyle = document.getElementById('citationStyleSelect').value;
+				updateCitationDisplay();
+
+				const modalEl = document.getElementById('citationModal');
+				const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
+				modal.show();
+			}
+
+			async function loadArticleData() {
+				try {
+					const jsonUrl = '/a/s2026781212.json';
+					const response = await fetch(jsonUrl);
+					if (!response.ok) throw new Error('Failed to load article data');
+
+					const data = await response.json();
+					currentArticle = data.articles[0];
+
+				} catch (error) {
+					console.error('Error loading article data:', error);
+				}
+			}
+
+			document.addEventListener('DOMContentLoaded', function() {
+				loadArticleData();
+				document.getElementById('currentYear').textContent = new Date().getFullYear();
+				const citeBtn = document.getElementById('citeBtn');
+				if (citeBtn) {
+					citeBtn.addEventListener('click', showCitationModal);
+				}
+
+				const styleSelect = document.getElementById('citationStyleSelect');
+				if (styleSelect) {
+					styleSelect.addEventListener('change', (e) => {
+						currentStyle = e.target.value;
+						updateCitationDisplay();
+					});
+				}
+
+				const copyBtn = document.getElementById('copyCitationBtn');
+				if (copyBtn) {
+					copyBtn.addEventListener('click', () => {
+						if (!window.currentCitationText) return;
+						navigator.clipboard.writeText(window.currentCitationText).then(() => {
+							const original = copyBtn.innerHTML;
+							copyBtn.innerHTML = '<i class="bi bi-check me-1"></i> Copied!';
+							setTimeout(() => {
+								copyBtn.innerHTML = original;
+							}, 1500);
+						});
+					});
+				}
+
+				const downloadBtn = document.getElementById('downloadCitationBtn');
+				if (downloadBtn) {
+					downloadBtn.addEventListener('click', () => {
+						if (!window.currentCitationText || !currentArticle) return;
+
+						let filename = `citation-${currentArticle.id}`;
+						let extension = 'txt';
+						switch (currentStyle) {
+							case 'bibtex': extension = 'bib'; break;
+							case 'ris': extension = 'ris'; break;
+							default: extension = 'txt';
+						}
+
+						const blob = new Blob([window.currentCitationText], { type: 'text/plain' });
+						const url = URL.createObjectURL(blob);
+						const a = document.createElement('a');
+						a.href = url;
+						a.download = `${filename}.${extension}`;
+						document.body.appendChild(a);
+						a.click();
+						document.body.removeChild(a);
+						URL.revokeObjectURL(url);
+					});
+				}
+
+				const modalEl = document.getElementById('citationModal');
+				if (modalEl) {
+					modalEl.addEventListener('hidden.bs.modal', () => {
+						currentStyle = 'apa';
+						styleSelect.value = 'apa';
+						if (currentArticle) updateCitationDisplay();
+					});
+				}
+
+				(function() {
+					'use strict';
+					const getStoredTheme = () => localStorage.getItem('theme');
+					const setStoredTheme = theme => localStorage.setItem('theme', theme);
+					const getPreferredTheme = () => {
+						const storedTheme = getStoredTheme();
+						return storedTheme || 'light';
+					};
+					const setTheme = theme => {
+						if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+							document.documentElement.setAttribute('data-bs-theme', 'dark');
+						} else {
+							document.documentElement.setAttribute('data-bs-theme', theme);
+						}
+					};
+					const updateLogos = theme => {
+						const logos = document.querySelectorAll('.logo');
+						logos.forEach(logo => {
+							logo.src = theme === 'dark' ? '/images/logo-white.svg' : '/images/logo-black.svg';
+						});
+					};
+					setTheme(getPreferredTheme());
+					const showActiveTheme = theme => {
+						const themeSwitcher = document.querySelector('[data-bs-toggle="mode"]');
+						if (!themeSwitcher) return;
+						const themeSwitcherCheck = themeSwitcher.querySelector('input[type="checkbox"]');
+						themeSwitcherCheck.checked = (theme === 'dark');
+						updateLogos(theme);
+					};
+					window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+						const storedTheme = getStoredTheme();
+						if (storedTheme !== 'light' && storedTheme !== 'dark') {
+							const newTheme = getPreferredTheme();
+							setTheme(newTheme);
+							showActiveTheme(newTheme);
+						}
+					});
+					showActiveTheme(getPreferredTheme());
+					document.querySelectorAll('[data-bs-toggle="mode"]').forEach(toggle => {
+						toggle.addEventListener('click', () => {
+							const themeSwitcherCheck = toggle.querySelector('input[type="checkbox"]');
+							const theme = themeSwitcherCheck.checked ? 'dark' : 'light';
+							setStoredTheme(theme);
+							setTheme(theme);
+							showActiveTheme(theme);
+						});
+					});
+				})();
+			});
+
+			const gsearchModal = document.getElementById('gsearchModal');
+			const gsearchInput = document.getElementById('gsearchQueryInput');
+			gsearchModal.addEventListener('shown.bs.modal', () => {gsearchInput.focus();});
+		</script>
+		<script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+		<script>
+			QRCode.toDataURL("https://solav.me/a/s2026781212", {
+				type: "svg",
+				width: 100,
+				margin: 3,
+				errorCorrectionLevel: "H",
+				color: {
+					dark: "#000",
+					light: "#fff"
+				}
+			}, (err, url) => {
+				if (err) throw err;
+				document.getElementById("qr").src = url;
+			});
+		</script>
+	</body>
+</html>
