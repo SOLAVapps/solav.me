@@ -21125,3 +21125,36 @@ html {
 
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 40'%3E%3Cpath d='M12 10 Q12 20 22 20 H32' fill='none' stroke='%23999' stroke-width='1.2' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='20' r='4' fill='%23888'/%3E%3C/svg%3E");
 }
+
+@property --p { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+
+html { scroll-behavior: smooth; }
+
+.to-top {
+  position: fixed; right: 20px; bottom: 20px;
+  width: 38px; aspect-ratio: 1; border-radius: 50%;
+  display: grid; place-items: center;
+  background: conic-gradient(#6366f1 var(--p), #373344 0);
+
+  animation: fill linear, show linear;
+  animation-timeline: scroll(), scroll();
+  animation-range: normal, 0px 150px;
+  animation-fill-mode: both;
+}
+
+.to-top::before {
+  content: ""; position: absolute; inset: 3px;
+  border-radius: 50%; background: #111;
+}
+
+.to-top::after {
+  content: ""; position: relative; width: 12px; aspect-ratio: 1;
+  border: solid #6366f1; border-width: 3px 3px 0 0;
+  rotate: -45deg; translate: 0 3px;
+}
+
+.to-top:hover::after { animation: bob .6s ease-in-out infinite; }
+
+@keyframes fill { to { --p: 360deg; } }
+@keyframes show { from { opacity: 0; visibility: hidden; } }
+@keyframes bob  { 50% { translate: 0 -4px; } }
