@@ -21126,35 +21126,35 @@ html {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 40'%3E%3Cpath d='M12 10 Q12 20 22 20 H32' fill='none' stroke='%23999' stroke-width='1.2' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='20' r='4' fill='%23888'/%3E%3C/svg%3E");
 }
 
-@property --p { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
-
-html { scroll-behavior: smooth; }
-
+@property --p { syntax: "<angle>"; inherits: true; initial-value: 0deg; }
+@property --g { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
 .to-top {
   position: fixed; right: 20px; bottom: 20px;
-  width: 38px; aspect-ratio: 1; border-radius: 50%;
+  width: 48px; aspect-ratio: 1;
   display: grid; place-items: center;
-  background: conic-gradient(#6366f1 var(--p), #373344 0);
+  background:#6366f1; border-radius: 50%;
 
   animation: fill linear, show linear;
   animation-timeline: scroll(), scroll();
   animation-range: normal, 0px 150px;
   animation-fill-mode: both;
 }
-
 .to-top::before {
-  content: ""; position: absolute; inset: 3px;
-  border-radius: 50%; background: #111;
+  content: ""; position: absolute; inset: 0;
+  background: conic-gradient(from var(--g), #fff, #fff 50%, #fff);
+  mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 10.5A5.3 5.3 0 0 1 60.2 11.8A5.7 5.7 0 0 0 69.8 15.8A5.3 5.3 0 0 1 77.9 22.1A5.7 5.7 0 0 0 84.2 30.2A5.3 5.3 0 0 1 88.2 39.8A5.7 5.7 0 0 0 89.5 50A5.3 5.3 0 0 1 88.2 60.2A5.7 5.7 0 0 0 84.2 69.8A5.3 5.3 0 0 1 77.9 77.9A5.7 5.7 0 0 0 69.8 84.2A5.3 5.3 0 0 1 60.2 88.2A5.7 5.7 0 0 0 50 89.5A5.3 5.3 0 0 1 39.8 88.2A5.7 5.7 0 0 0 30.3 84.2A5.3 5.3 0 0 1 22.1 77.9A5.7 5.7 0 0 0 15.8 69.8A5.3 5.3 0 0 1 11.8 60.2A5.7 5.7 0 0 0 10.5 50A5.3 5.3 0 0 1 11.8 39.8A5.7 5.7 0 0 0 15.8 30.3A5.3 5.3 0 0 1 22.1 22.1A5.7 5.7 0 0 0 30.2 15.8A5.3 5.3 0 0 1 39.8 11.8A5.7 5.7 0 0 0 50 10.5z' fill='none' stroke='%23000' stroke-width='5'/></svg>") 0 0 / 100% 100%,
+        conic-gradient(from var(--g), #2c2d6e var(--p), rgba(48, 44, 64, 0.1) 0);
+  mask-composite: intersect;
+  animation: wave 12s linear infinite;
 }
-
 .to-top::after {
-  content: ""; position: relative; width: 12px; aspect-ratio: 1;
-  border: solid #6366f1; border-width: 3px 3px 0 0;
+  content: ""; width: 10px; aspect-ratio: 1;
+  border: solid #fff; border-width: 3px 3px 0 0;
   rotate: -45deg; translate: 0 3px;
 }
-
 .to-top:hover::after { animation: bob .6s ease-in-out infinite; }
-
 @keyframes fill { to { --p: 360deg; } }
 @keyframes show { from { opacity: 0; visibility: hidden; } }
-@keyframes bob  { 50% { translate: 0 -4px; } }
+@keyframes wave { to { rotate: 1turn; --g: -1turn; } }   /* ring turns, colours stay put */
+@keyframes bob  { 50% { translate: 0 -1px; } }
+@media (prefers-reduced-motion: reduce) { .to-top::before { animation: none; } }
