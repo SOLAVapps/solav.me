@@ -28,7 +28,7 @@
 		<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 		<link href="/css/swiper.css" rel="stylesheet">
-		<link href="/css/style.css?v=20261113" rel="stylesheet">
+		<link href="/css/style.css?v=20261114" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 		<script>
 		!function(){const e=localStorage.getItem("theme"),t=window.matchMedia("(prefers-color-scheme: dark)").matches,n=e||(t?"dark":"light");document.documentElement.setAttribute("data-bs-theme",n),"undefined"!=typeof document&&document.addEventListener("DOMContentLoaded",(function(){const e=document.getElementById("theme-mode");e&&(e.checked="dark"===n,e.addEventListener("change",(function(){const e=this.checked?"dark":"light";document.documentElement.setAttribute("data-bs-theme",e),localStorage.setItem("theme",e)})))}))}();
@@ -428,6 +428,9 @@
 										<a href="https://zenodo.org/communities/solav" 
 										title="Permanent archival of all articles in Zenodo (CERN), a CoreTrustSeal-certified repository" 
 										target="_blank"><img src="/images/zenodo-icon-blue.svg" class="d-Icons" alt="Zenodo repository archive"></a>
+										<a href="https://orkg.org/u/8365239f-85e1-479e-ae9e-5599125bafd8" 
+										title="SOLAV Journal on Open Research Knowledge Graph" 
+										target="_blank"><img src="/images/orkg_icon.svg" class="d-Icons" alt="Open Research Knowledge Graph"></a>
 										<a href="https://commons.datacite.org/doi.org?query=SOLAV+Journal" 
 										title="Persistent Digital Object Identifiers (DOIs) and metadata registered via DataCite" 
 										target="_blank"><img src="/images/datacite-logo.svg" class="d-sIcons" alt="DataCite DOI registration"></a>
@@ -864,6 +867,9 @@
 													<small class="text-muted text-xs mt-2"><i class="bi bi-info-circle"></i> This DOI is provided for long-term preservation and open archiving.</small>
 													<a href="https://doi.org/${article.identifiers.archive_doi}" target="_blank" class="btn btn-sm btn-outline-primary"  style="white-space: normal;">
 														<img src="/images/doi_logo.svg" class="doiIcon mx-2" alt="(${article.identifiers.archive_repository})"> Archival DOI (${article.identifiers.archive_repository})
+													</a>
+													<a href="https://doi.org/${article.identifiers.orkg_doi}" target="_blank" class="btn btn-sm btn-outline-primary"  style="white-space: normal;">
+														<img src="/images/orkg_icon.svg" class="doiIcon mx-2" alt="View on ORKG"> View on ORKG
 													</a>
 												</div>
 											</div>
