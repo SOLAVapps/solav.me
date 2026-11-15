@@ -474,7 +474,13 @@
 			"question": "Does SOLAV support Google Scholar indexing?",
 			"answer": "Yes. SOLAV implements citation metadata tags to support indexing by Google Scholar and similar academic search engines.",
 			"links": ["https://solav.me"]
-		}
+		},
+		{
+			"id": "IND-006",
+			"question": "Does SOLAV support structured knowledge graphs like ORKG?",
+			"answer": "Yes. SOLAV Journal actively integrates with the Open Research Knowledge Graph (ORKG). We curate an official 'SOLAV Journal Publications' project in ORKG, and we encourage authors to register their datasets, software, and methodological protocols there to enhance machine-readability, reproducibility, and semantic discovery of their applied research.",
+			"links": ["https://orkg.org/u/8365239f-85e1-479e-ae9e-5599125bafd8", "https://solav.me/guidelines"]
+			}
 		]
 	},
 
