@@ -5,6 +5,7 @@
 		"id": "s2026781212",
 		"identifiers": {
 			"archive_doi": "10.5281/zenodo.24147200",
+			"orkg_doi": "10.48366/R1992790",
 			"archive_repository": "Zenodo",
 			"publisher_doi": null
 		},
@@ -38,7 +39,7 @@
 			"AI governance",
 			"Misinformation"
 		],
-		"abstract": "Small language models (SLMs), compact generative models ranging from a few hundred million to roughly ten billion parameters, are increasingly chosen for on-device, private and cost-sensitive deployments. Their tendency to produce fluent but unsupported statements is nevertheless rarely treated as a distinct engineering problem. This review synthesises research published up to November 2026 on why SLMs hallucinate, how the problem is measured, and which countermeasures exist at the model, inference and operational levels. Three arguments are made. First, the evidence points to several interacting causes, namely limited capacity for rare facts, training and evaluation incentives that reward guessing, unstable retrieval of knowledge the model does hold, and weak calibration, rather than to a single deficit. Second, reported hallucination rates depend strongly on model variant, decoding settings and task, so figures cannot be compared across studies without care. Third, no single safeguard suffices: reliability is better pursued as a layered stack that combines targeted fine-tuning, retrieval grounding, sampling-based consistency checks, abstention, and risk-proportionate human oversight. The review then maps these layers onto accountability and regulatory expectations and lists open problems, including size-controlled benchmarks and independent replication of promising small-scale methods.",
+		"abstract": "Small language models (SLMs), compact generative models ranging from a few hundred million to roughly ten billion parameters, are increasingly chosen for on-device, private and cost-sensitive deployments. Their tendency to produce fluent but unsupported statements is nevertheless rarely treated as a distinct engineering problem. This review synthesizes research published up to November 2026 on why SLMs hallucinate, how the problem is measured, and which countermeasures exist at the model, inference and operational levels. Three arguments are made. First, the evidence points to several interacting causes, namely limited capacity for rare facts, training and evaluation incentives that reward guessing, unstable retrieval of knowledge the model does hold, and weak calibration, rather than to a single deficit. Second, reported hallucination rates depend strongly on model variant, decoding settings and task, so figures cannot be compared across studies without care. Third, no single safeguard suffices: reliability is better pursued as a layered stack that combines targeted fine-tuning, retrieval grounding, sampling-based consistency checks, abstention, and risk-proportionate human oversight. The review then maps these layers onto accountability and regulatory expectations and lists open problems, including size-controlled benchmarks and independent replication of promising small-scale methods.",
 		"version": [
 			{
 			"date": "2026-11-12",

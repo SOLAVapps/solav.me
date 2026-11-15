@@ -5,6 +5,7 @@
 		"id": "s2025781107",
 		"identifiers": {
 			"archive_doi": "10.5281/zenodo.18538479",
+			"orkg_doi": "10.48366/R1992725",
 			"archive_repository": "Zenodo",
 			"publisher_doi": null
 		},
@@ -14,8 +15,8 @@
 		"authors": [
 		{
 			"id": "00010082",
-			"name_first": "Rizq",
-			"name_last": "Khalil",
+			"name_first": "Khalil",
+			"name_last": "Rizq",
 			"name": "Rizq, Khalil",
 			"corresponding": 1,
 			"affiliation": "Independent Researcher, Scholarly Communication Studies",
