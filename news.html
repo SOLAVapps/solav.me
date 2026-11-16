@@ -30,6 +30,51 @@
 		<link href="/css/swiper.css" rel="stylesheet">
 		<link href="/css/style.css?v=20261114" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+		<style>
+			/* ---- News deep-link / share enhancements ---- */
+			.news-share-btn {
+				flex: 0 0 auto;
+				line-height: 1;
+			}
+			.btn.copied,
+			.btn.copied:hover,
+			.btn.copied:focus {
+				background-color: var(--bs-success);
+				border-color: var(--bs-success);
+				color: #fff;
+			}
+			.news-copy-toast {
+				position: fixed;
+				left: 50%;
+				bottom: 2rem;
+				z-index: 2000;
+				display: inline-flex;
+				align-items: center;
+				gap: .55rem;
+				padding: .7rem 1.2rem;
+				border-radius: 50rem;
+				background-color: var(--bs-success);
+				color: #fff;
+				font-size: .9rem;
+				font-weight: 600;
+				box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .22);
+				opacity: 0;
+				pointer-events: none;
+				transform: translate(-50%, 1.5rem);
+				transition: opacity .25s ease, transform .25s ease;
+			}
+			.news-copy-toast.show {
+				opacity: 1;
+				transform: translate(-50%, 0);
+			}
+			.news-copy-toast.is-warning {
+				background-color: var(--bs-warning);
+				color: #1a1a1a;
+			}
+			@media (prefers-reduced-motion: reduce) {
+				.news-copy-toast { transition: none; }
+			}
+		</style>
 		<script>
 		!function(){const e=localStorage.getItem("theme"),t=window.matchMedia("(prefers-color-scheme: dark)").matches,n=e||(t?"dark":"light");document.documentElement.setAttribute("data-bs-theme",n),"undefined"!=typeof document&&document.addEventListener("DOMContentLoaded",(function(){const e=document.getElementById("theme-mode");e&&(e.checked="dark"===n,e.addEventListener("change",(function(){const e=this.checked?"dark":"light";document.documentElement.setAttribute("data-bs-theme",e),localStorage.setItem("theme",e)})))}))}();
 		</script>
@@ -334,7 +379,10 @@
 						<div><strong>Author:</strong> <span id="modalNewsAuthor"></span></div>
 						<div class="mt-2" id="modalNewsTags"></div>
 					</div>
-					<div class="modal-footer">
+					<div class="modal-footer justify-content-between">
+						<button type="button" class="btn btn-outline-primary" id="modalNewsShareBtn" data-copied-label="Copied!">
+							<i class="bi bi-link-45deg me-1"></i>Copy Link
+						</button>
 						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 					</div>
 				</div>
@@ -495,6 +543,29 @@
 			let currentSearchQuery = "";
 			let currentSort = "newest";
 
+			/* =========================================================
+			   DEEP-LINK CONFIGURATION
+			   ---------------------------------------------------------
+			   "query"  =>  /news?id=2025-005   (works on ANY static host)
+			   "path"   =>  /news/2025-005      (requires a server rewrite
+			                                    rule pointing /news/* to
+			                                    this page)
+			   Both forms are ALWAYS accepted on the way in; this switch
+			   only controls which form the page writes into the URL.
+			========================================================= */
+			const NEWS_URL_STYLE = "query";
+
+			/* Base path of this page, e.g. "/news" or "/news.html".
+			   If the visitor arrived via /news/2025-005, the slug is
+			   stripped off so we can rebuild clean links. */
+			const NEWS_PAGE_PATH = (function () {
+				const p = window.location.pathname || "/news";
+				const m = p.match(/^(.*\/news)(?:\/|$)/);
+				return m ? m[1] : p;
+			})();
+
+			let currentNewsId = null;
+
 			const newsGrid = document.getElementById('newsGridContainer');
 			const loadingSpinner = document.getElementById('newsLoadingSpinner');
 			const noResultsDiv = document.getElementById('newsNoResults');
@@ -506,7 +577,8 @@
 			const categoryContainer = document.getElementById('categoryFilterContainer');
 			const resetFiltersBtn = document.getElementById('resetNewsFilters');
 
-			const newsModal = new bootstrap.Modal(document.getElementById('newsDetailModal'));
+			const newsModalEl = document.getElementById('newsDetailModal');
+			const newsModal = new bootstrap.Modal(newsModalEl);
 			const modalTitle = document.getElementById('newsModalTitle');
 			const modalImage = document.getElementById('modalNewsImage');
 			const modalCategory = document.getElementById('modalNewsCategory');
@@ -514,12 +586,224 @@
 			const modalFullContent = document.getElementById('modalFullContent');
 			const modalAuthor = document.getElementById('modalNewsAuthor');
 			const modalTags = document.getElementById('modalNewsTags');
+			const modalShareBtn = document.getElementById('modalNewsShareBtn');
 
+			/* ---------------------------------------------------------
+			   SMALL HELPERS
+			--------------------------------------------------------- */
 			function formatDate(dateStr) {
 				const d = new Date(dateStr);
 				return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 			}
 
+			function escapeHtml(str) {
+				return String(str == null ? "" : str)
+					.replace(/&/g, "&amp;")
+					.replace(/</g, "&lt;")
+					.replace(/>/g, "&gt;")
+					.replace(/"/g, "&quot;")
+					.replace(/'/g, "&#39;");
+			}
+
+			/* The public "slug" of a news item.
+			   1. explicit item.slug if you ever add one to news.json
+			   2. last segment of item.link  (e.g. "/news/2025-005" -> "2025-005")
+			   3. item.id with the "news-" prefix removed */
+			function getNewsSlug(item) {
+				if (!item) return "";
+				if (item.slug) return String(item.slug);
+				if (item.link) {
+					const seg = String(item.link).split("/").filter(Boolean).pop();
+					if (seg) return seg;
+				}
+				return String(item.id || "").replace(/^news-/, "");
+			}
+
+			function buildNewsUrl(slug) {
+				if (!slug) return NEWS_PAGE_PATH;
+				if (NEWS_URL_STYLE === "path") {
+					return NEWS_PAGE_PATH + "/" + encodeURIComponent(slug);
+				}
+				return NEWS_PAGE_PATH + "?id=" + encodeURIComponent(slug);
+			}
+
+			function getAbsoluteNewsUrl(item) {
+				try {
+					return new URL(buildNewsUrl(getNewsSlug(item)), window.location.href).href;
+				} catch (e) {
+					return buildNewsUrl(getNewsSlug(item));
+				}
+			}
+
+			function findNewsItem(idOrSlug) {
+				if (!idOrSlug) return null;
+				const needle = String(idOrSlug).trim().toLowerCase().replace(/\/+$/, "");
+				if (!needle) return null;
+				return allNewsItems.find(item => {
+					const slug = getNewsSlug(item).toLowerCase();
+					const id = String(item.id || "").toLowerCase();
+					return slug === needle ||
+						id === needle ||
+						id === "news-" + needle ||
+						("news-" + slug) === needle;
+				}) || null;
+			}
+
+			/* Reads the news identifier out of the current URL.
+			   Supports:  ?id=2025-005   ?news=...   ?slug=...
+			              /news/2025-005
+			              #/news/2025-005  or  #news-2025-005 */
+			function getNewsIdFromUrl() {
+				const params = new URLSearchParams(window.location.search);
+				const q = params.get('id') || params.get('news') || params.get('slug');
+				if (q && q.trim()) return q.trim();
+
+				const hash = window.location.hash.replace(/^#\/?/, "").trim();
+				if (hash && /^(news[-/]|id=)/i.test(hash)) {
+					return hash.replace(/^id=/i, "").replace(/^news[-/]/i, "");
+				}
+
+				const m = window.location.pathname.match(/\/news\/([^/]+)\/?$/i);
+				if (m) return decodeURIComponent(m[1]);
+
+				return null;
+			}
+
+			/* ---------------------------------------------------------
+			   OPEN / CLOSE + HISTORY
+			--------------------------------------------------------- */
+			function openNewsById(idOrSlug, options) {
+				const opts = options || {};
+				const item = findNewsItem(idOrSlug);
+				if (!item) return false;
+
+				if (opts.push !== false) {
+					try {
+						history.pushState({ newsId: item.id }, "", buildNewsUrl(getNewsSlug(item)));
+					} catch (e) { /* ignore (file:// or blocked) */ }
+				}
+				currentNewsId = item.id;
+				showFullNewsModal(item);
+				return true;
+			}
+
+			/* Called once the JSON is loaded: opens the item referenced
+			   by the URL the visitor landed on. */
+			function handleInitialDeepLink() {
+				const id = getNewsIdFromUrl();
+				if (!id) return;
+
+				if (openNewsById(id, { push: false })) return;
+
+				// Unknown slug — clean the URL and tell the visitor.
+				try { history.replaceState({}, "", NEWS_PAGE_PATH); } catch (e) {}
+				showCopyToast("News item not found", "warning");
+			}
+
+			// Browser back / forward
+			window.addEventListener('popstate', function () {
+				const id = getNewsIdFromUrl();
+				if (id) {
+					openNewsById(id, { push: false });
+				} else if (currentNewsId) {
+					newsModal.hide();
+				}
+			});
+
+			// Whenever the modal closes, strip the id from the URL.
+			newsModalEl.addEventListener('hidden.bs.modal', function () {
+				currentNewsId = null;
+				if (getNewsIdFromUrl()) {
+					try { history.replaceState({}, "", NEWS_PAGE_PATH); } catch (e) {}
+				}
+			});
+
+			/* ---------------------------------------------------------
+			   CLIPBOARD + TOAST
+			--------------------------------------------------------- */
+			function copyTextToClipboard(text) {
+				if (navigator.clipboard && window.isSecureContext) {
+					return navigator.clipboard.writeText(text);
+				}
+				return new Promise(function (resolve, reject) {
+					try {
+						const ta = document.createElement('textarea');
+						ta.value = text;
+						ta.setAttribute('readonly', '');
+						ta.style.position = 'fixed';
+						ta.style.top = '-1000px';
+						ta.style.opacity = '0';
+						document.body.appendChild(ta);
+						ta.select();
+						ta.setSelectionRange(0, ta.value.length);
+						const ok = document.execCommand('copy');
+						document.body.removeChild(ta);
+						ok ? resolve() : reject(new Error('execCommand copy failed'));
+					} catch (err) {
+						reject(err);
+					}
+				});
+			}
+
+			let copyToastTimer = null;
+			function showCopyToast(message, variant) {
+				let toast = document.getElementById('newsCopyToast');
+				if (!toast) {
+					toast = document.createElement('div');
+					toast.id = 'newsCopyToast';
+					toast.className = 'news-copy-toast';
+					toast.setAttribute('role', 'status');
+					toast.setAttribute('aria-live', 'polite');
+					document.body.appendChild(toast);
+				}
+				const icon = (variant === 'warning') ? 'bi-exclamation-triangle-fill' : 'bi-check-circle-fill';
+				toast.innerHTML = '<i class="bi ' + icon + '"></i><span></span>';
+				toast.querySelector('span').textContent = message;
+				toast.classList.toggle('is-warning', variant === 'warning');
+
+				// force reflow so the transition replays if it is already visible
+				void toast.offsetWidth;
+				toast.classList.add('show');
+
+				clearTimeout(copyToastTimer);
+				copyToastTimer = setTimeout(function () {
+					toast.classList.remove('show');
+				}, 2400);
+			}
+
+			function flashCopied(button) {
+				if (!button) return;
+				if (!button.dataset.originalHtml) {
+					button.dataset.originalHtml = button.innerHTML;
+				}
+				const label = button.dataset.copiedLabel || '';
+				button.innerHTML = '<i class="bi bi-check2 me-1 fs-5"></i>' +
+					(label ? '<span class="ms-1">' + escapeHtml(label) + '</span>' : '');
+				button.classList.add('copied');
+
+				clearTimeout(button._copiedTimer);
+				button._copiedTimer = setTimeout(function () {
+					button.innerHTML = button.dataset.originalHtml;
+					button.classList.remove('copied');
+				}, 1800);
+			}
+
+			async function handleShareClick(item, button) {
+				if (!item) return;
+				const url = getAbsoluteNewsUrl(item);
+				try {
+					await copyTextToClipboard(url);
+					flashCopied(button);
+					showCopyToast("Link copied to clipboard");
+				} catch (err) {
+					// Last-resort fallback (e.g. very old browsers / insecure context)
+					window.prompt("Copy this link:", url);
+				}
+			}
+
+			/* ---------------------------------------------------------
+			   DATA LOADING
+			--------------------------------------------------------- */
 			async function loadNewsData() {
 				loadingSpinner.style.display = 'block';
 				newsGrid.style.display = 'none';
@@ -530,6 +814,7 @@
 					allNewsItems = data.news.sort((a,b) => new Date(b.date) - new Date(a.date));
 					extractAndRenderCategories();
 					applyFiltersAndRender();
+					handleInitialDeepLink();   // <-- open the requested news item, if any
 				} catch (err) {
 					console.error('Error loading news:', err);
 					newsGrid.innerHTML = `<div class="col-12 text-center py-5"><i class="bi bi-exclamation-triangle display-1 text-danger"></i><h4>Unable to load news</h4><p>Please try again later.</p></div>`;
@@ -601,7 +886,7 @@
 				newsGrid.innerHTML = pageItems.map(item => `
 					<div class="col-lg-4 col-md-6">
 						<div class="card news-card h-100">
-							<img src="${item.image || '/images/news/default.jpg'}" class="card-img-top news-img" alt="SOLAV Journal - ${item.title}" onerror="this.src='/images/logo.svg'">
+							<img src="${item.image || '/images/news/default.jpg'}" class="card-img-top news-img" alt="SOLAV Journal - ${escapeHtml(item.title)}" onerror="this.src='/images/logo.svg'">
 							<div class="card-body d-flex flex-column">
 								<div class="d-flex justify-content-between align-items-start mb-2">
 									<span class="badge bg-primary news-category-badge">${item.category}</span>
@@ -609,9 +894,15 @@
 								</div>
 								<h5 class="card-title fw-semibold">${item.title}</h5>
 								<p class="card-text news-excerpt">${item.excerpt}</p>
-								<div class="mt-auto">
-									<button class="btn btn-sm btn-outline-primary read-more-btn w-100" data-news-id="${item.id}">
+								<div class="mt-auto d-flex gap-2">
+									<button class="btn btn-sm btn-outline-primary read-more-btn flex-grow-1" data-news-id="${escapeHtml(item.id)}">
 										<i class="bi bi-arrow-right-circle me-1"></i> Read More
+									</button>
+									<button class="btn btn-sm btn-outline-secondary news-share-btn"
+											data-news-id="${escapeHtml(item.id)}"
+											title="Copy a direct link to this news item"
+											aria-label="Copy link to ${escapeHtml(item.title)}">
+										<i class="bi bi-link-45deg me-1 fs-5"></i>
 									</button>
 								</div>
 							</div>
@@ -620,12 +911,21 @@
 				`).join('');
 				
 				document.querySelectorAll('.read-more-btn').forEach(btn => {
-					btn.addEventListener('click', (e) => {
-						const id = btn.dataset.newsId;
-						const newsItem = allNewsItems.find(n => n.id === id);
-						if (newsItem) showFullNewsModal(newsItem);
+					btn.addEventListener('click', () => {
+						// Pushes /news?id=<slug> into the address bar
+						openNewsById(btn.dataset.newsId, { push: true });
 					});
 				});
+
+				document.querySelectorAll('.news-share-btn').forEach(btn => {
+					btn.addEventListener('click', (e) => {
+						e.preventDefault();
+						e.stopPropagation();
+						const item = allNewsItems.find(n => n.id === btn.dataset.newsId);
+						handleShareClick(item, btn);
+					});
+				});
+
 				renderPagination();
 			}
 
@@ -640,8 +940,18 @@
 				if (news.tags && news.tags.length) {
 					modalTags.innerHTML = `<strong>Tags:</strong> ${news.tags.map(t => `<span class="news-tag ms-1">${t}</span>`).join(' ')}`;
 				} else modalTags.innerHTML = '';
+				// reset the "Copy Link" button in case it was left in the "Copied!" state
+				if (modalShareBtn.dataset.originalHtml) {
+					modalShareBtn.innerHTML = modalShareBtn.dataset.originalHtml;
+					modalShareBtn.classList.remove('copied');
+				}
 				newsModal.show();
 			}
+
+			modalShareBtn.addEventListener('click', function () {
+				const item = allNewsItems.find(n => n.id === currentNewsId);
+				handleShareClick(item, modalShareBtn);
+			});
 
 			function renderPagination() {
 				const totalPages = Math.ceil(filteredNewsItems.length / newsPerPage);
