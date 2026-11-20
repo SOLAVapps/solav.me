@@ -805,7 +805,7 @@
 				newsGrid.style.display = 'none';
 				noResultsDiv.style.display = 'none';
 				try {
-					const response = await fetch('/data/news.json?v=20261110');
+					const response = await fetch('/data/news.json?v=20261119');
 					const data = await response.json();
 					allNewsItems = data.news.sort((a,b) => new Date(b.date) - new Date(a.date));
 					extractAndRenderCategories();

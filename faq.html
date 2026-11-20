@@ -777,7 +777,7 @@
 			}
 			async function loadFAQ() {
 				try {
-					const res = await fetch('/data/faq.json?v=20261114');
+					const res = await fetch('/data/faq.json?v=20261119');
 					if (!res.ok) throw 'Load failed';
 					const json = await res.json();
 					faqData = json.sections;
