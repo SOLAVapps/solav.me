@@ -5,6 +5,18 @@
   "last_updated": "2026-11-10",
   "news": [
     {
+      "id": "news-2026-012",
+      "title": "SOLAV Journal Officially Recognized as a Source in OpenAlex",
+      "date": "2026-11-15",
+      "category": "Indexing Updates",
+      "excerpt": "SOLAV Journal is now officially registered as a distinct source entity in OpenAlex, the world's largest fully open catalog of the global research system.",
+      "content": "We are pleased to announce that SOLAV Journal is now officially recognized as a distinct 'Source' entity in OpenAlex (Source ID: S7407122734). \n\nOpenAlex is a fully open, comprehensive catalog of the global research system, widely used by researchers, universities, and funding agencies worldwide as a transparent alternative to proprietary databases. Being registered as a Source means that OpenAlex actively recognizes SOLAV Journal's metadata, correctly attributes published works to our journal, and ensures our articles are seamlessly integrated into global research analytics.\n\nThis milestone validates SOLAV Journal's robust technical infrastructure, including our OAI-PMH metadata harvesting endpoint and our partnership with Zenodo (CERN) for persistent DOI registration. It further strengthens our commitment to maximum discoverability and open science.\n\nYou can view the official SOLAV Journal Source profile on OpenAlex here: https://openalex.org/sources/S7407122734",
+      "link": "/news/2026-012",
+      "image": "/images/news/openalex-source.jpg",
+      "author": "Editorial Office",
+      "tags": ["OpenAlex", "Indexing", "Metadata", "Open Science", "Discoverability"]
+    },
+    {
       "id": "news-2026-005",
       "title": "Q4 2026 Infrastructure and Discoverability Updates",
       "date": "2026-11-10",
