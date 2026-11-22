@@ -28,7 +28,7 @@
 		<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 		<link href="/css/swiper.css" rel="stylesheet">
-		<link href="/css/style.css?v=20261119" rel="stylesheet">
+		<link href="/css/style.css?v=20261122" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 		<script>
 		!function(){const e=localStorage.getItem("theme"),t=window.matchMedia("(prefers-color-scheme: dark)").matches,n=e||(t?"dark":"light");document.documentElement.setAttribute("data-bs-theme",n),"undefined"!=typeof document&&document.addEventListener("DOMContentLoaded",(function(){const e=document.getElementById("theme-mode");e&&(e.checked="dark"===n,e.addEventListener("change",(function(){const e=this.checked?"dark":"light";document.documentElement.setAttribute("data-bs-theme",e),localStorage.setItem("theme",e)})))}))}();
@@ -246,8 +246,13 @@
 							<h2 class="h1 mb-4">Digital Preservation Strategy</h2>
 							
 							<div class="alert alert-info mb-4" role="alert">
-								<h5 class="alert-heading"><i class="bi bi-info-circle me-2"></i>Our DOI & Archiving Approach</h5>
-								<p class="mb-0">All SOLAV Journal articles are archived in Zenodo and assigned persistent identifiers (DOIs) via DataCite for preservation and citation.</p>
+								<h5 class="alert-heading"><i class="bi bi-info-circle me-2"></i>Our Multi-Layer Preservation Strategy</h5>
+								<p class="mb-0">SOLAV Journal adheres to the LOCKSS (Lots of Copies Keep Stuff Safe) principle to guarantee perpetual accessibility. We employ a three-tiered preservation strategy:</p>
+								<ol class="small text-muted mb-0">
+									<li><strong>Primary Archival Record:</strong> CoreTrustSeal-certified repository (Zenodo/CERN) with persistent DOIs.</li>
+									<li><strong>Permanent Redundant Vault:</strong> Non-profit, censorship-resistant digital preservation via the Internet Archive.</li>
+									<li><strong>Global Distributed Harvesting:</strong> Continuous metadata replication via our OAI-PMH endpoint to global networks (CORE, BASE, OpenAlex, OpenAIRE).</li>
+								</ol>
 							</div>
 							
 							<div class="row g-4">
@@ -296,30 +301,42 @@
 										</p>
 									</div>
 									
-									<div class="row row-cols-1 row-cols-md-2 g-4">
-										<div class="col">
+									<div class="row g-4 mb-4">
+										<div class="col-md-4">
 											<div class="card h-100 border-0 shadow-sm">
 												<div class="card-body">
-													<h5 class="card-title d-flex align-items-center">
-													<img src="/images/zenodo-icon-blue.svg" alt="Zenodo logo" class="me-3" style="height: 32px;">
-														Primary Archiving (Zenodo)
-													</h5>
-													<p class="card-text">
-														All articles receive permanent DOIs and full-text preservation via <a href="https://zenodo.org/communities/solav" target="_blank" rel="noopener">Zenodo</a> (CERN), a CoreTrustSeal-certified repository. This serves as our official archival record with institutional-grade redundancy.
+													<div class="d-flex align-items-center mb-3">
+														<img src="/images/zenodo-icon-blue.svg" alt="Zenodo" class="me-3" style="height: 40px;">
+														<h5 class="h6 mb-0">Primary Archiving (Zenodo)</h5>
+													</div>
+													<p class="small text-muted mb-0">
+														All articles receive permanent DOIs and full-text preservation via <a href="https://zenodo.org/communities/solav" target="_blank" rel="noopener">Zenodo</a> (operated by CERN), a CoreTrustSeal-certified repository. This serves as our official, citable archival record with institutional-grade redundancy.
 													</p>
 												</div>
 											</div>
 										</div>
-										
-										<div class="col">
+										<div class="col-md-4">
 											<div class="card h-100 border-0 shadow-sm">
 												<div class="card-body">
-													<h5 class="card-title d-flex align-items-center">
-													<img src="/images/osf-logo.svg" alt="OSF logo" class="me-3" style="height: 32px;">
-														Legacy Metadata Preservation (OSF)
-													</h5>
-													<p class="card-text">
-														Historical machine-readable metadata records for earlier volumes were preserved in an OSF project. While OSF is transitioning its active workspace features, all existing public SOLAV projects on OSF remain persistent, discoverable, and accessible in accordance with COS's long-term preservation guarantees.
+													<div class="d-flex align-items-center mb-3">
+														<img src="/images/internet_archive_icon.svg" alt="Internet Archive" class="me-3" style="height: 40px;">
+														<h5 class="h6 mb-0">Permanent Vault (Internet Archive)</h5>
+													</div>
+													<p class="small text-muted mb-0">
+														To guarantee long-term survival independent of commercial platforms, all article PDFs and structured metadata files (Dublin Core XML, BibTeX, MARC21, RIS) are redundantly deposited in the <a href="https://archive.org/details/@solav_journal" target="_blank" rel="noopener">Internet Archive</a>, a non-profit digital library dedicated to universal, permanent access to knowledge.
+													</p>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-4">
+											<div class="card h-100 border-0 shadow-sm">
+												<div class="card-body">
+													<div class="d-flex align-items-center mb-3">
+														<img src="/images/osf-logo.svg" alt="OSF" class="me-3" style="height: 40px;">
+														<h5 class="h6 mb-0">Legacy Metadata (OSF)</h5>
+													</div>
+													<p class="small text-muted mb-0">
+														Historical machine-readable metadata records for earlier volumes were preserved in an <a href="https://osf.io/2yskf/" target="_blank" rel="noopener">OSF project</a>. While OSF is transitioning its active workspace features, all existing public SOLAV projects remain persistent, discoverable, and accessible per COS's long-term preservation guarantees.
 													</p>
 												</div>
 											</div>
@@ -441,25 +458,22 @@
 								<div class="card-body p-4">
 									<p class="lead mb-4">We encourage data sharing to support research reproducibility and transparency:</p>
 									
-									<div class="row g-4">
-										<div class="col-md-6">
-											<div class="text-center p-3 border rounded-3 h-100">
-												<div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex justify-content-center align-items-center mb-3" style="min-width: 60px; min-height: 60px;">
-													<i class="bi bi-database fs-4 text-primary"></i>
-												</div>
-												<h4 class="h5">Data Hosting</h4>
-												<p class="mb-0">Supplementary files (datasets, code, multimedia) can be hosted alongside articles for 5+ years. However, primary research data should be deposited in external trusted repositories (Zenodo, Figshare) for long-term preservation.</p>
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="text-center p-3 border rounded-3 h-100">
-												<div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex justify-content-center align-items-center mb-3" style="min-width: 60px; min-height: 60px;">
-													<i class="bi bi-share fs-4 text-primary"></i>
-												</div>
-												<h4 class="h5">External Repositories</h4>
-												<p class="mb-0">Authors encouraged to use disciplinary repositories (Figshare, Zenodo, Dryad) with links in articles.</p>
-											</div>
-										</div>
+									<div class="mb-4">
+										<h5 class="h6 mb-3">Data Hosting & Supplementary Materials</h5>
+										<ul class="small text-muted mb-0">
+											<li class="mb-2">
+												<strong>Primary Recommendation:</strong> Authors are strongly encouraged to deposit datasets, code, and supplementary files in <strong>Zenodo</strong> (which seamlessly integrates with our article DOIs), Figshare, Dryad, or discipline-specific trusted repositories.
+											</li>
+											<li class="mb-2">
+												<strong>Structured Knowledge:</strong> We also support and encourage the registration of methodological protocols and structured data in the <a href="https://www.orkg.org" target="_blank" rel="noopener">Open Research Knowledge Graph (ORKG)</a> to enhance machine-readability and reproducibility.
+											</li>
+											<li class="mb-2">
+												<strong>Redundant Metadata Preservation:</strong> For added permanence, SOLAV Journal automatically archives structured metadata files (XML, BibTeX, MARC21, RIS) for each article in the Internet Archive alongside the primary PDF.
+											</li>
+											<li class="mb-2">
+												<strong>OSF Transition Note:</strong> While historical SOLAV metadata remains accessible on OSF, we no longer recommend OSF for new active workspace creation due to recent infrastructure shifts by the Center for Open Science.
+											</li>
+										</ul>
 									</div>
 									
 									<div class="mt-4">
@@ -513,7 +527,7 @@
 									
 									<div class="alert alert-success mt-4" role="alert">
 										<h5 class="alert-heading"><i class="bi bi-check-circle me-2"></i>Contingency Planning</h5>
-										<p class="mb-0">Should SOLAV Journal cease operations, all content will be transferred to a trusted digital preservation service or institutional repository to ensure permanent public access. Authors will be notified of any such transitions with at least 6 months' notice. In such cases, content will remain accessible through Zenodo and other trusted repositories.</p>
+										<p class="mb-0">Should SOLAV Journal ever cease operations, our multi-layer strategy ensures zero loss of scholarly record. All content already possesses permanent DOIs via Zenodo (CERN) and is redundantly mirrored in the <a href="https://archive.org/details/@solav_journal" target="_blank" rel="noopener">Internet Archive</a>. Authors and readers will retain perpetual, unrestricted access to all published materials regardless of the journal's operational status.</p>
 									</div>
 								</div>
 							</div>
@@ -779,6 +793,7 @@
 											</div>
 											<div class="footer-pill__icons p-1 pb-1 ps-2 pe-3">
 												<a href="https://zenodo.org/communities/solav" target="_blank" rel="noopener" title="Permanent archive via Zenodo (CERN), CoreTrustSeal-certified"><img src="/images/zenodo-icon-blue.svg" alt="Zenodo"></a>
+												<a href="https://archive.org/details/@solav_journal" target="_blank" rel="noopener" title="Permanent, censorship-resistant digital preservation via the Internet Archive"><img src="/images/internet_archive_icon.svg" alt="Internet Archive"></a>
 												<a href="https://osf.io/2yskf/" target="_blank" rel="noopener" title="Metadata &amp; supplemental preservation via OSF"><img src="/images/osf-logo.svg" alt="OSF"></a>
 											</div>
 										</div>
