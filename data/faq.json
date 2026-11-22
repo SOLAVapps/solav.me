@@ -594,6 +594,12 @@
 			"question": "What license should be applied to shared data?",
 			"answer": "CC0 (Public Domain Dedication) or CC BY 4.0 are recommended to maximize reuse. Restrictions must be justified in the Data Availability Statement.",
 			"links ": ["https://solav.me/access"]
+		},
+		{
+		"id": "ARCH-008",
+		"question": "How does SOLAV ensure long-term preservation of articles and metadata?",
+		"answer": "SOLAV employs a triple-redundancy 'LOCKSS' (Lots of Copies Keep Stuff Safe) strategy. Every article receives a permanent DOI via Zenodo (CERN). Additionally, all PDFs and structured metadata files (XML, BibTeX, MARC21, RIS) are permanently deposited in the Internet Archive (archive.org). Finally, our OAI-PMH endpoint ensures continuous harvesting by global networks like CORE, BASE, and OpenAlex.",
+		"links": ["https://solav.me/archiving", "https://archive.org/details/@solav_journal"]
 		}
 		]
 	},
