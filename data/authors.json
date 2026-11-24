@@ -139,7 +139,7 @@
 			"roles": ["Author"],
 			"articles": ["s2025781112"],
 			"article_count": 1,
-			"citation_count": 0,
+			"citation_count": 1,
 			"first_author_count": 0,
 			"corresponding_count": 0
 		},
@@ -184,7 +184,7 @@
 			"roles": ["Editor-in-Chief", "Author"],
 			"articles": ["s2026781202", "s2026781201", "s2025781112", "s2025781102", "s2025781101"],
 			"article_count": 5,
-			"citation_count": 0,
+			"citation_count": 1,
 			"first_author_count": 5,
 			"corresponding_count": 5
 		}
